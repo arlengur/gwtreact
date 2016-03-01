@@ -1,0 +1,9 @@
+---
+# TODO Rewrite without include
+- include_vars: ../../consul/defaults/main.yml
+
+- name: install service config
+  template: >
+    src=service.json.j2
+    dest={{ consul_config_dir }}/{{ consul_service_name}}.json
+  notify: reload consul

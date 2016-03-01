@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+		<property name="locations">
+			<list>
+				<value>classpath:config/application.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<util:map id="federationDeclaration">
+		<entry key="uri" value="${federation.uri}"/>
+		<entry key="basic.auth.username" value="${federation.basic.auth.username}"/>
+		<entry key="basic.auth.password" value="${federation.basic.auth.password}"/>
+		<entry key="method" value="${federation.method}"/>
+		<entry key="content-type" value="${federation.content-type}"/>
+		<entry key="entity" value="${federation.entity}"/>
+	</util:map>
+
+	<bean id="requests" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<ref bean="federationDeclaration" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="requester" class="com.tecomgroup.qos.broker.federation.Requester">
+		<constructor-arg ref="requests" />
+	</bean>
+
+</beans>

@@ -1,0 +1,40 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ 
+ @def panelBackground #3F3F40;
+ 
+ @external noheader;
+
+.topLeft,.top,.topRight {
+  height: auto;
+}
+
+.topLeft {
+  border-bottom:1px solid; 
+  border-color: panelBackground;
+}
+
+.noheader .topLeft, .noheader .top {
+  height: 0px;
+  border: none; 
+}
+
+.left {
+  background-color: panelBackground;
+  padding-left: 6px;
+}
+
+.right {
+  background-color: panelBackground;
+}
+
+.content {
+  padding-top: 0px;
+  color: #FFF;
+}
+
+.bottom,.bottomLeft,.bottomRight {
+  height: 0px;
+}

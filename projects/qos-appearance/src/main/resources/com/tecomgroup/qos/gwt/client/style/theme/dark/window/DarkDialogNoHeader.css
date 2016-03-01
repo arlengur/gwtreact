@@ -1,0 +1,12 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+  
+ .header {
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  font-family: tahoma, arial, verdana, sans-serif; 
+  padding: 5px 0 4px;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+	xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+	xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+	xmlns:time="urn:import:com.tecomgroup.qos.gwt.client.view.desktop.widget"
+	xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+	xmlns:grid="urn:import:com.sencha.gxt.widget.core.client.grid" xmlns:a="urn:import:oracle.net.aso">
+
+	<ui:with field='res' type='com.tecomgroup.qos.gwt.client.i18n.QoSMessages' />
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="commentsPanelMargins">
+		<ui:attributes right="5" left="5" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="commentsHeaderLabelMargins">
+		<ui:attributes top="10" right="0" bottom="0" left="10" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="detailsPanelMargins">
+		<ui:attributes right="3" left="7" />
+	</ui:with>
+
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="alertNameLabelMargins">
+		<ui:attributes top="20" right="0" bottom="0" left="10" />
+	</ui:with>
+
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="outerCenterMargins">
+		<ui:attributes top="20" right="5" bottom="10" left="5" />
+	</ui:with>
+	
+
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="detailsVerticalMargins">
+		<ui:attributes top="0" right="0" bottom="0" left="0" />
+	</ui:with>
+	
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="outerNorthData">
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="outerCenterData">
+		<ui:attributes size="1" margins="{outerCenterMargins}" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="northInnerCenterData">
+		<ui:attributes size="0.6"/>
+	</ui:with>
+	
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="detailsPanelData">
+		<ui:attributes size="400" margins="{detailsPanelMargins}"/>
+	</ui:with>
+	
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="commentsHeaderData">
+		<ui:attributes width="1" height="35" />
+	</ui:with>
+	
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="commentsPanelData">
+		<ui:attributes size="1" margins="{commentsPanelMargins}"/>
+	</ui:with>
+	
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="commentsContainerData">
+		<ui:attributes width="1" height="1" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="alertNameLabelData">
+		<ui:attributes size="30" margins="{alertNameLabelMargins}" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="toolbarData">
+		<ui:attributes width="1" height="35" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="detailsGridData">
+		<ui:attributes width="1" height="1" />
+	</ui:with>
+
+	<container:BorderLayoutContainer
+		borders="false" ui:field="outerBorderLayoutContainer">
+		<container:north layoutData="{outerNorthData}">
+			<container:BorderLayoutContainer
+				borders="false" ui:field="northInnerBorderLayoutContainer">
+				<container:north layoutData="{alertNameLabelData}">
+					<g:Label ui:field="alertNameLabel" />
+				</container:north>
+				<container:center layoutData="{northInnerCenterData}">
+					<container:BorderLayoutContainer borders="false"  ui:field="northInnerCenterBorderLayoutContainer">
+						<container:west layoutData="{detailsPanelData}">
+							<container:VerticalLayoutContainer
+								ui:field="detailsContainer">
+								<container:child layoutData="{toolbarData}">
+									<container:CssFloatLayoutContainer
+										ui:field="toolbar" />
+								</container:child>
+								<container:child layoutData="{detailsGridData}">
+									<gxt:ContentPanel ui:field="detailsPanel">
+									</gxt:ContentPanel>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</container:west>
+						<container:center layoutData="{commentsPanelData}">
+							<gxt:ContentPanel ui:field="commentsPanel">
+								<container:VerticalLayoutContainer>
+									<container:child layoutData="{commentsHeaderData}">
+										<container:CssFloatLayoutContainer ui:field="commentsHeader">
+											<g:Label text="{res.comments}:"/>
+										</container:CssFloatLayoutContainer>
+									</container:child>
+									<container:child layoutData="{commentsContainerData}">
+										<container:SimpleContainer ui:field="commentsContainer" />
+									</container:child>
+								</container:VerticalLayoutContainer>
+							</gxt:ContentPanel>
+						</container:center>
+					</container:BorderLayoutContainer>
+				</container:center>
+			</container:BorderLayoutContainer>
+		</container:north>
+		<container:center layoutData="{outerCenterData}">
+			<gxt:TabPanel ui:field="tabPanel" />
+		</container:center>
+	</container:BorderLayoutContainer>
+
+</ui:UiBinder>

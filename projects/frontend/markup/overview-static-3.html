@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Multi Channel View</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-big-grid.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="react-root">
+    <div class="flex flex-col" style="height: 100%">
+        <nav class="qligent-top-navbar flex-none">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username small-text">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Multi Channel View
+                </span>
+            </div>
+        </nav>
+        <div class="container-fluid flex-none view-selector-toolbar override-padding-0">
+            <div class="pull-left black-right">
+                <img src="../img/crud/Create_set.png" class="create-set-icon clickable">
+            </div>
+            <img src="../img/changemode1_active.png" class="view-icon pull-left clickable">
+            <img src="../img/changemode2.png" class="view-icon pull-left clickable">
+            <img src="../img/changemode3.png" class="view-icon pull-left clickable">
+
+            <div class="pull-left black-left">
+                <img src="../img/crit_clicked.png" class="view-icon pull-left clickable">
+                <img src="../img/warning_clicked.png" class="view-icon pull-left clickable">
+                <img src="../img/good_clicked.png" class="view-icon pull-left clickable">
+            </div>
+            <div class="pull-right" style="width: 120px; margin-right: 4px; margin-top: 5px; overflow: hidden;
+                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #191919">
+                <select id="sort-by" class="small-text" style="width: 140px; border: 0; background: transparent;">
+                    <option style="background: #191919">Channel Name</option>
+                    <option style="background: #191919">Alert Severity</option>
+                    <option style="background: #191919">Date Created</option>
+                </select>
+            </div>
+            <label for="sort-by" class="pull-right small-text" style="margin-top: 7px; margin-right: 10px">
+                Sort by
+            </label>
+        </div>
+        <div class="channels-grid flex-11a container-fluid">
+            <div class="row">
+                <div class="col-uhd-1 col-rt-2 col-xlg-4 col-md-6 col-xs-12 override-padding-3-2">
+                    <div class="container-fluid">
+                        <div class="row detailed-player-header">
+                            <img src="../img/channels/default.png" class="pull-left medium-cell-channel-icon"/>
+
+                            <div>
+                                <div class="view-icon pull-right clickable">
+                                    <img src="../img/pin_set.png"/>
+                                </div>
+                                <div class="view-icon pull-right">
+                                    <img src="../img/clock.png"/>
+                                    <span class="clock-text">24 hours</span>
+                                </div>
+                                <span class="player-header-title overflow-ellipsis">Channel 1 MSK</span>
+                            </div>
+                        </div>
+                        <div class="row clickable">
+                            <div class="col-rt-12 col-sm-6 col-xs-12 override-padding-0"
+                                 style="background:#ff0000">
+                                <div class="player-frame">
+                                    <div class="player-wrapper">
+                                        <object id="myFlashMovie1" data="swf/flowplayer-3.2.18.swf"
+                                                type="application/x-shockwave-flash">
+                                            <param name="movie" value="swf/flowplayer-3.2.18.swf"/>
+                                            <param name="flashvars"
+                                                   value='config={"clip":{"url":"rtmp://192.168.115.69:80/qligentPlayer/stream_1010", "live": "true", "provider": "rtmp"},"plugins":{"controls":null,"rtmp":{"url":"swf/flowplayer.rtmp-3.2.13.swf"}}}'/>
+                                            <param name="allowfullscreen" value="true"/>
+                                            <param name="bgcolor" value="#000000"/>
+                                            <param name="wmode" value="opaque"/>
+                                        </object>
+                                    </div>
+                                    <div class="player-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="col-rt-12 col-sm-6 col-xs-12 override-padding-0">
+                                <div class="container-fluid timeline-bar">
+                                    <div class="row">
+                                        <div class="container-fluid override-padding-0">
+                                            <img src="../img/lines/Lines_RF_IP_red.png" class="pull-left"/>
+
+                                            <div class="timeline-wrapper">
+                                                <svg width="100%" height="30px" viewBox="0 0 100 5"
+                                                     preserveAspectRatio="none">
+                                                    <polygon fill="#ff0000" stroke-width="0"
+                                                             points="0,5 100,5 100,1 0,1"></polygon>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container-fluid override-padding-0">
+                                            <img src="../img/lines/Lines_TS_yellow.png" class="pull-left"/>
+
+                                            <div class="timeline-wrapper">
+                                                <svg width="100%" height="30px" viewBox="0 0 100 5"
+                                                     preserveAspectRatio="none">
+                                                    <polygon fill="#ffaa00" stroke-width="0"
+                                                             points="0,5 100,5 100,3 0,3"></polygon>
+                                                    <polygon fill="#ff0000" stroke-width="0"
+                                                             points="30,5 40,5 40,1 30,1"></polygon>
+                                                    <polygon fill="#ff0000" stroke-width="0"
+                                                             points="45,5 50,5 50,1 45,1"></polygon>
+                                                    <polygon fill="#ff0000" stroke-width="0"
+                                                             points="65,5 85,5 85,1 65,1"></polygon>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container-fluid override-padding-0">
+                                            <img src="../img/lines/Lines_Video_green.png" class="pull-left"/>
+
+                                            <div class="timeline-wrapper">
+                                                <svg width="100%" height="30px" viewBox="0 0 100 5"
+                                                     preserveAspectRatio="none">
+                                                    <polygon fill="#00c200" stroke-width="0"
+                                                             points="0,5 100,5 100,4 0,4"></polygon>
+                                                    <polygon fill="#ffaa00" stroke-width="0"
+                                                             points="30,5 35,5 35,3 30,3"></polygon>
+                                                    <polygon fill="#ffaa00" stroke-width="0"
+                                                             points="38,5 41,5 41,3 38,3"></polygon>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container-fluid override-padding-0">
+                                            <img src="../img/lines/Lines_Audio_green.png" class="pull-left"/>
+
+                                            <div class="timeline-wrapper">
+                                                <svg width="100%" height="30px" viewBox="0 0 100 5"
+                                                     preserveAspectRatio="none">
+                                                    <polygon fill="#00c200" stroke-width="0"
+                                                             points="0,5 100,5 100,4 0,4"></polygon>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="container-fluid override-padding-0">
+                                            <img src="../img/lines/Lines_EPG_CC_DATA_green.png" class="pull-left"/>
+
+                                            <div class="timeline-wrapper">
+                                                <svg width="100%" height="30px" viewBox="0 0 100 5"
+                                                     preserveAspectRatio="none">
+                                                    <polygon fill="#00c200" stroke-width="0"
+                                                             points="0,5 100,5 100,4 0,4"></polygon>
+                                                    <polygon fill="#ffaa00" stroke-width="0"
+                                                             points="58,5 60,5 60,3 58,3"></polygon>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="channels-footer flex-none container-fluid override-padding-0">
+            <div class="page-first pull-left override-margin-7-5"></div>
+            <div class="page-prev pull-left override-margin-7-5"></div>
+            <label for="page" class="small-text channels-footer-text pull-left">page</label>
+            <input id="page" type="text" class="page-input small-text pull-left">
+            <span class="small-text channels-footer-text pull-left">of 50000</span>
+            <div class="page-next pull-left override-margin-7-5"></div>
+            <div class="page-last pull-left override-margin-7-5"></div>
+            <span class="small-text channels-footer-text pull-right">1-100/50000</span>
+        </div>
+    </div>
+</div>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+</body>
+</html>

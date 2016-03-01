@@ -1,0 +1,3 @@
+---
+interface: eth0
+dhcp_interface: eth0

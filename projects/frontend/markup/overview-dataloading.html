@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Multi Channel View</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-big-grid.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="react-root">
+    <div class="flex flex-col" style="height: 100%">
+        <nav class="qligent-top-navbar flex-none">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username small-text">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Multi Channel View
+                </span>
+            </div>
+        </nav>
+        <div class="container-fluid view-selector-toolbar flex-none override-padding-0">
+            <div class="pull-left black-right">
+                <img src="../img/crud/Create_set.png" class="create-set-icon clickable">
+            </div>
+            <img src="../img/changemode1_active.png" class="view-icon pull-left clickable ">
+            <img src="../img/changemode2.png" class="view-icon pull-left clickable">
+            <img src="../img/changemode3.png" class="view-icon pull-left clickable">
+
+            <div class="pull-left black-left container-fluid override-padding-0-10">
+                <div class="channel-filter-crit clicked pull-left clickable severity-filter-icon"></div>
+                <div class="channel-filter-warn clicked pull-left clickable severity-filter-icon"></div>
+                <div class="channel-filter-none pull-left clickable severity-filter-icon"></div>
+            </div>
+            <div class="pull-right" style="width: 120px; margin-right: 4px; margin-top: 5px; overflow: hidden;
+                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #191919">
+                <select id="sort-by" class="small-text" style="width: 140px; border: 0; background: transparent;">
+                    <option style="background: #191919">Name</option>
+                    <option style="background: #191919">Severity</option>
+                </select>
+            </div>
+            <label for="sort-by" class="pull-right small-text" style="margin-top: 7px; margin-right: 10px">
+                Sort by
+            </label>
+        </div>
+        <div class="container-fluid channels-grid flex-11a">
+            <div class="row">
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ff0000">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1(HD)</span>
+                    </div>
+                </div>
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ff0000">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1 MSK</span>
+                    </div>
+                </div>
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ff0000">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1 Spb</span>
+                    </div>
+                </div>
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ff0000">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1 Vladimir</span>
+                    </div>
+                </div>
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ff0000">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1 Nizhny Novgorod</span>
+                    </div>
+                </div>
+                <div class="col-rt-1 col-lg-2 col-md-3 col-sm-4 col-xs-6 override-padding-3-2">
+                    <div class="container-fluid channel-small-wrapper clickable" style="background: #ffaa00">
+                        <img src="../img/channels/default.png" class="pull-left" height="26 px" width="26 px">
+                        <span class="channel-small-cell overflow-ellipsis">Channel 1 Kirov</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="channels-footer flex-none container-fluid override-padding-0">
+            <div class="page-first pull-left override-margin-7-5"></div>
+            <div class="page-prev pull-left override-margin-7-5"></div>
+            <label for="page" class="small-text channels-footer-text pull-left">page</label>
+            <input id="page" type="text" class="page-input small-text pull-left">
+            <span class="small-text channels-footer-text pull-left">of 50000</span>
+            <div class="page-next pull-left override-margin-7-5"></div>
+            <div class="page-last pull-left override-margin-7-5"></div>
+            <span class="small-text channels-footer-text pull-right">1-100/50000</span>
+        </div>
+        <div class="modal show">
+            <div class="grey-page"></div>
+            <div class="modal-dialog modal-dialog-loader">
+                <div class="modal-content">
+                    <div class="modal-body modal-body-loader">
+                        <img src="../img/preloader.gif"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+	xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container">
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="northData">
+		<ui:attributes size="42" />
+	</ui:with>
+	
+	<gxt:Dialog borders="false" ui:field="dialog" modal="true"
+		width="800" height="600">
+		<container:BorderLayoutContainer ui:field="container">
+			<container:north layoutData="{northData}">
+				<gxt:ContentPanel ui:field="agentSelectorPanel" />
+			</container:north>		
+			<container:center>
+				<gxt:ContentPanel ui:field="agentGisPanel" />
+			</container:center>
+		</container:BorderLayoutContainer>
+	</gxt:Dialog>
+</ui:UiBinder>

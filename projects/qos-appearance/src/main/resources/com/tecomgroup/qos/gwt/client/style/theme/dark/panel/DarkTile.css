@@ -1,0 +1,12 @@
+@def headerBackground #242c36;
+@def contentBackground #2a2a2a;
+
+
+.header {
+	background-color: headerBackground;
+	color: white;
+}
+
+.content {
+	background-color: contentBackground; 
+}

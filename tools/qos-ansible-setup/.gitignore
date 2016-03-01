@@ -1,0 +1,6 @@
+*~
+/.vagrant/
+\#*\#
+
+*.tar.gz
+*.zip

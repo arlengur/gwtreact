@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: iptables
+    open_ports:
+      - protocol: tcp
+        port: "{{ pg_port }}"

@@ -1,0 +1,150 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@eval alertClearedColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getAlertCleared(); 
+
+@def severityOpacity 0.1;
+@def severityOverOpacity 0.8;
+
+@external qosGridAlertsStyle;
+@external qosGridAlertsShining;
+
+/*Not selected rows*/
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityCritical {
+	background-color: rgba(severityCriticalColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityWarning {
+	background-color: rgba(severityWarningColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityNotice {
+	background-color: rgba(severityNoticeColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityMajor {
+	background-color: rgba(severityMajorColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityMinor {
+	background-color: rgba(severityMinorColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityIndeterminate {
+	background-color: rgba(severityIndeterminateColor, severityOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.severityNone {
+	background-color: rgba(severityNoneColor, severityOpacity);
+}
+
+
+/* Selected rows, highlighted column and always shining (like on Dashboard) grids */
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityCritical, 
+.qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityCritical, 
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityCritical {
+	background-color: rgba(severityCriticalColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityWarning, 
+.qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityWarning, 
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityWarning {
+	background-color: rgba(severityWarningColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityNotice,
+.qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityNotice,
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityNotice {
+	background-color: rgba(severityNoticeColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityMajor, .qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityMajor, .qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityMajor {
+	background-color: rgba(severityMajorColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityMinor, .qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityMinor, .qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityMinor {
+	background-color: rgba(severityMinorColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityIndeterminate, .qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityIndeterminate, .qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityIndeterminate {
+	background-color: rgba(severityIndeterminateColor, 1);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected.severityNone, .qosGridStandardStyle.qosGridAlertsStyle .cell.alertrHighlightedColumn.severityNone, .qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .row.severityNone {
+	background-color: rgba(severityNoneColor, 1);
+}
+
+
+/* Overed rows */
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityCritical .cell {
+	background-color: rgba(severityCriticalColor, severityOverOpacity);
+}
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityWarning .cell {
+	background-color: rgba(severityWarningColor, severityOverOpacity);
+}
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityNotice .cell {
+	background-color: rgba(severityNoticeColor, severityOverOpacity);
+}
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityMajor .cell {
+	background-color: rgba(severityMajorColor, severityOverOpacity);
+}
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityMinor .cell {
+	background-color: rgba(severityMinorColor, severityOverOpacity);
+}
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityIndeterminate .cell {
+	background-color: rgba(severityIndeterminateColor, severityOverOpacity);
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityNone .cell {
+	background-color: rgba(severityNoneColor, severityOverOpacity);
+}
+
+/* Overed always shining rows */
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityCritical .cell {
+	background-color: rgba(severityCriticalColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityWarning .cell {
+	background-color: rgba(severityWarningColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityNotice .cell {
+	background-color: rgba(severityNoticeColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityMajor .cell {
+	background-color: rgba(severityMajorColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityMinor .cell {
+	background-color: rgba(severityMinorColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityIndeterminate .cell {
+	background-color: rgba(severityIndeterminateColor, 1) !important;
+}
+.qosGridAlertsShining.qosGridStandardStyle.qosGridAlertsStyle .rowOver.severityNone .cell {
+	background-color: rgba(severityNoneColor, severityOverOpacity) !important;
+}
+
+
+
+.qosGridStandardStyle.qosGridAlertsStyle .row {
+	color: white;
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .row.alertCleared {
+	color: alertClearedColor;
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .cell {
+	background-color: inherit;
+	color: inherit !important;
+}
+
+
+
+.qosGridStandardStyle.qosGridAlertsStyle .cellSelected {
+	background-color: inherit !important;
+}
+
+.qosGridStandardStyle.qosGridAlertsStyle .rowSelected .cell,.qosGridStandardStyle.qosGridAlertsStyle .rowSelected .rowWrap
+	{
+	background-color: inherit !important;
+}

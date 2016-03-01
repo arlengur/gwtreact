@@ -1,0 +1,29 @@
+@sprite .cell {
+	gwt-image : 'cellBottomLine';
+	background-position: center bottom;
+	height: auto;
+	width: auto;
+	min-width: 200px;
+	padding: 3px 0px;
+	margin: 4px 3px 3px 5px;
+}
+
+.removeIcon {
+	cursor: pointer;
+	float: right;
+	margin-right: 30px; /* looks good in case of scroll appearing */
+}
+
+.text {
+	width : 80%;
+	float: left;
+	white-space: pre; /* CSS 2.0 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3.0 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space: -hp-pre-wrap; /* HP Printers */
+	word-wrap: break-word; /* IE 5+ */
+	font: 11px tahoma,arial,verdana,sans-serif; 
+}

@@ -1,0 +1,8 @@
+webapp/qostestdb*
+webapp/Application
+webapp/com.tecomgroup.qos.web.ApplicationJUnit
+webapp/WEB-INF/deploy
+webapp/WEB-INF/lib
+webapp/WEB-INF/classes
+webapp/META-INF/maven
+gwt-unitCache

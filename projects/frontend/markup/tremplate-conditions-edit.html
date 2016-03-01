@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Template Conditions</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div className="grey-page"></div>
+        <div class="modal-dialog bigmodal template-create-dialog flex flex-col">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px"/>
+                <h4 class="modal-title">Edit Template Conditions</h4>
+            </div>
+            <div class="flex flex-11a config-panel" style="overflow: hidden">
+                <div class="col-sm-4 override-padding-0 flex flex-col black-right">
+                    <div class="flex-none" style="margin: 5px 0 5px 5px">
+                        <span class="small-text">Templates:</span>
+                    </div>
+                    <div class="config-tree-button-panel flex-none">
+                        <div class="pull-left create-btn not-allowed" title="Create template"></div>
+                        <div class="pull-left margin-0-5 bucket-btn not-allowed" title="Delete template"></div>
+                    </div>
+                    <div class="probe-tree-background config-tree flex-11a">
+                        <ul class="probe-tree-background override-margin-0 override-padding-0">
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E (let's check this field for overflow)</span>
+
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                    <input type="checkbox" class="pull-left chbx">
+                                    <div class="pull-left template-icon"></div>
+                                    <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-8 override-padding-0 flex flex-col" style="overflow-y: auto">
+                    <div class="flex black-bottom" style="height: 35px; padding: 5px">
+                        <label class="flex-none small-text text23 pull-left"
+                               for="template-name">
+                            Template Name:
+                        </label>
+                        <input id="template-name" class="flex-11a search-field pull-left" style="margin: 0 20px 0 10px; min-width: 100px;" type="text">
+                        <label for="condition-template-type" class="flex-none small-text pull-right text23" style="margin-right: 5px">Template Type:</label>
+                            <div class="flex-none pull-right" style="width: 100px; overflow: hidden; background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                <select id="condition-template-type" class="small-text" style="width: 120px; border: 0; background: transparent;">
+                                    <option style="background: #222222">Condition 1</option>
+                                    <option style="background: #222222">Condition 2</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="flex flex-col override-padding-5 black-bottom" style="flex: 1 0 250px">
+                        <div class="row flex-none" style="margin: 0 5px">
+                            <span class="small-text">Conditions</span>
+                        </div>
+                        <div class="row flex-none override-padding-5" style="margin: 5px 0 0; background: #5f5f5f; height: 33px;">
+                            <!-- TODO: disabled checkboxes -->
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #ff0000; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #ff6600; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #d4a300; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #998237; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #b5b5b5; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-left override-padding-5" style="margin-right: 5px; background: #4d4d4d; width: 23px; height: 23px; position: relative" >
+                                <input type="checkbox" class="override-margin-0" style="position: absolute; top: 5px">
+                            </div>
+                            <div class="pull-right"
+                                 style="width: 100px; overflow: hidden;
+                                        background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                <select id="condition-template" class="small-text" style="width: 120px; border: 0; background: transparent;">
+                                    <option style="background: #222222">Template 1</option>
+                                    <option style="background: #222222">Template 2</option>
+                                </select>
+                            </div>
+                            <label for="condition-template" class="small-text pull-right text23" style="margin-right: 5px">Template:</label>
+                        </div>
+                        <div class="flex-11a" style="background: #222222; padding: 5px; overflow-y: auto">
+                            <div class="row"
+                                 style="margin: 0 0 5px; background: #424242; height: 100px;
+                                        border-radius: 5px !important; border: 1px solid #626262">
+                                <div class="pull-left" style="height: 100%; width: 20px; background: #515151; border-radius: 5px 0 0 5px !important; position: relative">
+                                    <input type="checkbox" style="position: absolute; top: 37px; left: 3px;">
+                                </div>
+                                <div class="pull-left"
+                                     style="height: 100%; width: calc(100% - 20px); padding: 5px 5px 5px 10px;
+                                            border-top: 5px solid #d4a300; border-radius: 0 5px 5px 0 !important;">
+                                    <div class="row override-margin-0">
+                                        <span class="small-text pull-left">Warning</span>
+                                    </div>
+                                    <div class="row override-margin-0" style="padding-top: 5px">
+                                        <div class="pull-left raise-icon" style="margin-top: 5px"></div>
+                                        <span class="pull-left small-text text23 margin-left-5 overflow-ellipsis" style="width: 30%">Raise if parameter</span>
+                                        <div class="pull-left margin-left-5"
+                                             style="width: 40px; overflow: hidden;
+                                                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                            <select class="small-text text23" style="width: 60px; border: 0; background: transparent;">
+                                                <option style="background: #222222">></option>
+                                                <option style="background: #222222">>=</option>
+                                                <option style="background: #222222"><</option>
+                                                <option style="background: #222222"><=</option>
+                                            </select>
+                                        </div>
+                                        <input class="pull-left search-field margin-left-5" type="text" style="width: 30px"/>
+                                        <div class="pull-right margin-left-5"
+                                             style="width: 50px; margin-left: 5px; overflow: hidden;
+                                                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                            <select class="small-text text23" style="width: 70px; border: 0; background: transparent;">
+                                                <option style="background: #222222">sec</option>
+                                                <option style="background: #222222">min</option>
+                                            </select>
+                                        </div>
+                                        <input class="pull-right search-field margin-left-5" type="text" style="width: 30px"/>
+                                        <span class="pull-right small-text text23 margin-left-5">within</span>
+                                    </div>
+                                    <div class="row override-margin-0" style="padding-top: 10px">
+                                        <div class="pull-left cease-icon" style="margin-top: 5px"></div>
+                                        <span class="pull-left small-text text23 margin-left-5 overflow-ellipsis" style="width: 30%">Cease if parameter</span>
+                                        <div class="pull-left margin-left-5"
+                                             style="width: 40px; overflow: hidden;
+                                                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                            <select class="small-text text23" style="width: 60px; border: 0; background: transparent;">
+                                                <option style="background: #222222">></option>
+                                                <option style="background: #222222">>=</option>
+                                                <option style="background: #222222"><</option>
+                                                <option style="background: #222222"><=</option>
+                                            </select>
+                                        </div>
+                                        <input class="pull-left search-field margin-left-5" type="text" style="width: 30px"/>
+                                        <div class="pull-right margin-left-5"
+                                             style="width: 50px; margin-left: 5px; overflow: hidden;
+                                                    background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                            <select class="small-text text23" style="width: 70px; border: 0; background: transparent;">
+                                                <option style="background: #222222">sec</option>
+                                                <option style="background: #222222">min</option>
+                                            </select>
+                                        </div>
+                                        <input class="pull-right search-field margin-left-5" type="text" style="width: 30px"/>
+                                        <span class="pull-right small-text text23 margin-left-5">within</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer flex-none">
+                <button type="button" class="btn btn-primary config-btn pull-left" style="margin-right: 5px">Save Changes</button>
+                <button type="button" class="btn btn-primary config-btn pull-left">Save as a copy</button>
+                <button type="button" class="btn btn-primary config-btn pull-right" style="margin-left: 5px">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary config-btn pull-right">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

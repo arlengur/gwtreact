@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Multi Channel View</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-big-grid.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <link href="../lib/railscasts.css" rel="stylesheet">
+</head>
+<body>
+<div id="react-root">
+    <div class="modal show">
+        <div class="grey-page"></div>
+        <div class="modal-dialog bigmodal comm-window">
+            <div class="modal-content">
+                <div class="modal-header qligent-top-navbar override-padding-5 override-border-0">
+                    <h4 class="modal-title">Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <label style="color: #ffffff; font-weight: normal">History:</label>
+                    <textarea disabled readonly class="hljs comm-area" rows="6">
+02.06.2015, 12:57:25 Admin (Комментарий добавлен):
+Первый коммент.
+02.06.2015, 12:58:25 Admin (Комментарий добавлен):
+Второй коммент.
+02.06.2015, 12:59:25 Admin (Комментарий добавлен):
+Третий коммент.
+02.06.2015, 13:00:25 Admin (Комментарий добавлен):
+Четвертый коммент.
+                    </textarea>
+                    <label style="color: #ffffff; font-weight: normal; padding-top: 10px">Comment:</label>
+                    <textarea class="hljs comm-area" rows="6"></textarea>
+                </div>
+                <div class="modal-footer" style="padding-top: 0 !important;">
+                    <div style="text-align: right;">
+                        <button type="button" class="btn btn-primary">Ok</button>
+                        <button type="button" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+</body>
+</html>

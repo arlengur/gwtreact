@@ -1,0 +1,129 @@
+/*
+ * Copyright (C) 2012 Tecomgroup.
+ * All Rights Reserved.
+ */
+@font-face {
+	font-family: DS Eraser Cyr;
+	src: url('../fonts/ds-eraser-cyr.ttf') format('truetype');
+}
+
+body{
+    font-family : 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif !important;
+}
+
+/**
+ * Touch4j override
+ */
+.x-tabbar-dark {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(46, 46, 46)), color-stop(50%,rgb(22, 22, 22)), color-stop(51%, rgb(0,0,0)), to(rgb(0,0,0)));
+	height: 50pt;
+}
+.x-tabbar.x-docked-bottom{
+	height: 50pt;
+}    
+
+.x-button-icon {
+    height:30pt !important;
+    width:30pt !important;
+}
+
+.x-tab-active{
+    background : -webkit-linear-gradient(top, black 50%, black 30%, black 25%, #313131) !important;
+}
+
+/**
+  * Config checkbox
+  */
+.x-field-radio .x-input-el:checked::before {
+    background-color: #67727D;
+}
+.x-field .x-input-radio:checked::after{
+     background-color: #EEE;
+}
+
+/**
+ * Agent List
+ */
+.x-list .x-list-item.x-item-selected .x-list-item-label {
+    background-color: #67727D;
+    border-top-color: #EEE;
+} 
+.x-list .x-list-disclosure{
+     background-color: #EEE;
+}
+
+
+/**
+  * tabbar
+  */
+.qos-tab-button{
+    background: transparent;
+    border: 0px;
+    margin-left: 15pt;
+    -webkit-box-orient: vertical;
+    padding-bottom: 0pt;
+    padding-top: 0pt;
+    width : 60pt;
+}
+.qos-tab-button-label{
+    color: white;
+    font-size: 7pt;
+    font-weight: bold;
+    margin-bottom : 0pt;
+    margin-top: 0pt;
+    vertical-align: top;
+}
+
+.qos-tab-button-pressed {
+    background : -webkit-linear-gradient(top, black 50%, black 30%, black 25%, #313131) !important;
+}
+.qos-tab-plain-button{
+	color: white;
+}
+.qos-tab-buttons {
+	
+}
+
+.qos-toolbar{
+	font-size: 12pt;
+}
+
+/**
+ * Login page
+ */
+.login-form {
+	width: 664pt;
+	height: 641pt;
+	background: transparent url('../images/login_bgr.png') no-repeat top
+		center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5pt;
+}
+
+.login-page-submit-panel {
+	background: transparent url('../images/login_btn.png') no-repeat top
+		center;
+	width: 262px;
+	height: 130px;
+}
+
+.login-page-submit {
+	font-family: DS Eraser Cyr;
+	font-size: 24pt;
+	color: white;
+	border: 0;
+}
+
+.login-page {
+	background: #2C2C30;
+}
+
+.login-page-label {
+	font-family: DS Eraser Cyr;
+	font-size: 20pt;
+}
+
+.login-page-field {
+	font-size: 20pt;
+}

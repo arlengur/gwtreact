@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xsi:schemaLocation="http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+
+	<import resource="classpath:com/tecomgroup/qos/gwt/applicationContext.xml" />
+	
+	<mvc:resources location="/, classpath:/META-INF/web-resources/"
+		mapping="/**" />
+
+	<mvc:default-servlet-handler />
+	
+	<bean id="resultServlet" class="com.tecomgroup.qos.servlet.ResultServletHandler">
+		<property name="resultService" ref="resultService" />
+		<property name="maxResultsCount" value="${max.results.count}" />
+	</bean>
+	
+	<bean id="downloadResultServlet" class="com.tecomgroup.qos.servlet.DownloadResultServletHandler" init-method="init">
+		<property name="resultRetriever" ref="resultService" />
+        <property name="exportResultsThreadCountBase" value="${results.export.thread.count.base}" />
+        <property name="exportResultsThreadCountMax" value="${results.export.thread.count.max}" />
+        <property name="exportResultsUncheckedTimeLimitInSec" value="${results.export.unchecked.time.limit.in.sec}" />
+        <property name="exportResultsExaminationIntervalInSec" value="${results.export.examination.pause.in.sec}" />
+        <property name="exportResultsBatchSize" value="${results.export.batch.size}" />
+	</bean>
+	
+	<bean id="exportAlertReport" class="com.tecomgroup.qos.servlet.ExportReportServletHandler">
+		<property name="alertReportService" ref="alertReportService" />
+        <property name="alertHistoryService" ref="alertHistoryService" />
+	</bean>
+	
+	<bean id="chartExportingServlet" class="com.tecomgroup.qos.servlet.ChartExportingServletHandler" />
+	<bean id="channelViewSessionContextBean" class="com.tecomgroup.qos.service.bean.ChannelViewSessionContext" scope="session" >
+		<aop:scoped-proxy proxy-target-class="true"/>
+	</bean>
+	<bean id="probeConfigFilesServlet" class="com.tecomgroup.qos.servlet.FileServlet"/>
+</beans>

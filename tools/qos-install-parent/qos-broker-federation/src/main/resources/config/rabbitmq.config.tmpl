@@ -1,0 +1,94 @@
+[{rabbitmq_shovel, [
+	{shovels, [
+		{qos_alert_upstream, [
+			{sources, [{broker,"{{local-amqp}}"},
+				{declarations, [
+					{'exchange.declare', [ {exchange, <<"qos.alert">>}, {type, <<"fanout">>}, durable ]},
+					{'queue.declare', [{queue, <<"qos-alert-upstreaming">>}, durable]},
+					{'queue.bind', [{exchange, <<"qos.alert">>}, {queue, <<>>}]}
+				]}
+			]},
+			{destinations, [{broker, "{{remote-amqp}}"},
+				{declarations, [{'exchange.declare', [ {exchange, <<"qos.alert">>}, {type, <<"fanout">>}, durable ]}]}
+			]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]},
+		{qos_result_upstream, [
+			{sources, [{broker,"{{local-amqp}}"},
+				{declarations, [
+					{'exchange.declare', [ {exchange, <<"qos.result">>}, {type, <<"topic">>}, durable ]},
+					{'queue.declare', [{queue, <<"qos-result-upstreaming">>}, durable]},
+					{'queue.bind', [{exchange, <<"qos.result">>}, {queue, <<>>}, {routing_key, <<"#">>}]}
+				]}
+			]},
+			{destinations, [{broker, "{{remote-amqp}}"},
+				{declarations, [{'exchange.declare', [ {exchange, <<"qos.result">>}, {type, <<"topic">>}, durable ]}]}
+			]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]},
+		{qos_service_upstream, [
+			{sources, [{broker,"{{local-amqp}}"},
+				{declarations, [
+					{'exchange.declare', [ {exchange, <<"qos.service">>}, {type, <<"topic">>}, durable ]},
+					{'queue.declare', [{queue, <<>>}, auto_delete]},
+					{'queue.bind', [{exchange, <<"qos.service">>}, {queue, <<>>}, {routing_key, <<"server">>}]}
+				]}
+			]},
+			{destinations, [{broker, "{{remote-amqp}}"},
+				{declarations, [{'exchange.declare', [ {exchange, <<"qos.service">>}, {type, <<"topic">>}, durable ]}]}
+			]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]},
+		{qos_service_downstream, [
+			{sources, [{broker,"{{remote-amqp}}"},
+				{declarations, [
+					{'exchange.declare', [{exchange, <<"qos.service">>}, {type, <<"topic">>}, durable ]},
+					{'queue.declare', [{queue, <<>>}, auto_delete]},
+					{'queue.bind', [{exchange, <<"qos.service">>}, {queue, <<>>}, {routing_key, <<"agent">>}]},
+					{'queue.bind', [{exchange, <<"qos.service">>}, {queue, <<>>}, {routing_key, <<"agent-{{cbk-key}}">>}]},
+					{'queue.bind', [{exchange, <<"qos.service">>}, {queue, <<>>}, {routing_key, <<"policy">>}]}
+				]}
+			]},
+			{destinations, [{broker, "{{local-amqp}}"},
+				{declarations, [{'exchange.declare', [ {exchange, <<"qos.service">>}, {type, <<"topic">>}, durable ]}]}
+			]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]},
+		{qos_agent_replies, [
+			{sources, [{broker,"{{remote-amqp}}"},
+				{declarations, [
+					{'queue.declare', [{queue, <<"qos-cbk.{{cbk-key}}.queue">>}, auto_delete, exclusive]}
+				]}
+			]},
+			{destinations, [{broker, "{{local-amqp}}"}]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]},
+		{qos_pm_replies, [
+			{sources, [{broker,"{{remote-amqp}}"},
+				{declarations, [
+					{'queue.declare', [{queue, <<"pm-replyqueue-{{pm-name}}">>}, auto_delete, exclusive]}
+				]}
+			]},
+			{destinations, [{broker, "{{local-amqp}}"}]},
+			{queue, <<>>},
+			{ack_mode, on_confirm},
+			{publish_properties, [{delivery_mode, 2}]},
+			{reconnect_delay, 5}
+		]}
+	]}
+]}].

@@ -1,0 +1,33 @@
+---
+- name: Install Pgpool tasks
+  yum: name={{ item }} disablerepo=* enablerepo=localrepo state=installed
+  with_items:
+   - pgpool-II-94-extensions
+   - rsync
+
+- name: Install pgpool recovery scripts
+  copy: >
+    src={{ item }}
+    dest={{ pg_data }}/{{ item }}
+    mode=0755
+    owner=postgres
+    group=postgres
+    backup=yes
+  sudo_user: postgres
+  with_items:
+   - pgpool_remote_start
+
+- name: Install basebackup
+  template: >
+    src={{ item }}.j2
+    dest={{ pg_data }}/{{ item }}
+    mode=0755
+    owner=postgres
+    group=postgres
+    backup=yes
+  sudo_user: postgres
+  with_items:
+    - basebackup.sh
+
+- include: sql_ext.yml
+  when: postgres_status == "master"

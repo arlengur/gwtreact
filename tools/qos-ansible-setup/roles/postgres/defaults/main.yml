@@ -1,0 +1,4 @@
+---
+pg_shared_buffers: 2048MB
+pg_data: "/var/lib/pgsql/9.4/data"
+pg_port: 5433

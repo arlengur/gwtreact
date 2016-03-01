@@ -1,0 +1,12 @@
+.anchor, .anchor:link, .anchor:visited, .anchor:hover, .anchor:active {
+	color: white;	
+}
+.anchorContainer {
+	padding: 2px 5px 3px 5px;
+}
+.anchorContainer:hover, .dark-selected.anchorContainer {
+	background-color: #4373A7 !important;
+	-moz-box-shadow: -1px -1px 1px #000;
+	-webkit-box-shadow: -1px -1px 1px #000;
+	box-shadow: -1px -1px 1px #000;
+}

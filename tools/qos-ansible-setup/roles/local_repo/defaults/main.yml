@@ -1,0 +1,3 @@
+---
+local_repo_path: "/root/localrepo"
+sync_user: "{% if ansible_env.USER != 'root' %}{{ ansible_env.USER }}{% elif ansible_env.SUDO_USER is defined %}{{ ansible_env.SUDO_USER }}{% else %}root{% endif %}"

@@ -1,0 +1,163 @@
+[ {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "INDETERMINATE",
+    "specificReason" : "NONE",
+    "settings" : "ind",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487294
+  }
+}, {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "NOTICE",
+    "specificReason" : "NONE",
+    "settings" : "notice",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487431
+  }
+}, {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "MINOR",
+    "specificReason" : "NONE",
+    "settings" : "minor",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487432
+  }
+}, {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "WARNING",
+    "specificReason" : "NONE",
+    "settings" : "warning",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487433
+  }
+}, {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "MAJOR",
+    "specificReason" : "NONE",
+    "settings" : "major",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487434
+  }
+}, {
+  "originName" : null,
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel",
+      "probableCause" : null,
+      "displayName" : null,
+      "displayTemplate" : null,
+      "description" : null
+    },
+    "source" : {
+      "key" : "385",
+      "type" : "TASK"
+    },
+    "originator" : {
+      "key" : "SendAlertTool",
+      "type" : "SERVER"
+    },
+    "perceivedSeverity" : "CRITICAL",
+    "specificReason" : "NONE",
+    "settings" : "critical",
+    "context" : null,
+    "extraData" : null,
+    "indicationType" : "NEW",
+    "dateTime" : 1373961487435
+  }
+} ]

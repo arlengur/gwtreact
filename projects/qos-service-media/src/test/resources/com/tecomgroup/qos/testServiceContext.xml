@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<import resource="classpath:/com/tecomgroup/qos/modelspace/hibernate/dbContext.xml"/>
+	<import resource="classpath:com/tecomgroup/qos/service/serviceContext.xml"/>
+
+	<!-- Test common context should be imported in the end to override commonContext.xml -->
+	<import resource="classpath:com/tecomgroup/qos/testCommonContext.xml"/>
+
+	<bean id="mediaUserService" class="com.tecomgroup.qos.service.DefaultMediaUserService"/>
+
+	<bean id="mediaAgentService" class="com.tecomgroup.qos.service.DefaultMediaAgentService">
+		<property name="policyConfigurationService" ref="policyConfigurationService"/>
+		<property name="taskService" ref="taskService"/>
+		<property name="propertyUpdater" ref="propertyUpdater"/>
+		<property name="widgetDeleter" ref="mediaUserService"/>
+		<property name="authorizeService" ref="authorizeService"/>
+	</bean>
+</beans>

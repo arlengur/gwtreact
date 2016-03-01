@@ -1,0 +1,171 @@
+/**
+ * Sencha GXT 3.0.1 - Sencha for GWT
+ * Copyright(c) 2007-2012, Sencha, Inc.
+ * licensing@sencha.com
+ *
+ * http://www.sencha.com/products/gxt/license/
+ */
+@eval headerBtn com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("qos/resources/images/dark/grid3-hd-btn.png");
+@def backgroundColor #242c36; 
+@def overBackgroundColor #242424;
+
+@external .qosGridHeaderStyle;
+
+.qosGridHeaderStyle .headerInner {
+  color: #FFF;
+}
+
+.qosGridHeaderStyle .header {
+  background: repeat-x 0 bottom;
+  cursor: default;
+  zoom: 1;
+  padding: 0px 0 0 0;
+  background-color: #F9F9F9;
+}
+
+@sprite .qosGridHeaderStyle.header {
+  background-color: backgroundColor;
+  gwt-image: 'columnHeader';
+  height: auto;
+  background-position: bottom;
+}
+
+@sprite .qosGridHeaderStyle .header {
+  background-color: backgroundColor;
+  gwt-image: 'columnHeader';
+  height: auto;
+  background-position: bottom;
+}
+
+@if user.agent ie6  {
+  .qosGridHeaderStyle .header {
+    position: relative;
+  } 
+}
+
+.qosGridHeaderStyle .headRow {
+  
+}
+
+.qosGridHeaderStyle .headRow .head {
+  line-height: 15px;
+  vertical-align: middle;
+  border-left: 1px solid #2c3034;
+  border-right: 1px solid #2c3034;
+}
+
+.qosGridHeaderStyle .headRow .head {
+  -moz-outline: none;
+  -moz-user-focus: normal;
+  outline: 0 none;
+  font: 11px tahoma, arial, verdana, sans-serif;
+}
+
+.qosGridHeaderStyle .headInner {
+  overflow: hidden;
+  zoom: 1;
+  float: left;  
+}
+
+.qosGridHeaderStyle .headInner {
+  cursor: inherit;
+  position: relative;
+  vertical-align: middle;  
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding: 4px 3px 4px 5px;
+  white-space: normal;
+  display: table
+}
+
+.qosGridHeaderStyle .headInner span {
+	display: table-cell; 
+	vertical-align: middle; 
+}
+
+.qosGridHeaderStyle .head {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: ignore;
+}
+
+.qosGridHeaderStyle .headButton {
+  display: none;
+  position: absolute;
+  width: 14px;
+  background: no-repeat left center;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+  outline: none;
+}
+
+.qosGridHeaderStyle .headOver .headButton, .qosGridHeaderStyle .headMenuOpen .headButton {
+  display: block;
+}
+
+.qosGridHeaderStyle a.headButton:hover {
+  background-position: -14px center;
+}
+
+.qosGridHeaderStyle .headButton {
+  /*background-color: #c3daf9;*/
+  background-image: headerBtn;
+}
+
+.qosGridHeaderStyle td.headOver, .qosGridHeaderStyle td.sortDesc, .qosGridHeaderStyle td.sortAsc, .qosGridHeaderStyle td.headMenuOpen {
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+.qosGridHeaderStyle td.headOver, .qosGridHeaderStyle td.sortDesc, .qosGridHeaderStyle td.sortAsc, .qosGridHeaderStyle td.headMenuOpen {
+  border-left-color: #aaccf6;
+  border-right-color: #aaccf6;
+}
+
+@sprite .qosGridHeaderStyle td.headOver .headInner, .qosGridHeaderStyle td.sortDesc .headInner, .qosGridHeaderStyle td.sortAsc .headInner, .qosGridHeaderStyle td.headMenuOpen .headInner {
+  background: repeat-x left bottom;
+  background-color:backgroundColor;
+  gwt-image:'columnHeaderOver';
+}
+
+
+@sprite .qosGridHeaderStyle td.headOver .headInner.filterIcon,.qosGridHeaderStyle .headInner.filterIcon  {
+	gwt-image: 'filterIcon';
+	background-position:left top;
+}
+
+.qosGridHeaderStyle .sortIcon {
+  background-repeat: no-repeat;
+  display: none;
+  height: 4px;
+  width: 13px;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+
+.qosGridHeaderStyle .sortAsc .sortIcon, .qosGridHeaderStyle .sortDesc .sortIcon, .qosGridHeaderStyle .filterIcon {
+  display: inline;
+}
+
+@sprite .qosGridHeaderStyle .sortAsc .sortIcon {
+  gwt-image: 'sortAsc';
+}
+
+@sprite .filterIcon  {
+  gwt-image: 'filterIcon';
+}
+
+@sprite .qosGridHeaderStyle .sortDesc .sortIcon {
+  gwt-image: 'sortDesc';
+}
+
+@sprite .columnMoveTop {
+  gwt-image: 'columnMoveTop';
+}
+
+@sprite .columnMoveBottom {
+  gwt-image: 'columnMoveBottom';
+}

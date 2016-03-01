@@ -1,0 +1,12 @@
+---
+- name: Check if yum-utils is installed
+  command: yum list installed yum-utils
+  register: yum_utils_installed
+  changed_when: no
+  ignore_errors: yes
+
+- name: Install yum utils
+  # It is needed to fix bug with disable/enable repo order
+  # yum: name={{ item }} disablerepo=* "enablerepo=localrepo" state=installed
+  command: yum -y --disablerepo=* --enablerepo=localrepo install yum-utils
+  when: yum_utils_installed | failed

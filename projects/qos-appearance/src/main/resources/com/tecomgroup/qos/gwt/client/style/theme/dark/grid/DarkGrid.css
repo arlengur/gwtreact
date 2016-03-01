@@ -1,0 +1,227 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ 
+@def gridBackground #242C36;
+@def altColor #545352;
+@def footerColor #DDDDDD;
+@def borderColor #707073;
+@external .qosGridStyle;
+@external .qosGridVideoStyle;
+ 
+@eval dirty com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/dirty.gif");
+@eval invalidLine com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/invalid_line.gif");
+@eval dirty com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/dirty.gif");
+
+@external x-treegrid x-treegrid-column;
+@external x-grid-td-numberer;
+@external x-grid-footer;
+@external x-grid-cell-first;
+@external x-grid-cell-last;
+
+.qosGridVideoStyle table {
+	border-top: 2px solid borderColor !important;
+	border-bottom: 2px solid borderColor !important;
+	width: 100% !important;
+}
+.qosGridVideoStyle tr td { 
+	border-top: 2px solid borderColor !important;
+	border-bottom: 2px solid borderColor !important;
+}
+
+.qosGridVideoStyle tr td.x-grid-cell-first { 
+	border-left: 4px solid borderColor !important; 
+}
+.qosGridVideoStyle tr td.x-grid-cell-last {
+	border-right: 4px solid borderColor !important; 
+}
+ 
+.qosGridStyle .scroller {
+  overflow: auto;
+  zoom: 1;
+  position: relative;
+  background-color: gridBackground !important;
+}
+
+.qosGridStyle .rowHighlight {
+  border: 1px dotted #545352;
+}
+
+.qosGridStyle .rowAlt .cell, .qosGridStyle .rowAlt.rowSelected .cell, .qosGridStyle .rowAlt.rowOver .cell {
+  background-color: altColor !important;
+}
+
+.qosGridStyle .rowOver .cell {
+  background-color: gridBackground;
+  border-width: 0px 0px;
+  border-style: solid;
+}
+
+.qosGridStyle .cell {
+  border-color: gridBackground gridBackground gridBackground;
+  border-right: 0 solid gridBackground;
+  background-color: gridBackground;
+  border-style: solid;
+  border-width: 0px 0px;
+  font: 11px tahoma,arial,verdana,sans-serif; 
+  overflow: hidden; 
+}
+
+.qosGridStyle .cellInner {
+  overflow: hidden;
+ /*padding: 4px 3px 3px 5px;*/
+  padding: 0px;
+  line-height: 30px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.qosGridStyle .cellSelected {
+  background-color: #3F3F40 !important;
+  color: #000;
+}
+
+.qosGridStyle .columnLines .cell {
+  padding-right: 0;
+  border-right: 0px solid;
+}
+
+.qosGridStyle .rowOver .cell, .qosGridStyle .rowOver .rowWrap {
+  border-color: gridBackground;
+}
+
+.qosGridStyle .rowWrap {
+  border-color: gridBackground gridBackground gridBackground;
+  border-right: 0px solid gridBackground;
+  border-style: solid;
+  border-width: 0px;
+  overflow: hidden;
+}
+
+.qosGridStyle .rowSelected .cell, .qosGridStyle .rowSelected .rowWrap {
+  background-color: gridBackground !important;
+  border-color: gridBackground;
+  border-style: dotted;
+}
+
+.qosGridStyle .footer {
+  background: gridBackground none repeat scroll 0 0;
+  border-top: 1px solid footerColor;
+  border-bottom: 1px solid footerColor;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+
+
+.qosGridStyle .grid {
+  position: relative;
+  overflow: hidden;
+  outline: 0 none;
+}
+
+.qosGridStyle .body {
+  
+}
+
+.qosGridStyle TH {
+  border-bottom: none !important;
+}
+
+.qosGridStyle .dataTable {
+  table-layout: fixed; 
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.qosGridStyle .headerRow {}
+
+.qosGridStyle .row {
+  cursor: default;
+  padding: 0 1px;
+  vertical-align: top; 
+}
+
+.qosGridStyle .rowSelected .cell {
+  background-color: gridBackground !important;
+  border-color: gridBackground;
+  border-style: dotted;
+}
+
+.qosGridStyle .rowDirty {
+  
+}
+
+.qosGridStyle .cellDirty {
+  background: transparent no-repeat 0 0; 
+  background-image: dirty;
+}
+
+.qosGridStyle .cellInvalid {
+  background: repeat-x bottom;
+  background-image: invalidLine;
+}
+
+.qosGridStyle .cellDirty {
+  background: transparent no-repeat 0 0;
+  background-image: dirty;
+}
+
+.qosGridStyle .empty {
+  padding: 10px;
+  color: gray;
+  font: normal 11px tahoma, arial, verdana, sans-serif;
+}
+
+.qosGridStyle .rowBodyRow {}
+
+.qosGridStyle .rowBody {
+  font: 11px/13px tahoma,arial,verdana,sans-serif;
+  padding: 4px;
+}
+
+.qosGridStyle .rowWrap .cell, .qosGridStyle .rowWrap .cellInner {
+  border: none; 
+}
+
+.qosGridStyle .x-grid-td-numberer {
+  background: transparent repeat-y right;
+}
+
+.qosGridStyle .x-grid-td-numberer .cellInner {
+  padding: 3px 5px 0 0 !important;
+  text-align: center;
+}
+
+.qosGridStyle .rowSelected .x-grid-td-numberer {
+  background: transparent repeat-y right;
+}
+
+@sprite .qosGridStyle .row .x-grid-td-numberer {
+  gwt-image: 'specialColumn';
+  height: auto;
+  width: auto;
+}
+
+.qosGridStyle .x-grid-td-numberer .cellInner {
+  color: #444;
+}
+
+@sprite .qosGridStyle .rowSelected .x-grid-td-numberer {
+  gwt-image: 'specialColumnSelected';
+  height: auto;
+  width: auto;
+}
+
+.qosGridStyle .footer .cell {
+  background: none; 
+}
+
+.qosGridStyle .x-treegrid .x-treegrid-column .cellInner {
+  padding: 0 !important;
+}

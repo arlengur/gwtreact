@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Record</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var t = document.getElementById("tree");
+            var h = document.getElementById("head");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div class="grey-page"></div>
+        <div class="modal-dialog bigmodal flex flex-col" style="width: 53%; height: 530px; background: #000;">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px"/>
+                <h4 class="modal-title">Edit Record</h4>
+            </div>
+            <div class="flex flex-11a" style="overflow: hidden; margin: 10px 10px 0;">
+                <div class="override-padding-0 flex flex-col black-right" style="width: 185px; background: #424242">
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="flex-none pull-right"
+                             style="width: 100px; height: 23px; overflow: hidden; background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                            <select class="small-text" style="width: 120px; border: 0; background: transparent;">
+                                <option style="background: #222">Local Time</option>
+                                <option style="background: #222">Condition 2</option>
+                            </select>
+                        </div>
+                        <span class="flex-none small-text pull-left text23 margin-left-5">Timezone:</span>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px;" type="text" value="Jan 3, 2016"/>
+                        <span class="flex-none small-text text23 pull-left" style="margin-left: 23px">Start:</span>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px;" type="text" value="Jan 3, 2016"/>
+                        <input class="hidden" id="finish" type="radio" checked><label class="pull-left radio-input" for="finish" style="margin: 0 4px 0 5px; line-height: 23px;"></label>
+                        <span class="flex-none small-text text23 pull-left">Finish:</span>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <input class="flex-11a search-field pull-right record-disabled" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                        <input class="hidden" id="duration" type="radio"><label class="pull-left radio-input" for="duration" style="margin: 0 4px 0 5px; line-height: 23px;"></label>
+                        <span class="flex-none small-text text23 pull-left">Duration:</span>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <span class="flex-none small-text text23 margin-left-5">Comment:</span>
+                        <textarea class="comm-area" rows="6" style="background-color: #222; color: #fff"></textarea>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 0 5px">
+                        <button type="button" class="btn btn-primary config-btn pull-left">Add</button>
+                        <button type="button" class="btn btn-primary config-btn margin-left-5 pull-right">Clear</button>
+                    </div>
+                </div>
+                <div class="row override-padding-0 override-margin-0 flex flex-col" style="width: calc(100% - 185px); background-color: #000">
+                    <div id="tab" class="flex-none" style="background-color: #000">
+                        <input type="radio" name="table" id="n1" checked style="display: none"/>
+                        <label for="n1" class="tab-label">Table</label>
+                        <!--<input type="radio" name="table" id="n2" style="display: none"/>-->
+                        <!--<label for="n2" class="tab-label">Timeline</label>-->
+                    </div>
+                    <div id="table" class="flex-11a flex flex-col" style="overflow-y: auto; background: #424242">
+                        <div class="head-bg flex-none" style="margin: 4px 4px 0">
+                            <div class="container-fluid override-padding-0 pull-left" id="head" style="position: relative;">
+                                <div class="probe-head-text overflow-ellipsis pull-left" style="width: 25%">Start</div>
+                                <div class="probe-head-text overflow-ellipsis pull-left" style="width: 25%">Finish</div>
+                                <div class="probe-head-text overflow-ellipsis pull-left" style="width: 15%">Duration</div>
+                                <div class="probe-head-text overflow-ellipsis pull-left" style="width: 35%">
+                                    <span class="pull-left overflow-ellipsis" style="width: calc(100% - 27px)">Comment</span>
+                                </div>
+                                <div class="vertical-line" style="border-color: #424242; left: 25%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; left: 65%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; right: 27px;"></div>
+                            </div>
+                        </div>
+                        <div class="probe-tree-background flex-11a"
+                             style="margin: 0 4px 4px 4px;min-height: 0; overflow-y: auto;border: 0; background-color: #3D3B3B; color: #FFF; font-size: 12px; position: relative;">
+                            <ul class="probe-tree-background override-margin-0 override-padding-0" style="position: relative">
+                                <li class="probe-tree-li">
+                                    <div class="container-fluid override-padding-0" id="tree">
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 25%; text-align: center">Jan 3, 2016, 12 : 50 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 25%; text-align: center">Jan 3, 2016, 13 : 50 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 15%; text-align: center">01 : 00 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 35%">
+                                            <span class="pull-left overflow-ellipsis" style="width: calc(100% - 23px)">Schedule Starts</span>
+
+                                            <div class="cross-icon pull-right" style="margin-left: 5px"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="probe-tree-li">
+                                    <div class="container-fluid override-padding-0">
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 25%; text-align: center">Jan 3, 2016, 12 : 50 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 25%; text-align: center">Jan 3, 2016, 13 : 50 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 15%; text-align: center">01 : 00 : 00</div>
+                                        <div class="probe-tree-line-text pull-left overflow-ellipsis" style="width: 35%">
+                                            <span class="pull-left overflow-ellipsis" style="width: calc(100% - 23px)">Schedule Starts</span>
+                                            <div class="cross-icon margin-left-5 pull-right"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <div class="vertical-line" style="border-color: #424242; left: 25%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; left: 65%;"></div>
+                                <div class="vertical-line" style="border-color: #424242; right: 27px;"></div>
+                            </ul>
+                            <div class="vertical-line" style="border-color: #424242; left: 25%;"></div>
+                            <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                            <div class="vertical-line" style="border-color: #424242; left: 65%;"></div>
+                            <div class="vertical-line" style="border-color: #424242; right: 27px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none" style="background-color: #000; margin: 4px 10px 10px;">
+                <button type="button" class="btn btn-primary config-btn pull-left">OK</button>
+                <button type="button" class="btn btn-primary config-btn margin-left-5 pull-right">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

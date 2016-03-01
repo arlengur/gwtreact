@@ -1,0 +1,3 @@
+---
+rabbit_erlang_cookie: secretcookie
+rabbit_is_cluster: false

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd
+			http://www.springframework.org/schema/rabbit
+			http://www.springframework.org/schema/rabbit/spring-rabbit-1.5.xsd">
+
+	<import resource="classpath:com/tecomgroup/qos/mail/mailContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/sms/smsContext.xml" />
+
+	<context:component-scan base-package="com.tecomgroup.qos.pm" />
+
+	<bean id="policyPropertyPlaceholder"
+		class="com.tecomgroup.qos.util.ExposedPropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/communication.properties</value>
+				<value>classpath:config/pm.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+		<property name="name" value="commonPropertyPlaceholder" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<!-- All the properties defined below are the default values for the place 
+			holders. -->
+		<property name="properties">
+			<props>
+				<!-- General -->
+				<prop key="pm.configuration">config/pm.config</prop>
+				<prop key="pm.agents"/>
+				<prop key="pm.name">PolicyManager</prop>
+				<prop key="pm.registration.timeout">10000</prop>
+				<prop key="pm.registration.interval">180000</prop>
+				<prop key="pm.send.message.error.sleep.time.in.sec">30</prop>
+				<prop key="pm.send.email.mode">separately</prop>
+				<prop key="pm.templates.dir">config/templates</prop>
+				<prop key="pm.generate.templates">false</prop>
+				<prop key="pm.default.notification.language">EN</prop>
+				<prop key="pm.hostname">#{T(java.net.InetAddress).getLocalHost().getCanonicalHostName()}</prop>
+				<!-- AMQP -->
+				<prop key="amqp.result.queue.prefix">agent-</prop>
+				<prop key="amqp.host">localhost</prop>
+				<prop key="amqp.port">5672</prop>
+				<prop key="amqp.username">guest</prop>
+				<prop key="amqp.password">guest</prop>
+				<prop key="amqp.qos.service.exchange">qos.service</prop>
+				<prop key="amqp.qos.result.exchange">qos.result</prop>
+				<prop key="amqp.qos.alert.exchange">qos.alert</prop>
+				<prop key="amqp.qos.action.exchange">qos.action</prop>
+
+				<prop key="amqp.email.action.routing.key">send.email</prop>
+				<prop key="amqp.qos.action.email.queue.durable">true</prop>
+				<prop key="amqp.qos.action.email.queue.exclusive">false</prop>
+				<prop key="amqp.qos.action.email.queue.auto.delete">false</prop>
+
+				<prop key="amqp.sms.action.routing.key">send.sms</prop>
+				<prop key="amqp.qos.action.sms.queue.durable">true</prop>
+				<prop key="amqp.qos.action.sms.queue.exclusive">false</prop>
+				<prop key="amqp.qos.action.sms.queue.auto.delete">false</prop>
+
+				<prop key="amqp.qos.action.message.queue.message.ttl">2592000000</prop>
+				<prop key="amqp.qos.service.queue.name">pm-${amqp.qos.service.exchange}.queue-${pm.name}
+				</prop>
+
+				<prop key="amqp.qos.service.queue.durable">false</prop>
+				<prop key="amqp.qos.service.queue.exclusive">true</prop>
+				<prop key="amqp.qos.service.queue.auto.delete">true</prop>
+				<prop key="amqp.reply.timeout">60000</prop>
+				<prop key="amqp.pm.replyqueue.name">pm-replyqueue-${pm.name}</prop>
+				<prop key="amqp.pm.replyqueue.durable">false</prop>
+				<prop key="amqp.pm.replyqueue.exclusive">true</prop>
+				<prop key="amqp.pm.replyqueue.auto.delete">true</prop>
+				<prop key="amqp.qos.handle.results">true</prop>
+				<prop key="amqp.agent.routing.key">agent</prop>
+				<prop key="amqp.server.routing.key">server</prop>
+				<prop key="amqp.pm.routing.key">policy</prop>
+				<prop key="amqp.qos.alarm.message.expiration.time.in.sec">86400</prop>
+			</props>
+		</property>
+		<!-- End of default properties -->
+	</bean>
+
+	<bean id="serviceQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg value="${amqp.qos.service.queue.name}" />
+		<constructor-arg value="${amqp.qos.service.queue.durable}" />
+		<constructor-arg value="${amqp.qos.service.queue.exclusive}" />
+		<constructor-arg value="${amqp.qos.service.queue.auto.delete}" />
+	</bean>
+
+	<bean id="replyQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg value="${amqp.pm.replyqueue.name}" />
+		<constructor-arg value="${amqp.pm.replyqueue.durable}" />
+		<constructor-arg value="${amqp.pm.replyqueue.exclusive}" />
+		<constructor-arg value="${amqp.pm.replyqueue.auto.delete}" />
+	</bean>
+
+	<bean id="sendEmailQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="pm-${amqp.qos.action.exchange}.email.queue" />
+				<constructor-arg value="${pm.hostname}" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="${amqp.qos.action.email.queue.durable}"/>
+		<constructor-arg value="${amqp.qos.action.email.queue.exclusive}"/>
+		<constructor-arg value="${amqp.qos.action.email.queue.auto.delete}"/>
+		<constructor-arg>
+			<map>
+				<entry key="x-message-ttl">
+					<value type="java.lang.Long">${amqp.qos.action.message.queue.message.ttl}
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="sendSmsQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="pm-${amqp.qos.action.exchange}.sms.queue"/>
+				<constructor-arg value="${pm.hostname}"/>
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="${amqp.qos.action.sms.queue.durable}"/>
+		<constructor-arg value="${amqp.qos.action.sms.queue.exclusive}"/>
+		<constructor-arg value="${amqp.qos.action.sms.queue.auto.delete}"/>
+		<constructor-arg>
+			<map>
+				<entry key="x-message-ttl">
+					<value type="java.lang.Long">${amqp.qos.action.message.queue.message.ttl}
+					</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<rabbit:topic-exchange name="${amqp.qos.result.exchange}"
+		id="resultExchange">
+	</rabbit:topic-exchange>
+
+	<rabbit:topic-exchange name="${amqp.qos.service.exchange}"
+		id="serviceExchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="serviceQueue" pattern="${amqp.pm.routing.key}" />
+			<rabbit:binding queue="serviceQueue" pattern="${amqp.agent.routing.key}" />
+			<rabbit:binding queue="serviceQueue"
+				pattern="${amqp.pm.routing.key}-${pm.name}" />
+		</rabbit:bindings>
+	</rabbit:topic-exchange>
+
+	<rabbit:fanout-exchange name="${amqp.qos.alert.exchange}"
+		id="alertExchange">
+	</rabbit:fanout-exchange>
+
+	<rabbit:topic-exchange name="${amqp.qos.action.exchange}"
+		id="actionExchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="sendSmsQueue" pattern="${amqp.sms.action.routing.key}" />
+			<rabbit:binding queue="sendEmailQueue"
+				pattern="${amqp.email.action.routing.key}" />
+		</rabbit:bindings>
+	</rabbit:topic-exchange>
+
+	<bean id="amqpTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+		<constructor-arg ref="rabbitConnectionFactory" />
+		<property name="replyQueue" ref="replyQueue" />
+		<property name="replyTimeout" value="${amqp.reply.timeout}" />
+		<property name="messageConverter" ref="messageConverter" />
+	</bean>
+
+	<rabbit:connection-factory id="rabbitConnectionFactory"
+			host="${amqp.host}" port="${amqp.port}" username="${amqp.username}"
+			password="${amqp.password}"/>
+
+	<bean id="replyListener"
+		class="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+		<constructor-arg ref="rabbitConnectionFactory" />
+		<property name="queues" ref="replyQueue" />
+		<property name="messageListener" ref="amqpTemplate" />
+	</bean>
+
+	<bean class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+		<constructor-arg ref="rabbitConnectionFactory" />
+	</bean>
+
+	<bean id="policyManagerAMQPConnector" class="com.tecomgroup.qos.pm.amqp.PolicyManagerAMQPConnector"
+		depends-on="replyListener">
+		<constructor-arg ref="rabbitConnectionFactory" />
+		<property name="queues" ref="serviceQueue" />
+	</bean>
+
+	<bean id="errorHandler" class="com.tecomgroup.qos.amqp.AMQPErrorHandler" />
+
+	<bean id="messageConverter"
+		class="org.springframework.amqp.support.converter.JsonMessageConverter">
+		<property name="jsonObjectMapper">
+			<bean class="com.tecomgroup.qos.json.QoSJsonObjectMapper" />
+		</property>
+	</bean>
+
+	<bean abstract="true" id="messageListenerTemplate"
+		class="com.tecomgroup.qos.amqp.QoSMessageListener">
+		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="messageConverter" ref="messageConverter" />
+	</bean>
+
+	<bean id="sendEmailActionMessageListener" class="com.tecomgroup.qos.pm.amqp.PolicyActionMessageListener"
+		parent="messageListenerTemplate">
+		<property name="actionExchange" ref="actionExchange" />
+		<property name="sender" ref="mailer" />
+		<property name="queueRoutingKey" value="${amqp.email.action.routing.key}" />
+		<property name="errorSleepTimeSeconds" value="${pm.send.message.error.sleep.time.in.sec}" />
+	</bean>
+
+	<bean id="sendSmsActionMessageListener" class="com.tecomgroup.qos.pm.amqp.PolicyActionMessageListener"
+		parent="messageListenerTemplate">
+		<property name="actionExchange" ref="actionExchange" />
+		<property name="sender" ref="smsSender" />
+		<property name="queueRoutingKey" value="${amqp.sms.action.routing.key}" />
+		<property name="errorSleepTimeSeconds" value="${pm.send.message.error.sleep.time.in.sec}" />
+	</bean>
+
+	<rabbit:listener-container
+		connection-factory="rabbitConnectionFactory" error-handler="errorHandler"
+		auto-startup="true">
+		<rabbit:listener queues="sendEmailQueue"
+			ref="sendEmailActionMessageListener" />
+	</rabbit:listener-container>
+
+	<rabbit:listener-container
+		connection-factory="rabbitConnectionFactory" error-handler="errorHandler"
+		auto-startup="true">
+		<rabbit:listener queues="sendSmsQueue" ref="sendSmsActionMessageListener" />
+	</rabbit:listener-container>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+	</bean>
+
+	<bean id="templateService" class="com.tecomgroup.qos.pm.service.DefaultTemplateService" />
+
+	<bean id="policyActionHandler" class="com.tecomgroup.qos.pm.action.DefaultPolicyActionHandler">
+		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="alertExchange" ref="alertExchange" />
+		<property name="actionExchange" ref="actionExchange" />
+		<property name="templateService" ref="templateService" />
+		<property name="emailQueueRoutingKey" value="${amqp.email.action.routing.key}" />
+		<property name="smsQueueRoutingKey" value="${amqp.sms.action.routing.key}" />
+		<property name="sendEmailMode" value="${pm.send.email.mode}" />
+		<property name="alertMessageExpirationTime"
+			value="${amqp.qos.alarm.message.expiration.time.in.sec}" />
+	</bean>
+</beans>

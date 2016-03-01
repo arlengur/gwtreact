@@ -1,0 +1,25 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@sprite .button {
+	gwt-image: 'hugeButtonBackground';
+	background-repeat: repeat-x;
+	font-family: tahoma, arial, verdana, sans-serif;
+	font-size: 18px;
+	cursor: pointer;
+	height: value('hugeButtonBackground.getHeight', 'px');
+	width : 100%;
+	line-height: value('hugeButtonBackground.getHeight', 'px');
+	display: table;
+	text-align: center;
+}
+
+.button img {
+	vertical-align: middle;
+	display: inline;
+	margin-bottom: 0;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-top: -3px;
+}

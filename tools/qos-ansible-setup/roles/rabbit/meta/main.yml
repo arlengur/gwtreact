@@ -1,0 +1,15 @@
+---
+dependencies:
+  - role: iptables
+    open_ports:
+      - protocol: tcp
+        port: 5672
+      - protocol: tcp
+        port: 15672
+      - protocol: tcp
+        port: 4369
+      - protocol: tcp
+        port: 25672
+  - role: consul_service
+    consul_service_name: "{{ rabbit_service_name }}"
+    consul_service_port: 5672

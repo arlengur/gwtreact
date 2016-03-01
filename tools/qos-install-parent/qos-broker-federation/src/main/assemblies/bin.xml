@@ -1,0 +1,17 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<includes>
+				<include>*</include>
+			</includes>
+			<unpack>false</unpack>
+		</dependencySet>
+	</dependencySets>
+	<includeBaseDirectory>false</includeBaseDirectory>
+</assembly>

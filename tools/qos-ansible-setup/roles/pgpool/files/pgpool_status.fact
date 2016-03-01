@@ -1,0 +1,24 @@
+#!/bin/bash
+
+get_info() {
+    local node
+    node=$(pcp_node_info 10 localhost 9898 postgres postgres "$1" 2>/dev/null |
+                  awk -v i="$i" \
+                      '{print "\"" $1 "\":{\"status\":" $3 ",\"id\":" i "}"}')
+    OUTPUT="${OUTPUT}${node}"
+}
+
+COUNT=$(pcp_node_count 10 localhost 9898 postgres postgres 2>/dev/null)
+
+OUTPUT="{"
+
+for ((i = 0; i < COUNT - 1; i++)); do
+    get_info "$i"
+    OUTPUT="${OUTPUT},"
+done
+
+get_info $((COUNT - 1))
+
+OUTPUT="${OUTPUT}}"
+
+echo "$OUTPUT"

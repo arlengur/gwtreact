@@ -1,0 +1,30 @@
+---
+dependencies:
+  - role: iptables
+    open_ports:
+      - protocol: tcp
+        port: 8600
+      - protocol: udp
+        port: 8600
+      - protocol: tcp
+        port: 8300
+      - protocol: tcp
+        port: 8301
+      - protocol: udp
+        port: 8301
+      - protocol: tcp
+        port: 8302
+      - protocol: udp
+        port: 8302
+      - protocol: tcp
+        port: 8400
+      - protocol: tcp
+        port: 8500
+    redirect_ports:
+      - protocol: udp
+        dport: 53
+        toport: 8600
+      - protocol: tcp
+        dport: 53
+        toport: 8600
+

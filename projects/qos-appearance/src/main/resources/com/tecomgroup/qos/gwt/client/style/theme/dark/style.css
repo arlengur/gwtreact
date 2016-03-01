@@ -1,0 +1,175 @@
+@def darkBlue #232c36;
+@def panelWidth  200px;
+@def lighterColor #707073; 
+
+@eval greyColor com.tecomgroup.qos.gwt.client.utils.DarkColorConstants.getGreyColor();
+@eval fontColor com.tecomgroup.qos.gwt.client.utils.DarkColorConstants.getLightBlueColor();
+
+.simpleLabel {
+	color: white;
+}
+
+.gridPanelHeader {
+	background-color: greyColor;
+	padding: 5px 0px 5px 7px;
+}
+
+.templateLabel {
+	color: #9E9E9E;
+	word-wrap : break-word;
+}
+
+.gisPanel {
+	background-color: #9E9E9E;
+}
+
+.gisContainer {
+	background-color: greyColor;
+}
+
+.addChartSeriesSelectAgentPanel {
+	background-color: #242C36;
+	border: thick solid #3E3E40;
+}
+
+.disabledLinkButton {
+	opacity: 0.6;
+}
+
+.linkSelected{	
+	background-color: #4373A7 !important;	
+}
+
+.disabledLinkButton *:hover {
+	background-color: inherit !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;	
+}
+
+.disabledLinkButton * {
+	color : #fff;
+	cursor : pointer;
+}
+
+.addRecordedVideoLeftPanel {
+	background-color: lighterColor;
+	font-size: 0.9em;
+}
+
+.textMainColor, .textMainColor div, .textMainColor span, .textMainColor td, .textMainColor a {
+	color: #FFF !important;
+}
+
+.textDisabledColor, .textDisabledColor div, .textDisabledColor span, .textDisabledColor td, .textDisabledColor a {
+	color: grey !important;
+}
+
+.textDefaultGridColor, .textDefaultGridColor div, .textDefaultGridColor span, .textDefaultGridColor td, .textDefaultGridColor a {
+	color: fontColor !important;
+}
+
+.themeLightColor {
+	color: greyColor;
+}
+
+.themeLightBackgroundColor {
+	background-color: greyColor;
+}
+
+.themeLighterBackgroundColor {
+	background-color: lighterColor;	
+}
+
+@sprite .addBroadcastPanel {
+	gwt-image: 'cellBottomLine';
+	background-color: lighterColor;
+	width: panelWidth;
+	background-position: center 95%;
+	background-repeat: no-repeat;
+	padding: 5px 0px 5px 7px;
+	height: auto;
+}
+
+.addBroadcastButton {
+	margin-right: 5px;
+}
+
+.addBroadcastPanel td {
+	vertical-align: middle !important;
+	font-weight: bold;
+}
+
+.templateBar {
+	background-color: #86868A;
+}
+
+.templateBar td {
+	padding: 5px 0px 3px 10px;
+}
+
+.commentPanelHeader {
+	background-color: darkBlue;
+	padding: 10px 0px 0px 20px;
+	color: white;
+}
+
+.containerDarkBlue {
+	background-color: darkBlue;
+}
+
+.containerLigth {
+	background-color: greyColor;
+}
+
+.chartItem {
+	background-color: rgb(96, 96, 96);
+}
+
+.copyrightLabel {
+	color: #707070;
+	top: 70px !important;
+	position: relative !important;
+	text-align: center;
+}
+
+.dashBoardTable{
+	background-color: #000;
+}
+
+.dashBoardTable>tbody{
+	height: 100%;
+}
+
+.dashBoardTable>tbody>tr{
+    height: 50%;
+}
+
+.chartNameLabel {
+	color: #FFF;
+	font-size: 18px;
+	line-height: 38px;
+}
+
+.resultsTableTimeWidgetHeader {
+	line-height: 37px;
+}
+
+.clickableText {
+	text-decoration: underline;
+	cursor: pointer;
+	color: #c3d4f2;
+}
+
+.userInformationTabPanel > :last-child {
+	background-color : greyColor;
+}
+
+.synchronizeChartsButton {
+	height: 24px !important;
+}
+
+.synchronizeChartsButton img {
+	margin-left: 0 !important;
+}
+

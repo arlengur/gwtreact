@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Recording</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var t = document.getElementById("tree");
+            var h = document.getElementById("head");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="probe-view container-fluid">
+        <nav class="row qligent-top-navbar">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Recording
+                </span>
+            </div>
+        </nav>
+        <div class="flex flex-11a record-panel">
+            <div class="col-sm-4 override-padding-0 flex flex-col record-black-right">
+                <div class="flex-none" style="margin: 5px 5px 0">
+                    <span class="small-text pull-left margin-left-5">Probes</span>
+                </div>
+                <div class="flex-none record-tree-button-panel">
+                    <input class="hidden" id="ch1" type="checkbox"><label class="pull-left checkbox-input" for="ch1" style="margin: 6px 0 0 1px"></label>
+                    <input class="pull-right search-field placeholder-dissappear" style="width: 100px" type="text" placeholder="Search"/>
+                </div>
+                <div class="probe-tree-background record-tree flex-11a" style="position: relative; overflow-y: auto">
+                    <ul class="probe-tree-background override-margin-0 override-padding-0"
+                        style="position: relative">
+                        <!--<li class="probe-tree-li">-->
+                            <!--<div class="container-fluid override-padding-0 probe-tree-selected">-->
+                                <!--<div class="pull-left overflow-ellipsis" style="width: 100%">-->
+                                    <!--<input class="hidden" id="ch2" type="checkbox"><label class="pull-left checkbox-input" for="ch2" style="line-height: 23px; margin: 0 5px"></label>-->
+                                    <!--<div class="pull-left probe-tree-minus"></div>-->
+                                    <!--<div class="pull-left world-grid margin-left-5"></div>-->
+                                <!--<span class="small-text probe-tree-line-text">-->
+                                    <!--<span class="small-text crud-tree-matching-text">Probe1_</span>Nizhny Novgorod - very long-->
+                                    <!--and detailed name is here intentionally in order to check text overflow-->
+                                    <!--appearance, so please bear with it-->
+                                <!--</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<ul class="override-margin-0 override-padding-0">-->
+                                <!--<li class="probe-tree-li">-->
+                                    <!--<div class="container-fluid override-padding-0">-->
+                                        <!--<div class="pull-left overflow-ellipsis" style="width: 100%">-->
+                                            <!--<div class="pull-left probe-line-end" style="margin-left: 27px"></div>-->
+                                            <!--<input class="hidden" id="ch3" type="checkbox"><label class="pull-left checkbox-input" for="ch3" style="line-height: 23px; margin: 0 5px"></label>-->
+                                            <!--<div class="pull-left probe-simple"></div>-->
+                                            <!--<span class="small-text probe-tree-line-text">Task1 - let's check if text overflow works for tasks as well</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <li class="probe-tree-li">
+                            <div class="container-fluid override-padding-0">
+                                <div class="pull-left overflow-ellipsis" style="width: 100%">
+                                    <input class="hidden" id="ch4" type="checkbox"><label class="pull-left checkbox-input" for="ch4" style="line-height: 23px; margin: 0 5px"></label>
+                                    <!--<div class="pull-left probe-tree-plus"></div>-->
+                                    <div class="pull-left probe-simple"></div>
+                                    <!--<div class="pull-left world-grid margin-left-5"></div>-->
+                                    <span class="small-text probe-tree-line-text">Probe2_New York</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 override-padding-0 flex flex-11a flex-col" style="overflow-y: auto">
+                <div class="flex-none" style="margin: 5px 5px 0">
+                    <span class="small-text pull-left margin-left-5">Recording tasks</span>
+                </div>
+                <div class="flex-none record-tree-button-panel">
+                    <div class="pull-left margin-0-5 calendar-btn clickable" title="Calendar"></div>
+                    <div class="pull-left margin-0-5 cyclic-btn clickable" title="Cyclic"></div>
+                    <div class="pull-left margin-0-5 passive-btn clickable" title="Passive"></div>
+                    <input class="pull-right search-field placeholder-dissappear" style="width: 100px" type="text" placeholder="Search"/>
+                </div>
+                <div class="head-bg flex-none" style="margin: 0 5px">
+                    <div class="container-fluid override-padding-0 pull-left" id="head" style="position: relative;">
+                        <div class="probe-head-text overflow-ellipsis pull-left">
+                            <input class="hidden" id="ch-2-1" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-1" style="line-height: 33px; margin: 0 5px"></label>
+                            <span style="font-size: 12px; color: #6A97D5; line-height: 33px; padding-left: 5px">Task</span>
+                        </div>
+                        <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                        <div class="vertical-line" style="border-color: #424242; right: 44px;"></div>
+                        <div class="vertical-line" style="border-color: #424242; right: 22px;"></div>
+                    </div>
+                </div>
+                <div class="probe-tree-background record-tree flex-11a" style="position: relative; overflow-y: auto">
+                    <ul class="probe-tree-background override-margin-0 override-padding-0" style="position: relative">
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis" id="tree">
+                                <input class="hidden" id="ch-2-2" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-2" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="passive-grid pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E (let's check this field for overflow)</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-3" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-3" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="rr-grid pull-right"></div>
+                                <div class="calendar-grid pull-right clickable"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-4" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-4" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="calendar-grid pull-right clickable"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-5" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-5" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="calendar-grid-failed pull-right clickable"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-6" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-6" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="rr-grid pull-right"></div>
+                                <div class="calendar-grid-process pull-right clickable"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-7" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-7" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="cyclic-grid pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-8" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-8" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="cyclic-grid-failed pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-9" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-9" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="cyclic-grid-process pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-10" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-10" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="passive-grid-failed pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-11" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-11" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="rr-grid pull-right"></div>
+                                <div class="passive-grid-process pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-12" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-12" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="rr-grid pull-right"></div>
+                                <div class="passive-grid pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-13" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-13" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="passive-grid-failed pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <li class="config-tree-li">
+                            <div class="container-fluid override-padding-0 overflow-ellipsis">
+                                <input class="hidden" id="ch-2-14" type="checkbox"><label class="pull-left checkbox-input" for="ch-2-14" style="line-height: 23px; margin: 0 5px"></label>
+                                <div class="empty-grid pull-right"></div>
+                                <div class="cyclic-grid-process pull-right"></div>
+                                <span class="probe-tree-line-text">FE12-2345-DA1E-FA9E</span>
+                            </div>
+                        </li>
+                        <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                        <div class="vertical-line" style="border-color: #424242; right: 22px;"></div>
+                        <div class="vertical-line" style="border-color: #424242; right: 44px;"></div>
+                    </ul>
+                    <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; right: 22px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; right: 44px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

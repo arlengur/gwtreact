@@ -1,0 +1,2 @@
+insert into mpolicyaction_mcontactinformat (mpolicyactionwithcontacts_id, contacts_id) select mpolicysendemailaction_id, contacts_id from mpolicysendem_mcontactinformat;
+drop table mpolicysendem_mcontactinformat;

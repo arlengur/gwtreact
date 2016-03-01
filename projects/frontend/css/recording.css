@@ -1,0 +1,57 @@
+.record-tree-toolbar {
+    overflow-y: hidden;
+    background: #424242;
+    padding: 0 5px 5px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+}
+
+.record-tree-button-panel {
+    background: #5f5f5f;
+    padding: 4px;
+    margin: 5px 5px 0
+}
+
+.record-black-right {
+    border-right: 5px solid #000;
+}
+
+.record-tree {
+    min-height: 0;
+    border: 0;
+    color: #FFF;
+    margin: 0 5px 5px;
+}
+
+.record-tree-head {
+    flex: none;
+    background-color: #0B131F;
+    margin: 0 5px;
+}
+
+.record-panel {
+    background-color: #424242;
+    margin: 10px -5px;
+}
+
+.record-disabled {
+    background: #515151;
+    color: #A6A6A6;
+}
+
+#tab > input:checked + label {
+    background-color: #424242;
+    color: #fff;
+}
+.tab-label {
+    cursor: default;
+    float: left;
+    background-color: #222222;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    padding: 4px 10px;
+    margin-right: 2px;
+    margin-bottom: 0;
+}

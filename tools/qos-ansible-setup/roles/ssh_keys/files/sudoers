@@ -1,0 +1,1 @@
+postgres ALL=NOPASSWD: /sbin/service postgresql-9.4 start, /sbin/service postgresql-9.4 stop, /sbin/service postgresql-9.4 status, /sbin/service postgresql-9.4 restart, /sbin/service postgresql-9.4 reload

@@ -1,0 +1,22 @@
+.sw-list-wrapper {
+    height: 300px;
+    overflow-y: auto;
+}
+.sw-list {
+    list-style: none;
+}
+.sw-list-item {
+    list-style: none;
+    height: 23px;
+    line-height: 23px;
+    padding-left: 10px;
+}
+.sw-list-item.selected {
+    background: #4474bf;
+}
+.sw-update-window {
+    width: 400px;
+    height: auto;
+    margin: auto;
+    top: calc(50% - 200px);
+}

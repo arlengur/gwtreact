@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Config editor view</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div class="modal-dialog bigmodal confirm-page flex flex-col flex-11a">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px">
+                <h4 class="modal-title">Acknowledge</h4>
+            </div>
+            <div class="flex flex-11a flex-col confirm-panel">
+                <div class="flex-none confirm-text">
+                    Производится рестарт/обновление конфигурации 2555 БК:
+                </div>
+                <div class="flex flex-11a flex-col confirm-probes-text">
+                    <span>Probe2_Msk</span>
+                    <span>Probe2_Msk</span>
+                    <span>Probe2_Msk</span>
+                    <span>Probe2_Msk</span>
+                    <span>Probe2_Msk</span>
+                    <span>Probe2_Msk</span>
+                </div>
+            </div>
+            <div class="confirm-footer flex-none">
+                <button type="button" class="btn btn-primary">OK</button>
+                <button type="button" class="btn btn-primary pull-right">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

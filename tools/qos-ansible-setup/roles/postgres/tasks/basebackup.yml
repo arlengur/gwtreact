@@ -1,0 +1,14 @@
+---
+- name: Stop Postgres
+  service: name=postgresql-9.4 state=stopped
+
+- name:  Getting timestamp
+  shell: date +'%Y%m%d%H%M%S'
+  register: timestamp_raw
+
+- name: Create backup
+  command: mv {{ pg_data }} {{ pg_data }}.{{ timestamp_raw.stdout }}.bak
+
+- name: Initialize the DB from the master
+  command: pg_basebackup --host="{{ postgres_master }}" -p {{ pg_port }} -D {{ pg_data }} -P --xlog-method=stream
+  sudo_user: postgres

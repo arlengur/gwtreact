@@ -1,0 +1,3 @@
+ALTER TABLE MUserResultTemplate ADD chartssynchronizationenabled boolean; 
+UPDATE MUserResultTemplate set chartssynchronizationenabled=false;
+ALTER TABLE MUserResultTemplate ALTER COLUMN chartssynchronizationenabled set not null;

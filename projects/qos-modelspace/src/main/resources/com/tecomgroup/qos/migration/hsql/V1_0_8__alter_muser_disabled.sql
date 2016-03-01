@@ -1,0 +1,1 @@
+ALTER TABLE MUSER ADD COLUMN disabled boolean DEFAULT false;

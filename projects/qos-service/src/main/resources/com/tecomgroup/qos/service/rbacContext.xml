@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="fileUtils" class="com.tecomgroup.qos.service.rbac.FileUtils">
+        <property name="commonPropertyPlaceholder" ref="commonPropertyPlaceholder"/>
+    </bean>
+
+    <bean id="structure" class="com.tecomgroup.qos.service.rbac.StructureImpl" init-method="init">
+        <constructor-arg value="Beeline structure"/>
+        <property name="utils" ref="fileUtils"/>
+        <property name="fileName" value="org_structure.json"/>
+    </bean>
+
+    <bean id="userMapper" class="com.tecomgroup.qos.service.rbac.UserMapperImpl" init-method="init">
+        <property name="utils" ref="fileUtils"/>
+        <property name="structure" ref="structure"/>
+        <property name="fileName" value="user_to_structure_mapping.properties"/>
+    </bean>
+
+    <bean id="probeMapper" class="com.tecomgroup.qos.service.rbac.ProbeMapperImpl" init-method="init">
+        <property name="utils" ref="fileUtils"/>
+        <property name="structure" ref="structure"/>
+        <property name="fileName" value="probe_to_structure_mapping.properties"/>
+    </bean>
+
+    <bean id="authorizeService" class="com.tecomgroup.qos.service.rbac.AuthorizeServiceImpl">
+        <property name="probeMapper" ref="probeMapper"/>
+        <property name="userMapper" ref="userMapper"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+</beans>

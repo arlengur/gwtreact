@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM
+	"log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="standartRollingLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/opt/qos/3.0/logs/qos-server.log" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+	<appender name="ttccConsole" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+	<appender name="nt-log" class="org.apache.log4j.nt.NTEventLogAppender">
+        <param name="source" value="QOS"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d QOS-AUDIT | %m%n"/>
+        </layout>
+    </appender>
+	<logger name="com.tecomgroup.qos">
+		<level value="INFO" />
+	</logger>
+	<logger
+		name="com.tecomgroup.qos.modelspace.hibernate.QoSTransactionalManager">
+		<level value="WARN" />
+	</logger>
+	
+	<logger
+		name="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+		<level value="ERROR" />
+	</logger>
+	<logger name="com.tecomgroup.qos.util.AuditLogger">
+        <level value="DEBUG"/>
+        <appender-ref ref="nt-log"/>
+    </logger>
+	<!-- Root -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="standartRollingLog" />
+		<!-- <appender-ref ref="ttccConsole" /> -->
+	</root>
+</log4j:configuration>

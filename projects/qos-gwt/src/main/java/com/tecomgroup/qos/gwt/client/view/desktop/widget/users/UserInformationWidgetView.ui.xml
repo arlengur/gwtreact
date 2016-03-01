@@ -1,0 +1,276 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:grid="urn:import:com.sencha.gxt.widget.core.client.grid"
+	xmlns:c="urn:import:com.sencha.gxt.widget.core.client" xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+	xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+	xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+	>
+	
+	<ui:with field='messages' type='com.tecomgroup.qos.gwt.client.i18n.QoSMessages' />
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.TabItemConfig" field="primaryUserInformation">
+    	<ui:attributes text="{messages.primaryUserInformation}" />
+  	</ui:with>
+  	
+  	<ui:with type="com.sencha.gxt.widget.core.client.TabItemConfig" field="secondaryUserInformation">
+    	<ui:attributes text="{messages.additionalUserInformation}" />
+  	</ui:with>
+  
+  	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="northData">
+		<ui:attributes width="1" height="-1"/>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="centerMargins">
+		<ui:attributes top="7" right="0" bottom="0" left="0" /> 
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="centerData">
+		<ui:attributes width="1" height="1" margins="{centerMargins}"/>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="radioButtonMargins">
+		<ui:attributes top="10" right="5" bottom="8" left="5" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="radioButtonMargin">
+		<ui:attributes margins="{radioButtonMargins}" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="primaryInformationFieldLabelMargins">
+		<ui:attributes top="3" right="10" bottom="3" left="0" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="primaryInformationFieldLabelMargin">
+		<ui:attributes margins="{primaryInformationFieldLabelMargins}" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="secondaryInformationFieldLabelMargins">
+		<ui:attributes top="0" right="10" bottom="0" left="0" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="secondaryInformationFieldLabelMargin">
+		<ui:attributes margins="{secondaryInformationFieldLabelMargins}" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="informationMargins">
+    	<ui:attributes top="10" right="10" bottom="10" left="5" />
+  	</ui:with>
+	<ui:with type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData"
+    	field="informationLayoutData">
+    	<ui:attributes width="0.5" height="1" margins="{informationMargins}" />
+  	</ui:with>
+  	
+  	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="loginMarkerMargins">
+        <ui:attributes top="0" right="0" bottom="12" left="3" />
+    </ui:with>
+    <ui:with
+        type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+        field="loginMarkerLayoutData">
+        <ui:attributes margins="{loginMarkerMargins}" />
+    </ui:with>
+  	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="passwordMarkerMargins">
+		<ui:attributes top="10" right="0" bottom="8" left="3" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="passwordMarkerLayoutData">
+		<ui:attributes margins="{passwordMarkerMargins}" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="confirmPasswordMarkerMargins">
+		<ui:attributes top="10" right="0" bottom="0" left="3" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="confirmPasswordMarkerLayoutData">
+		<ui:attributes margins="{confirmPasswordMarkerMargins}" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="markerGroupMargins">
+		<ui:attributes top="18" right="0" bottom="0" left="0" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData"
+		field="markerGroupLayoutData">
+		<ui:attributes width="15" height="1" margins="{markerGroupMargins}"/>
+	</ui:with>
+	
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="fieldGroupLayoutData">
+		<ui:attributes height="1"/>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="noticeMargins">
+		<ui:attributes top="0" right="0" bottom="0" left="5" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="noticeLayoutData">
+		<ui:attributes height="-1" margins="{noticeMargins}"/>
+	</ui:with>
+  
+	<gxt:Dialog borders="false" ui:field="userInformationDialog" modal="true" width="600">
+		<container:VerticalLayoutContainer>
+			<container:child layoutData="{northData}">
+				<gxt:ContentPanel ui:field="optionsPanel">
+					<container:HBoxLayoutContainer>
+						<container:child layoutData="{radioButtonMargin}">
+							<form:Radio ui:field="createNewUserRadio" boxLabel="{messages.create}"/> 
+						</container:child>
+						<container:child layoutData="{radioButtonMargin}">
+							<form:Radio ui:field="selectFromLdapRadio" boxLabel="{messages.importFromLDAP}"/>	
+						</container:child>	
+					</container:HBoxLayoutContainer>
+				</gxt:ContentPanel>
+			</container:child>
+			<container:child layoutData="{centerData}">
+				<gxt:TabPanel ui:field="tabPanel" borders="false">
+			    	<gxt:child config="{primaryUserInformation}">
+			    		<gxt:ContentPanel ui:field="basicInformationPanel" >
+			    			<container:VerticalLayoutContainer>
+			    				<container:child layoutData="{fieldGroupLayoutData}">
+				    				<container:HorizontalLayoutContainer>
+					    				<container:child layoutData="{markerGroupLayoutData}">
+					    					<container:VBoxLayoutContainer>
+					    						<container:child layoutData="{loginMarkerLayoutData}">
+					    							<g:Image ui:field="loginMarker" title="{messages.fieldIsRequired}" />
+					    						</container:child>
+					    						<container:child layoutData="{passwordMarkerLayoutData}" >
+					    							<g:Image ui:field="passwordMarker" title="{messages.fieldIsRequired}"/>
+					    						</container:child>
+					    						<container:child layoutData="{confirmPasswordMarkerLayoutData}">
+					    							<g:Image ui:field="confirmPasswordMarker" title="{messages.fieldIsRequired}"/>
+					    						</container:child>
+					    					</container:VBoxLayoutContainer>
+					    				</container:child>
+				    					<container:child layoutData="{informationLayoutData}">
+				    						<container:VBoxLayoutContainer>
+							    				<container:child>
+							    					<container:SimpleContainer>
+							    						<form:FieldLabel ui:field="loginFieldLabel" layoutData="{primaryInformationFieldLabelMargin}" labelWidth="100" text="{messages.login}">
+							    							<form:widget>	  								
+																<form:TextField ui:field="loginField"
+																autoValidate="false" allowBlank="false" emptyText="{messages.enterLogin}" />
+							    							</form:widget>
+														</form:FieldLabel>
+							    					</container:SimpleContainer>
+							    				</container:child>    				
+							    				<container:child>
+							    					<container:SimpleContainer ui:field="passwordFieldContainer">
+							    						<form:FieldLabel ui:field="passwordFieldLabel" layoutData="{primaryInformationFieldLabelMargin}" labelWidth="100" text="{messages.loginPassword}">
+															<form:widget>
+																<form:PasswordField ui:field="passwordField"
+																autoValidate="false" allowBlank="false"/>
+															</form:widget>
+														</form:FieldLabel>
+							    					</container:SimpleContainer>
+							    				</container:child>
+							    				<container:child>
+							    					<container:SimpleContainer ui:field="confirmPasswordFieldContainer">
+							    						<form:FieldLabel ui:field="confirmPasswordFieldLabel" layoutData="{primaryInformationFieldLabelMargin}" labelWidth="100" text="{messages.confirmPassword}">
+															<form:widget>
+																<form:PasswordField ui:field="confirmPasswordField"
+																autoValidate="false" allowBlank="false"/>
+															</form:widget>
+														</form:FieldLabel>
+							    					</container:SimpleContainer>
+							    				</container:child>
+					    			</container:VBoxLayoutContainer>
+				    				</container:child>
+					    				<container:child layoutData="{informationLayoutData}">
+					    					<container:VBoxLayoutContainer>
+						    					<container:child>
+							    					<container:SimpleContainer>
+							    						<form:FieldLabel layoutData="{primaryInformationFieldLabelMargin}" labelWidth="40" ui:field="roleFieldLabel" text="{messages.role}">
+							    						</form:FieldLabel>
+							    					</container:SimpleContainer>	
+							    				</container:child>
+					    					</container:VBoxLayoutContainer>
+					    				</container:child>
+				    				</container:HorizontalLayoutContainer>
+				    			</container:child>
+				    			<container:child layoutData="{noticeLayoutData}">
+			    					<container:SimpleContainer ui:field="noticeContainer" width="400">
+			    						<g:HTML ui:field="notice"></g:HTML>
+			    					</container:SimpleContainer>
+					    		</container:child>
+			    			</container:VerticalLayoutContainer>
+			    		</gxt:ContentPanel>
+			    	</gxt:child>
+			    	<gxt:child config="{secondaryUserInformation}">
+			    		<gxt:ContentPanel ui:field="secondaryInformationPanel">
+			    			<container:HorizontalLayoutContainer>		
+			    				<container:child layoutData="{informationLayoutData}">
+			    					<container:VBoxLayoutContainer>
+			    						<container:child layoutData="{secondaryInformationFieldLabelMargin}">
+			    							<container:SimpleContainer>
+					    						<form:FieldLabel ui:field="firstNameFieldLabel" labelWidth="75" text="{messages.firstName}">
+													<form:widget>
+														<form:TextField ui:field="firstNameField"
+														autoValidate="false" emptyText="{messages.enterFirstName}" />
+													</form:widget>
+												</form:FieldLabel>
+			    							</container:SimpleContainer>
+			    						</container:child>
+			    						<container:child layoutData="{secondaryInformationFieldLabelMargin}">
+			    							<container:SimpleContainer>
+					    						<form:FieldLabel ui:field="middleNameFieldLabel" labelWidth="75" text="{messages.middleName}">
+													<form:widget>
+														<form:TextField ui:field="middleNameField"
+														autoValidate="false" emptyText="{messages.enterMiddleName}" />
+													</form:widget>
+												</form:FieldLabel>
+			    							</container:SimpleContainer>
+			    						</container:child>
+			    						<container:child layoutData="{secondaryInformationFieldLabelMargin}">
+			    							<container:SimpleContainer>
+					    						<form:FieldLabel ui:field="lastNameFieldLabel" labelWidth="75" text="{messages.lastName}">
+													<form:widget>
+														<form:TextField ui:field="lastNameField"
+														autoValidate="false" emptyText="{messages.enterLastName}" />
+													</form:widget>
+												</form:FieldLabel>
+			    							</container:SimpleContainer>
+			    						</container:child>
+			    					</container:VBoxLayoutContainer>
+			    				</container:child>
+			    				<container:child layoutData="{informationLayoutData}">
+			    					<container:VBoxLayoutContainer>
+			    						<container:child layoutData="{secondaryInformationFieldLabelMargin}">
+			    							<container:SimpleContainer>
+					    						<form:FieldLabel ui:field="emailFieldLabel" labelWidth="85" text="{messages.email}">
+													<form:widget>
+														<form:TextField ui:field="emailField"
+														autoValidate="false" emptyText="{messages.enterEmail}" />
+													</form:widget>
+												</form:FieldLabel>
+			    							</container:SimpleContainer>
+			    						</container:child>
+			    						<container:child layoutData="{secondaryInformationFieldLabelMargin}">
+			    							<container:SimpleContainer>
+					    						<form:FieldLabel ui:field="phoneFieldLabel" labelWidth="85" text="{messages.phone}">
+													<form:widget>
+														<form:TextField ui:field="phoneField"
+														autoValidate="false"  emptyText="{messages.enterPhone}" />
+													</form:widget>
+												</form:FieldLabel>
+			    							</container:SimpleContainer>
+			    						</container:child>
+			    					</container:VBoxLayoutContainer>
+			    				</container:child>
+			    			</container:HorizontalLayoutContainer>
+			    		</gxt:ContentPanel>
+			    	</gxt:child>
+				</gxt:TabPanel>
+			</container:child>
+		</container:VerticalLayoutContainer>
+	</gxt:Dialog>
+</ui:UiBinder> 

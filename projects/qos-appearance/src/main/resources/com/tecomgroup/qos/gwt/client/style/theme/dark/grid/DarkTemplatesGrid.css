@@ -1,0 +1,12 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ @external qosGridTemplatesStyle;
+ 
+.qosGridStandardStyle.qosGridTemplatesStyle .row {
+  cursor: default;
+  padding: 0 1px;
+  vertical-align: middle;
+  height: 30px; 
+}

@@ -1,0 +1,19 @@
+.cell {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	white-space: normal;
+}
+
+.date {
+	color: grey;	
+}
+
+.author {
+	color: white;
+	margin-left: 3px;
+}
+
+.comment {
+	margin-top: 10px;
+}

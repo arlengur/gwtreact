@@ -1,0 +1,424 @@
+/* Q: Why do we have media queries?
+   A: 1366px is col-xlg breakpoint in bootstrap.
+      Below 1366px width channel details tree, video player and alert details
+      are below each other and details tree has fixed height.
+      Above 1366px we have tricky multi-column layout, where details tree is stretched
+      to the bottom of the page.
+
+   Q: Why do we have 'display: flex' on details-tree-panel, tree-toolbar and details-tree?
+   A: We can't use 'height: 100%' because of how Chrome treats height of elements inside flex items,
+      see http://stackoverflow.com/questions/20959600/height-100-on-flexbox-column-child
+*/
+
+@media (min-width: 1366px) {
+    .detailed-view {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+    }
+    .tree-toolbar {
+        display: flex;
+        flex: 1 1 auto;
+    }
+    .details-tree-panel {
+        flex: 1 0 auto;
+        display: flex;
+        flex-flow: column;
+    }
+    .details-tree {
+        flex: 1 1 auto;
+    }
+}
+
+@media (min-width: 970px) and (max-width: 1366px) {
+    .details-tree {
+        height: 700px;
+    }
+}
+
+@media (max-width: 970px) {
+    .details-tree {
+        height: 350px;
+    }
+}
+
+.tree-toolbar {
+    overflow-y: hidden;
+    margin-left: -10px;
+    margin-right: -10px;
+    background: #333333;
+    padding: 10px;
+}
+
+.details-tree-panel {
+    overflow-y: hidden;
+}
+
+.details-tree {
+    overflow-y: auto;
+    border: 0;
+    background-color: #3D3B3B;
+    color: white;
+    font-size: 12px;
+}
+
+.details-tree-background {
+    background: url("../img/tree_bg.png");
+    width: 100%;
+}
+
+.menu-bar {
+    background: #27436e;
+    text-align: center;
+    line-height: 33px;
+}
+
+.menu-bar img {
+    padding: 8px 5px 0;
+}
+
+.title {
+    font-size: 16px;
+    color: white;
+}
+
+.button-toolbar {
+    flex: none;
+    padding: 5px;
+}
+
+.btn {
+    padding: 3px 8px;
+}
+
+.filter-toolbar {
+    flex: none;
+    background: #333333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.filter_icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 1px 1px 0;
+    float: left;
+    background: #262626;
+    cursor: pointer;
+}
+
+.visible_alerts {
+    line-height: 30px;
+    padding-left: 20px;
+    padding-right: 5px;
+    color: #656565;
+    background: #1A1A1A;
+    background-position: 5px;
+}
+
+.visible_probes {
+    vertical-align: middle;
+    padding: 3px 10px 4px 40px;
+    color: #656565;
+    background: url('../img/detailed/filter/Filter_Visible_Probes.png') no-repeat #1A1A1A;
+    background-position: 5px;
+}
+
+.filter_rf_ip_icon{
+    width: 61px;
+    height: 30px;
+    float: left;
+    padding-left: 2px;
+    background: #000000;
+    background-position: 0, 31px;
+    background-repeat: no-repeat;
+}
+.filter_epg_data_cc_icon {
+    width: 84px;
+    height: 30px;
+    float: left;
+    padding-left: 2px;
+    background: #000000;
+    background-position: 2px, 29px, 56px;
+    background-repeat: no-repeat;
+}
+
+.filter_epg_data_cc_icon.indent, .filter_icon.indent {
+    margin-left: 10px;
+}
+
+.group_filter>div>input {
+    margin: 16px 1px;
+}
+
+.severity_filter {
+    padding-top: 5px;
+}
+
+.severity_item {
+    margin-right: 10px;
+    float: left;
+    color: white;
+    display: flex;
+    font-size: 11px;
+    text-transform: lowercase;
+}
+
+.severity_icon {
+    height: 22px;
+    width: 22px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-top: 1px;
+}
+
+.severity_text{
+    padding-top: 3px;
+}
+
+.severity_text:first-letter {
+    text-transform: uppercase;
+}
+
+.graph-toolbar {
+    flex: none;
+    text-align: center;
+    padding: 5px 0;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.container-probe {
+    background: #333333;
+    padding: 10px;
+}
+
+.probes-toolbar {
+    background: #333333;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.probes-find {
+    background: #4C4C4C;
+    padding: 7px;
+    flex: none;
+}
+
+.probes-find>img {
+    padding: 0 7px;
+}
+
+.probes-find-check {
+    vertical-align: middle;
+}
+
+.panel {
+    border: 0;
+    border-radius: 0;
+    background-color: #3D3B3B;
+    color: white;
+    font-size: 12px;
+}
+
+.table > tbody > tr > td {
+    padding: 2px;
+    vertical-align: middle;
+    border-top: 0;
+}
+
+.table > tbody > tr.even {
+    background-color: #272626;;
+}
+
+.table > tbody > tr > td > input {
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.nav-tabs {
+    border-bottom: 4px solid #5A5959;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    border: 4px solid #5A5959;
+}
+
+.nav-tabs > li > a:hover {
+    border: 3px solid #474747;
+}
+
+.nav-tabs > li > a {
+    margin-right: 1px;
+    border: 3px solid #423A3A;
+}
+
+.nav > li > a {
+    padding: 5px 13px;
+}
+
+.tab-content {
+    font-size: 11px;
+    color: white;
+    background: rgb(36, 34, 34);
+}
+
+.textM{
+    padding-top: 10px;
+}
+.tab-content .row {
+    padding: 3px;
+    font-size: 11px;
+    word-break: break-all;
+}
+
+.tab-content .row .override-padding-0 {
+    padding: 0 0 0 4px !important;
+}
+
+.tab-content .row:nth-child(even) {
+    background-color: rgb(61, 59, 59);
+}
+
+.tab-content .row:nth-child(odd) {
+    background-color: rgb(39, 38, 38);
+}
+
+.probes-tree tr {
+    height: 22px;
+}
+
+.detailed-timeline-list {
+    background-color: #333333;
+    padding: 5px 10px 0;
+}
+
+.detailed-timeline {
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+
+.detailed-timeline.no-border {
+    border: none;
+}
+
+.detailed-timeline * {
+    position: absolute;
+    min-width: 1px;
+}
+
+.timeline-info {
+    font-size: 12px;
+    float: left;
+    color: white;
+    margin-left: -60px;
+}
+
+.detailed-timeline .no-alert-line {
+    background: #00c200;
+    height: 8px;
+}
+
+.detailed-timeline .warn-line {
+    background: #ffaa00;
+    height: 16px;
+}
+
+.detailed-timeline .crit-line {
+    background: #ff0000;
+    height: 24px;
+}
+
+.timeline-background{
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    padding-top: 25px;
+    margin-left: 60px;
+    position: relative;
+}
+
+.timeline-separators-thick {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.timeline-separators-thin {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 10px);
+}
+.timeline-separator-text {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    color: #808080;
+}
+.video-indicator {
+    float: right;
+    text-align: right;
+}
+
+.live-title {
+    font-size: 13px;
+    color: white;
+}
+
+.alert-actions {
+    background: #5A5959;
+    padding-left: 4px;
+    padding-bottom: 6px;
+}
+
+.alert-actions .delimiter {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.31);
+    width: 1px;
+    height: 16px;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+.severity-row-content > * {
+    display: inline-block !important;
+}
+
+.severity-indicator {
+    height: 12px;
+    width: 12px;
+    margin-right: 3px;
+    margin-bottom: -2px;
+}
+
+.severity-indicator.warning {
+    background: rgba(211, 162, 0, 1);
+}
+
+.severity-indicator.critical {
+    background: rgba(255,0,0, 1);
+}
+
+.alert-action {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.no_video_stream {
+    background: #000000 url('../img/no_broadcast.png') no-repeat center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+

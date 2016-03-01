@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Config editor</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var tree = document.getElementById("tree");
+            var head = document.getElementById("head");
+            head.style.width = tree.getBoundingClientRect().width + 'px';
+
+            var t = document.getElementById("t");
+            var h = document.getElementById("h");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div class="modal-dialog bigmodal config-page flex flex-col">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px"/>
+                <h4 class="modal-title">Config editor</h4>
+            </div>
+            <div class="flex flex-11a config-panel" style="overflow: hidden">
+                <div class="col-xs-6 override-padding-0 flex flex-col flex-11a" style="border-right: 3px solid #000000;">
+                    <div class="config-tree-button-panel flex-none">
+                        <img src="../img/probeConfig/delete_0.png"
+                             title="Delete probe"
+                             style="padding-right: 10px"/>
+                        <img src="../img/probeConfig/CompareConfig_0.png"
+                             title="Compare configuration"
+                             style="padding-right: 10px"/>
+                    </div>
+                    <div class="config-tree-head flex-none">
+                        <div class="container-fluid override-padding-0 pull-left" id="h">
+                            <div class="config-head-text-dn overflow-ellipsis pull-left col-xs-8">
+                                <input type="checkbox" class="pull-left config-chbx-head">
+                                <span class="pull-left config-line-head"></span>
+                                Display Name
+                            </div>
+                            <div class="config-head-text overflow-ellipsis pull-left col-xs-4">Download</div>
+                        </div>
+                    </div>
+                    <div class="config-tree flex-11a">
+                        <ul class="probe-tree-background override-margin-0 override-padding-0">
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0" id="t">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="config-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="small-text config-tree-line-text-dn pull-left col-xs-8 overflow-ellipsis ">
+                                        <input type="checkbox" class="pull-left config-chbx">
+                                        <span class="pull-left config-line"></span>
+                                        <div class="pull-left probe-simple margin-right-2"></div>
+                                        Probe_1
+                                    </div>
+                                    <div class="config-tree-line pull-left col-xs-4">
+                                        <img src="../img/probeConfig/download.png" class="config-center-block"/>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6 override-padding-0 flex flex-col" style="overflow-y: auto">
+                    <div class="assign-panel flex-none">
+                        <input type="radio" class="pull-left" style="margin-right: 10px" checked/>
+                        <label class="label-text">Assign from file:</label><br/>
+
+                        <div class="container-fluid override-padding-0">
+                            <input class="config-assign-file col-xs-9" type="text"/>
+                            <button type="button" class="btn btn-primary config-btn col-xs-3">Browse</button>
+                        </div>
+                        <div class="assign-file-btn">
+                            <button type="button" class="btn btn-primary config-btn pull-right">Edit</button>
+                        </div>
+                    </div>
+                    <div class="assign-panel flex-none">
+                        <input disabled type="radio" class="pull-left" style="margin-right: 10px"/>
+                        <label class="label-text">Assign from one to other:</label><br/>
+
+                        <div class="container-fluid override-padding-0">
+                            <label class="label-text" style="color: #767676;">Choose:</label>
+                            <select class="form-control select col-xs-12" style="cursor: not-allowed">
+                            </select>
+                        </div>
+                        <div class="assign-file-btn">
+                            <button type="button" class="btn disabled config-btn config-btn-disabled pull-right">Edit</button>
+                        </div>
+
+                    </div>
+                    <div class="assign-panel-last flex flex-col flex-11a">
+                        <div class="flex-none">
+                            <input disabled type="radio" class="pull-left" style="margin-right: 10px"/>
+                            <label class="label-text">Assign from history:</label><br/>
+                        </div>
+                        <div class="flex-none">
+                            <label class="label-text" style="color: #767676;">Choose:</label>
+                        </div>
+                        <div class="flex-none">
+                            <select class="form-control select col-xs-12" style="cursor: not-allowed">
+                            </select>
+                        </div>
+                        <div class="history-tree flex-none"></div>
+                        <div class="assign-file-btn flex-none">
+                            <button type="button" class="btn disabled config-btn config-btn-disabled pull-right">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer flex-none">
+                <button type="button" class="btn btn-primary config-btn">Done</button>
+                <button type="button" class="btn btn-primary config-btn pull-right">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

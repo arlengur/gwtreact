@@ -1,0 +1,3201 @@
+[
+  {
+    "id": 98350,
+    "name": "Nizhny Novgorod, uProbe 1708",
+    "entityKey": "uProbe_fixed 1708",
+    "tasks": [
+      {
+        "id": 98386,
+        "name": "IPStatistics - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.110",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98382,
+        "name": "IPStatistics - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.108",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98634,
+        "name": "TR101290 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.409",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98375,
+        "name": "IPStatistics - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.104",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98377,
+        "name": "IPStatistics - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.109",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98376,
+        "name": "RTPStatistics - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.206",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98378,
+        "name": "RTPStatistics - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.207",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98358,
+        "name": "MPEG_TS Statistics Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.303",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98360,
+        "name": "MPEG_TS Statistics Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.309",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98383,
+        "name": "MPEG_TS Statistics Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.310",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98379,
+        "name": "RTPStatistics - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.208",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98381,
+        "name": "RTPStatistics - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.209",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98366,
+        "name": "IPStatistics - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.102",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98368,
+        "name": "IPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.101",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98357,
+        "name": "MPEG_TS Statistics Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.304",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98384,
+        "name": "RTPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.201",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98370,
+        "name": "IPStatistics - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.105",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98363,
+        "name": "RTPStatistics - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.210",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98372,
+        "name": "IPStatistics - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.106",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98638,
+        "name": "TR101290 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.407",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98361,
+        "name": "MPEG_TS Statistics Control Module - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.308",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98362,
+        "name": "MPEG_TS Statistics Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.307",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98369,
+        "name": "RTPStatistics - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.203",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98385,
+        "name": "RTPStatistics - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.202",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98610,
+        "name": "TR101290 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.406",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98371,
+        "name": "RTPStatistics - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.204",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98373,
+        "name": "IPStatistics - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.103",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98614,
+        "name": "TR101290 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.403",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98374,
+        "name": "RTPStatistics - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.RTPStatistics.205",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98606,
+        "name": "TR101290 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.405",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98618,
+        "name": "TR101290 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.404",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98622,
+        "name": "TR101290 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.401",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98730,
+        "name": "TR101290_pr2 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.502",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98630,
+        "name": "TR101290 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.402",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98626,
+        "name": "TR101290 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.410",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98698,
+        "name": "TR101290_pr2 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.509",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98714,
+        "name": "TR101290_pr2 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.507",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98706,
+        "name": "TR101290_pr2 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.505",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98722,
+        "name": "TR101290_pr2 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.501",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98726,
+        "name": "TR101290_pr2 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.503",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98694,
+        "name": "TR101290_pr2 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.510",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98380,
+        "name": "IPStatistics - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.IPStatistics.107",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98356,
+        "name": "MPEG_TS Statistics Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.305",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98359,
+        "name": "MPEG_TS Statistics Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.302",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98364,
+        "name": "MPEG_TS Statistics Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.306",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98365,
+        "name": "MPEG_TS Statistics Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.MpegTSStatisticsIPTVControlModule.301",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98718,
+        "name": "TR101290_pr2 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.506",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98710,
+        "name": "TR101290_pr2 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.504",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98642,
+        "name": "TR101290 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290IPTVControlModule.408",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 98702,
+        "name": "TR101290_pr2 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1708.TR101290p2IPTVControlModule.508",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 769,
+    "name": "cbk-test1_3203_new",
+    "entityKey": "cbk-test1_3203_new",
+    "tasks": [
+      {
+        "id": 798,
+        "name": "iptv ДискавериHD",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1108",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 793,
+        "name": "ip_tv_otr",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1101",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 797,
+        "name": "iptv ТНТ",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1102",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 795,
+        "name": "iptv Россия1",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1104",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 796,
+        "name": "iptv Первый канал",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1103",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 799,
+        "name": "iptv РЕН",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1107",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 794,
+        "name": "iptv НТВ",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1105",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 800,
+        "name": "iptv Домашний",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_1106.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_1106"
+        },
+        "entityKey": "cbk-test1_3203_new.RecordAndStream.1106",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 65548,
+    "name": "Cable analog/digit9",
+    "entityKey": "cable9",
+    "tasks": [
+      {
+        "id": 164855,
+        "name": "НТВ(RecordAndStream)",
+        "streams": {
+          "HLS": "http://192.168.118.4:80/qligentPlayer/streams/ipad/playlist_stream720_6.m3u8",
+          "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/stream_6"
+        },
+        "entityKey": "cable9.RecordAndStream.41",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 196609,
+        "name": "109",
+        "streams": {
+          "HLS": "http://192.168.118.4:80/qligentPlayer/streams/ipad/playlist_stream720_6.m3u8",
+          "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/stream_6"
+        },
+        "entityKey": "cable9.RecordAndStream.6",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197967,
+        "name": "Россия 2(106) Битрейты",
+        "streams": {
+          "HLS": "http://192.168.118.4:80/qligentPlayer/streams/ipad/playlist_stream720_6.m3u8",
+          "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/stream_6"
+        },
+        "entityKey": "cable9.MpegTSStatisticsIPTVControlModule.1001",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198384,
+        "name": "109 Битрейты",
+        "streams": {
+          "HLS": "http://192.168.118.4:80/qligentPlayer/streams/ipad/playlist_stream720_6.m3u8",
+          "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/stream_6"
+        },
+        "entityKey": "cable9.MpegTSStatisticsIPTVControlModule.1002",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 197533,
+    "name": "oka_test1",
+    "entityKey": "oka_test1",
+    "tasks": [
+      {
+        "id": 197556,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197558,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197557,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 197560,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197561,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197705,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 197559,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197554,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197555,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_test1.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 229420,
+    "name": "oka_new_1",
+    "entityKey": "oka_new_1",
+    "tasks": [
+      {
+        "id": 229575,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_1.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 199679,
+    "name": "digit-tbs1",
+    "entityKey": "digit-tbs1",
+    "tasks": [
+      {
+        "id": 199831,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "digit-tbs1.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 32768,
+    "name": "Probe #230",
+    "entityKey": "230",
+    "tasks": [
+      {
+        "id": 32781,
+        "name": "Task #230.IT09AControlModule.370",
+        "streams": {"RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264"},
+        "entityKey": "230.IT09AControlModule.370",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      }
+    ]
+  },
+  {
+    "id": 229935,
+    "name": "oka_new_4",
+    "entityKey": "oka_new_4",
+    "tasks": [
+      {
+        "id": 229956,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_4.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 197731,
+    "name": "Niva 5",
+    "entityKey": "niva5",
+    "tasks": [
+      {
+        "id": 197758,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197760,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197761,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197754,
+        "name": "Запись TS (Первый канал HD)",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.MpegTSRecorderControlModule.11725",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      },
+      {
+        "id": 197755,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197756,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197757,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197752,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197759,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 197753,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.102:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.102:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "niva5.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 229777,
+    "name": "oka_new_3",
+    "entityKey": "oka_new_3",
+    "tasks": [
+      {
+        "id": 229798,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_3.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 163840,
+    "name": "Encoder",
+    "entityKey": "Encoder",
+    "tasks": [
+      {
+        "id": 163860,
+        "name": "SPTS LuxuryWorld - Bitrates",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.MpegTSStatisticsIPTVControlModule.151",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 163861,
+        "name": "SPTS OmskRadio - TR290p2",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290p2IPTVControlModule.163",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163862,
+        "name": "SPTS iOne - TR290p1",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290IPTVControlModule.132",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163863,
+        "name": "SPTS ShopAndShow - TR290p1",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290IPTVControlModule.122",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163864,
+        "name": "SPTS LifeNews - TR290p1",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290IPTVControlModule.112",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163865,
+        "name": "SPTS LuxuryWorld - TR290p1",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290IPTVControlModule.152",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163855,
+        "name": "SPTS LuxuryWorld - TR290p2",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290p2IPTVControlModule.153",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163856,
+        "name": "SPTS OmsRadio - Bitrates",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.MpegTSStatisticsIPTVControlModule.161",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 163857,
+        "name": "SPTS iOne - TR290p2",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290p2IPTVControlModule.133",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163858,
+        "name": "SPTS ShopAndShow - TR290p2",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290p2IPTVControlModule.123",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163859,
+        "name": "SPTS LifeNews - TR290p2",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290p2IPTVControlModule.113",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163867,
+        "name": "SPTS iOne - Bitrates",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.MpegTSStatisticsIPTVControlModule.131",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 163868,
+        "name": "SPTS OmskRadio - TR290p1",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.TR101290IPTVControlModule.162",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163871,
+        "name": "SPTS ShopAndShow - Bitrates",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.MpegTSStatisticsIPTVControlModule.121",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 163870,
+        "name": "ShopAndShow - QoE",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.T2ControlModule.106",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163869,
+        "name": "iOne - QoE",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.T2ControlModule.107",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163872,
+        "name": "Luxury World - QoE",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.T2ControlModule.108",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 163873,
+        "name": "SPTS LifeNews - Bitrates",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.MpegTSStatisticsIPTVControlModule.111",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 163866,
+        "name": "LifeNews - QoE",
+        "streams": {
+          "HLS": "http://91.228.161.81:80/qligentPlayer/streams/ipad/playlist_Encoder.T2ControlModule.105.m3u8",
+          "RTMP": "rtmpt://91.228.161.81:80/qligentPlayer/Encoder.T2ControlModule.105"
+        },
+        "entityKey": "Encoder.T2ControlModule.105",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 131250,
+    "name": "Probe audio bars",
+    "entityKey": "probe_audio_bars",
+    "tasks": [
+      {
+        "id": 131272,
+        "name": "RecordAndStream",
+        "streams": {
+          "HLS": "http://192.168.116.24:80/qligentPlayer/streams/ipad/playlist_stream720_1905.m3u8",
+          "RTMP": "rtmpt://192.168.116.24:80/qligentPlayer/stream_1905"
+        },
+        "entityKey": "probe_audio_bars.RecordAndStream.1905",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 196610,
+    "name": "iptv_dvb-c",
+    "entityKey": "balakovo",
+    "tasks": [
+      {
+        "id": 197343,
+        "name": "DVB-C Россия2",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.RecordAndStream.104",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197344,
+        "name": "DVB-C НТВ",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.RecordAndStream.105",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197345,
+        "name": "DVB-C Карусель",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.RecordAndStream.109",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197346,
+        "name": "DVB-C Россия1",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.RecordAndStream.103",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197347,
+        "name": "DVB-C Первый",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.RecordAndStream.102",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 197146,
+        "name": "DVB-C MPEG TS Statistics - Channel One HD",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.MpegTSStatisticsIPTVControlModule.2000",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198383,
+        "name": "Запись TS (Первый канал HD)",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.MpegTSRecorderControlModule.11725",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      },
+      {
+        "id": 198396,
+        "name": "R128, канал 1, аудио-дорожка 1",
+        "streams": {
+          "HLS": "http://192.168.115.234:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+          "RTMP": "rtmpt://192.168.115.234:80/qligentPlayer/stream_102"
+        },
+        "entityKey": "balakovo.LoudnessR128.1",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 98923,
+    "name": "Nizhny Novgorod, uProbe 1917",
+    "entityKey": "uProbe_fixed 1917",
+    "tasks": [
+      {
+        "id": 98942,
+        "name": "IPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917.IPStatistics.101",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 199477,
+    "name": "digit-tbs",
+    "entityKey": "digit-tbs",
+    "tasks": [
+      {
+        "id": 199506,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199503,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199501,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199499,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199504,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199505,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 231177,
+        "name": "ATSC MPEG TS Statistics",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.MpegTSStatisticsIPTVControlModule.1000",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 231159,
+        "name": "TBS plp 0 (Rf)",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RfMeasurement.11865",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 231211,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1060.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1060"
+        },
+        "entityKey": "digit-tbs.RecordAndStream.1060",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 465,
+    "name": "digit-tbs2",
+    "entityKey": "digit-tbs2",
+    "tasks": [
+      {
+        "id": 482,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164178,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164179,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164180,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164181,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164182,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 164177,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_1030.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_1030"
+        },
+        "entityKey": "digit-tbs2.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 230961,
+    "name": "oka_new_99",
+    "entityKey": "oka_new_99",
+    "tasks": [
+      {
+        "id": 230982,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_99.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 231158,
+        "name": "Запись TS",
+        "streams": {},
+        "entityKey": "oka_new_99.MpegTSRecorderControlModule.11725",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      }
+    ]
+  },
+  {
+    "id": 100722,
+    "name": "Q'ligent Vision uProbe, December 2014",
+    "entityKey": "uProbe_beeline_2014",
+    "tasks": [
+      {
+        "id": 131148,
+        "name": "Fashion One HD - TR101290 P1",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290IPTVControlModule.20141202402",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131072,
+        "name": "TV3 SD - RTPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.RTPStatistics.20141202203",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131136,
+        "name": "Fashion One HD - Bitrates",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.MpegTSStatisticsIPTVControlModule.20141202302",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 131086,
+        "name": "TV3 SD - TR101290 P1",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290IPTVControlModule.20141202403",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131106,
+        "name": "Perviy HD - RTPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.RTPStatistics.20141202201",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131132,
+        "name": "TV3 SD - TR101290 P2",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290p2IPTVControlModule.20141202503",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131098,
+        "name": "Perviy HD - IPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.IPStatistics.20141202101",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131082,
+        "name": "TV3 SD - IPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.IPStatistics.20141202103",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131077,
+        "name": "NasheNovoeKino SD - RTPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.RTPStatistics.20141202204",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131128,
+        "name": "Fashion One HD - TR101290 P2",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290p2IPTVControlModule.20141202502",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131111,
+        "name": "Fashion One HD - RTPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.RTPStatistics.20141202202",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131140,
+        "name": "TV3 SD - Bitrates",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.MpegTSStatisticsIPTVControlModule.20141202303",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 131124,
+        "name": "NasheNovoeKino SD - Bitrates",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.MpegTSStatisticsIPTVControlModule.20141202304",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 131094,
+        "name": "NasheNovoeKino SD - TR101290 P1",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290IPTVControlModule.20141202404",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131116,
+        "name": "NasheNovoeKino SD - TR101290 P2",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290p2IPTVControlModule.20141202504",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131102,
+        "name": "Fashion One HD - IPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.IPStatistics.20141202102",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131152,
+        "name": "Perviy HD - TR101290 P1",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290IPTVControlModule.20141202401",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131090,
+        "name": "NasheNovoeKino SD - IPStatistics",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.IPStatistics.20141202104",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 131120,
+        "name": "Perviy HD - Bitrates",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.MpegTSStatisticsIPTVControlModule.20141202301",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 131144,
+        "name": "Perviy HD - TR101290 P2",
+        "streams": {},
+        "entityKey": "uProbe_beeline_2014.TR101290p2IPTVControlModule.20141202501",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 99315,
+    "name": "Nizhny Novgorod, uProbe 1917",
+    "entityKey": "uProbe_fixed 1917-2",
+    "tasks": [
+      {
+        "id": 99357,
+        "name": "TR101290 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.403",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99337,
+        "name": "TR101290 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.406",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99341,
+        "name": "TR101290 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.407",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99345,
+        "name": "TR101290 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.408",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99349,
+        "name": "TR101290 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.409",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99477,
+        "name": "RTPStatistics - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.202",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99497,
+        "name": "RTPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.201",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99482,
+        "name": "RTPStatistics - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.203",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99487,
+        "name": "RTPStatistics - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.204",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99492,
+        "name": "RTPStatistics - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.205",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99462,
+        "name": "RTPStatistics - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.206",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99457,
+        "name": "RTPStatistics - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.207",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99472,
+        "name": "RTPStatistics - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.208",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99467,
+        "name": "RTPStatistics - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.209",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99502,
+        "name": "RTPStatistics - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.RTPStatistics.210",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99417,
+        "name": "MPEG_TS Statistics Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.301",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99421,
+        "name": "MPEG_TS Statistics Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.302",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99425,
+        "name": "MPEG_TS Statistics Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.303",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99429,
+        "name": "MPEG_TS Statistics Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.304",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99433,
+        "name": "MPEG_TS Statistics Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.305",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99437,
+        "name": "MPEG_TS Statistics Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.306",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99441,
+        "name": "MPEG_TS Statistics Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.307",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99445,
+        "name": "MPEG_TS Statistics Control Module - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.308",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99449,
+        "name": "MPEG_TS Statistics Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.309",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99453,
+        "name": "MPEG_TS Statistics Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.MpegTSStatisticsIPTVControlModule.310",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 99544,
+        "name": "IPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.101",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99552,
+        "name": "IPStatistics - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.102",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99562,
+        "name": "IPStatistics - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.103",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99514,
+        "name": "IPStatistics - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.104",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99521,
+        "name": "IPStatistics - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.105",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99528,
+        "name": "IPStatistics - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.106",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99536,
+        "name": "IPStatistics - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.107",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99405,
+        "name": "TR101290_pr2 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.501",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99413,
+        "name": "TR101290_pr2 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.502",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99397,
+        "name": "TR101290_pr2 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.503",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99401,
+        "name": "TR101290_pr2 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.504",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99389,
+        "name": "TR101290_pr2 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.505",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99393,
+        "name": "TR101290_pr2 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.506",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99381,
+        "name": "TR101290_pr2 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.507",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99385,
+        "name": "TR101290_pr2 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.508",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99377,
+        "name": "TR101290_pr2 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.509",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99409,
+        "name": "TR101290_pr2 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290p2IPTVControlModule.510",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99369,
+        "name": "TR101290 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.401",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99361,
+        "name": "TR101290 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.404",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99365,
+        "name": "TR101290 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.405",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99373,
+        "name": "TR101290 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.410",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99571,
+        "name": "IPStatistics - OTP",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.110",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99580,
+        "name": "IPStatistics - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.109",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99353,
+        "name": "TR101290 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.TR101290IPTVControlModule.402",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 99591,
+        "name": "IPStatistics - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_fixed 1917-2.IPStatistics.108",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 230421,
+    "name": "oka_new_7",
+    "entityKey": "oka_new_7",
+    "tasks": [
+      {
+        "id": 230442,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_7.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 599,
+    "name": "OKA",
+    "entityKey": "oka",
+    "tasks": [
+      {
+        "id": 626,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 633,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 628,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198403,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198407,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 635,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 634,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 229619,
+    "name": "oka_new_2",
+    "entityKey": "oka_new_2",
+    "tasks": [
+      {
+        "id": 229640,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_2.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 230630,
+    "name": "oka_new_8",
+    "entityKey": "oka_new_8",
+    "tasks": [
+      {
+        "id": 230651,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_8.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 197974,
+    "name": "mirny",
+    "entityKey": "mirny",
+    "tasks": [
+      {
+        "id": 198125,
+        "name": "DVB-C MPEG TS Statistics - Channel One HD",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.MpegTSStatisticsIPTVControlModule.2000",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198129,
+        "name": "IPTV TR101290p2IPTVControlModule",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.TR101290p2IPTVControlModule.5000",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198153,
+        "name": "DVB-C - RecordAndStream - Channel One HD",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.RecordAndStream.1000",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198141,
+        "name": "IPTV TR101290ControlModule_pr3",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.TR101290ControlModule_pr3.6000",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198137,
+        "name": "IPTV TR101290IPTVControlModule",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.TR101290IPTVControlModule.4000",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198133,
+        "name": "DVB-C - LoudnessR128",
+        "streams": {
+          "HLS": "http://192.168.116.25:80/qligentPlayer/streams/ipad/playlist_stream720_1000.m3u8",
+          "RTMP": "rtmpt://192.168.116.25:80/qligentPlayer/stream_1000"
+        },
+        "entityKey": "mirny.LoudnessR128.3000",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 100089,
+    "name": "Q'ligent Vision uProbe",
+    "entityKey": "uProbe_beeline",
+    "tasks": [
+      {
+        "id": 100381,
+        "name": "RTPStatistics - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201204",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100386,
+        "name": "RTPStatistics - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201205",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100376,
+        "name": "RTPStatistics - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201203",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100400,
+        "name": "TR101290 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201410",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100444,
+        "name": "TR101290_pr2 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201502",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100408,
+        "name": "TR101290_pr2 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201507",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100466,
+        "name": "TR101290_pr2 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201504",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100366,
+        "name": "RTPStatistics - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201209",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100429,
+        "name": "TR101290_pr2 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201509",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100404,
+        "name": "TR101290_pr2 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201508",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100391,
+        "name": "RTPStatistics - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201201",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100475,
+        "name": "TR101290_pr2 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201503",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100509,
+        "name": "TR101290 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201401",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100490,
+        "name": "TR101290_pr2 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201506",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100361,
+        "name": "RTPStatistics - Russia Two NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201208",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100457,
+        "name": "TR101290_pr2 Control Module - Channel One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201501",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100356,
+        "name": "RTPStatistics - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201207",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100371,
+        "name": "RTPStatistics - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201202",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100513,
+        "name": "TR101290 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201405",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100396,
+        "name": "TR101290_pr2 Control Module - OTP",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201510",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100351,
+        "name": "RTPStatistics - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201206",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100505,
+        "name": "TR101290_pr2 Control Module - Domashny NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290p2IPTVControlModule.20141201505",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100517,
+        "name": "TR101290 Control Module - TNT NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201404",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100521,
+        "name": "TR101290 Control Module - NTV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201403",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100525,
+        "name": "TR101290 Control Module - Russia One NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201402",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100529,
+        "name": "TR101290 Control Module - Channel Five NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201409",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100533,
+        "name": "TR101290 Control Module - Russia 2 NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201408",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100537,
+        "name": "TR101290 Control Module - Russia K NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201407",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100541,
+        "name": "TR101290 Control Module - REN-TV NN",
+        "streams": {},
+        "entityKey": "uProbe_beeline.TR101290IPTVControlModule.20141201406",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 100581,
+        "name": "RTPStatistics - OTP",
+        "streams": {},
+        "entityKey": "uProbe_beeline.RTPStatistics.20141201210",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 198599,
+    "name": "oka",
+    "entityKey": "oka_new",
+    "tasks": [
+      {
+        "id": 198622,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198624,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198625,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198626,
+        "name": "Запись TS (Первый канал HD)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.MpegTSRecorderControlModule.11725",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      },
+      {
+        "id": 198620,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198628,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198629,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198621,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198623,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198627,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "oka_new.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 198420,
+    "name": "oka",
+    "entityKey": "okatest1",
+    "tasks": [
+      {
+        "id": 198575,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198580,
+        "name": "Запись TS (Первый канал HD)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.MpegTSRecorderControlModule.11725",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      },
+      {
+        "id": 198581,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198582,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198583,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198584,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198585,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198571,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198576,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198586,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1040.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1040"
+        },
+        "entityKey": "okatest1.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "orbita",
+    "entityKey": "orbita",
+    "tasks": [
+      {
+        "id": 23,
+        "name": "ATSC Record And Stream",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RecordAndStream.100500",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98314,
+        "name": "Loudness A85 - 16-1",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.LoudnessA85.100508",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 24,
+        "name": "TS Bitrates",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.MpegTSStatisticsIPTVControlModule.100503",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98313,
+        "name": "ATSC Record And Stream",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RecordAndStream.100507",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98318,
+        "name": "ATSC Record And Stream",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RecordAndStream.100505",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98319,
+        "name": "ATSC Record And Stream",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RecordAndStream.100506",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 98320,
+        "name": "ATSC Record And Stream",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RecordAndStream.100504",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 21,
+        "name": "ATSC A/78 Measurements",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.AtscA78.100501",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 22,
+        "name": "RF Characteristics Measurement",
+        "streams": {
+          "HLS": "http://192.168.118.91:80/qligentPlayer/streams/ipad/playlist_stream720_100504.m3u8",
+          "RTMP": "rtmpt://192.168.118.91:80/qligentPlayer/stream_100504"
+        },
+        "entityKey": "orbita.RfMeasurement.100502",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "name": "Gazel",
+    "entityKey": "gazel",
+    "tasks": [
+      {
+        "id": 229406,
+        "name": "TVStreamControlModule 2174",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_99302.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_99302"
+        },
+        "entityKey": "gazel.TVStreamControlModule_v2.1001",
+        "defaultStream": false,
+        "parameterGroup": "AUDIO"
+      },
+      {
+        "id": 229413,
+        "name": "R128, канал 1, аудио-дорожка 1 2174",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_99302.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_99302"
+        },
+        "entityKey": "gazel.LoudnessR128.2",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 229405,
+        "name": "Запись Перец",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_99302.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_99302"
+        },
+        "entityKey": "gazel.RecordAndStream.99302",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 199856,
+    "name": "digit-tbs3",
+    "entityKey": "digit-tbs3",
+    "tasks": [
+      {
+        "id": 200033,
+        "name": "Channel 1",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_13852.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_13852"
+        },
+        "entityKey": "digit-tbs3.RecordAndStream.13851",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 200058,
+        "name": "Channel 4",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_13852.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_13852"
+        },
+        "entityKey": "digit-tbs3.RecordAndStream.13854",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 200059,
+        "name": "Channel 3",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_13852.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_13852"
+        },
+        "entityKey": "digit-tbs3.RecordAndStream.13853",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 200060,
+        "name": "Channel 5",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_13852.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_13852"
+        },
+        "entityKey": "digit-tbs3.RecordAndStream.13855",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 200061,
+        "name": "Channel 2",
+        "streams": {
+          "HLS": "http://192.168.115.214:80/qligentPlayer/streams/ipad/playlist_stream720_13852.m3u8",
+          "RTMP": "rtmpt://192.168.115.214:80/qligentPlayer/stream_13852"
+        },
+        "entityKey": "digit-tbs3.RecordAndStream.13852",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 230096,
+    "name": "oka_new_5",
+    "entityKey": "oka_new_5",
+    "tasks": [
+      {
+        "id": 230117,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_5.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 198778,
+    "name": "oka_new3",
+    "entityKey": "oka_new3",
+    "tasks": [
+      {
+        "id": 198801,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198799,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198800,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198803,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198804,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198807,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198806,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198802,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198805,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1010.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1010"
+        },
+        "entityKey": "oka_new3.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  },
+  {
+    "id": 199137,
+    "name": "oka_new5",
+    "entityKey": "oka_new5",
+    "tasks": [
+      {
+        "id": 199158,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new5.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 230788,
+    "name": "oka_new_9",
+    "entityKey": "oka_new_9",
+    "tasks": [
+      {
+        "id": 230809,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_9.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 199295,
+    "name": "oka_new6",
+    "entityKey": "oka_new6",
+    "tasks": [
+      {
+        "id": 199316,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new6.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199453,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new6.MpegTSStatisticsIPTVControlModule.11708",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 199463,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new6.MpegTSStatisticsIPTVControlModule.11707",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 230263,
+    "name": "oka_new_6",
+    "entityKey": "oka_new_6",
+    "tasks": [
+      {
+        "id": 230284,
+        "name": "MpegTSStatistics",
+        "streams": {},
+        "entityKey": "oka_new_6.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 198959,
+    "name": "oka_new4",
+    "entityKey": "oka_new4",
+    "tasks": [
+      {
+        "id": 198982,
+        "name": "oka(TR101 290 priority 1)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.TR101290IPTVControlModule.1692",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198987,
+        "name": "oka(TR101 290 priority 2)",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.TR101290p2IPTVControlModule.1697",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 198980,
+        "name": "Канал 1040",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1040",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198983,
+        "name": "Канал 1010",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1010",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198984,
+        "name": "Канал 1030",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1030",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198985,
+        "name": "Канал 1090",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1090",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198986,
+        "name": "Канал 1080",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1080",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198988,
+        "name": "Канал 1050",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.RecordAndStream.1050",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      },
+      {
+        "id": 198981,
+        "name": "MpegTSStatistics",
+        "streams": {
+          "HLS": "http://192.168.115.69:80/qligentPlayer/streams/ipad/playlist_stream720_1050.m3u8",
+          "RTMP": "rtmpt://192.168.115.69:80/qligentPlayer/stream_1050"
+        },
+        "entityKey": "oka_new4.MpegTSStatisticsIPTVControlModule.11709",
+        "defaultStream": false,
+        "parameterGroup": "VIDEO"
+      }
+    ]
+  },
+  {
+    "id": 164228,
+    "name": "niva",
+    "entityKey": "niva",
+    "tasks": [
+      {
+        "id": 200038,
+        "name": "MDI",
+        "streams": {},
+        "entityKey": "niva.IPStatistics.1234",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      },
+      {
+        "id": 200042,
+        "name": "IPTV RTPStatistics",
+        "streams": {},
+        "entityKey": "niva.RTPStatistics.1000",
+        "defaultStream": false,
+        "parameterGroup": "TS"
+      }
+    ]
+  }
+]

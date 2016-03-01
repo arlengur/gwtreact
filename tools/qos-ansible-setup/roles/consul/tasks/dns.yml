@@ -1,0 +1,25 @@
+---
+# TODO redirect dns to consul
+
+- name: Update dns
+  lineinfile: >
+    dest=/etc/sysconfig/network-scripts/ifcfg-{{ dhcp_interface }}
+    regexp='^DNS1='
+    line='DNS1=127.0.0.1'
+    state=present
+  notify: restart network
+
+- name: Avoid other dns
+  lineinfile: >
+    dest=/etc/sysconfig/network-scripts/ifcfg-{{ dhcp_interface }}
+    regexp='^DNS2='
+    state=absent
+  notify: restart network
+
+- name: Update search domain
+  lineinfile: >
+    dest=/etc/sysconfig/network-scripts/ifcfg-{{ dhcp_interface }}
+    regexp='^DOMAIN='
+    line='DOMAIN=node.qos'
+    state=present
+  notify: restart network

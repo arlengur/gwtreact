@@ -1,0 +1,13 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ .body {
+  border: none;
+  background: none;
+}
+
+.ghost ul {
+  background-color: black;
+  border-color: black;
+}

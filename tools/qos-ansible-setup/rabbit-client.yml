@@ -1,0 +1,11 @@
+---
+- name: Rabbit client
+  hosts: clients
+  vars_files:
+    - vars/main.yml
+  roles:
+    - local_repo
+    - iptables
+    - consul
+    - role: rabbit
+      rabbit_service_name: rabbit_client

@@ -1,0 +1,17 @@
+[
+  "AtscA78",
+  "CaptionsAnalyzer",
+  "HttpMonitor",
+  "IPStatistics",
+  "IT09AControlModule",
+  "LoudnessR128",
+  "MpegTSRecorderControlModule",
+  "MpegTSSplicingControlModule",
+  "MpegTSStatisticsIPTVControlModule",
+  "OTTMonitor",
+  "QoEVideo",
+  "RecordAndStream",
+  "RfMeasurement",
+  "RTPStatistics",
+  "TR101290"
+]

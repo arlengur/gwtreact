@@ -1,0 +1,1 @@
+alter table MUser add settings_notificationlanguage varchar(255);

@@ -1,0 +1,9 @@
+---
+- name: Rabbit setup
+  hosts: rabbit
+  vars_files:
+    - vars/main.yml
+  roles:
+    - role: rabbit
+      rabbit_is_cluster: true
+      rabbit_service_name: rabbit

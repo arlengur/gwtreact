@@ -1,0 +1,180 @@
+{
+  "id": 65541,
+  "name": "werw",
+  "logo": "img/channels/default.png",
+  "groups": [
+    "RF"
+  ],
+  "streams": {
+    "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+    "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+    "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+    "STREAM_ID": "384"
+  },
+  "probes": [
+    {
+      "id": 65536,
+      "name": "Probe #200",
+      "entityKey": "200",
+      "tasks": [
+        {
+          "id": 65552,
+          "name": "Task #200.IT09AControlModule.383",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.383",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65552,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65553,
+          "name": "Task #200.IT09AControlModule.384",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.384",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65553,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65554,
+          "name": "Task #200.IT09AControlModule.385",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.385",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65554,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65555,
+          "name": "Task #200.IT09AControlModule.386",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.386",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65555,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65556,
+          "name": "Task #200.IT09AControlModule.380",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.380",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65556,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65557,
+          "name": "Task #200.IT09AControlModule.381",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.381",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65557,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65558,
+          "name": "Task #200.IT09AControlModule.390",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.390",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65558,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65559,
+          "name": "Task #200.IT09AControlModule.382",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.382",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65559,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65549,
+          "name": "Task #200.IT09AControlModule.387",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.387",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65549,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65551,
+          "name": "Task #200.IT09AControlModule.389",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.389",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65551,
+          "parameterGroup": "RF"
+        },
+        {
+          "id": 65550,
+          "name": "Task #200.IT09AControlModule.388",
+          "streams": {
+            "RECORDED": "rtmpt://192.168.118.4:80/qligentPlayer/stream/0_",
+            "DOWNLOAD": "rtmpt://192.168.118.4:80/qligentPlayer/download/0_",
+            "RTMP": "rtmpt://192.168.118.4:80/qligentPlayer/looping_video_h264_2",
+            "STREAM_ID": "384"
+          },
+          "entityKey": "200.IT09AControlModule.388",
+          "defaultStream": false,
+          "relatedRecordingTaskId": 65550,
+          "parameterGroup": "RF"
+        }
+      ]
+    }
+  ],
+  "isChannel": true,
+  "interval": 39600000,
+  "isFavourite": false
+}

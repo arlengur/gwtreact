@@ -1,0 +1,229 @@
+/* Navbar */
+.logout-button       {background: url('../img/nav/Exit_0.png'); width: 14px; height: 14px;}
+.logout-button:hover {background: url('../img/nav/Exit_1.png')}
+
+/* Overview */
+.channel-filter-crit         {background: url('../img/crit_0.png'); height: 23px; width: 23px;}
+.channel-filter-crit:hover   {background: url('../img/crit_over.png')}
+.channel-filter-crit.clicked {background: url('../img/crit_clicked.png')}
+
+.channel-filter-warn         {background: url('../img/warning_0.png'); height: 23px; width: 23px;}
+.channel-filter-warn:hover   {background: url('../img/warning_over.png')}
+.channel-filter-warn.clicked {background: url('../img/warning_clicked.png')}
+
+.channel-filter-none         {background: url('../img/good_0.png'); height: 23px; width: 23px;}
+.channel-filter-none:hover   {background: url('../img/good_over.png')}
+.channel-filter-none.clicked {background: url('../img/good_clicked.png')}
+
+/* Detailed View */
+.alert-action.acc       {background: url("../img/alert_info/acc.png"); width: 20px; height: 20px;}
+.alert-action.acc:hover {background: url("../img/alert_info/acc_blue.png")}
+
+.alert-action.not_acc       {background: url("../img/alert_info/not_acc.png"); width: 20px; height: 20px;}
+.alert-action.not_acc:hover {background: url("../img/alert_info/not_acc_blue.png")}
+
+.alert-action.del       {background: url("../img/alert_info/del.png"); width: 20px; height: 20px;}
+.alert-action.del:hover {background: url("../img/alert_info/del_blue.png")}
+
+.alert-action.comment       {background: url("../img/alert_info/comment.png"); width: 20px; height: 20px;}
+.alert-action.comment:hover {background: url("../img/alert_info/comment_blue.png")}
+
+.alert-action.source       {background: url("../img/alert_info/source.png"); width: 20px; height: 20px;}
+.alert-action.source:hover {background: url("../img/alert_info/source_blue.png")}
+
+.alert-action.graph       {background: url("../img/alert_info/graph.png"); width: 20px; height: 20px;}
+.alert-action.graph:hover {background: url("../img/alert_info/graph_blue.png")}
+
+.alert-action.table       {background: url("../img/alert_info/table.png"); width: 20px; height: 20px;}
+.alert-action.table:hover {background: url("../img/alert_info/table_blue.png")}
+
+/* Pagination */
+.page-first       {background: url('../img/pagination/First_0.png'); width: 6px; height: 9px;}
+.page-first:hover {background: url('../img/pagination/First_Over.png')}
+
+.page-last       {background: url('../img/pagination/Last_0.png'); width: 6px; height: 9px;}
+.page-last:hover {background: url('../img/pagination/Last_Over.png')}
+
+.page-prev       {background: url('../img/pagination/Previous_0.png'); width: 6px; height: 9px;}
+.page-prev:hover {background: url('../img/pagination/Previous_Over.png')}
+
+.page-next       {background: url('../img/pagination/Next_0.png'); width: 6px; height: 9px;}
+.page-next:hover {background: url('../img/pagination/Next_Over.png')}
+
+/* Probe config */
+.tagging-btn       {background: url("../img/probeConfig/addAttr_0.png"); width: 24px; height: 24px;}
+.tagging-btn:hover {background: url("../img/probeConfig/addAttr_over.png")}
+
+.rollback-conf-btn       {background: url("../img/probeConfig/restart_0.png"); width: 24px; height: 24px;}
+.rollback-conf-btn:hover {background: url("../img/probeConfig/restart_over.png")}
+
+.upd-cfg-btn       {background: url("../img/probeConfig/config_0.png"); width: 24px; height: 24px;}
+.upd-cfg-btn:hover {background: url("../img/probeConfig/config_over.png") no-repeat}
+
+.upd-btn       {background: url("../img/probeConfig/update_0.png"); width: 24px; height: 24px;}
+.upd-btn:hover {background: url("../img/probeConfig/update_over.png")}
+
+.software-btn       {background: url("../img/probeConfig/Software_0.png"); width: 24px; height: 24px;}
+.software-btn:hover {background: url("../img/probeConfig/Software_over.png")}
+
+.rollback-sw-btn       {background: url("../img/probeConfig/rollback_0.png"); width: 24px; height: 24px;}
+.rollback-sw-btn:hover {background: url("../img/probeConfig/rollback_over.png")}
+
+.restart-btn       {background: url("../img/probeConfig/reboot_0.png"); width: 24px; height: 24px;}
+.restart-btn:hover {background: url("../img/probeConfig/reboot_over.png")}
+
+.restart-probe-btn       {background: url("../img/probeConfig/RebootAllProbe_0.png"); width: 24px; height: 24px;}
+.restart-probe-btn:hover {background: url("../img/probeConfig/RebootAllProbe_Over.png")}
+
+.delete-btn       {background: url("../img/probeConfig/delete_0.png"); width: 24px; height: 24px;}
+.delete-btn:hover {background: url("../img/probeConfig/delete_over.png")}
+
+.tsk-rf    {background: url("../img/probeConfig/tsk_RF.png");    height: 22px; width: 22px;}
+.tsk-ip    {background: url("../img/probeConfig/tsk_IP.png");    height: 22px; width: 22px;}
+.tsk-ts    {background: url("../img/probeConfig/tsk_TS.png");    height: 22px; width: 22px;}
+.tsk-audio {background: url("../img/probeConfig/tsk_Audio.png"); height: 22px; width: 22px;}
+.tsk-video {background: url("../img/probeConfig/tsk_Video.png"); height: 22px; width: 22px;}
+.tsk-cc    {background: url("../img/probeConfig/tsk_CC.png");    height: 22px; width: 22px;}
+.tsk-epg   {background: url("../img/probeConfig/tsk_EPG.png");   height: 22px; width: 22px;}
+.tsk-data  {background: url("../img/probeConfig/tsk_Data.png");  height: 22px; width: 22px;}
+
+.probe-line-middle {background: url("../img/tree_line_middle.png"); height: 23px; width: 8px;}
+
+.probe-line-end {background: url("../img/tree_line_end.png"); height: 11px; width: 8px;}
+
+.probe-tree-minus {background: url("../img/tree_minus.png"); height: 23px; width: 11px;}
+
+.probe-tree-plus {background: url("../img/tree_plus.png"); height: 23px; width: 11px;}
+
+.probe-simple   {background-image: url("../img/probeConfig/Tree_Prb_Simple.png");   height: 22px; width: 22px;}
+.probe-loading  {background-image: url("../img/probeConfig/Tree_Prb_Loading.png");  height: 22px; width: 22px;}
+.probe-reboot   {background-image: url("../img/probeConfig/Tree_Prb_Reboot.png");   height: 22px; width: 22px;}
+.probe-reconfig {background-image: url("../img/probeConfig/Tree_Prb_reconfig.png"); height: 22px; width: 22px;}
+
+.enter-logo {background: url("../img/enter-logo.png") no-repeat center;}
+.enter-icon {background: url("../img/enter-icon.png"); width: 25px; height: 25px;}
+
+.arrow-icon {background: url("../img/tree_arrow.png"); width: 4px; height: 7px;}
+
+/* Policy */
+.check-btn    {background: url("../img/policy/check.png");      width: 16px; height: 16px;}
+.question-btn {background: url("../img/policy/question.png");   width: 16px; height: 16px;}
+.send-email   {background: url("../img/policy/send-email.png"); width: 22px; height: 22px;}
+.send-sms     {background: url("../img/policy/send-sms.png");   width: 22px; height: 22px;}
+.send-alert   {background: url("../img/policy/send-alert.png"); width: 22px; height: 22px;}
+.raise-icon   {background: url("../img/policy/raise-icon.png"); width: 28px; height: 18px;}
+.cease-icon   {background: url("../img/policy/cease-icon.png"); width: 28px; height: 18px;}
+.cross-icon   {background: url("../img/policy/cross.png");      width: 18px; height: 18px;}
+
+/* Recording */
+.calendar-btn       {background: url("../img/recording/calendar.png"); width: 20px; height: 20px;}
+.calendar-btn:hover {background: url("../img/recording/calendar_over.png")}
+.cyclic-btn         {background: url("../img/recording/cyclic.png"); width: 20px; height: 20px;}
+.cyclic-btn:hover   {background: url("../img/recording/cyclic_over.png")}
+.passive-btn        {background: url("../img/recording/passive.png"); width: 20px; height: 20px;}
+.passive-btn:hover  {background: url("../img/recording/passive_over.png")}
+
+.calendar-grid               {background: url("../img/recording/calendar_grid.png"); width: 22px; height: 22px;}
+.calendar-grid:hover         {background: url("../img/recording/calendar_grid_over.png")}
+.calendar-grid-failed        {background: url("../img/recording/calendar_grid_failed.png"); width: 22px; height: 22px;}
+.calendar-grid-failed:hover  {background: url("../img/recording/calendar_grid_failed_over.png")}
+.calendar-grid-process       {background: url("../img/recording/calendar_grid_process.png"); width: 22px; height: 22px;}
+.calendar-grid-process:hover {background: url("../img/recording/calendar_grid_process_over.png")}
+.cyclic-grid                 {background: url("../img/recording/cyclic_grid.png"); width: 22px; height: 22px;}
+.cyclic-grid-failed          {background: url("../img/recording/cyclic_grid_failed.png"); width: 22px; height: 22px;}
+.cyclic-grid-process         {background: url("../img/recording/cyclic_grid_process.png"); width: 22px; height: 22px;}
+.passive-grid                {background: url("../img/recording/passive_grid.png"); width: 22px; height: 22px;}
+.passive-grid-failed         {background: url("../img/recording/passive_grid_failed.png"); width: 22px; height: 22px;}
+.passive-grid-process        {background: url("../img/recording/passive_grid_process.png"); width: 22px; height: 22px;}
+.rr-grid                     {background: url("../img/recording/rr_grid.png"); width: 22px; height: 22px;}
+.world-grid                  {background: url("../img/recording/world_grid.png"); width: 22px; height: 22px;}
+.task-grid                   {background: url("../img/recording/task.png"); width: 22px; height: 22px;}
+.empty-grid                  {width: 22px; height: 22px;}
+
+/* Template */
+.template-icon    {background-image: url("../img/template/template_little.png");   height: 22px; width: 22px;}
+
+/* Common */
+.create-btn       {background: url("../img/common/add_new.png"); width: 20px; height: 20px;}
+.create-btn:hover {background: url("../img/common/add_new_over.png");}
+.bucket-btn       {background: url("../img/common/bucket.png"); width: 20px; height: 20px;}
+.bucket-btn:hover {background: url("../img/common/bucket_over.png")}
+
+/* Not used */
+.probe-icon {background: url("../img/tree_probe_23_no_line.png"); width: 16px; height: 23px;}
+
+.task-icon {background: url("../img/tree_task.png"); width: 9px; height: 13px;}
+
+.tree-line {background: url("../img/tree_line_middle.png"); width: 8px; height: 23px;}
+
+.plus-icon {background: url("../img/tree_plus.png"); width: 11px; height: 23px;}
+
+.minus-icon {background: url("../img/tree_minus.png"); width: 11px; height: 23px;}
+
+.alert-cc-crit {background: url("../img/alert/Tree_CC_R.png")}
+.alert-cc-warn {background: url("../img/alert/Tree_CC_Y.png")}
+.alert-video-crit {background: url("../img/alert/Tree_Video_R.png")}
+.alert-video-warn {background: url("../img/alert/Tree_Video_Y.png")}
+.alert-ip-crit {background: url("../img/alert/Tree_IP_R.png")}
+.alert-ip-warn {background: url("../img/alert/Tree_IP_Y.png")}
+.alert-epg-crit {background: url("../img/alert/Tree_EPG_R.png")}
+.alert-epg-warn {background: url("../img/alert/Tree_EPG_Y.png")}
+.alert-data-crit {background: url("../img/alert/Tree_Data_R.png")}
+.alert-data-warn {background: url("../img/alert/Tree_Data_Y.png")}
+.alert-rf-crit {background: url("../img/alert/Tree_RF_R.png")}
+.alert-rf-warn {background: url("../img/alert/Tree_RF_Y.png")}
+.alert-audio-crit {background: url("../img/alert/Tree_Sound_R.png")}
+.alert-audio-warn {background: url("../img/alert/Tree_Sound_Y.png")}
+.alert-ts-crit {background: url("../img/alert/Tree_TS_R.png")}
+.alert-ts-warn {background: url("../img/alert/Tree_TS_Y.png")}
+/* end of 'Not used'*/
+
+/* User Manager */
+.comment-btn {background: url("../img/usermanager/comment.png") no-repeat center center; width: 24px; height: 24px}
+.comment-btn:hover {background: url("../img/usermanager/comment_over.png") no-repeat center center; width: 24px; height: 24px}
+.comment-btn:active {background: url("../img/usermanager/comment_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.lock-btn {background: url("../img/usermanager/lock.png") no-repeat center center; width: 24px; height: 24px}
+.lock-btn:hover {background: url("../img/usermanager/lock_over.png") no-repeat center center; width: 24px; height: 24px}
+.lock-btn:active {background: url("../img/usermanager/lock_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.unlock-btn {background: url("../img/usermanager/unlock.png") no-repeat center center; width: 24px; height: 24px}
+.unlock-btn:hover {background: url("../img/usermanager/unlock_over.png") no-repeat center center; width: 24px; height: 24px}
+.unlock-btn:active {background: url("../img/usermanager/unlock_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.groups-btn {background: url("../img/usermanager/groups.png") no-repeat center center; width: 24px; height: 24px}
+.groups-btn:hover {background: url("../img/usermanager/groups_over.png") no-repeat center center; width: 24px; height: 24px}
+.groups-btn:active {background: url("../img/usermanager/groups_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.groups-editor-btn {background: url("../img/usermanager/groupEditor.png") no-repeat center center; width: 24px; height: 24px}
+.groups-editor-btn:hover {background: url("../img/usermanager/groupEditor_over.png") no-repeat center center; width: 24px; height: 24px}
+.groups-editor-btn:active {background: url("../img/usermanager/groupEditor_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.edit-roles-btn {background: url("../img/usermanager/editRoles.png") no-repeat center center; width: 24px; height: 24px}
+.edit-roles-btn:hover {background: url("../img/usermanager/editRoles_over.png") no-repeat center center; width: 24px; height: 24px}
+.edit-roles-btn:active {background: url("../img/usermanager/editRoles_clicked.png") no-repeat center center; width: 24px; height: 24px}
+
+.super-admin-btn {background: url("../img/usermanager/superAdmin.png") no-repeat center center; width: 22px; height: 22px}
+.admin-btn {background: url("../img/usermanager/Admin.png") no-repeat center center; width: 22px; height: 22px}
+.user-btn {background: url("../img/usermanager/User.png") no-repeat center center; width: 22px; height: 22px}
+
+/* select */
+.um select.role-select {
+    background: url("../img/usermanager/role.png") no-repeat left center,
+                url('../img/dropdown/dropdownButton_1.png') no-repeat right, #222;
+    padding-left: 24px
+}
+.um select.role-select:hover {
+    background: url("../img/usermanager/role.png") no-repeat left center,
+    url('../img/dropdown/dropdownButton_Over.png') no-repeat right, #222
+}
+.um select {background: url('../img/dropdown/dropdownButton_1.png') no-repeat right #222}
+.um select:hover {background: #222 url('../img/dropdown/dropdownButton_Over.png') no-repeat right}
+
+
+.um .dashboard, .um .channel-view, .um .probe-config, .um .alarms {width: 20px; height: 23px; margin: 0 5px}
+
+.um .dashboard {background: url(../img/nav/dashboard.png) 2px 43% no-repeat}
+.um .channel-view {background: url(../img/nav/channel_view.png) 1px 43% no-repeat}
+.um .probe-config {background: url(../img/nav/probe_config.png) 0 43% no-repeat}
+.um .alarms {background: url(../img/nav/alarms.png) -2px 43% no-repeat}

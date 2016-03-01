@@ -1,0 +1,47 @@
+.arc,.hover-arc {cursor: pointer}
+.hover-arc {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.pie-container {
+    float: left;
+    height: calc(100% - 30px);
+    width: 80%;
+}
+.legend {
+    float: right;
+    height: calc(100% - 30px);
+    width: 20%;
+    overflow-y: auto;
+}
+.legend-item {
+    margin: 1px;
+    height: 21px;
+}
+.legend-box {
+    float: left;
+    height: 21px;
+    width: 8px;
+    background: green;
+}
+.legend-label {
+    margin: 0 !important;
+    padding: 4px 0 3px 12px !important;
+    color: white;
+    font-size: 14px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+.widget-button {
+    float: left;
+}
+.total-bitrate {
+    text-align: left;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}

@@ -1,0 +1,42 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+
+.severityCritical {
+	border: 5px solid rgba(severityCriticalColor, 1);
+	background-color: rgba(severityCriticalColor, 1);
+}
+.severityWarning {
+	border: 5px solid rgba(severityWarningColor, 1);
+	background-color: rgba(severityWarningColor, 1);
+}
+.severityNotice {
+	border: 5px solid rgba(severityNoticeColor, 1);
+	background-color: rgba(severityNoticeColor, 1);
+}
+.severityMajor {
+	border: 5px solid rgba(severityMajorColor, 1);
+	background-color: rgba(severityMajorColor, 1);
+}
+.severityMinor {
+	border: 5px solid rgba(severityMinorColor, 1);
+	background-color: rgba(severityMinorColor, 1);
+}
+.severityIndeterminate{
+	border: 5px solid rgba(severityIndeterminateColor, 1);
+	background-color: rgba(severityIndeterminateColor, 1);
+}
+.severityNone{
+	border: 5px solid rgba(severityNoneColor, 1);
+	background-color: rgba(severityNoneColor, 1);
+}
+.severityCritical input, .severityWarning input, 
+.severityNotice input, .severityMajor input, 
+.severityMinor input, .severityIndeterminate input, 
+.severityNone input	{
+	position: relative;
+	left: -2px;
+	top: -3px;
+}
+

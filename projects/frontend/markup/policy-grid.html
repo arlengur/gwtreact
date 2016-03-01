@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Policies</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var t = document.getElementById("tree");
+            var h = document.getElementById("head");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="probe-view container-fluid">
+        <nav class="row qligent-top-navbar">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Policies
+                </span>
+            </div>
+        </nav>
+        <div class="row probe-tree-toolbar">
+            <div class="probe-probes-find">
+
+                <div class="pull-left margin-0-5 create-btn not-allowed" title="Config rollback"></div>
+                <div class="pull-left margin-0-5 delete-btn not-allowed" title="Delete"></div>
+
+                <input class="pull-right probe-tree-probe-search placeholder-dissappear" type="text" placeholder="Search"/>
+
+            </div>
+            <div class="head-bg flex-none">
+                <div class="container-fluid override-padding-0 pull-left" id="head" style="position: relative">
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 20%">
+                        <span class="pull-right header-drag"></span>
+                        <input type="checkbox" class="pull-left chbx-head">
+                        Name
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 15%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Parameter
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 15%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Task
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 20%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Probes
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 30%">
+                        <span class="probe-head-text overflow-ellipsis pull-right"
+                              style="width: 70px">
+                            Notifications
+                        </span>
+                        <span class="pull-left header-drag"></span>
+                        Thresholds
+                    </div>
+                    <div class="vertical-line" style="border-color: #424242; left: 23px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 46px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 20%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 35%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 70%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; right: 70px;"></div>
+                </div>
+            </div>
+            <div class="probe-tree probe-tree-background">
+                <ul class="probe-tree-background override-margin-0 override-padding-0" style="position: relative">
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0" id="tree">
+                            <div class="pull-left overflow-ellipsis" style="width: 20%; text-decoration: underline">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left tsk-audio" style="margin-left: 2px"></div>
+                                <span class="small-text probe-tree-line-text">Too quite integrated loudness</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">Integrated loudness</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">HomeNN - RTPStatistics</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 20%">
+                                <span style="color: #6A97D5">(611) </span>FE12-2345-DA1E-FA9E
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 30%">
+                                <div class="pull-left threshold-wrapper">
+                                    <div class="threshold-text" style="left: calc(14% - 3px)">4</div>
+                                    <div class="threshold-text" style="left: calc(28% - 3px)">8</div>
+                                    <div class="threshold-text" style="left: calc(42% - 3px)">12</div>
+                                    <div class="threshold-text" style="left: calc(56% - 3px)">16</div>
+                                    <div class="threshold-text" style="left: calc(71% - 3px)">20</div>
+                                    <div class="threshold-text" style="left: calc(86% - 3px)">24</div>
+                                    <svg width="100%" height="100%" viewBox="0 0 300 23" preserveAspectRatio="none">
+                                        <defs>
+                                            <radialGradient id="grad1" cx="100%" cy="100%" r="100%">
+                                                <stop stop-color="#00c200" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#00c200" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                            <linearGradient id="grad2" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#4d4d4d" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#4d4d4d" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <linearGradient id="grad3" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#b5b5b5" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#b5b5b5" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <linearGradient id="grad4" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#998237" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#998237" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <linearGradient id="grad5" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#d4a300" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#d4a300" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <linearGradient id="grad6" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#ff6600" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#ff6600" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <radialGradient id="grad7" cx="0%" cy="100%" r="100%" >
+                                                <stop stop-color="#ff0000" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#ff0000" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                        </defs>
+                                        <polygon fill="url(#grad1)" stroke-width="0"
+                                                 points="0,23 43,23 43,0 0,0"/>
+                                        <polygon fill="url(#grad2)" stroke-width="0"
+                                                 points="43,23 86,23 86,0 43,0"/>
+                                        <polygon fill="url(#grad3)" stroke-width="0"
+                                                 points="86,23 129,23 129,0 86,0"/>
+                                        <polygon fill="url(#grad4)" stroke-width="0"
+                                                 points="129,23 172,23 172,0 129,0"/>
+                                        <polygon fill="url(#grad5)" stroke-width="0"
+                                                 points="172,23 215,23 215,0 172,0"/>
+                                        <polygon fill="url(#grad6)" stroke-width="0"
+                                                 points="215,23 258,23 258,0 215,0"/>
+                                        <polygon fill="url(#grad7)" stroke-width="0"
+                                                 points="258,23 300,23 300,0 258,0"/>
+                                    </svg>
+                                </div>
+                                <div class="send-email pull-right"></div>
+                                <div class="send-sms pull-right"></div>
+                                <div class="send-alert pull-right"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 20%; text-decoration: underline">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left tsk-audio" style="margin-left: 2px"></div>
+                                <span class="small-text probe-tree-line-text">Too quite integrated loudness</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">Integrated loudness</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">HomeNN - RTPStatistics</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 20%">
+                                <span style="color: #6A97D5">(611) </span>FE12-2345-DA1E-FA9E
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 30%">
+                                <div class="pull-left threshold-wrapper">
+                                    <div class="threshold-text" style="left: calc(33% - 3px)">8</div>
+                                    <div class="threshold-text" style="left: calc(66% - 3px)">10</div>
+                                    <svg width="100%" height="100%" viewBox="0 0 300 23" preserveAspectRatio="none">
+                                        <defs>
+                                            <radialGradient id="grad1" cx="100%" cy="100%" r="100%">
+                                                <stop stop-color="#00c200" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#00c200" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                            <linearGradient id="grad5" x1="0%" y1="100%" x2="0%" y2="0%">
+                                                <stop stop-color="#d4a300" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#d4a300" stop-opacity="0" offset="100%"></stop>
+                                            </linearGradient>
+                                            <radialGradient id="grad7" cx="0%" cy="100%" r="100%" >
+                                                <stop stop-color="#ff0000" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#ff0000" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                        </defs>
+                                        <polygon fill="url(#grad1)" stroke-width="0"
+                                                 points="0,23 100,23 100,0 0,0"/>
+                                        <polygon fill="url(#grad5)" stroke-width="0"
+                                                 points="100,23 200,23 200,0 100,0"/>
+                                        <polygon fill="url(#grad7)" stroke-width="0"
+                                                 points="200,23 300,23 300,0 200,0"/>
+                                    </svg>
+                                </div>
+                                <div class="send-email pull-right"></div>
+                                <div class="send-sms pull-right"></div>
+                                <div class="send-alert pull-right"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 20%; text-decoration: underline">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left tsk-audio" style="margin-left: 2px"></div>
+                                <span class="small-text probe-tree-line-text">Too quite integrated loudness</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">Integrated loudness</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 15%">HomeNN - RTPStatistics</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 20%">
+                                <span style="color: #6A97D5">(611) </span>FE12-2345-DA1E-FA9E
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 30%">
+                                <div class="pull-left threshold-wrapper">
+                                    <div class="threshold-text" style="left: calc(50% - 20px)">No</div>
+                                    <div class="threshold-text" style="left: calc(50% + 7px)">Yes</div>
+                                    <svg width="100%" height="100%" viewBox="0 0 300 23" preserveAspectRatio="none">
+                                        <defs>
+                                            <radialGradient id="grad1" cx="100%" cy="100%" r="100%">
+                                                <stop stop-color="#00c200" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#00c200" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                            <radialGradient id="grad7" cx="0%" cy="100%" r="100%" >
+                                                <stop stop-color="#ff0000" stop-opacity="1" offset="0%"></stop>
+                                                <stop stop-color="#ff0000" stop-opacity="0" offset="100%"></stop>
+                                            </radialGradient>
+                                        </defs>
+                                        <polygon fill="url(#grad1)" stroke-width="0"
+                                                 points="0,23 150,23 150,0 0,0"/>
+                                        <polygon fill="url(#grad7)" stroke-width="0"
+                                                 points="150,23 300,23 300,0 150,0"/>
+                                    </svg>
+                                </div>
+                                <div class="send-email pull-right"></div>
+                                <div class="send-sms pull-right"></div>
+                                <div class="send-alert pull-right"></div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <div class="vertical-line" style="border-color: #424242; left: 23px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 46px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 20%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 35%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 70%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; right: 70px;"></div>
+
+                </ul>
+                <div class="vertical-line" style="border-color: #424242; left: 23px;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 46px;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 20%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 35%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 50%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 70%;"></div>
+                <div class="vertical-line" style="border-color: #424242; right: 70px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

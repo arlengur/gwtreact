@@ -1,0 +1,61 @@
+
+.topVideoBorder {
+	background-image: url("../images/video/topBorder1.png"),
+		url("../images/video/topBorder2.png");
+	background-repeat: no-repeat, repeat;
+	width: auto;
+	height: 17px;
+}
+
+.bottomVideoBorder {
+	background-image: url("../images/video/bottomBorder1.png"),
+		url("../images/video/bottomBorder2.png");
+	background-repeat: no-repeat, repeat;
+	width: auto;
+	height: 33px;
+}
+
+.qosPolicyActionsTemplateInformationDialog #addPolicyTemplateActionButton {
+     margin-left: 5px !important;
+}
+
+.gwt-ToggleButton, .gwt-PushButton {
+	height: 22px !important;
+	border-width: 0px !important;
+}
+
+.gwt-ToggleButton-up, .gwt-ToggleButton-up-hovering, 
+.gwt-ToggleButton-up-disabled, .gwt-ToggleButton-down, 
+.gwt-ToggleButton-down-hovering, .gwt-ToggleButton-down-disabled {
+	padding: 0px !important;	
+}
+
+.gwt-PushButton-up, .gwt-PushButton-up-hovering, 
+.gwt-PushButton-up-disabled, .gwt-PushButton-down, 
+.gwt-PushButton-down-hovering, .gwt-PushButton-down-disabled {
+	padding: 0px !important;	
+}
+
+body.preloading {  
+	background-color: #000;
+}
+
+#preloader {
+	display: none;
+}
+
+.preloading #preloader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	height: 17px;
+	width: 76px;
+	background-image: url(../images/preloader.gif);
+	margin-left: -38px;
+	margin-top: -8px;
+	display: block;     
+}
+
+.bitrateWidget text {
+    fill: white;
+}

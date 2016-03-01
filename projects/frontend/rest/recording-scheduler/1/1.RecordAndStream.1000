@@ -1,0 +1,14 @@
+{
+  "name": null,
+  "timeZone": "Europe/Moscow",
+  "agentKey": "1",
+  "taskKey": "1.RecordAndStream.1000",
+  "eventList": [
+    {
+      "order": 0,
+      "begin": "20160128T122057",
+      "end": "20160128T132057",
+      "comment": ""
+    }
+  ]
+}

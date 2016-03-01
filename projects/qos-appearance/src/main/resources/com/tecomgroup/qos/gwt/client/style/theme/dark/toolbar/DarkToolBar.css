@@ -1,0 +1,22 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@external qosPagingToolBar;
+
+
+.toolBar.qosPagingToolBar {
+	background: black;
+}
+
+.toolBar {
+	width: auto;
+	height: auto;
+	border: none;
+	background-color: #2E3A6B;
+	color: white;
+}
+
+.toolBar .darkAnchor-anchor, .toolBar .darkFlickeringAnchor-anchor {
+	margin: 0px 8px;
+}

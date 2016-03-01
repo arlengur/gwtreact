@@ -1,0 +1,20 @@
+{
+    "bind_addr" : "{{ hostvars[inventory_hostname]['ansible_'+interface].ipv4.address }}",
+    "retry_join" : {{ hostvars | fetchlistfromdict(groups.consul_servers) |
+                      map(attribute='ansible_' + interface + '.ipv4.address') |
+                      list | to_nice_json | indent(4, false)}},
+    "server" :  {{ "true" if consul_is_server else "false" }},
+    "data_dir" : "{{ consul_data_dir }}",
+{% if consul_is_ui == true %}
+    "ui_dir" : "{{ consul_ui_dir }}",
+{% endif %}
+{% if consul_is_server and consul_bootstrap_expect is defined %}
+    "bootstrap_expect": {{ consul_bootstrap_expect }},
+{% endif %}
+    "node_name" : "{{ inventory_hostname }}",
+    "client_addr" : "0.0.0.0",
+{% if consul_recursors is defined %}
+    "recursors" : {{ consul_recursors | to_nice_json | indent(4, false) }},
+{% endif %}
+    "domain": "{{ consul_domain }}"
+}

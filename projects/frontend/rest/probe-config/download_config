@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config cbk_name="123" ControlBlock="281">
+    <Action id="LoudnessA85" name="LoudnessA85">
+        <Task id="1" name="LoudnessA85_1">
+            <period>10</period>
+            <program_number>4</program_number>
+            <device>/udp/1234</device>
+        </Task>
+        <Task id="2" name="LoudnessA85_2">
+            <period>10</period>
+            <program_number>5</program_number>
+            <device>/udp/1234</device>
+        </Task>
+    </Action>
+    <Action id="LoudnessR128" name="LoudnessR128">
+        <Task id="1" name="LoudnessR128_1">
+            <period>10</period>
+            <program_number>4</program_number>
+            <device>/udp/1234</device>
+        </Task>
+        <Task id="1" name="LoudnessR128_2">
+            <period>10</period>
+            <program_number>5</program_number>
+            <device>/udp/1234</device>
+        </Task>
+    </Action>
+    <Action id="RecordAndStream" name="Захват аналогового сигнала">
+
+        <Task id="1" name="Первый канал (Захват аналогового сигнала)">
+            <period>10</period>
+            <overlay_text>Первый канал</overlay_text>
+            <file_duration>600</file_duration>
+            <write_subtitles>true</write_subtitles>
+            <draw_subtitles>true</draw_subtitles>
+
+            <program_number>4</program_number>
+
+            <device>/file/D:\11725_20141008092119.ts</device>
+
+        </Task>
+    </Action>
+
+</Config>

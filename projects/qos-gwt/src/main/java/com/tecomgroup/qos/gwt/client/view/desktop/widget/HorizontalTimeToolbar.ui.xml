@@ -1,0 +1,58 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+	xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+	xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+	xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+    xmlns:widget="urn:import:com.tecomgroup.qos.gwt.client.view.desktop.widget">
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.CssFloatLayoutContainer.CssFloatData"
+		field="cssFloatData">
+	</ui:with>
+
+
+	<container:VerticalLayoutContainer>
+		<container:child>
+		    <container:CssFloatLayoutContainer ui:field="syncControlContainer" />
+		</container:child>
+		<container:child>
+			<container:CssFloatLayoutContainer
+				ui:field="timeIntervalToolbarContainer">
+				<container:child layoutData="{cssFloatData}">
+					<button:TextButton ui:field="firstTimeButton" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<button:TextButton ui:field="secondTimeButton" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<button:TextButton ui:field="thirdTimeButton" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<button:TextButton ui:field="otherIntervalButton" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<widget:DateTimeWidget ui:field="startDateControl" width="80" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<widget:DateTimeWidget ui:field="startTimeControl" width="80" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<g:Label ui:field="timeDash" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<widget:DateTimeWidget ui:field="endDateControl" width="80" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<widget:DateTimeWidget ui:field="endTimeControl" width="80" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<form:ComboBox ui:field="timeZoneControl" />
+				</container:child>
+				<container:child layoutData="{cssFloatData}">
+					<button:TextButton ui:field="updateButton" />
+				</container:child>
+			</container:CssFloatLayoutContainer>
+		</container:child>
+	</container:VerticalLayoutContainer>
+</ui:UiBinder>

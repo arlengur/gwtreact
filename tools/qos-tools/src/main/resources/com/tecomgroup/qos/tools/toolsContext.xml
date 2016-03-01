@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd
+			http://www.springframework.org/schema/rabbit
+			http://www.springframework.org/schema/rabbit/spring-rabbit-1.5.xsd">
+
+
+	<context:component-scan base-package="com.tecomgroup.qos.tools" />
+
+	<bean id="commonPropertyPlaceholder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/tools.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8"/>
+		<property name="properties">
+			<props>
+				<prop key="result.send.starttime">-30000</prop>
+				<prop key="result.send.endtime">0</prop>
+				<prop key="result.send.messages.interval">10</prop>
+				<prop key="result.type">SINGLE_VALUE_RESULT</prop>
+				<prop key="result.send.sleep">0</prop>
+				<prop key="result.send.mode">random</prop>
+				<prop key="result.send.input.file"></prop>
+				<prop key="result.send.agent.name">221</prop>
+				<prop key="result.send.message.count">60</prop>
+				<prop key="result.send.generated.message.count">1000</prop>
+				<prop key="result.send.register.agent">true</prop>
+				<prop key="result.send.program.number">1</prop>
+				<prop key="result.send.program.display.name">Russia 1</prop>
+
+				<prop key="alert.send.input.file"></prop>
+				<prop key="alert.send.sleep">0</prop>
+				<prop key="alert.send.mode">gui</prop>
+				<prop key="alert.send.gui.default.action">ACTIVATE</prop>
+				<prop key="alert.send.gui.default.settings"></prop>
+				<prop key="alert.send.gui.default.perceived.severity">CRITICAL</prop>
+				<prop key="alert.send.gui.default.specific.reason">NONE</prop>
+
+				<!-- Result Storm -->
+				<prop key="result.storm.agent.count">5</prop>
+				<prop key="result.storm.task.count">60</prop>
+				<prop key="result.storm.register.only">false</prop>
+
+				<!-- Alert Storm -->
+				<prop key="alert.storm.alerts.counts">100</prop>
+				<prop key="alert.storm.iterations.counts">100</prop>
+
+				<!-- Register agent -->
+				<prop key="register.agent.attempt.count">10</prop>
+				<prop key="register.agents.count">1</prop>
+				<prop key="register.agent.result.sampling.rate">1</prop>
+				<prop key="register.agent.json.path"></prop>
+				<!-- Default email properties for policy action -->
+				<prop key="register.agent.generate.streams">true</prop>
+				<prop key="register.agent.mail.subject">Subject</prop>
+				<prop key="register.agent.mail.body">Body</prop>				
+				<!-- Whether to register agent with streams or without it -->
+				<prop key="register.agent.generate.streams">true</prop>
+				<prop key="register.threshold.warning.level">false</prop>
+				<prop key="register.threshold.critical.level">false</prop>
+				<prop key="video.result.message.count">10</prop>
+
+				<prop key="task.key">384</prop>
+				<prop key="task.program.names">one</prop>
+
+				<prop key="rrd.backend.factory">FILE</prop>
+				<prop key="rrd.copy.source"></prop>
+				<prop key="rrd.copy.target"></prop>
+				<prop key="rrd.copy.sampling.rate"></prop>
+				<prop key="rrd.copy.batch.size">604800</prop>
+				<prop key="rrd.copy.stored.days.count">30</prop>
+				<prop key="rrd.copy.source.folder"></prop>
+				<prop key="rrd.copy.target.folder"></prop>
+				<prop key="rrd.copy.file.mask">.+\.rrd</prop>
+				<prop key="rrd.merge.source.primary"></prop>
+				<prop key="rrd.merge.source.secondary"></prop>
+				<prop key="rrd.merge.target"></prop>
+
+
+                <prop key="rrd.to.csv.input.path"></prop>
+                <prop key="rrd.to.csv.interval.start"></prop>
+                <prop key="rrd.to.csv.interval.end"></prop>
+                <prop key="rrd.to.csv.output.path"></prop>
+                <prop key="rrd.to.csv.export.timezone">Europe/Moscow</prop>
+                <prop key="rrd.to.csv.batch.size">604800</prop>
+                <prop key="rrd.to.csv.start.end.labels">true</prop>
+               
+
+				<prop key="amqp.auto.startup">false</prop>
+				<prop key="amqp.host">localhost</prop>
+				<prop key="amqp.port">5672</prop>
+				<prop key="amqp.username">guest</prop>
+				<prop key="amqp.password">guest</prop>
+				<prop key="amqp.qos.service.exchange">qos.service</prop>
+				<prop key="amqp.qos.result.exchange">qos.result</prop>
+				<prop key="amqp.qos.alert.exchange">qos.alert</prop>
+				<prop key="amqp.qos.server.route">server</prop>
+				<prop key="amqp.reply.timeout">60000</prop>
+				<!-- Set expiration time for alarm message in seconds -->
+				<prop key="amqp.qos.alarm.message.expiration.time.in.sec">86400</prop>
+
+				<prop key="pm.config.file">pm.config</prop>
+
+				<prop key="hsql.dbhome">target/qosdb</prop>
+				<prop key="hsql.dbname">qosdb</prop>
+				<prop key="hsql.port">9001</prop>
+				<prop key="hsql.host">localhost</prop>
+				<prop key="hsql.username">qos</prop>
+				<prop key="hsql.password">Tecom1</prop>
+
+				<!-- QoS 2.3 Grab -->
+				<prop key="grab.xml.results"></prop>
+				<prop key="grab.agent.name"></prop>
+				<prop key="grab.start.time"></prop>
+				<prop key="grab.end.time"></prop>
+
+
+				<prop key="ddl.output.directory">./ddl/</prop>
+				<prop key="ddl.domain.package">com.tecomgroup.qos.domain</prop>
+
+				<!-- Should be equal with the same property in commonContext -->
+				<prop key="max.db.column.name.size">30</prop>
+				
+				<prop key="snmp.requests.config.path">./snmp/requests-example.json</prop>
+				<prop key="snmp.agent.address">localhost</prop>
+				<prop key="snmp.agent.port">161</prop>
+				<prop key="snmp.agent.community">public</prop>
+				<prop key="snmp.request.timeout.millisec">1500</prop>
+
+			</props>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+
+	</bean>
+
+
+	<rabbit:topic-exchange name="${amqp.qos.result.exchange}"
+		id="resultExchange">
+	</rabbit:topic-exchange>
+
+	<rabbit:topic-exchange name="${amqp.qos.service.exchange}"
+		id="serviceExchange">
+	</rabbit:topic-exchange>
+
+	<rabbit:template connection-factory="rabbitConnectionFactory"
+		id="amqpTemplate" reply-timeout="${amqp.reply.timeout}"
+		message-converter="messageConverter" />
+
+	<rabbit:connection-factory id="rabbitConnectionFactory"
+			host="${amqp.host}" port="${amqp.port}" username="${amqp.username}"
+			password="${amqp.password}" />
+
+	<bean id="errorHandler" class="com.tecomgroup.qos.amqp.AMQPErrorHandler" />
+
+
+	<bean id="registrationReplyQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg value="${amqp.qos.reply.queue}" />
+	</bean>
+
+
+	<bean class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+		<constructor-arg ref="rabbitConnectionFactory" />
+		<property name="autoStartup" value="${amqp.auto.startup}" />
+	</bean>
+
+	<bean class="org.hsqldb.server.Server" id="hsqlServer">
+		<property name="properties">
+			<bean class="org.hsqldb.persist.HsqlProperties">
+				<constructor-arg>
+					<props>
+						<prop key="server.database.0">
+							file:${hsql.dbhome}/${hsql.dbname};user=${hsql.username};password=${hsql.password}
+						</prop>
+						<prop key="server.dbname.0">${hsql.dbname}</prop>
+						<prop key="server.port">${hsql.port}</prop>
+					</props>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="namingStrategy" class="com.tecomgroup.qos.modelspace.CustomNamingStrategy">
+		<property name="maxColumnNameSize" value="${max.db.column.name.size}" />
+	</bean>
+
+	<bean id="messageConverter"
+		class="org.springframework.amqp.support.converter.JsonMessageConverter">
+		<property name="jsonObjectMapper">
+			<bean class="com.tecomgroup.qos.json.QoSJsonObjectMapper" />
+		</property>
+	</bean>
+
+</beans>

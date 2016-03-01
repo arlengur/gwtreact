@@ -1,0 +1,5 @@
+/target
+/bin
+**/bin
+**/src/main/resources/META-INF/*-git.properties
+/src

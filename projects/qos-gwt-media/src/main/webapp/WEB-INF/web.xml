@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3.0.xsd">
+
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>webapp.root.qos</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>internal_log4j</param-name>
+		<param-value>/WEB-INF/classes/log4j.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>external_log4j</param-name>
+		<param-value>file:/opt/qos/3.0/sa/config/log4j.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<!-- Refresh log4j configuration every 10 minutes. -->
+		<param-value>600000</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/applicationContext.xml
+			/WEB-INF/securityContext.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>com.tecomgroup.qos.listener.SLF4JBridgeListener</listener-class>
+	</listener>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>resultServlet</servlet-name>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>chartExportingServlet</servlet-name>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>downloadResultServlet</servlet-name>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>exportAlertReport</servlet-name>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+	</servlet>
+
+	
+
+	
+	<!-- Safari 6.0 Cache issue https://groups.google.com/forum/?fromgroups=#!topic/google-web-toolkit/CWkgCXLi8tA -->
+	<filter>
+		<filter-name>HeaderFilter</filter-name>
+		<filter-class>com.tecomgroup.qos.gwt.shared.HeaderFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HeaderFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- SpringGwt remote service servlet -->
+	<servlet>
+		<servlet-name>springGwtRemoteServiceServlet</servlet-name>
+		<servlet-class>org.spring4gwt.server.SpringGwtRemoteServiceServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springGwtRemoteServiceServlet</servlet-name>
+		<url-pattern>/DesktopQoSMedia/springServices/*</url-pattern>
+		<url-pattern>/MobileQoSMedia/springServices/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>resultServlet</servlet-name>
+		<url-pattern>/DesktopQoSMedia/ResultServlet</url-pattern>
+		<url-pattern>/MobileQoSMedia/ResultServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>chartExportingServlet</servlet-name>
+		<url-pattern>/svgExporting</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>downloadResultServlet</servlet-name>
+		<url-pattern>/DesktopQoSMedia/DownloadResultServlet/*</url-pattern>
+		<url-pattern>/MobileQoSMedia/DownloadResultServlet/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>exportAlertReport</servlet-name>
+		<url-pattern>/DesktopQoSMedia/ExportAlertReport</url-pattern>
+		<url-pattern>/MobileQoSMedia/ExportAlertReport</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Soap external interface -->
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/ext/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EventService</servlet-name>
+		<servlet-class>de.novanic.eventservice.service.EventServiceImpl
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EventService</servlet-name>
+		<url-pattern>/DesktopQoSMedia/gwteventservice</url-pattern>
+	</servlet-mapping>
+
+	<!-- GWT Logging -->
+	<servlet>
+		<servlet-name>remoteLogging</servlet-name>
+		<servlet-class>com.tecomgroup.qos.servlet.MyRemoteLoggingServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>remoteLogging</servlet-name>
+		<url-pattern>/DesktopQoSMedia/remote_logging</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>HostPage</servlet-name>
+		<jsp-file>/QoSMedia.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HostPage</servlet-name>
+		<url-pattern>/QoSMedia.jsp</url-pattern>
+	</servlet-mapping>
+
+    <!-- REST API -->
+	<servlet>
+		<servlet-name>ChannelViewRESTServlet</servlet-name>
+		<servlet-class> org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.tecomgroup.qos.rest.RestServiceConfig</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.config.feature.Trace</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChannelViewRESTServlet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<!-- File servlet -->
+	<servlet>
+		<servlet-name>probeConfigFilesServlet</servlet-name>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>probeConfigFilesServlet</servlet-name>
+		<url-pattern>/probe-config-files/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>QoSMedia.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

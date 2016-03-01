@@ -1,0 +1,21 @@
+---
+consul_version: 0.5.2
+consul_archive: "{{ consul_version }}_linux_amd64.zip"
+
+consul_home: /opt/consul
+consul_config_dir:  "{{ consul_home }}/conf"
+consul_data_dir: "{{ consul_home }}/data"
+consul_bin_dir: "{{ consul_home }}/bin"
+consul_checks_dir: "{{ consul_home }}/checks"
+consul_bin: "{{ consul_bin_dir }}/consul"
+
+consul_user: consul
+consul_group: "{{ consul_user }}"
+
+consul_is_ui: false
+consul_ui_archive: "{{ consul_version }}_web_ui.zip"
+consul_ui_dir: "{{ consul_home }}/dist"
+
+consul_is_server: false
+
+consul_domain: "qos."

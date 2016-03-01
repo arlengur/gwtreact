@@ -1,0 +1,10 @@
+---
+dependencies:
+  - ssh_keys
+  - role: iptables
+    open_ports:
+      - protocol: tcp
+        port: "{{ pgpool_port }}"
+  - role: consul_service
+    consul_service_name: db
+    consul_service_port: "{{ pgpool_port }}"

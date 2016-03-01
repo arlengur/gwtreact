@@ -1,0 +1,2387 @@
+{
+    "originName" : "GazProm",
+    "agent" : {
+        "@class" : "com.tecomgroup.qos.domain.MAgent",
+        "id" : "GazProm",
+        "key" : "GazProm",
+        "timeZone" : "Europe/Moscow",
+        "netAddress" : "192.168.151.251",
+        "platform" : "Windows 7 x86",
+        "gisPosition" : {
+            "latitude" : "55.8338",
+            "longitude" : "37.6382"
+        },
+        "displayName" : "Газпром",
+        "description" : "Monitoring of GazProm channels",
+        "heartbeatIntervalSeconds" : 60
+    },
+    "modules" : [
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.AnalogCaptureControlModule",
+            "displayName" : "AnalogCaptureControlModule"
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.DVBTErrControlModule",
+            "displayName" : "DVBTErrControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "error_packets",
+                        "type" : "COUNTER",
+                        "units" : "packets",
+                        "displayName" : "Error Packets",
+                        "aggregationType" : "MAX",
+                        "description" : "Number of erroneous packets",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "mer",
+                        "type" : "LEVEL",
+                        "units" : "dB",
+                        "displayName" : "MER",
+                        "aggregationType" : "MIN",
+                        "description" : "Modulation error ratio - a measure of the sum of all interference that affects a digital TV signal.",
+                        "threshold" : {
+                            "type" : "LESS",
+                            "warningLevel" : 25.000000000000000
+                        }
+                    },
+                    {
+                        "name" : "pre_ber",
+                        "type" : "LEVEL",
+                        "units" : "",
+                        "displayName" : "Pre BER",
+                        "aggregationType" : "MAX",
+                        "description" : "Bit error ratio before LDPC decoder",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00010000000000000000
+                        }
+                    },
+                    {
+                        "name" : "post_ber",
+                        "type" : "LEVEL",
+                        "units" : "",
+                        "displayName" : "Post BER",
+                        "aggregationType" : "MAX",
+                        "description" : "Bit error ratio after BCH decoder",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 1.0000000000000001e-009
+                        }
+                    },
+                    {
+                        "name" : "snr",
+                        "type" : "LEVEL",
+                        "units" : "dB",
+                        "displayName" : "SNR",
+                        "aggregationType" : "MIN",
+                        "description" : "Signal to noise ratio",
+                        "threshold" : {
+                            "type" : "LESS",
+                            "warningLevel" : 8.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "rssi",
+                        "type" : "LEVEL",
+                        "units" : "dB",
+                        "displayName" : "RSSI",
+                        "aggregationType" : "MIN",
+                        "description" : "Received signal strength indication",
+                        "threshold" : {
+                            "type" : "LESS",
+                            "warningLevel" : 25.000000000000000
+                        }
+                    },
+                    {
+                        "name" : "signal_level",
+                        "type" : "LEVEL",
+                        "units" : "dB/uV",
+                        "displayName" : "Signal Level",
+                        "aggregationType" : "MIN",
+                        "description" : "Level of signal",
+                        "threshold" : {
+                            "type" : "LESS"
+                        }
+                    },
+                    {
+                        "name" : "margin",
+                        "type" : "LEVEL",
+                        "units" : "dB",
+                        "displayName" : "Margin",
+                        "aggregationType" : "MIN",
+                        "description" : "Margin of noiseproof",
+                        "threshold" : {
+                            "type" : "LESS"
+                        }
+                    },
+                    {
+                        "name" : "signal_present",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Signal Present",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of signal",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.EPGControlModule",
+            "displayName" : "EPGControlModule"
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.IPTVChangeChannelControlModule",
+            "displayName" : "IPTVChangeChannelControlModule"
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.IT09AControlModule",
+            "displayName" : "IT09AControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "signalLevel",
+                        "type" : "LEVEL",
+                        "units" : "dB/uV",
+                        "displayName" : "Signal Level",
+                        "aggregationType" : "MIN",
+                        "description" : "Level of signal",
+                        "threshold" : {
+                            "type" : "LESS",
+                            "warningLevel" : 50.000000000000000,
+                            "criticalLevel" : 30.000000000000000
+                        }
+                    },
+                    {
+                        "name" : "signalNoise",
+                        "type" : "LEVEL",
+                        "units" : "dB",
+                        "displayName" : "Signal/Noise",
+                        "aggregationType" : "MIN",
+                        "description" : "Signal/Noise level",
+                        "threshold" : {
+                            "type" : "LESS",
+                            "warningLevel" : 50.000000000000000,
+                            "criticalLevel" : 40.000000000000000
+                        }
+                    },
+                    {
+                        "name" : "videoAudio",
+                        "type" : "LEVEL",
+                        "units" : "",
+                        "displayName" : "Video/Audio",
+                        "aggregationType" : "MIN",
+                        "description" : "Ratio of Video/Audio bitrates",
+                        "threshold" : {
+                            "type" : "LESS"
+                        }
+                    },
+                    {
+                        "name" : "nicamLevel",
+                        "type" : "LEVEL",
+                        "units" : "uV",
+                        "displayName" : "NICAM Level",
+                        "aggregationType" : "AVERAGE",
+                        "description" : "NICAM Level",
+                        "threshold" : {
+                            "type" : "LESS"
+                        }
+                    },
+                    {
+                        "name" : "temperature",
+                        "type" : "LEVEL",
+                        "units" : "C",
+                        "displayName" : "Temperature",
+                        "aggregationType" : "MAX",
+                        "description" : "Temperature",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 50.000000000000000,
+                            "criticalLevel" : 70.000000000000000
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.MpegTSRecorderControlModule",
+            "displayName" : "MpegTSRecorderControlModule"
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.MpegTSSplicingControlModule",
+            "displayName" : "MpegTSSplicingControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 1,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "signalPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Signal Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of signal",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "criticalLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "dpiStreamPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "DPI Stream Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of DPI stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "cueOut",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Command: CUE OUT",
+                        "aggregationType" : "MAX",
+                        "description" : "CUE OUT command",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "cueIn",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Command: CUE IN",
+                        "aggregationType" : "MAX",
+                        "description" : "CUE IN command",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "cueOutIn",
+                        "type" : "LEVEL",
+                        "units" : "",
+                        "displayName" : "Commands: CUE OUT/IN",
+                        "aggregationType" : "MAX",
+                        "description" : "CUE OUT/IN commands",
+                        "threshold" : {
+                            "type" : "GREATER_OR_EQUALS"
+                        }
+                    }
+                ],
+                "propertyConfigurations" : [
+                    {
+                        "name" : "splice_stream_pid",
+                        "displayName" : "Stream PID",
+                        "required" : true
+                    }
+                ],
+                "parameterDisplayNameFormat" : "${displayName} (stream PID: ${properties.splice_stream_pid})"
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.MpegTSStatisticsIPTVControlModule",
+            "displayName" : "MpegTSStatisticsIPTVControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "audioBitrate",
+                        "type" : "LEVEL",
+                        "units" : "Mbit/s",
+                        "displayName" : "Audio Bitrate",
+                        "aggregationType" : "MIN",
+                        "description" : "Audio Bitrate",
+                        "threshold" : {
+                            "type" : "LESS_OR_EQUALS",
+                            "warningLevel" : 0.050000000000000003
+                        }
+                    },
+                    {
+                        "name" : "videoBitrate",
+                        "type" : "LEVEL",
+                        "units" : "Mbit/s",
+                        "displayName" : "Video Bitrate",
+                        "aggregationType" : "MIN",
+                        "description" : "Video Bitrate",
+                        "threshold" : {
+                            "type" : "LESS_OR_EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "dataBitrate",
+                        "type" : "LEVEL",
+                        "units" : "Mbit/s",
+                        "displayName" : "Data Bitrate",
+                        "aggregationType" : "MIN",
+                        "description" : "Data Bitrate",
+                        "threshold" : {
+                            "type" : "LESS_OR_EQUALS",
+                            "warningLevel" : 0.0010000000000000000
+                        }
+                    },
+                    {
+                        "name" : "totalBitrate",
+                        "type" : "LEVEL",
+                        "units" : "Mbit/s",
+                        "displayName" : "Total Bitrate",
+                        "aggregationType" : "MIN",
+                        "description" : "Total Bitrate",
+                        "threshold" : {
+                            "type" : "NONE"
+                        }
+                    }
+                ],
+                "propertyConfigurations" : [
+                    {
+                        "name" : "programId",
+                        "displayName" : "Program ID",
+                        "required" : true
+                    },
+                    {
+                        "name" : "programName",
+                        "displayName" : "Program Name"
+                    }
+                ],
+                "parameterDisplayNameFormat" : "${displayName} - ${properties.programName} (${properties.programId})"
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.MpegTSTeletextControlModule",
+            "displayName" : "MpegTSTeletextControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "tsStreamPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "TS Stream Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of data in TS stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "criticalLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "descriptorPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Teletext Descriptor Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of teletext descriptor in TS stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "teletextPESPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Teletext Stream Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of teletext stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "errorsPresence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Stream Errors Presence",
+                        "aggregationType" : "MAX",
+                        "description" : "Presence of errors in teletext stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "emptyPktsPercentage",
+                        "type" : "PERCENTAGE",
+                        "units" : "%",
+                        "displayName" : "% of Empty Packets",
+                        "aggregationType" : "MAX",
+                        "description" : "Percentage of empty packets",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "lostPktsPercentage",
+                        "type" : "PERCENTAGE",
+                        "units" : "%",
+                        "displayName" : "% of Lost Packets",
+                        "aggregationType" : "MAX",
+                        "description" : "Percentage of lost packets",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "receivedPackets",
+                        "type" : "COUNTER",
+                        "units" : "packets",
+                        "displayName" : "Received Packets",
+                        "aggregationType" : "AVERAGE",
+                        "description" : "Number of received packets",
+                        "threshold" : {
+                            "type" : "NONE"
+                        }
+                    },
+                    {
+                        "name" : "SUBTITLE_PRESENCE",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Subtitles Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Presence of subtitles in teletext stream",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    }
+                ],
+                "propertyConfigurations" : [
+                    {
+                        "name" : "teletextPid",
+                        "displayName" : "Program ID",
+                        "required" : true
+                    },
+                    {
+                        "name" : "teletextLanguages",
+                        "displayName" : "Languages of teletext"
+                    }
+                ],
+                "parameterDisplayNameFormat" : "${displayName} (program: ${properties.teletextPid})"
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.SignalLevelControlModule",
+            "displayName" : "SignalLevelControlModule"
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.T2ControlModule",
+            "displayName" : "T2ControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 1,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "silence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Silence",
+                        "aggregationType" : "MAX",
+                        "description" : "No sound",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "black_screen",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Black Screen",
+                        "aggregationType" : "MAX",
+                        "description" : "Black screen",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "no_signal",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "No Signal",
+                        "aggregationType" : "MAX",
+                        "description" : "No Signal",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "criticalLevel" : 1.0000000000000000
+                        }
+                    }
+                ]
+            },
+            "templateStreams" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.MLiveStream",
+                    "key" : "t2.live.1",
+                    "templateUrl" : "rtmpt://192.168.151.251:80/qligentPlayer/${properties.taskKey}",
+                    "properties" : [
+                        {
+                            "name" : "fps",
+                            "value" : "25",
+                            "displayName" : "FPS",
+                            "required" : true
+                        },
+                        {
+                            "name" : "codec",
+                            "value" : "H.264",
+                            "displayName" : "Codec",
+                            "required" : true
+                        },
+                        {
+                            "name" : "size",
+                            "value" : "320 x 240",
+                            "displayName" : "Size",
+                            "required" : true
+                        },
+                        {
+                            "name" : "videobitrate",
+                            "value" : "256",
+                            "displayName" : "Video Bitrate (Kbit/s)",
+                            "required" : true
+                        }
+                    ]
+                },
+                {
+                    "@class" : "com.tecomgroup.qos.domain.MRecordedStream",
+                    "key" : "t2.recorded.1",
+                    "templateDownloadUrl" : "http://192.168.151.251:80/qligentPlayer/streams/",
+                    "templateStreamUrl" : "rtmpt://192.168.151.251:80/qligentPlayer/",
+                    "properties" : [
+                        {
+                            "name" : "fps",
+                            "value" : "25",
+                            "displayName" : "FPS",
+                            "required" : true
+                        },
+                        {
+                            "name" : "codec",
+                            "value" : "H.264",
+                            "displayName" : "Codec",
+                            "required" : true
+                        },
+                        {
+                            "name" : "size",
+                            "value" : "320 x 240",
+                            "displayName" : "Size",
+                            "required" : true
+                        },
+                        {
+                            "name" : "videobitrate",
+                            "value" : "256",
+                            "displayName" : "Video Bitrate (Kbit/s)",
+                            "required" : true
+                        }
+                    ]
+                },
+                {
+                    "@class" : "com.tecomgroup.qos.domain.MLiveStream",
+                    "key" : "t2.live.ipad",
+                    "templateUrl" : "http://192.168.151.251:80/qligentPlayer/streams/ipad/playlist_${properties.taskKey}.m3u8",
+                    "properties" : [
+                        {
+                            "name" : "fps",
+                            "value" : "25",
+                            "displayName" : "FPS",
+                            "required" : true
+                        },
+                        {
+                            "name" : "codec",
+                            "value" : "H.264",
+                            "displayName" : "Codec",
+                            "required" : true
+                        },
+                        {
+                            "name" : "size",
+                            "value" : "320 x 240",
+                            "displayName" : "Size",
+                            "required" : true
+                        },
+                        {
+                            "name" : "videobitrate",
+                            "value" : "256",
+                            "displayName" : "Video Bitrate (Kbit/s)",
+                            "required" : true
+                        },
+                        {
+                            "name" : "platform",
+                            "value" : "apple",
+                            "displayName" : "",
+                            "required" : false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.TR101290IPTVControlModule",
+            "displayName" : "TR101290IPTVControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "TS_sync_loss",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "TS Sync Loss",
+                        "aggregationType" : "MAX",
+                        "description" : "TS_sync_loss indicator from ETSI TR 101 290. Indicates loss of synchronization with consideration of hysteresis parameters",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "Sync_byte_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "Sync_byte Error",
+                        "aggregationType" : "MAX",
+                        "description" : "Sync_byte_error indicator from ETSI TR 101 290. Incremented when Sync_byte not equal 0x47",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "PAT_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PAT Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PAT_error indicator from ETSI TR 101 290. Incremented when PID 0x0000 does not occur at least every 0,5 s; when a PID 0x0000 does not contain a table_id 0x00 (i.e. a PAT); when Scrambling_control_field is not 00 for PID 0x0000",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "PAT_error_2",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PAT Error 2",
+                        "aggregationType" : "MAX",
+                        "description" : "PAT_error_2 indicator from ETSI TR 101 290. Incremented when sections with table_id 0x00 do not occur at least every 0,5 s on PID 0x0000; when Section with table_id other than 0x00 found on PID 0x0000; whenScrambling_control_field is not 00 for PID 0x0000",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "Continuity_count_err",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "Continuity Count Error",
+                        "aggregationType" : "MAX",
+                        "description" : "Continuity_count_error indicator from ETSI TR 101 290. Incremented when an incorrect packet order is detected; when a packet occurs more than twice; when a packet is lost",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "PMT_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PMT Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PMT_error indicator from ETSI TR 101 290. Incremented when sections with table_id 0x02, (i.e. a PMT), do not occur at least every 0,5 s on the PID which is referred to in the PAT; when Scrambling_control_field is not 00 for all PIDs containing sections with table_id 0x02 (i.e. a PMT)",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "PMT_error_2",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PMT Error 2",
+                        "aggregationType" : "MAX",
+                        "description" : "PMT_error_2 indicator from ETSI TR 101 290. Incremented when sections with table_id 0x02, (i.e. a PMT), do not occur at least every 0,5 s on each program_map_PID which is referred to in the PAT; when Scrambling_control_field is not 00 for all packets containing information of sections with table_id 0x02 (i.e. a PMT) on each program_map_PID which is referred to in the PAT",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "PID_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PID Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PID_error indicator from ETSI TR 101 290. Incremented when PID does not occur for a user specified period",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.TR101290p2IPTVControlModule",
+            "displayName" : "TR101290p2IPTVControlModule",
+            "templateResultConfiguration" : {
+                "samplingRate" : 10,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "packet_counter",
+                        "type" : "COUNTER",
+                        "units" : "packets",
+                        "displayName" : "Received Packets",
+                        "aggregationType" : "AVERAGE",
+                        "description" : "Number of received packets",
+                        "threshold" : {
+                            "type" : "NONE"
+                        }
+                    },
+                    {
+                        "name" : "Transport_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "Transport Error",
+                        "aggregationType" : "MAX",
+                        "description" : "Transport_error indicator from ETSI TR 101 290. Incremented when Transport_error_indicator in the TS-Header is set to \"1\"",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 5.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "CRC_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "CRC Error",
+                        "aggregationType" : "MAX",
+                        "description" : "CRC_error indicator from ETSI TR 101 290. Incremented when CRC error occurred in CAT, PAT, PMT, NIT, EIT, BAT, SDT or TOT table",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 15.000000000000000
+                        }
+                    },
+                    {
+                        "name" : "PCR_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PCR Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PCR_error indicator from ETSI TR 101 290. Incremented when PCR discontinuity of more than 100 ms occurring without specific indication; when time interval between two consecutive PCR values more than 40 ms",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 190.00000000000000
+                        }
+                    },
+                    {
+                        "name" : "PCR_repetition_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PCR Repetition Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PCR_repetition_error indicator from ETSI TR 101 290. Incremented when time interval between two consecutive PCR values more than 40 ms",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "PCR_disc_indicat_err",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PCR Discontinuity Indicator Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PCR_discontinuity_indicator_error indicator from ETSI TR 101 290. Incremented when the difference between two consecutive PCR values (PCR[i+1] - PCR[i]) is outside the range of 0...100 ms without the discontinuity_indicator set",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "PTS_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "PTS Error",
+                        "aggregationType" : "MAX",
+                        "description" : "PTS_error indicator from ETSI TR 101 290. Incremented when PTS repetition period more than 700 ms",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    },
+                    {
+                        "name" : "CAT_error",
+                        "type" : "COUNTER",
+                        "units" : "",
+                        "displayName" : "CAT Error",
+                        "aggregationType" : "MAX",
+                        "description" : "CAT_error indicator from ETSI TR 101 290. Incremented when packets with transport_scrambling_control not 00 present, but no section with table_id = 0x01 (i.e. a CAT) present; when section with table_id other than 0x01 (i.e. not a CAT) found on PID 0x0001",
+                        "threshold" : {
+                            "type" : "GREATER"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+            "key" : "GazProm.TVStreamControlModule_v2",
+            "displayName" : "TVStreamControlModule_v2",
+            "templateResultConfiguration" : {
+                "samplingRate" : 1,
+                "parameterConfigurations" : [
+                    {
+                        "name" : "freeze",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Frozen Screen",
+                        "aggregationType" : "MAX",
+                        "description" : "Frozen screen",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "black_screen",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Black Screen",
+                        "aggregationType" : "MAX",
+                        "description" : "Black screen",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 1.0000000000000000
+                        }
+                    },
+                    {
+                        "name" : "teletext_presence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Teletext Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Teletext presence",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "subtitle_presence",
+                        "type" : "BOOL",
+                        "units" : "",
+                        "displayName" : "Subtitle Presence",
+                        "aggregationType" : "MIN",
+                        "description" : "Subtitle presence",
+                        "threshold" : {
+                            "type" : "EQUALS",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "subt_err_disp_perc",
+                        "type" : "PERCENTAGE",
+                        "units" : "%",
+                        "displayName" : "Subtitles Displayable Symbols Errors (%)",
+                        "aggregationType" : "MAX",
+                        "description" : "Percentage of wrong displayable subtitles letters",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    },
+                    {
+                        "name" : "subt_err_all_perc",
+                        "type" : "PERCENTAGE",
+                        "units" : "%",
+                        "displayName" : "Subtitles Errors Factor (%)",
+                        "aggregationType" : "MAX",
+                        "description" : "Percentage of wrong subtitles symbols (including control symbols)",
+                        "threshold" : {
+                            "type" : "GREATER",
+                            "warningLevel" : 0.00000000000000000
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "tasks" : [
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-IN-MUX-Битрейт",
+            "key" : "GazProm.MpegTSStatisticsIPTVControlModule.1301",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec2"
+                },
+                {
+                    "name" : "period",
+                    "value" : "10"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "-1"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : ""
+                },
+                {
+                    "name" : "t2mi_plp",
+                    "value" : "-1"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-OUT-MUX-Битрейт",
+            "key" : "GazProm.MpegTSStatisticsIPTVControlModule.1302",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec3"
+                },
+                {
+                    "name" : "period",
+                    "value" : "10"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "-1"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : ""
+                },
+                {
+                    "name" : "t2mi_plp",
+                    "value" : "-1"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV+IP-Битрейт",
+            "key" : "GazProm.MpegTSStatisticsIPTVControlModule.1309",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp0"
+                },
+                {
+                    "name" : "period",
+                    "value" : "10"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "-1"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : ""
+                },
+                {
+                    "name" : "t2mi_plp",
+                    "value" : "-1"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV-Битрейт",
+            "key" : "GazProm.MpegTSStatisticsIPTVControlModule.1809",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp1"
+                },
+                {
+                    "name" : "period",
+                    "value" : "10"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "-1"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : ""
+                },
+                {
+                    "name" : "t2mi_plp",
+                    "value" : "-1"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-IN-MUX-Дисней-QoE",
+            "key" : "GazProm.T2ControlModule.1307",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 1
+            },
+            "properties" : [
+                {
+                    "name" : "recordedFilePrefix",
+                    "value" : "1307"
+                },
+                {
+                    "name" : "programName",
+                    "value" : "9PACK-IN-MUX Дисней"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "2"
+                },
+                {
+                    "name" : "device",
+                    "value" : "dektec2"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : "GazProm.T2ControlModule.1307"
+                },
+                {
+                    "name" : "taskKey",
+                    "value" : "GazProm.T2ControlModule.1307"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-OUT-MUX-Дисней-QoE",
+            "key" : "GazProm.T2ControlModule.1308",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 1
+            },
+            "properties" : [
+                {
+                    "name" : "recordedFilePrefix",
+                    "value" : "1308"
+                },
+                {
+                    "name" : "programName",
+                    "value" : "9PACK-OUT-MUX Дисней"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "2"
+                },
+                {
+                    "name" : "device",
+                    "value" : "dektec3"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : "GazProm.T2ControlModule.1308"
+                },
+                {
+                    "name" : "taskKey",
+                    "value" : "GazProm.T2ControlModule.1308"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV+IP-TVMall-QoE",
+            "key" : "GazProm.T2ControlModule.1312",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 1
+            },
+            "properties" : [
+                {
+                    "name" : "recordedFilePrefix",
+                    "value" : "1312"
+                },
+                {
+                    "name" : "programName",
+                    "value" : "8PACK-TV+IP TVMall"
+                },
+                {
+                    "name" : "device",
+                    "value" : "ip_udp0"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "400"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : "GazProm.T2ControlModule.1312"
+                },
+                {
+                    "name" : "taskKey",
+                    "value" : "GazProm.T2ControlModule.1312"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV-TVMall-QoE",
+            "key" : "GazProm.T2ControlModule.1397",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 1
+            },
+            "properties" : [
+                {
+                    "name" : "recordedFilePrefix",
+                    "value" : "1397"
+                },
+                {
+                    "name" : "programName",
+                    "value" : "8PACK-TV TVMall"
+                },
+                {
+                    "name" : "device",
+                    "value" : "ip_udp1"
+                },
+                {
+                    "name" : "pid",
+                    "value" : "400"
+                },
+                {
+                    "name" : "relatedRecordingTask",
+                    "value" : "GazProm.T2ControlModule.1397"
+                },
+                {
+                    "name" : "taskKey",
+                    "value" : "GazProm.T2ControlModule.1397"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-IN-MUX-TR101290p1",
+            "key" : "GazProm.TR101290IPTVControlModule.1305",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec2"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-OUT-MUX-TR101290p1",
+            "key" : "GazProm.TR101290IPTVControlModule.1306",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec3"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV+IP-TR101290p1",
+            "key" : "GazProm.TR101290IPTVControlModule.1311",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp0"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV-TR101290p1",
+            "key" : "GazProm.TR101290IPTVControlModule.1398",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp1"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-IN-MUX-TR101290p2",
+            "key" : "GazProm.TR101290p2IPTVControlModule.1303",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec2"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "9PACK-OUT-MUX-TR101290p2",
+            "key" : "GazProm.TR101290p2IPTVControlModule.1304",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "dektec3"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV+IP-TR101290p2",
+            "key" : "GazProm.TR101290p2IPTVControlModule.1310",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp0"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.MAgentTask",
+            "displayName" : "8PACK-TV-TR101290p2",
+            "key" : "GazProm.TR101290p2IPTVControlModule.1399",
+            "module" : {
+                "@class" : "com.tecomgroup.qos.domain.MMediaAgentModule",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "resultConfiguration" : {
+                "samplingRate" : 10
+            },
+            "properties" : [
+                {
+                    "name" : "device",
+                    "value" : "ip_udp1"
+                }
+            ]
+        }
+    ],
+    "alertTypes" : [
+        {
+            "name" : "qos.DVBTErrControlModule.error_packets.nonzero",
+            "sourceType" : "TASK",
+            "probableCause" : "COMMUNICATIONS_SUBSYSTEM_FAILURE",
+            "displayName" : "Erroneous Packets",
+            "displayTemplate" : "Number of erroneous packets is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Number of erroneous packets is avove threshold"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.mer.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low MER",
+            "displayTemplate" : "MER is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low modulation error ratio"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.pre_ber.high",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "High Pre BER",
+            "displayTemplate" : "Pre BER is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "High value of bit error ratio before LDPC decoder"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.post_ber.high",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "High Post BER",
+            "displayTemplate" : "Post BER is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "High value of bit error ratio after BCH decoder"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.snr.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low SNR",
+            "displayTemplate" : "SNR is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low value of signal/noise ratio"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.rssi.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low RSSI",
+            "displayTemplate" : "RSSI is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low value of received signal strength indication"
+        },
+        {
+            "name" : "qos.DVBTErrControlModule.signal_present.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Signal Present",
+            "displayTemplate" : "Signal is not present",
+            "description" : "Signal is not present"
+        },
+        {
+            "name" : "qos.IT09AControlModule.signalLevel.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low Signal Level",
+            "displayTemplate" : "Signal level is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "This indication warns about low signal level during a certain period. Low value of this parameter results in low quality of video."
+        },
+        {
+            "name" : "qos.IT09AControlModule.signalNoise.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low Signal/Noise Level",
+            "displayTemplate" : "Signal/Noise level is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "This indication warns about low signal/noise ratio during a certain period. Low value of this parameter results in low quality of video."
+        },
+        {
+            "name" : "qos.IT09AControlModule.hardware.missing",
+            "sourceType" : "MODULE",
+            "probableCause" : "UNDERLYING_RESOURCE_UNAVAILABLE",
+            "displayName" : "IT09A Equipment Not Found",
+            "displayTemplate" : "IT09A Equipment Not Found",
+            "description" : "The IT09A control module hasn't found the hardware. Please check the equipment settings in the module configuration file."
+        },
+        {
+            "name" : "qos.MpegTSSplicingControlModule.signalPresence.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Signal",
+            "displayTemplate" : "No signal present",
+            "description" : "No signal present"
+        },
+        {
+            "name" : "qos.MpegTSSplicingControlModule.dpiStreamPresence.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No DPI Stream",
+            "displayTemplate" : "DPI stream is not present",
+            "description" : "DPI stream is not present"
+        },
+        {
+            "name" : "qos.MpegTSStatisticsIPTVControlModule.audioBitrate.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low Audio Bitrate",
+            "displayTemplate" : "Audio Bitrate is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low Audio Bitrate"
+        },
+        {
+            "name" : "qos.MpegTSStatisticsIPTVControlModule.videoBitrate.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low Video Bitrate",
+            "displayTemplate" : "Video Bitrate is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low Video Bitrate"
+        },
+        {
+            "name" : "qos.MpegTSStatisticsIPTVControlModule.dataBitrate.low",
+            "sourceType" : "TASK",
+            "probableCause" : "DEGRADED_SIGNAL",
+            "displayName" : "Low Data Bitrate",
+            "displayTemplate" : "Data Bitrate is below ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Low Data Bitrate"
+        },
+        {
+            "name" : "qos.MpegTSTeletextControlModule.tsStreamPresence.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Transport Stream",
+            "displayTemplate" : "No Transport Stream",
+            "description" : "No transport stream present"
+        },
+        {
+            "name" : "qos.MpegTSTeletextControlModule.descriptorPresence.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Teletext Descriptor",
+            "displayTemplate" : "Teletext descriptor is not present in the transport stream",
+            "description" : "Teletext descriptor is not present in the transport stream"
+        },
+        {
+            "name" : "qos.MpegTSTeletextControlModule.teletextPESPresence.none",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Teletext Stream",
+            "displayTemplate" : "Teletext stream is not present",
+            "description" : "Teletext stream is not present"
+        },
+        {
+            "name" : "qos.T2ControlModule.silence",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Sound",
+            "displayTemplate" : "No sound during more than 30 seconds",
+            "description" : "No sound during more than 30 seconds, or the volume is below configured threshold"
+        },
+        {
+            "name" : "qos.T2ControlModule.black_screen",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "Black Screen",
+            "displayTemplate" : "Black screen during more than 30 seconds",
+            "description" : "Black screen during more than 30 seconds"
+        },
+        {
+            "name" : "qos.T2ControlModule.no_signal",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "No Signal",
+            "displayTemplate" : "No signal during more than 30 seconds",
+            "description" : "No Signal during more than 30 seconds"
+        },
+        {
+            "name" : "qos.TR101290IPTVControlModule.TS_sync_loss.nonzero",
+            "sourceType" : "TASK",
+            "probableCause" : "FRAMING_ERROR",
+            "displayName" : "Non-zero TS Sync Loss",
+            "displayTemplate" : "Number of times the TS sync was lost is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "The actual synchronization of the TS depends on the number of correct sync bytes necessary for the device to synchronize and on the number of distorted sync bytes which the device can not cope with."
+        },
+        {
+            "name" : "qos.TR101290IPTVControlModule.PAT_error.nonzero",
+            "sourceType" : "TASK",
+            "probableCause" : "FRAMING_ERROR",
+            "displayName" : "Non-zero PAT Error",
+            "displayTemplate" : "Number of PAT errors is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "The Program Association Table (PAT), which only appears in PID 0x0000 packets, tells the decoder what programs are in the TS and points to the Program Map Tables (PMT) which in turn point to the component video, audio and data streams that make up the program. If the PAT is missing then the decoder can do nothing, no program is decodable. Nothing other than a PAT should be contained in a PID 0x0000."
+        },
+        {
+            "name" : "qos.TR101290IPTVControlModule.PMT_error.nonzero",
+            "sourceType" : "TASK",
+            "probableCause" : "FRAMING_ERROR",
+            "displayName" : "Non-zero PMT Error",
+            "displayTemplate" : "Number of PMT errors is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "The Program Association Table (PAT) tells the decoder how many programs there are in the stream and points to the PMTs which contain the information where the parts for any given event can be found. Parts in this context are the video stream (normally one) and the audio streams and the data stream (e.g. Teletext). Without a PMT the corresponding program is not decodable."
+        },
+        {
+            "name" : "qos.TR101290p2IPTVControlModule.Transport_error.high",
+            "sourceType" : "TASK",
+            "probableCause" : "COMMUNICATIONS_SUBSYSTEM_FAILURE",
+            "displayName" : "High amount of Transport Errors",
+            "displayTemplate" : "Number of transport errors is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Indicates high amount of erroneous TS packets."
+        },
+        {
+            "name" : "qos.TR101290p2IPTVControlModule.CRC_error.high",
+            "sourceType" : "TASK",
+            "probableCause" : "COMMUNICATIONS_SUBSYSTEM_FAILURE",
+            "displayName" : "High amount of CRC Errors",
+            "displayTemplate" : "Number of CRC errors is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "Indicates high amount of corrupted packets."
+        },
+        {
+            "name" : "qos.TR101290p2IPTVControlModule.PCR_error.high",
+            "sourceType" : "TASK",
+            "probableCause" : "COMMUNICATIONS_SUBSYSTEM_FAILURE",
+            "displayName" : "High amount of PCR Errors",
+            "displayTemplate" : "Number of PCR errors is above ${threshold.warningLevel}. Value: ${current_value}",
+            "description" : "The PCRs are used to re-generate the local 27 MHz system clock. If the PCR do not arrive with sufficient regularity then this clock may jitter or drift. The receiver/decoder may even go out of lock. In DVB a repetition period of not more than 40 ms is recommended."
+        },
+        {
+            "name" : "qos.TVStreamControlModule_v2.freeze",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "Frozen Screen",
+            "displayTemplate" : "The picture is not changing during more than 15 minutes",
+            "description" : "The picture is not changing during more than 15 minutes, or the magnitude of changes is below configured threshold"
+        },
+        {
+            "name" : "qos.TVStreamControlModule_v2.black_screen",
+            "sourceType" : "TASK",
+            "probableCause" : "LOSS_OF_SIGNAL",
+            "displayName" : "Black Screen",
+            "displayTemplate" : "Black screen during more than 30 seconds",
+            "description" : "Black screen during more than 30 seconds"
+        }
+    ],
+    "policies" : [
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.error_packets.nonzero",
+            "displayName" : "Erroneous Packets",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "error_packets",
+                "parameterIdentifier" : {
+                    "name" : "error_packets"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.error_packets.nonzero"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.mer.low",
+            "displayName" : "Low MER",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "mer",
+                "parameterIdentifier" : {
+                    "name" : "mer"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.mer.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.pre_ber.high",
+            "displayName" : "High Pre BER",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "pre_ber",
+                "parameterIdentifier" : {
+                    "name" : "pre_ber"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.pre_ber.high"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.post_ber.high",
+            "displayName" : "High Post BER",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "post_ber",
+                "parameterIdentifier" : {
+                    "name" : "post_ber"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.post_ber.high"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.snr.low",
+            "displayName" : "Low SNR",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "snr",
+                "parameterIdentifier" : {
+                    "name" : "snr"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.snr.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.rssi.low",
+            "displayName" : "Low RSSI",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "rssi",
+                "parameterIdentifier" : {
+                    "name" : "rssi"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.rssi.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.DVBTErrControlModule.signal_present.none",
+            "displayName" : "No Signal Present",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.DVBTErrControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "signal_present",
+                "parameterIdentifier" : {
+                    "name" : "signal_present"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.DVBTErrControlModule.signal_present.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.IT09AControlModule.signalLevel.low",
+            "displayName" : "Low Signal Level",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.IT09AControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "signalLevel",
+                "parameterIdentifier" : {
+                    "name" : "signalLevel"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel + 10"
+                },
+                "criticalLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdCriticalLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.IT09AControlModule.signalLevel.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.IT09AControlModule.signalNoise.low",
+            "displayName" : "Low Signal/Noise Level",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.IT09AControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "signalNoise",
+                "parameterIdentifier" : {
+                    "name" : "signalNoise"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel + 10"
+                },
+                "criticalLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdCriticalLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.IT09AControlModule.signalNoise.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSSplicingControlModule.signalPresence.none",
+            "displayName" : "No Signal",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSSplicingControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "signalPresence",
+                "parameterIdentifier" : {
+                    "name" : "signalPresence"
+                },
+                "criticalLevel" : {
+                    "raiseDuration" : "5",
+                    "raiseLevel" : "0",
+                    "ceaseDuration" : "5",
+                    "ceaseLevel" : "0"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSSplicingControlModule.signalPresence.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSSplicingControlModule.dpiStreamPresence.none",
+            "displayName" : "No DPI Stream",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSSplicingControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "dpiStreamPresence",
+                "parameterIdentifier" : {
+                    "name" : "dpiStreamPresence"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "0",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "0"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSSplicingControlModule.dpiStreamPresence.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSStatisticsIPTVControlModule.audioBitrate.low",
+            "displayName" : "Low Audio Bitrate",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "audioBitrate",
+                "parameterIdentifier" : {
+                    "name" : "audioBitrate"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS_OR_EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSStatisticsIPTVControlModule.audioBitrate.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSStatisticsIPTVControlModule.videoBitrate.low",
+            "displayName" : "Low Video Bitrate",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "videoBitrate",
+                "parameterIdentifier" : {
+                    "name" : "videoBitrate"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS_OR_EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSStatisticsIPTVControlModule.videoBitrate.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSStatisticsIPTVControlModule.dataBitrate.low",
+            "displayName" : "Low Data Bitrate",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSStatisticsIPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "dataBitrate",
+                "parameterIdentifier" : {
+                    "name" : "dataBitrate"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "LESS_OR_EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSStatisticsIPTVControlModule.dataBitrate.low"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSTeletextControlModule.tsStreamPresence.none",
+            "displayName" : "No Transport Stream",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSTeletextControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "tsStreamPresence",
+                "parameterIdentifier" : {
+                    "name" : "tsStreamPresence"
+                },
+                "criticalLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "0",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "0"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSTeletextControlModule.tsStreamPresence.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSTeletextControlModule.descriptorPresence.none",
+            "displayName" : "No Teletext Descriptor",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSTeletextControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "descriptorPresence",
+                "parameterIdentifier" : {
+                    "name" : "descriptorPresence"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "0",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "0"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSTeletextControlModule.descriptorPresence.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.MpegTSTeletextControlModule.teletextPESPresence.none",
+            "displayName" : "No Teletext Stream",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.MpegTSTeletextControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "teletextPESPresence",
+                "parameterIdentifier" : {
+                    "name" : "teletextPESPresence"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "0",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "0"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.MpegTSTeletextControlModule.teletextPESPresence.none"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.T2ControlModule.silence",
+            "displayName" : "No Sound",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "silence",
+                "parameterIdentifier" : {
+                    "name" : "silence"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "30",
+                    "raiseLevel" : "1",
+                    "ceaseDuration" : "30",
+                    "ceaseLevel" : "1"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.T2ControlModule.silence"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.T2ControlModule.black_screen",
+            "displayName" : "Black Screen",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "black_screen",
+                "parameterIdentifier" : {
+                    "name" : "black_screen"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "30",
+                    "raiseLevel" : "1",
+                    "ceaseDuration" : "30",
+                    "ceaseLevel" : "1"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.T2ControlModule.black_screen"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.T2ControlModule.no_signal",
+            "displayName" : "No Signal",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.T2ControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "no_signal",
+                "parameterIdentifier" : {
+                    "name" : "no_signal"
+                },
+                "criticalLevel" : {
+                    "raiseDuration" : "30",
+                    "raiseLevel" : "1",
+                    "ceaseDuration" : "30",
+                    "ceaseLevel" : "1"
+                },
+                "thresholdType" : "EQUALS"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.T2ControlModule.no_signal"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290IPTVControlModule.TS_sync_loss.nonzero",
+            "displayName" : "Non-zero TS Sync Loss",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "TS_sync_loss",
+                "parameterIdentifier" : {
+                    "name" : "TS_sync_loss"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290IPTVControlModule.TS_sync_loss.nonzero"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290IPTVControlModule.PAT_error.nonzero",
+            "displayName" : "Non-zero PAT Error",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "PAT_error",
+                "parameterIdentifier" : {
+                    "name" : "PAT_error"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290IPTVControlModule.PAT_error.nonzero"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290IPTVControlModule.PMT_error.nonzero",
+            "displayName" : "Non-zero PMT Error",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "PMT_error",
+                "parameterIdentifier" : {
+                    "name" : "PMT_error"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290IPTVControlModule.PMT_error.nonzero"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290p2IPTVControlModule.Transport_error.high",
+            "displayName" : "High amount of Transport Errors",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "Transport_error",
+                "parameterIdentifier" : {
+                    "name" : "Transport_error"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290p2IPTVControlModule.Transport_error.high"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290p2IPTVControlModule.CRC_error.high",
+            "displayName" : "High amount of CRC Errors",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "CRC_error",
+                "parameterIdentifier" : {
+                    "name" : "CRC_error"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290p2IPTVControlModule.CRC_error.high"
+                }
+            ]
+        },
+        {
+            "@class" : "com.tecomgroup.qos.domain.pm.MPolicy",
+            "key" : "GazProm.qos.TR101290p2IPTVControlModule.PCR_error.high",
+            "displayName" : "High amount of PCR Errors",
+            "source" : {
+                "type" : "MODULE",
+                "key" : "GazProm.TR101290p2IPTVControlModule"
+            },
+            "condition" : {
+                "@class" : "com.tecomgroup.qos.domain.pm.MContinuousThresholdFallCondition",
+                "parameterName" : "PCR_error",
+                "parameterIdentifier" : {
+                    "name" : "PCR_error"
+                },
+                "warningLevel" : {
+                    "raiseDuration" : "0",
+                    "raiseLevel" : "thresholdWarningLevel",
+                    "ceaseDuration" : "0",
+                    "ceaseLevel" : "thresholdWarningLevel"
+                },
+                "thresholdType" : "GREATER"
+            },
+            "actions" : [
+                {
+                    "@class" : "com.tecomgroup.qos.domain.pm.MPolicySendAlert",
+                    "name" : "Send Alert",
+                    "alertType" : "qos.TR101290p2IPTVControlModule.PCR_error.high"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+target
+**/target
+**/bin
+**/.classpath
+logs
+**/logs
+**/qostestdb.*
+**/src/main/resources/META-INF/*-git.properties
+**/db
+db
+.settings
+/src
+**/node/npm
+**/node_modules

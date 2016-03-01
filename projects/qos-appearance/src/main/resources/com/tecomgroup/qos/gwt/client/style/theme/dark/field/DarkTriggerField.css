@@ -1,0 +1,10 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@sprite .trigger {
+  gwt-image: 'triggerArrow';
+  border-width: 0px !important;
+  border-color: black !important;
+}
+

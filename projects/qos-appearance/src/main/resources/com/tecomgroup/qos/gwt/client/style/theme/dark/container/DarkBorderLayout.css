@@ -1,0 +1,15 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ @external qosContainerLight;
+ 
+.container {
+	background-color: #000000;
+}
+
+
+
+.container .qosContainerLight{
+	background-color: #3C3C3D;
+}

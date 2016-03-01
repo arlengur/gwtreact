@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM
+	"log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="standartRollingLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${config.log.server.dir}/qos-server.log" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ttccConsole" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+
+	<!-- FIXME: remove when bug http://rnd/issues/3241 will be fixed completely -->
+	<appender name="debugRollingLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${config.log.server.dir}/qos-server-debug.log" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="20" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+	<appender name="syslog" class="org.apache.log4j.net.SyslogAppender">
+        <param name="SyslogHost" value="127.0.0.1"/>
+        <param name="Facility" value="local0"/>
+        <param name="FacilityPrinting" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d QOS-AUDIT | %m%n"/>
+        </layout>
+    </appender>
+	
+	<logger name="com.tecomgroup.qos">
+		<level value="INFO" />
+	</logger>
+
+	<!-- FIXME: remove when bug http://rnd/issues/3241 will be fixed completely -->
+	<logger name="com.tecomgroup.qos.service.alert.DefaultAlertReportService">
+		<level value="INFO" />
+		<appender-ref ref="debugRollingLog" />
+	</logger>
+
+	<logger
+		name="com.tecomgroup.qos.modelspace.hibernate.QoSTransactionalManager">
+		<level value="WARN" />
+	</logger>
+	
+	<logger
+		name="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+		<level value="ERROR" />
+	</logger>
+	<logger name="com.tecomgroup.qos.util.AuditLogger">
+        <level value="DEBUG"/>
+        <appender-ref ref="syslog"/>
+    </logger>
+
+	<!-- Root -->
+	<root>
+		<level value="warn" />
+		<appender-ref ref="standartRollingLog" />
+		<!-- <appender-ref ref="ttccConsole" /> -->
+	</root>
+</log4j:configuration>

@@ -1,0 +1,17 @@
+---
+- name: Initialise the DB server
+  command: creates={{ pg_data }}/PG_VERSION /etc/init.d/postgresql-9.4 initdb
+
+- name: Configure Postgres master
+  template: src={{ item }}.j2 dest={{ pg_data }}/{{ item }} owner=postgres group=postgres mode=600 backup=yes
+  sudo_user: postgres
+  with_items:
+    - pg_hba.conf
+    - postgresql.conf
+  notify: restart postgres
+
+- name: Remove the recovery file if it exists
+  file: path={{ pg_data }}/recovery.conf state=absent
+
+- name: Start Postgres
+  service: name=postgresql-9.4 state=started enabled=yes

@@ -1,0 +1,7 @@
+@eval severityCriticalColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityCriticalRgb();
+@eval severityWarningColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityWarningRgb(); 
+@eval severityNoticeColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityNoticeRgb(); 
+@eval severityMajorColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityMajorRgb(); 
+@eval severityMinorColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityMinorRgb(); 
+@eval severityIndeterminateColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityIndeterminateRgb(); 
+@eval severityNoneColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityNoneRgb();

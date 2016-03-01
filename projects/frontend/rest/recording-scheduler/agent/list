@@ -1,0 +1,20 @@
+[
+  {
+    "id": null,
+    "name": "i_am_bk",
+    "entityKey": "1",
+    "country": null,
+    "state": null,
+    "city": null,
+    "street": null
+  },
+  {
+    "id": null,
+    "name": "bor",
+    "entityKey": "bor",
+    "country": null,
+    "state": null,
+    "city": null,
+    "street": null
+  }
+]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:component-scan base-package="com.tecomgroup.qos.service" />
+	<import resource="classpath:com/tecomgroup/qos/commonContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/sharedServiceContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/rbacContext.xml"/>
+
+	<!-- Services -->
+	<bean id="agentService" class="com.tecomgroup.qos.service.DefaultMediaAgentService">
+		<property name="policyConfigurationService" ref="policyConfigurationService" />
+		<property name="taskService" ref="taskService" />
+		<property name="propertyUpdater" ref="propertyUpdater" />
+		<property name="widgetDeleter" ref="userService" />
+		<property name="authorizeService" ref="authorizeService"/>
+	</bean>
+
+	<bean id="channelViewService" class="com.tecomgroup.qos.rest.ChannelServiceImpl" />
+	<bean id="probeConfigurationService" class="com.tecomgroup.qos.service.probeconfig.ProbeConfigurationServiceImpl"
+		  parent="messageListenerTemplate">
+		<property name="enabled" value="${amqp.auto.startup}" />
+		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="messageConverter" ref="messageConverter" />
+		<property name="serviceExchangeName" value="${amqp.qos.service.exchange}" />
+		<property name="resultQueuePrefix" value="${amqp.result.queue.prefix}" />
+	</bean>
+
+	<bean id="recordingMessenger" class="com.tecomgroup.qos.service.recording.RecordingMessengerImpl" parent="messageListenerTemplate">
+		<constructor-arg ref="metrics"/>
+		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="messageConverter" ref="messageConverter" />
+		<property name="serviceExchangeName" value="${amqp.qos.service.exchange}" />
+		<property name="queuePrefix" value="${amqp.result.queue.prefix}" />
+	</bean>
+
+	<bean id="recordingService" class="com.tecomgroup.qos.service.RecordingScheduleMediaServiceImpl">
+		<constructor-arg ref="metrics" name="metrics"/>
+		<constructor-arg ref="recordingMessenger" name="messenger"/>
+	</bean>
+</beans>

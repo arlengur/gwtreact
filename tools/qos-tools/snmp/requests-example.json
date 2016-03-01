@@ -1,0 +1,5 @@
+[
+{ "timesToRepeat": 3, "startOID": "1.3.6.1.2.1.47.1.1.1.1.2.1", "endOID": "1.3.6.1.2.1.47.1.1.1.1.2.20", "requestType": "GET" },
+{ "timesToRepeat": 1, "startOID": "1.3.6.1.2.1.47.1.1.1.1.3.1", "endOID": "1.3.6.1.2.1.47.1.1.1.1.3.999", "requestType": "GETNEXT" },
+{ "timesToRepeat": 2, "startOID": "1.3.6.1.2.1.47.1.1.1.1.4.0", "endOID": "1.3.6.1.2.1.47.1.1.1.1.5.0", "requestType": "GETNEXT" }
+]

@@ -1,0 +1,92 @@
+@def headerBackground #242c36;
+@def contentBackground #2a2a2a;
+
+@def width1 68%;
+@def width2 85%;
+@def width3 90%;
+
+@def height1 67%;
+@def height2 84%; 
+
+.header {
+	background-color: headerBackground;
+	color: white;
+	position:relative;
+}
+
+.content {
+	background-color: contentBackground;
+	padding: 5px;
+	position: relative;
+    overflow: hidden;
+}
+
+.container_1x1 {
+    width: width1;
+    height: height1;    
+}
+
+.container_1x2 {
+    width: width1;
+    height: height2;    
+}
+
+.container_2x2 {
+    width: width2;
+    height: height2;
+}
+
+.container_2x1 {
+    width: width2;
+    height: height1;
+}
+
+.container_3x1 {
+    width: width3;
+    height: height1;
+}
+
+.container_3x2 {
+    width: width3;
+    height: height2;
+}
+
+.title {
+	line-height: headerHeight;
+	height: headerHeight;
+  	font-weight: bold;
+  	white-space: nowrap;
+  	text-overflow: ellipsis;
+  	overflow: hidden;
+}
+
+.removeButton {
+	position: absolute;
+	top: 0px;
+    bottom: 0px;
+    margin: auto;
+	cursor: pointer;
+}
+
+.saveButton {
+	position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+	cursor: pointer;
+}
+
+.chartButton {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.innerContent {
+	width: 100%;
+	height: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

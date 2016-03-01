@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+<!-- JMX -->
+	<bean id="jmxStatistic" class="com.tecomgroup.qos.jmx.JMXStatisticService">
+		<property name="beanExporter" ref="exporter"/>
+		<property name="systemComponentStatisticProvider" ref="systemComponentStatisticService"/>
+	</bean>
+	
+ 	<bean id="exporter" class="org.springframework.jmx.export.annotation.AnnotationMBeanExporter" lazy-init="true">
+ 		<property name="autodetect" value="true"/>
+ 		<property name="ensureUniqueRuntimeObjectNames" value="false"/>
+ 		<property name="defaultDomain" value="com.tecomgroup.qos"/>
+ 	</bean>	
+	
+	<bean id="registry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean" lazy-init="true">
+		<property name="port" value="${monitoring.rmi.port}" />
+	</bean>
+
+	<bean id="rmiConnectorForMonitoring"
+		class="org.springframework.jmx.support.ConnectorServerFactoryBean"
+		depends-on="registry" lazy-init="true">
+		<property name="objectName"
+			value="QoSMonitoring:type=Connector,name=jsr-160" />
+		<property name="daemon" value="true" />
+		<property name="threaded" value="true" />
+		<property name="serviceUrl"
+			value="service:jmx:rmi:///jndi/rmi://localhost:${monitoring.rmi.port}/jmxrmi" />
+	</bean>	
+</beans>

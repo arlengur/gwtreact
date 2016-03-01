@@ -1,0 +1,57 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	
+	<fileSets>
+		<fileSet>
+			<directory>target/conf</directory>
+			<includes>
+				<include>*</include>
+			</includes>
+			<outputDirectory>flyway/conf</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<excludes>
+                <exclude>**/*.properties</exclude>
+            </excludes>
+			<outputDirectory>.</outputDirectory>
+		</fileSet>
+	</fileSets>
+	
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>flyway/bin</outputDirectory>
+			<includes>
+				<include>com.googlecode.flyway:flyway-commandline</include>
+				<include>com.googlecode.flyway:flyway-core</include>
+			</includes>
+			<unpack>false</unpack>
+		</dependencySet>
+		<dependencySet>
+			<outputDirectory>flyway/jars</outputDirectory>
+			<includes>
+				<include>org.hsqldb:hsqldb</include>
+				<include>postgresql:postgresql</include>
+				<include>${project.groupId}:qos-modelspace</include>
+			</includes>
+			<unpack>false</unpack>
+		</dependencySet>
+		<dependencySet>
+			<outputDirectory>flyway/lib</outputDirectory>
+			<includes>
+				<include>org.springframework:spring-beans</include>
+				<include>org.springframework:spring-core</include>
+				<include>org.springframework:spring-jdbc</include>
+				<include>org.springframework:spring-tx</include>
+				<include>org.springframework:spring-jdbc</include>
+				<include>org.springframework.security:spring-security-core</include>
+				<include>commons-logging:commons-logging</include>
+			</includes>
+			<unpack>false</unpack>
+		</dependencySet>
+	</dependencySets>
+	<includeBaseDirectory>false</includeBaseDirectory>
+</assembly>

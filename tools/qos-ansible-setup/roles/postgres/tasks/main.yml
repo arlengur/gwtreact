@@ -1,0 +1,16 @@
+---
+- name: Install Postgres
+  yum: name={{ item }} disablerepo=* enablerepo=localrepo state=installed
+  with_items:
+    - postgresql94-server
+
+- include: get_status.yml
+
+- include: master.yml
+  when: postgres_status == "master"
+
+- include: slave.yml
+  when: postgres_status == "slave"
+
+- name: Start Postgres
+  service: name=postgresql-9.4 state=started enabled=yes

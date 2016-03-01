@@ -1,0 +1,33 @@
+<div class="{style.contentArea}">
+	<div class="{style.topLeft}">
+		<div class="{style.topRight}">
+			<div class="{style.topVideoBorder}"></div>
+		</div>
+	</div>
+	<div class="{style.bodyWrap}">
+		<div class="{style.left}">
+			<div class="{style.right}">
+				<div class="{style.content}"></div>
+			</div>
+		</div>
+		<div class="{style.bottomLeft}">
+			<div class="{style.bottomRight}">
+				<div class="{style.bottomVideoBorder}">
+					<tpl if="hasAddToDashboardButton && isAddedToDashboard ">
+	          			<div class="{style.addedToDasboardButton} {style.leftPosition}"></div>
+	        		</tpl>	
+	        		<tpl if="hasAddToDashboardButton && !isAddedToDashboard">
+	          			<div class="{style.addToDasboardButton} {style.leftPosition}"></div>
+	        		</tpl>
+					<div title="{title}" class="{style.title} {style.leftPosition}">{title}</div>
+					<tpl if="closable">
+	        			<div class="{style.removeButton} {style.rightPosition}"></div>
+	        		</tpl>
+					<tpl if="hasDownloadButton">
+	          			<div class="{style.downloadButton} {style.rightPosition}" title="{downloadButtonTitle}"></div>
+	        		</tpl>		        		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

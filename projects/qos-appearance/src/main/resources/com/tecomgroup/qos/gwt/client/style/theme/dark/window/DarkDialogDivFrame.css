@@ -1,0 +1,38 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ @external noheader;
+
+.topLeft,.top,.topRight {
+  height: auto;
+}
+
+.topLeft {
+  border: none;
+}
+
+.noheader .topLeft, .noheader .top {
+  height: 3px;
+  border: none; 
+}
+
+.left {
+  background-color: black;
+  padding-left: 6px;
+}
+
+.right {
+  background-color: black;
+  padding-right: 6px;
+}
+
+.content {
+  color : white;		
+  padding-top: 0px;
+  background: none !important;
+}
+
+.bottom,.bottomLeft,.bottomRight {
+  height: 6px;
+}

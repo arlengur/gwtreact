@@ -1,0 +1,1323 @@
+{
+  "oka":    {
+    "registrationTime": null,
+    "id": null,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": "IN_PROGRESS",
+    "agentVersion": "ver 1.0",
+    "tasksStatistic":       [
+      {
+        "key": "oka.TR101290p2IPTVControlModule.1697",
+        "displayName": "oka(TR101 290 priority 2)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka.RecordAndStream.1030",
+        "displayName": "Канал 1030",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka.MpegTSStatisticsIPTVControlModule.11710",
+        "displayName": "MpegTSStatistics 1080",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka.MpegTSStatisticsIPTVControlModule.11711",
+        "displayName": "MpegTSStatistics 1030",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka.TR101290IPTVControlModule.1692",
+        "displayName": "oka(TR101 290 priority 1)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka.RecordAndStream.1050",
+        "displayName": "Канал 1050",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka.TVStreamControlModule_v2.90002",
+        "displayName": "ATV Россия24 Аудио, видео, телетекст",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "oka.RecordAndStream.1040",
+        "displayName": "Канал 1040",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka.RecordAndStream.1090",
+        "displayName": "Канал 1090",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka.RecordAndStream.1080",
+        "displayName": "Канал 1080",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka.MpegTSStatisticsIPTVControlModule.11709",
+        "displayName": "MpegTSStatistics 1010",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka.RecordAndStream.1010",
+        "displayName": "Канал 1010",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1430979582547,
+      "creationDateTime": 1430979582547,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "oka",
+      "displayName": "oka",
+      "snmpId": 2113,
+      "deleted": false,
+      "netAddress": "192.168.115.69",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "oka",
+      "description": "Test Probe",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "CBK1-1TV-NNO-221":    {
+    "registrationTime": null,
+    "id": 360659,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "agentVersion": "ver 2.0",
+    "tasksStatistic": [      {
+      "key": "CBK1-1TV-NNO-221.RfMeasurement.5000",
+      "displayName": "DVB-S2 RfMeasurement - Peretz",
+      "lastResultTime": null,
+      "registrationTime": null,
+      "hanldedResults": 0,
+      "group": "RF"
+    }],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1433148944290,
+      "creationDateTime": 1433148944290,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "CBK1-1TV-NNO-221",
+      "displayName": "Nizhny Novgorod, Аналог",
+      "snmpId": 7894,
+      "deleted": false,
+      "netAddress": "192.168.1.1",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Win OS x64",
+      "profiles": [],
+      "properties": [],
+      "name": "CBK1-1TV-NNO-221",
+      "description": "Monitoring of NN TV channels (description)",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "1184":    {
+    "registrationTime": null,
+    "id": 65536,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "agentVersion": "ver 2.2",
+    "tasksStatistic":       [
+      {
+        "key": "1184.TR101290IPTVControlModule.4000",
+        "displayName": "Дзержинск ТВ - TR101290P1",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "1184.LoudnessR128.1000",
+        "displayName": "Дзержинск ТВ - LoudnessR128",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "1184.RecordAndStream.3000",
+        "displayName": "Дзержинск ТВ - RecordAndStream",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "1184.TVStreamControlModule_v2.7000",
+        "displayName": "Дзержинск ТВ - QoE",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "1184.TR101290p2IPTVControlModule.5000",
+        "displayName": "Дзержинск ТВ - TR101290P2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "1184.TR101290ControlModule_pr3.6000",
+        "displayName": "Дзержинск ТВ - TR101290P3",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "1184.MpegTSStatisticsIPTVControlModule.2000",
+        "displayName": "Дзержинск ТВ - MPEG TS Statistics",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1430391783040,
+      "creationDateTime": 1430390527260,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "1184",
+      "displayName": "Foxline2",
+      "snmpId": 1183,
+      "deleted": false,
+      "netAddress": "192.168.118.4",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 Pro 32-bit",
+      "profiles": [],
+      "properties": [],
+      "name": "1184",
+      "description": "DVB-C Long-count",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.22381,
+        "longitude": 43.78383,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "probe_debug":    {
+    "registrationTime": 1433944230864,
+    "id": 360460,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": "SUCCESS",
+    "agentVersion": "ver 3.0",
+    "tasksStatistic":       [
+      {
+        "key": "probe_debug.LoudnessA85.1",
+        "displayName": "LoudnessA85_1",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "probe_debug.LoudnessA85.2",
+        "displayName": "LoudnessA85_2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "probe_debug.LoudnessR128.1",
+        "displayName": "LoudnessR128_2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "probe_debug.RecordAndStream.1",
+        "displayName": "Первый канал (Захват аналогового сигнала)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": null,
+      "creationDateTime": null,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "probe_debug",
+      "displayName": "Probe debug",
+      "snmpId": 0,
+      "deleted": false,
+      "netAddress": "192.168.117.73",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Win OS x64 123",
+      "profiles": null,
+      "properties": null,
+      "name": "probe_debug",
+      "description": "Monitoring of NN TV channels (description)",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320123,
+        "longitude": 44.032123,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "pyra":    {
+    "registrationTime": null,
+    "id": 98733,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "agentVersion": "ver 4.0",
+    "tasksStatistic": [      {
+      "key": "pyra.RfMeasurement.5000",
+      "displayName": "DVB-S2 RfMeasurement - Peretz",
+      "lastResultTime": null,
+      "registrationTime": null,
+      "hanldedResults": 0,
+      "group": "RF"
+    }],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1431499678088,
+      "creationDateTime": 1431499678088,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "pyra",
+      "displayName": "pyra",
+      "snmpId": 2607,
+      "deleted": false,
+      "netAddress": "192.168.117.131",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "pyra",
+      "description": "pyra tbs 6280",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "Nino Test":    {
+    "registrationTime": null,
+    "id": 1,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": "SUCCESS",
+    "agentVersion": "ver 5.0",
+    "tasksStatistic":       [
+      {
+        "key": "Nino Test.MpegTSStatisticsIPTVControlModule.2",
+        "displayName": "Битрейты",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Nino Test.HttpMonitor.31",
+        "displayName": "Exciter A(15.161)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test.HttpMonitor.32",
+        "displayName": "Transmitter Controller(15.108)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test.HttpMonitor.33",
+        "displayName": "DVBT mod A",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test.RecordAndStream.1905",
+        "displayName": "Первый Канал (Захват аналогового сигнала)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Nino Test.AtscA78.11",
+        "displayName": "WCPO (A/78)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1429792899385,
+      "creationDateTime": 1429792899385,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "Nino Test",
+      "displayName": "Nino Test",
+      "snmpId": 1,
+      "deleted": false,
+      "netAddress": "192.168.115.77",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "Nino Test",
+      "description": "Nino Test Probe",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "VGTRK092":    {
+    "registrationTime": null,
+    "id": 458783,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "VGTRK092.TR101290.4",
+        "displayName": "TR101290 p32",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "VGTRK092.QoEVideo.1860",
+        "displayName": "QOE1",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "VGTRK092.QoEVideo.1861",
+        "displayName": "QOE2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "VGTRK092.RecordAndStream.90007",
+        "displayName": "DVB-T21",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "VGTRK092.TR101290.3",
+        "displayName": "TR101290 p31",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "VGTRK092.LoudnessR128.1",
+        "displayName": "loudness1",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "VGTRK092.RecordAndStream.90008",
+        "displayName": "DVB-T22",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "VGTRK092.LoudnessR128.2",
+        "displayName": "loudness2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1433415606222,
+      "creationDateTime": 1433415606222,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "VGTRK092",
+      "displayName": "2ВГТРК-09 (ул. Серпуховской Вал, 22к3)",
+      "snmpId": 15182,
+      "deleted": false,
+      "netAddress": "192.168.115.234",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Win7 x32",
+      "profiles": [],
+      "properties": [],
+      "name": "VGTRK092",
+      "description": "Мониторинг кабельного оператора Ростелеком (Онлайн)",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 55.712946,
+        "longitude": 37.611197,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "NetUP":    {
+    "registrationTime": null,
+    "id": 524288,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "NetUP.RfMeasurement.5003",
+        "displayName": "DVB-T22",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "NetUP.RfMeasurement.5001",
+        "displayName": "DVB-S22",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "NetUP.RfMeasurement.5002",
+        "displayName": "DVB-T21",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "NetUP.RecordAndStream.130",
+        "displayName": "Regional HE TX R2",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "NetUP.RfMeasurement.5000",
+        "displayName": "DVB-S21 ",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1433767690543,
+      "creationDateTime": 1433767690543,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "NetUP",
+      "displayName": "NetUP",
+      "snmpId": 18173,
+      "deleted": false,
+      "netAddress": "192.168.117.106",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "NetUP",
+      "description": "it12 and it15 test",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "ivanovo":    {
+    "registrationTime": null,
+    "id": 131072,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic": [      {
+      "key": "ivanovo.MpegTSStatisticsIPTVControlModule.1",
+      "displayName": "DVB-T2 Битрейты 730",
+      "lastResultTime": null,
+      "registrationTime": null,
+      "hanldedResults": 0,
+      "group": "TS"
+    }],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1431512441100,
+      "creationDateTime": 1431512441100,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "ivanovo",
+      "displayName": "ivanovo",
+      "snmpId": 2978,
+      "deleted": false,
+      "netAddress": "192.168.117.130",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "ivanovo",
+      "description": "ivanovo beholder",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "Round_Robin":    {
+    "registrationTime": null,
+    "id": 294912,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "Round_Robin.RfMeasurement.7003",
+        "displayName": "DVB-C RfMeasurement - Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2005",
+        "displayName": "DVB-C LoudnessR128 - Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.RfMeasurement.7002",
+        "displayName": "DVB-S2 RfMeasurement - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2004",
+        "displayName": "DVB-C LoudnessR128 - Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.RfMeasurement.7001",
+        "displayName": "DVB-S2 RfMeasurement - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2003",
+        "displayName": "DVB-C LoudnessR128 - Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.RfMeasurement.7000",
+        "displayName": "DVB-S2 RfMeasurement - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2002",
+        "displayName": "DVB-S2 LoudnessR128 - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9003",
+        "displayName": "DVB-C TVStreamControlModule - Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2001",
+        "displayName": "DVB-S2 LoudnessR128 - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9002",
+        "displayName": "DVB-S2 TVStreamControlModule - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.LoudnessR128.2000",
+        "displayName": "DVB-S2 LoudnessR128 - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "AUDIO"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9001",
+        "displayName": "DVB-S2 TVStreamControlModule - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9000",
+        "displayName": "DVB-S2 TVStreamControlModule - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.RfMeasurement.7005",
+        "displayName": "DVB-C RfMeasurement - Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.RfMeasurement.7004",
+        "displayName": "DVB-C RfMeasurement - Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "RF"
+      },
+      {
+        "key": "Round_Robin.TR101290.3005",
+        "displayName": "DVB-C TR101290 - Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.TR101290.3004",
+        "displayName": "DVB-C TR101290 - Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.TR101290.3003",
+        "displayName": "DVB-C TR101290 - Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.TR101290.3002",
+        "displayName": "DVB-S2 TR101290 - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1005",
+        "displayName": "DVB-C Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1004",
+        "displayName": "DVB-C Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.TR101290.3001",
+        "displayName": "DVB-S2 TR101290 - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.TR101290.3000",
+        "displayName": "DVB-S2 TR101290 - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1002",
+        "displayName": "DVB-S2 RecordAndStream - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1003",
+        "displayName": "DVB-C Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1000",
+        "displayName": "DVB-S2 RecordAndStream - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.RecordAndStream.1001",
+        "displayName": "DVB-S2 RecordAndStream - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9004",
+        "displayName": "DVB-C TVStreamControlModule - Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.QoEVideo.9005",
+        "displayName": "DVB-C TVStreamControlModule - Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16000",
+        "displayName": "DVB-S2 MPEGTSStatistics - VTV Romania",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16001",
+        "displayName": "DVB-S2 MPEGTSStatistics - ProTV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16002",
+        "displayName": "DVB-S2 MPEGTSStatistics - Comedy TV",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16003",
+        "displayName": "DVB-C MPEGTSStatistics - Karusel 306Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16004",
+        "displayName": "DVB-C MPEGTSStatistics - Zvezda 314Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Round_Robin.MpegTSStatisticsIPTVControlModule.16005",
+        "displayName": "DVB-C MPEGTSStatistics - Volga 322Mhz",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1432543731114,
+      "creationDateTime": 1432543731114,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "Round_Robin",
+      "displayName": "Round Robin",
+      "snmpId": 6220,
+      "deleted": false,
+      "netAddress": "192.168.118.91",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "Round_Robin",
+      "description": "Round Robin",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "oka1":    {
+    "registrationTime": null,
+    "id": 98304,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "oka1.RecordAndStream.1010",
+        "displayName": "Канал 1010",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.MpegTSStatisticsIPTVControlModule.11709",
+        "displayName": "MpegTSStatistics 1010",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka1.TVStreamControlModule_v2.90002",
+        "displayName": "ATV Россия24 Аудио, видео, телетекст",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "oka1.TR101290IPTVControlModule.1692",
+        "displayName": "oka(TR101 290 priority 1)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka1.RecordAndStream.1080",
+        "displayName": "Канал 1080",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.MpegTSStatisticsIPTVControlModule.11710",
+        "displayName": "MpegTSStatistics 1080",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka1.RecordAndStream.1050",
+        "displayName": "Канал 1050",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.MpegTSStatisticsIPTVControlModule.11711",
+        "displayName": "MpegTSStatistics 1030",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "oka1.RecordAndStream.1040",
+        "displayName": "Канал 1040",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.RecordAndStream.1090",
+        "displayName": "Канал 1090",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.RecordAndStream.1030",
+        "displayName": "Канал 1030",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "oka1.TR101290p2IPTVControlModule.1697",
+        "displayName": "oka(TR101 290 priority 2)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1430993428883,
+      "creationDateTime": 1430910621660,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "oka1",
+      "displayName": "oka1",
+      "snmpId": 1660,
+      "deleted": false,
+      "netAddress": "192.168.115.69",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "oka1",
+      "description": "Test Probe",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "Nino Test2":    {
+    "registrationTime": null,
+    "id": 229502,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "Nino Test2.HttpMonitor.33",
+        "displayName": "DVBT mod A",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test2.HttpMonitor.32",
+        "displayName": "Transmitter Controller(15.108)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test2.HttpMonitor.31",
+        "displayName": "Exciter A(15.161)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test2.AtscA78.11",
+        "displayName": "WCPO (A/78)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Nino Test2.MpegTSStatisticsIPTVControlModule.2",
+        "displayName": "Битрейты",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Nino Test2.RecordAndStream.1905",
+        "displayName": "Первый Канал (Захват аналогового сигнала)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1431675357989,
+      "creationDateTime": 1431675305231,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "Nino Test2",
+      "displayName": "Nino Test2",
+      "snmpId": 3791,
+      "deleted": false,
+      "netAddress": "192.168.115.77",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "Nino Test2",
+      "description": "Nino Test Probe",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  },
+  "Nino Test3":    {
+    "registrationTime": null,
+    "id": 229839,
+    "lastResultTime": null,
+    "hanldedResults": 0,
+    "state": null,
+    "tasksStatistic":       [
+      {
+        "key": "Nino Test3.HttpMonitor.31",
+        "displayName": "Exciter A(15.161)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test3.MpegTSStatisticsIPTVControlModule.2",
+        "displayName": "Битрейты",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      },
+      {
+        "key": "Nino Test3.HttpMonitor.33",
+        "displayName": "DVBT mod A",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test3.RecordAndStream.1905",
+        "displayName": "Первый Канал (Захват аналогового сигнала)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "DATA"
+      },
+      {
+        "key": "Nino Test3.HttpMonitor.32",
+        "displayName": "Transmitter Controller(15.108)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "VIDEO"
+      },
+      {
+        "key": "Nino Test3.AtscA78.11",
+        "displayName": "WCPO (A/78)",
+        "lastResultTime": null,
+        "registrationTime": null,
+        "hanldedResults": 0,
+        "group": "TS"
+      }
+    ],
+    "component":       {
+      "@class": "com.tecomgroup.qos.domain.MAgent",
+      "modificationDateTime": 1431677196182,
+      "creationDateTime": 1431677196182,
+      "createdBy": null,
+      "modifiedBy": null,
+      "version": 0,
+      "parent": null,
+      "key": "Nino Test3",
+      "displayName": "Nino Test3",
+      "snmpId": 4986,
+      "deleted": false,
+      "netAddress": "192.168.115.77",
+      "division": null,
+      "selectedProfile": null,
+      "platform": "Windows 7 x86",
+      "profiles": [],
+      "properties": [],
+      "name": "Nino Test3",
+      "description": "Nino Test Probe",
+      "agentType": null,
+      "gisPosition":          {
+        "latitude": 56.320644,
+        "longitude": 44.032677,
+        "title": null
+      },
+      "timeZone": "Europe/Moscow"
+    }
+  }
+}

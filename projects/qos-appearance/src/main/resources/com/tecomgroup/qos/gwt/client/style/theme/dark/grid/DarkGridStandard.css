@@ -1,0 +1,243 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ 
+@def altColor #505052;
+@def overColor #242424;
+@def selectedColor #2E3A6B;
+@def severityOpacity 0.1;
+
+@eval gridBackground com.tecomgroup.qos.gwt.client.utils.DarkColorConstants.getGreyColor();
+@eval fontColor com.tecomgroup.qos.gwt.client.utils.DarkColorConstants.getLightBlueColor();
+
+@eval dirty com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/dirty.gif");
+@eval invalidLine com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/invalid_line.gif");
+@eval dirty com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/dirty.gif");
+
+@eval criticalColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityCriticalRgb();
+@eval warningColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityWarningRgb();
+@eval normalColor com.tecomgroup.qos.gwt.client.utils.ColorConstants.getSeverityNoneRgb();
+
+@external x-treegrid x-treegrid-column;
+@external x-grid-td-numberer;
+@external x-grid-footer;
+@external x-grid-cell-first;
+@external x-grid-cell-last;
+
+@external .qosGridStandardStyle;
+@external .qosGridUnselectableStyle;
+@external .CRITICAL;
+@external .WARNING;
+@external .NORMAL;
+
+.qosGridStandardStyle .cell.CRITICAL, .qosGridStandardStyle .rowAlt .cell.CRITICAL {
+	background-color: rgba(criticalColor, severityOpacity);
+}
+.qosGridStandardStyle .cell.WARNING, .qosGridStandardStyle .rowAlt .cell.WARNING {
+	background-color: rgba(warningColor, severityOpacity);
+}
+.qosGridStandardStyle .cell.NORMAL, .qosGridStandardStyle .rowAlt .cell.NORMAL {
+	background-color: rgba(normalColor, severityOpacity);
+}
+
+
+.qosGridStandardStyle .cellInner {
+  overflow: hidden;
+  padding: 4px 3px 3px 5px;
+  line-height: 13px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.qosGridStandardStyle .cellSelected {
+  background-color: selectedColor !important;
+  color: #000;
+}
+
+.qosGridUnselectableStyle.qosGridStandardStyle .cellSelected {
+  background-color: gridBackground !important;
+  color: #000;
+}
+
+.qosGridStandardStyle .columnLines .cell {
+  padding-right: 0;
+  border: none;
+}
+
+.qosGridStandardStyle .scroller {
+  overflow: auto;
+  zoom: 1;
+  position: relative;
+  background-color: gridBackground !important;
+}
+
+.qosGridStandardStyle .rowHighlight {
+  border: 1px dotted #545352;
+}
+
+.qosGridStandardStyle .rowSelected .cell, .qosGridStandardStyle .rowSelected .rowWrap {
+  background-color: selectedColor !important;
+}
+
+.qosGridUnselectableStyle.qosGridStandardStyle .rowSelected .cell, .qosGridUnselectableStyle.qosGridStandardStyle .rowSelected .rowWrap {
+  background-color: gridBackground !important;
+}
+
+.qosGridStandardStyle .rowAlt .cell {
+  background-color: altColor;
+}
+
+.qosGridUnselectableStyle.qosGridStandardStyle .rowAlt .cell, 
+.qosGridUnselectableStyle.qosGridStandardStyle .rowSelected.rowAlt .cell {
+	background-color: altColor !important;
+}
+
+.qosGridStandardStyle .rowOver .cell {
+  background-color: overColor !important;
+  border-width: 0px 0;
+  border-style: solid;
+}
+
+.qosGridStandardStyle .cell {
+  background-color: gridBackground;
+  border : none !important;
+  font: 11px tahoma,arial,verdana,sans-serif; 
+  overflow: hidden;
+  color: fontColor;
+}
+
+.qosGridStandardStyle a {
+  color: fontColor;
+}
+
+.qosGridStandardStyle .rowWrap {
+  border-color: gridBackground gridBackground gridBackground;
+  border-right: 0px solid gridBackground;
+  border-style: solid;
+  border-width: 0px;
+  overflow: hidden;
+}
+
+.qosGridStandardStyle .rowSelected .cell, .qosGridStandardStyle .rowSelected .rowWrap {
+  background-color: selectedColor !important;
+}
+
+.qosGridUnselectableStyle.qosGridStandardStyle .rowSelected .cell, .qosGridUnselectableStyle.qosGridStandardStyle .rowSelected .rowWrap {
+  background-color: gridBackground !important;
+}
+
+.qosGridStandardStyle .rowWrap .cell, .qosGridStandardStyle .rowWrap .cellInner {
+  border: none; 
+}
+
+.qosGridStandardStyle .footer {
+  background: gridBackground none repeat scroll 0 0;
+  border-top: 1px solid footerColor;
+  border-bottom: 1px solid footerColor;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.qosGridStandardStyle .grid {
+  position: relative;
+  overflow: hidden;
+  outline: 0 none;
+}
+
+.qosGridStandardStyle .body {
+  
+}
+
+.qosGridStandardStyle TH {
+  border-bottom: none !important;
+}
+
+.qosGridStandardStyle .dataTable {
+  table-layout: fixed; 
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.qosGridStandardStyle .headerRow {}
+
+.qosGridStandardStyle .row {
+  cursor: default;
+  padding: 0 1px;
+  vertical-align: top; 
+}
+
+.qosGridStandardStyle .rowDirty {
+  
+}
+
+.qosGridStandardStyle .cellDirty {
+  background: transparent no-repeat 0 0; 
+  background-image: dirty;
+}
+
+.qosGridStandardStyle .cellInvalid {
+  background: repeat-x bottom;
+  background-image: invalidLine;
+}
+
+.qosGridStandardStyle .cellDirty {
+  background: transparent no-repeat 0 0;
+  background-image: dirty;
+}
+
+.qosGridStandardStyle .empty {
+  padding: 10px;
+  color: gray;
+  font: normal 11px tahoma, arial, verdana, sans-serif;
+}
+
+.qosGridStandardStyle .rowBodyRow {}
+
+.qosGridStandardStyle .rowBody {
+  font: 11px/13px tahoma,arial,verdana,sans-serif;
+  padding: 4px;
+}
+
+.qosGridStandardStyle .rowWrap .cell, .qosGridStandardStyle .rowWrap .cellInner {
+  border: none; 
+}
+
+.qosGridStandardStyle .x-grid-td-numberer {
+  background: transparent repeat-y right;
+}
+
+.qosGridStandardStyle .x-grid-td-numberer .cellInner {
+  padding: 3px 5px 0 0 !important;
+  text-align: center;
+}
+
+.qosGridStandardStyle .rowSelected .x-grid-td-numberer {
+  background: transparent repeat-y right;
+}
+
+@sprite .qosGridStandardStyle .row .x-grid-td-numberer {
+  gwt-image: 'specialColumn';
+  height: auto;
+  width: auto;
+}
+
+.qosGridStandardStyle .x-grid-td-numberer .cellInner {
+  color: #444;
+}
+
+@sprite .qosGridStandardStyle .rowSelected .x-grid-td-numberer {
+  gwt-image: 'specialColumnSelected';
+  height: auto;
+  width: auto;
+}
+
+.qosGridStandardStyle .footer .cell {
+  background: none; 
+}
+
+.qosGridStandardStyle .x-treegrid .x-treegrid-column .cellInner {
+  padding: 0 !important;
+}

@@ -1,0 +1,8 @@
+# Ignore frontend module build artifacts
+js/browser-bundle.min.js
+css
+img
+i18n
+lib
+swf
+fonts

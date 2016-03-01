@@ -1,0 +1,3 @@
+---
+- name: restart pgpool
+  service: name=pgpool-II-94 state=restarted

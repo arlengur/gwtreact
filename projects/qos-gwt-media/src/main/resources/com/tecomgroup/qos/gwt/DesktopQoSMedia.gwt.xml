@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.1//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.5.1/distro-source/core/src/gwt-module.dtd">
+<module rename-to='DesktopQoSMedia'>
+	<inherits name="com.tecomgroup.QOSAPI" />
+	<inherits name="com.tecomgroup.qos.gwt.DesktopQoSGWT" />
+
+	<!-- Super dev mode -->
+	<add-linker name="xsiframe" />
+	<set-property name="compiler.useSourceMaps" value="true" />
+	<set-configuration-property name="devModeRedirectEnabled"
+		value="true" />
+	<set-configuration-property name='xsiframe.failIfScriptTag'
+		value='FALSE' />
+
+	<define-configuration-property name="gin.ginjector"
+		is-multi-valued="false" />
+	<set-configuration-property name="gin.ginjector"
+		value="com.tecomgroup.qos.gwt.client.gin.desktop.DesktopQoSMediaGinjector" />
+
+	<entry-point class='com.tecomgroup.qos.gwt.client.DesktopQoSMedia' />
+
+	<set-property name="gxt.user.agent" value="ie9, gecko1_9, chrome, safari5" />
+
+	<source path='client'>
+		<exclude name='client.view.mobile' />
+		<exclude name='client.MobileQoSMedia' />
+		<exclude name='client.gin.mobile' />
+	</source>
+	<source path='shared' />
+</module>
+
+
+
+

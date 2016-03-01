@@ -1,0 +1,167 @@
+.footer {
+    background-color: #424242;
+    padding: 5px;
+    border-top: 2px solid #000000;
+    margin: 0 10px 10px;
+}
+.footer-view {
+    background-color: #424242;
+    padding: 5px;
+    margin: 0 10px 10px;
+}
+.config-header {
+    background: #27436e;
+    color: #f5f5f5;
+    padding: 5px 10px;
+}
+.config-page {
+    width: 55% !important;
+    height: 85% !important;
+    background-color: #000000;
+}
+.config-panel {
+    background-color: #424242;
+    margin: 10px 10px 0;
+    /*расскоментировать когда добавяться все блоки min-height: 625px;*/
+}
+.config-edit-panel {
+    background-color: #424242;
+    margin: 10px 10px 0;
+    overflow-y: auto;
+}
+.config-tree-button-panel {
+    background: #5F5F5F;
+    padding: 4px;
+    margin: 4px 4px 0;
+}
+.config-tree-head {
+    background-color: #0B131F;
+    height: 33px;
+    margin: 0 4px;
+}
+.config-tree {
+    height: 0;
+    overflow-y: auto;
+    border: 0px none;
+    color: #FFF;
+    font-size: 12px;
+    margin: 0 4px 4px;
+    background: transparent url("../img/tree_bg.png") repeat scroll 0% 0%;
+}
+.history-tree {
+    min-height: 150px;
+    margin: 15px -10px 0;
+    background: transparent url("../img/tree_bg.png") repeat scroll 0% 0%;
+}
+.config-tree-li {
+    list-style: none
+}
+.config-tree-line-text-dn {
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 23px;
+    line-height: 23px;
+}
+.config-tree-line {
+    border-left: solid 1px #424242;
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 23px;
+}
+.config-chbx-head {
+    margin: 0 4px 0 2px!important;
+    height: 33px;
+}
+.config-chbx {
+    margin: 0 4px 0 2px!important;
+    height: 23px;
+}
+.config-line-head {
+    border-left: solid 1px #424242;
+    height: 33px;
+}
+.config-line {
+    border-left: solid 1px #424242;
+    height: 23px;
+}
+.config-head-text-dn {
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 12px;
+    color: #6A97D5;
+    line-height: 33px;
+}
+.config-head-text {
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 12px;
+    color: #6A97D5;
+    line-height: 33px;
+    border-left: solid 1px #424242;
+}
+.assign-panel {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 20px 20px 15px;
+    border-bottom: 2px solid #000000;
+}
+.assign-panel-last {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 20px 20px 15px;
+}
+.config-assign-file {
+    background: #1A1A1A;
+    color: #ffffff;
+    border: 0;
+    height: 28px;
+    border-right: 10px solid #424242;
+    cursor: text;
+}
+.label-text {
+    font-weight: normal;
+    line-height: 20px;
+}
+.config-btn {
+    height: 28px;
+    padding: 0 10px;
+}
+.config-btn-disabled {
+    background-color: #404040;
+}
+.assign-file-btn {
+    margin-top: 20px;
+}
+.select {
+    background: #1A1A1A;
+    height: 28px;
+    border: 0;
+}
+.config-text {
+    margin: 4px;
+    width: 100%;
+    resize: none;
+}
+.highlight-pre {
+    padding: 0;
+    border: 0;
+    margin: 4px;
+    background: none;
+    width: 100%;
+}
+.modal-close {
+    padding-top: 6px;
+    padding-right: 6px;
+}
+.config-center-block {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}

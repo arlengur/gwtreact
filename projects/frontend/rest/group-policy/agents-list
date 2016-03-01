@@ -1,0 +1,29 @@
+[
+  {
+    "id": null,
+    "name": null,
+    "entityKey": "Nino Test",
+    "country": null,
+    "state": null,
+    "city": "56.320644000000001",
+    "street": null
+  } ,
+  {
+    "id": null,
+    "name": null,
+    "entityKey": "Nino Test 2",
+    "country": null,
+    "state": null,
+    "city": "56.320644000000001",
+    "street": null
+  } ,
+  {
+    "id": null,
+    "name": null,
+    "entityKey": "Nino Test 3",
+    "country": null,
+    "state": null,
+    "city": "56.320644000000001",
+    "street": null
+  }
+]

@@ -1,0 +1,28 @@
+.confirm-page {
+    width: 400px !important;
+    height: 250px !important;
+    background-color: #000;
+    top: 25% !important;
+}
+.confirm-panel {
+    background-color: #333;
+    margin: 10px 10px 0;
+    padding: 10px 10px 0 10px;
+}
+.confirm-footer {
+    background-color: #333;
+    padding: 10px 5px 5px;
+    margin: 0 10px 10px;
+}
+.confirm-text {
+    color: #f4f4f4;
+    background-color: #333;
+    font-weight: normal;
+}
+.confirm-probes-text {
+    color: #9e9e9e;
+    padding-left: 30px;
+    margin: 5px 0;
+    overflow-y: auto;
+    height: 0;
+}

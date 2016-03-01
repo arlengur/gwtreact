@@ -1,0 +1,11 @@
+.settings
+/src
+.project
+.classpath
+.idea
+*.iml
+/target
+npm-debug.log
+*.versionsBackup
+.DS_Store
+*.pyc

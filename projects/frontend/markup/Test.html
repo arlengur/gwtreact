@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../node_modules/moment/moment.js"></script>
+    <script src="../node_modules/moment-timezone/moment-timezone.js"></script>
+
+    <script>
+        function showTime () {
+            console.log(moment("25/01/201615 : 25 : 51", 'DD/MM/YYYYHH : mm : ss').utc().format('YYYY/MM/DDTHH:mm:ss'));
+//            var t1 = moment.tz("14/01/2016 16:04:02", "DD/MM/YYYY HH:mm:ss", "America/Toronto");
+//            var t2 = moment.tz("20151123T210000", "DD/MM/YYYY HH:mm:ss", "America/Toronto");
+//            console.log(t1.format());
+//            console.log(t2.utc().format());
+//            console.log(moment('22/01/201613 : 51 : 24', 'DD/MM/YYYY HH : mm : ss'));
+//            console.log(moment().add(1, 'hours').format('MMM D YYYY HH:mm:ss'));
+//            console.log(moment().add(1, 'hours').format('MMM D YYYY HH:mm:ss'));
+
+//            var now  = "04/09/2013 15:00:00";
+//            var then = "04/09/2013 14:20:30";
+//
+//            var ms = moment(then,"DD/MM/YYYY HH:mm:ss").diff(moment(now,"DD/MM/YYYY HH:mm:ss"), 'hours');
+//            var d = moment.duration(ms);
+//            var s = d.format("hh:mm:ss");
+
+//            console.log(moment(now,"DD/MM/YYYY HH:mm:ss").format());
+//            console.log(moment(then,"DD/MM/YYYY HH:mm:ss").format());
+//            console.log(d.asHours);
+
+//            var t = moment().tz("America/Merida");
+//            console.log(t.format('DD/MM/YYYY HH:mm:ss'));
+//            console.log(moment.tz.add('America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0'));
+//            console.log(moment.tz.names());
+
+        }
+        $(document).ready(function () {
+            showTime();
+        });
+    </script>
+</head>
+<body>
+<h1>Hello</h1>
+
+<h1 id="time">Time: </h1>
+<input type="text" value="gggg">ggg</input>
+</body>
+</html>

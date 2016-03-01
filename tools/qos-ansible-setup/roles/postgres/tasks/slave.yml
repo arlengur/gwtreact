@@ -1,0 +1,20 @@
+---
+- name: Create a recovery file
+  template: src={{ item }}.j2 dest={{ pg_data }}/{{ item }} owner=postgres group=postgres mode=600 backup=yes
+  sudo_user: postgres
+  with_items:
+    - recovery.conf
+  register: rec_file
+  notify: restart postgres
+
+- include: basebackup.yml
+  when: rec_file.changed
+
+- name: Configure Postgres slave
+  template: src={{ item }}.j2 dest={{ pg_data }}/{{ item }} owner=postgres group=postgres mode=600 backup=yes
+  sudo_user: postgres
+  with_items:
+   - pg_hba.conf
+   - postgresql.conf
+   - recovery.conf
+  notify: restart postgres

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="mailProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:config/mail.properties</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="mail.smtp.host">smtp.gmail.com</prop>
+				<prop key="mail.smtp.port">465</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.ssl.enable">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.connectiontimeout">10000</prop>
+				<prop key="mail.smtp.timeout">10000</prop>
+				<prop key="mail.smtp.user">qligent.vision@gmail.com</prop>
+				<prop key="mail.smtp.password">Tecom1Tecom1</prop>
+				<prop key="mail.from">qligent.vision@gmail.com</prop>
+				<prop key="mail.debug">false</prop>
+			</props>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+		<property name="ignoreResourceNotFound" value="true" />
+	</bean>
+
+	<bean id="mailPropertyPlaceholder"
+		class="com.tecomgroup.qos.util.ExposedPropertyPlaceholderConfigurer">
+		<property name="properties" ref="mailProperties" />
+		<property name="name" value="mailPropertyPlaceholder" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="password" value="${mail.smtp.password}" />
+		<property name="javaMailProperties" ref="mailProperties" />
+	</bean>
+
+	<bean id="velocityEngineFactory"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean" />
+
+	<bean id="mailer" class="com.tecomgroup.qos.mail.DefaultMailer" />
+</beans>

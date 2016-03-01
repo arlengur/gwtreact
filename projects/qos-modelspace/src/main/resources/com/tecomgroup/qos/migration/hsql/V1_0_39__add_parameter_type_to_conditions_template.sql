@@ -1,0 +1,1 @@
+ ALTER TABLE MPolicyConditionsTemplate ADD COLUMN  parametertype integer;

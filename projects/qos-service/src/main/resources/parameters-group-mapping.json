@@ -1,0 +1,21 @@
+{
+  "LoudnessA85": "AUDIO",
+  "LoudnessR128": "AUDIO",
+  "MpegTSSplicing": "DATA",
+  "IPStatistics" :"IP",
+  "RTPStatistics" :"IP",
+  "IT09A" :"RF",
+  "RfMeasurement" :"RF",
+  "AtscA78" :"TS",
+  "MpegTSStatistics" :"TS",
+  "OTTMonitor" : "TS",
+  "TR101290" :"TS",
+  "QoEVideo" : "VIDEO",
+  "CaptionsAnalyzer": "CC",
+
+  "SignalLevel" :"RF",
+  "TSStatistics" :"TS",
+  "TVStream": "VIDEO",
+  "EPG": "EPG",
+  "HttpMonitor": "VIDEO"
+}

@@ -1,0 +1,80 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.2.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+	<global-method-security pre-post-annotations="enabled" />
+	<beans:bean id="ep403" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"/>
+	<!--security settings for REST services-->
+	<http  name="restSecurity" auto-config="true" use-expressions="true" pattern="/rest/**" entry-point-ref="ep403">
+		<intercept-url pattern="/rest/**" access="isAuthenticated()" />
+		<logout />
+		<remember-me key="QOS_SYSTEM" token-validity-seconds="864000" />
+	</http>
+	<!--security settings for UI layer-->
+	<http name="appSecurity" auto-config="false" use-expressions="true" >
+		<intercept-url pattern="/FrontEnd.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/QoSMedia.jsp" access="isAuthenticated()" />
+		<form-login authentication-success-handler-ref="successHandler" authentication-failure-handler-ref="failureHandler"  login-page="/login.html" />
+		<logout />
+		<remember-me key="QOS_SYSTEM" token-validity-seconds="864000" />
+	</http>
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder hash="md5" />
+		</authentication-provider>
+		<authentication-provider ref="ldapProvider" />
+	</authentication-manager>
+
+
+	<aop:aspectj-autoproxy />
+
+	<!-- User Detail Services -->
+	<beans:bean id="userDetailsService"
+		class="com.tecomgroup.qos.service.security.UserDetailsServiceImpl" />
+
+	<beans:bean id="securityExceptionInterceptor"
+		class="com.tecomgroup.qos.service.security.SecurityExceptionInterceptor" />
+
+	<beans:bean id="successHandler"
+				class="com.tecomgroup.qos.service.security.LoginSuccessHandler">
+	</beans:bean>
+
+	<beans:bean id="failureHandler"
+		class="com.tecomgroup.qos.service.security.LoginFailureHandler" />
+
+	<beans:bean id="ldapProvider"
+		class="com.tecomgroup.qos.service.security.CustomLdapAuthenticationProvider">
+		<beans:constructor-arg>
+			<beans:bean
+				class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<beans:constructor-arg ref="ldapContextSource" />
+				<beans:property name="userSearch">
+					<beans:bean id="userSearch"
+						class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+						<beans:constructor-arg index="0" value="" />
+						<beans:constructor-arg index="1"
+							value="(&amp;(sAMAccountName={0})(objectclass=user))" />
+						<beans:constructor-arg index="2"
+							ref="ldapContextSource" />
+					</beans:bean>
+				</beans:property>
+			</beans:bean>
+		</beans:constructor-arg>
+		<beans:constructor-arg>
+			<beans:bean
+				class="com.tecomgroup.qos.service.security.CustomLdapAuthoritiesPopulator">
+				<beans:constructor-arg ref="ldapContextSource" />
+				<beans:constructor-arg value="" />
+			</beans:bean>
+		</beans:constructor-arg>
+		<beans:constructor-arg value="false" />
+	</beans:bean>
+
+
+</beans:beans>

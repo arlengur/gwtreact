@@ -1,0 +1,8 @@
+---
+- name: Check if 22 port is open
+  shell: grep -q '\-\-dport 22 ' /etc/sysconfig/iptables
+  register: check_iptables_22
+  changed_when: no
+
+- name: Keep iptables started
+  service: name=iptables state=started enabled=yes

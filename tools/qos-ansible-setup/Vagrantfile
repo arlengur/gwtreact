@@ -1,0 +1,62 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "hansode/centos-6.7-x86_64"
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 512
+  end
+
+  config.vm.define 'repo', autostart: false do |machine|
+    # Prepare repo
+    machine.vm.provision :shell, inline: 'sudo /vagrant/preparerepo.sh'
+  end
+
+  config.vm.define 'postgres-1' do |machine|
+    machine.vm.hostname = 'postgres-1'
+    machine.vm.network 'private_network', ip: "192.168.77.10"
+  end
+
+  config.vm.define 'postgres-2' do |machine|
+    machine.vm.hostname = 'postgres-2'
+    machine.vm.network 'private_network', ip: "192.168.77.11"
+  end
+
+  config.vm.define 'rabbit-1' do |machine|
+    machine.vm.hostname = 'rabbit-1'
+    machine.vm.network 'private_network', ip: "192.168.77.12"
+  end
+
+  config.vm.define 'rabbit-2' do |machine|
+    machine.vm.hostname = 'rabbit-2'
+    machine.vm.network 'private_network', ip: "192.168.77.13"
+  end
+
+  config.vm.define 'client' do |machine|
+    machine.vm.hostname = 'client'
+    machine.vm.network 'private_network', ip: "192.168.77.254"
+
+    machine.vm.provision :ansible do |ansible|
+      ansible.playbook = "all.yml"
+      ansible.limit = "all"
+      ansible.sudo = true
+      ansible.groups = {
+        "postgres" => ["postgres-1", "postgres-2"],
+        "pgpool" => ["postgres-1", "postgres-2"],
+        "db:children" => ["postgres", "pgpool"],
+        "consul_servers" => ["rabbit-1", "rabbit-2", "postgres-1"],
+        "rabbit" => ["rabbit-1", "rabbit-2"],
+        "stage:children" => ["postgres", "pgpool", "rabbit"],
+        "clients" => ["client"]
+      }
+      ansible.extra_vars = {
+        "interface" => "eth1",
+        "pg_shared_buffers" => "128MB",
+        "local_repo_path" => "/localrepo",
+        "dhcp_interface" => "eth0",
+        "consul_recursors" => ['77.88.8.8']
+      }
+      # ansible.verbose = "v"
+    end
+  end
+end

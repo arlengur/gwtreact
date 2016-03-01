@@ -1,0 +1,37 @@
+.checkbox-input {
+    display: inline-block;
+    cursor: pointer;
+    line-height:12px;
+}
+.checkbox-input:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('../img/checkbox/checkbox_empty.png') no-repeat 0 0;
+}
+input[type=checkbox]:checked + .checkbox-input:before {
+    background: url('../img/checkbox/checkbox_on.png') no-repeat 0 0;
+}
+.radio-input {
+    display: inline-block;
+    cursor: pointer;
+    line-height:12px;
+}
+.radio-input:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('../img/checkbox/radio_empty.png') no-repeat 0 0;
+}
+.radio-input-locked:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('../img/checkbox/radio_empty_locked.png') no-repeat 0 0;
+}
+input[type=radio]:checked + .radio-input:before {
+    background: url('../img/checkbox/radio_on.png') no-repeat 0 0;
+}

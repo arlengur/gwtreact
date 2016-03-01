@@ -1,0 +1,357 @@
+{
+   "channelId": 65548,
+   "logo": "img/channels/1130.png",
+   "channelName": "Russia2",
+   "startDate": 1427755496776,
+   "endDate": 1427798696776,
+   "configuration":    {
+      "id": 65548,
+      "name": "Russia2",
+      "logo": "img/channels/1130.png",
+      "groups":       [
+         "VIDEO",
+         "TS",
+         "DATA",
+         "AUDIO"
+      ],
+      "streams":       {
+         "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+         "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+         "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+         "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_102",
+         "STREAM_ID": "102"
+      },
+      "probes": [      {
+         "id": 156,
+         "name": "Melbourne, FL",
+         "entityKey": "Florida",
+         "tasks":          [
+                        {
+               "id": 187,
+               "name": "DVB-C 1 TR101290p3",
+               "streams": {},
+               "entityKey": "Florida.TR101290ControlModule_pr3.700",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "DATA"
+            },
+                        {
+               "id": 191,
+               "name": "Russia 2 QoE",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_102",
+                  "STREAM_ID": "102"
+               },
+               "entityKey": "Florida.TVStreamControlModule_v2.302",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 196,
+               "parameterGroup": "VIDEO"
+            },
+                        {
+               "id": 197,
+               "name": "DVB-C 1 TR101290p1",
+               "streams": {},
+               "entityKey": "Florida.TR101290IPTVControlModule.500",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "TS"
+            },
+                        {
+               "id": 178,
+               "name": "Russia 2 Birtrates",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_102",
+                  "STREAM_ID": "102"
+               },
+               "entityKey": "Florida.MpegTSStatisticsIPTVControlModule.402",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 196,
+               "parameterGroup": "TS"
+            },
+                        {
+               "id": 196,
+               "name": "Russia 2",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_102",
+                  "STREAM_ID": "102"
+               },
+               "entityKey": "Florida.RecordAndStream.102",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "DATA"
+            },
+                        {
+               "id": 183,
+               "name": "Russia 2 Loudness",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_102.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_102",
+                  "STREAM_ID": "102"
+               },
+               "entityKey": "Florida.LoudnessR128.202",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 196,
+               "parameterGroup": "AUDIO"
+            },
+                        {
+               "id": 181,
+               "name": "DVB-C 1 TR101290p2",
+               "streams": {},
+               "entityKey": "Florida.TR101290p2IPTVControlModule.600",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "TS"
+            }
+         ]
+      }],
+      "isChannel": true,
+      "interval": 43200000
+   },
+   "parameterStates":    [
+            {
+         "group": "VIDEO",
+         "alertsHistory": []
+      },
+            {
+         "group": "TS",
+         "alertsHistory":          [
+                        {
+               "alertReportId": 262341,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65545,
+                  "sourceId": 178,
+                  "originatorId": 65542,
+                  "sourceName": "Russia 2 Birtrates",
+                  "originatorName": "Low Audio Bitrate",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427286768000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Audio Bitrate",
+                  "description": "Low Audio Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 2,
+                  "duration": "8 days 03:50:04",
+                  "detectionValue": 0.0036096,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "audioBitrate",
+                  "active": true,
+                  "settings": "parameterName=audioBitrate, programId=104, programName=104"
+               }
+            },
+                        {
+               "alertReportId": 262342,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65546,
+                  "sourceId": 178,
+                  "originatorId": 65543,
+                  "sourceName": "Russia 2 Birtrates",
+                  "originatorName": "Low Video Bitrate",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427286768000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Video Bitrate",
+                  "description": "Low Video Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 2,
+                  "duration": "8 days 03:50:04",
+                  "detectionValue": 0.0385024,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "videoBitrate",
+                  "active": true,
+                  "settings": "parameterName=videoBitrate, programId=104, programName=104"
+               }
+            },
+                        {
+               "alertReportId": 262343,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65547,
+                  "sourceId": 178,
+                  "originatorId": 65544,
+                  "sourceName": "Russia 2 Birtrates",
+                  "originatorName": "Low Data Bitrate",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427286768000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Data Bitrate",
+                  "description": "Low Data Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 2,
+                  "duration": "8 days 03:50:04",
+                  "detectionValue": 4.512E-4,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "dataBitrate",
+                  "active": true,
+                  "settings": "parameterName=dataBitrate, programId=104, programName=104"
+               }
+            }
+         ]
+      },
+            {
+         "group": "DATA",
+         "alertsHistory":          [
+                        {
+               "alertReportId": 4,
+               "startDateTime": 1426257060000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 4,
+                  "sourceId": 187,
+                  "originatorId": 424,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "EIT_actual_error",
+                  "lastUpdateType": "REPEAT",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1426257060000,
+                  "created": 1426257060000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "EIT_actual_error triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 12,
+                  "duration": "17 days 20:13:57",
+                  "detectionValue": 1,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "EIT_actual_error",
+                  "active": true,
+                  "settings": "parameterName=EIT_actual_error"
+               }
+            },
+                        {
+               "alertReportId": 262351,
+               "startDateTime": 1427093904000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 3,
+                  "sourceId": 187,
+                  "originatorId": 423,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "Unreferenced_PID_2",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1427093904000,
+                  "created": 1427093904000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Unreferenced_PID_2 triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 4,
+                  "duration": "8 days 03:46:33",
+                  "detectionValue": 37,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "Unreferenced_PID_2",
+                  "active": true,
+                  "settings": "parameterName=Unreferenced_PID_2"
+               }
+            },
+                        {
+               "alertReportId": 262350,
+               "startDateTime": 1427093904000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 2,
+                  "sourceId": 187,
+                  "originatorId": 422,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "Unreferenced_PID",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1427093904000,
+                  "created": 1427093904000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Unreferenced_PID triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 4,
+                  "duration": "8 days 03:46:33",
+                  "detectionValue": 37,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "Unreferenced_PID",
+                  "active": true,
+                  "settings": "parameterName=Unreferenced_PID"
+               }
+            }
+         ]
+      },
+            {
+         "group": "AUDIO",
+         "alertsHistory": [         {
+            "alertReportId": 327744,
+            "startDateTime": 1427380518000,
+            "endDateTime": null,
+            "severity": "WARNING",
+            "alert":             {
+               "id": 12,
+               "sourceId": 183,
+               "originatorId": 589,
+               "sourceName": "Russia 2 Loudness",
+               "originatorName": "Too loud integrated loudness",
+               "lastUpdateType": "NEW",
+               "status": "ACTIVE",
+               "acknowledgeTime": null,
+               "cleared": null,
+               "updated": 1427380518000,
+               "severityChanged": 1427380518000,
+               "created": 1427380518000,
+               "cause": "THRESHOLD_CROSSED",
+               "name": "Too loud integrated loudness",
+               "description": "Too loud integrated loudness",
+               "acknowledged": false,
+               "alertCount": 1,
+               "duration": "4 days 20:09:39",
+               "detectionValue": -19.8309,
+               "thresholdValue": "-22",
+               "parameterId": "integrated_loudness",
+               "active": true,
+               "settings": "parameterName=integrated_loudness"
+            }
+         }]
+      }
+   ]
+}

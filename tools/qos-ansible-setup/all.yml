@@ -1,0 +1,16 @@
+---
+- name: Initial machine setup
+  hosts: stage
+  vars_files:
+    - vars/main.yml
+  roles:
+    - local_repo
+    - common
+    - iptables
+    - consul
+
+- include: "pgpool.yml"
+- include: "rabbit.yml"
+
+# Test env
+- include: "rabbit-client.yml"

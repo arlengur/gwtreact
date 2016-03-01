@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM
+	"log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="ttccConsole" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} %5p [%t]: %C{1} %m%n" />
+		</layout>
+	</appender>
+	<appender name="syslog" class="org.apache.log4j.net.SyslogAppender">
+        <param name="SyslogHost" value="127.0.0.1"/>
+        <param name="Facility" value="local0"/>
+        <param name="FacilityPrinting" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d QOS-AUDIT | %m%n"/>
+        </layout>
+    </appender>
+	<logger name="com.tecomgroup.qos.util.AuditLogger">
+        <level value="DEBUG"/>
+        <appender-ref ref="syslog"/>
+    </logger>
+	<!-- Root -->
+	<root>
+		<level value="warn" />
+		<appender-ref ref="ttccConsole" />
+		<!-- <appender-ref ref="standartRollingLog" /> -->
+	</root>
+</log4j:configuration>

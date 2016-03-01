@@ -1,0 +1,4 @@
+---
+- include: default_rules.yml
+- include: open_ports.yml
+- include: redirect_ports.yml

@@ -1,0 +1,8 @@
+[{rabbit,
+  [
+{% if rabbit_is_cluster %}
+   {cluster_nodes, {
+    {{ play_hosts | string_filter("rabbit@%s") }}, disc}},
+{% endif %}
+  {loopback_users, []}
+  ]}].

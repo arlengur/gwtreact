@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Record</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var t = document.getElementById("tree");
+            var h = document.getElementById("head");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div class="grey-page"></div>
+        <div class="modal-dialog bigmodal flex flex-col" style="width: 53%; height: 475px">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px"/>
+                <h4 class="modal-title">Edit Record</h4>
+            </div>
+            <div class="flex flex-11a" style="overflow: hidden; margin: 10px 10px 0;">
+                <div class="override-padding-0 flex flex-col black-right" style="width: 200px; background: #424242">
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="pull-left" style="width: 190px">
+                            <div class="flex-none pull-right"
+                                 style="width: 100px; height: 23px; overflow: hidden; background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                <select class="small-text" style="width: 120px; border: 0; background: transparent;">
+                                    <option style="background: #222222">Local Time</option>
+                                    <option style="background: #222222">Condition 2</option>
+                                </select>
+                            </div>
+                            <span class="flex-none small-text pull-right text23" style="margin: 0 15px 0 0">Timezone:</span>
+                        </div>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="pull-left" style="width: 190px">
+                            <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px;" type="text" value="3/01/2016"/>
+                            <span class="flex-none small-text text23 pull-left" style="margin: 0 15px 0 23px">Date:</span>
+                        </div>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="pull-left" style="width: 190px">
+                            <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                            <span class="flex-none small-text text23 pull-left" style="margin: 0 15px 0 23px">Start:</span>
+                        </div>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="pull-left" style="width: 190px">
+                            <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                            <input type="radio" name="fd" class="pull-left" style="margin: 0 4px 0 5px; display: inline-block; height: 23px" checked/>
+                            <span class="flex-none small-text text23 pull-left" style="margin: 0 15px 0 0">Finish:</span>
+                        </div>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <div class="pull-left" style="width: 190px">
+                            <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                            <input type="radio" name="fd" class="pull-left" style="margin: 0 4px 0 5px; display: inline-block; height: 23px; padding-left: 5px"/>
+                            <span class="flex-none small-text text23 pull-left" style="margin: 0 15px 0 0">Duration:</span>
+                        </div>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 5px">
+                        <span class="flex-none small-text text23" style="padding-left: 5px">Comment:</span>
+                        <textarea class="comm-area" rows="6" style="background-color: #222; color: #fff"></textarea>
+                    </div>
+                    <div class="row flex-none" style="margin: 0; padding: 0 5px">
+                        <button type="button" class="btn btn-primary config-btn pull-left">Add</button>
+                        <button type="button" class="btn btn-primary config-btn pull-right" style="margin-left: 5px">Clear</button>
+                    </div>
+                </div>
+                <div class="row override-padding-0 override-margin-0 flex flex-col" style="width: calc(100% - 200px); background-color: #000">
+                    <div id="tab" class="flex-none" style="background-color: #000">
+                        <input type="radio" name="table" id="n1" style="display: none"/>
+                        <label for="n1" class="tab-label">Table</label>
+                        <input type="radio" name="table" id="n2" style="display: none" checked/>
+                        <label for="n2" class="tab-label">Timeline</label>
+                    </div>
+
+
+                    <div id="table" class="flex-11a flex" style="background: #424242; padding: 4px">
+                        <div class="flex-none" style="width: 45px; color: #fff; line-height: 42px; padding: 0 15px 0 4px;">
+                            <span>Sun</span>
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wen</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                        </div>
+                        <div class="flex-11a" style="overflow-x: auto; overflow-y: hidden">
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#222"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="720" height="16" rx="7" ry="7" fill="#323232"/>
+                                    <rect x="730" y="13" width="60" height="16" rx="7" ry="7" fill="#4474BF" style="cursor: pointer">
+                                        <title>News at this time</title>
+                                    </rect>
+                                    <rect x="790" y="13" width="660" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#292929"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="780" height="16" rx="7" ry="7" fill="#323232"/>
+                                    <rect x="790" y="13" width="120" height="16" rx="7" ry="7" fill="#4474BF" style="cursor: pointer">
+                                        <title>News at this time</title>
+                                    </rect>
+                                    <rect x="910" y="13" width="540" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#222"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="780" height="16" rx="7" ry="7" fill="#323232"/>
+                                    <rect x="790" y="13" width="120" height="16" rx="7" ry="7" fill="#4474BF" style="cursor: pointer">
+                                        <title>News at this time</title>
+                                    </rect>
+                                    <rect x="910" y="13" width="540" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#292929"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="780" height="16" rx="7" ry="7" fill="#323232"/>
+                                    <rect x="790" y="13" width="120" height="16" rx="7" ry="7" fill="#4474BF" style="cursor: pointer">
+                                        <title>News at this time</title>
+                                    </rect>
+                                    <rect x="910" y="13" width="540" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#222"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="1440" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#222"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="1440" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <rect x="0" y="0" width="1460" height="42" fill="#222"/>
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,42 M130,0 L130,42 M190,0 L190,42 M250,0 L250,42
+                                        M310,0 L310,42 M370,0 L370,42 M430,0 L430,42 M490,0 L490,42 M550,0 L550,42
+                                        M610,0 L610,42 M670,0 L670,42 M790,0 L790,42 M850,0 L850,42
+                                        M910,0 L910,42 M970,0 L970,42 M1030,0 L1030,42 M1090,0 L1090,42 M1150,0 L1150,42
+                                        M1210,0 L1210,42 M1270,0 L1270,42 M1330,0 L1330,42 M1390,0 L1390,42 M1450,0 L1450,42"/>
+                                    <line x1="10" y1="0" x2="10" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="42" stroke="#696969" stroke-width="2"/>
+                                    <rect x="11" y="13" width="1440" height="16" rx="7" ry="7" fill="#323232"/>
+                                </svg>
+                            </div>
+                            <div style="height: 42px; min-width: 735px;">
+                                <svg width="100%" height="100%" viewBox="0 0 1460 42" preserveAspectRatio="none">
+                                    <path stroke="#353535" stroke-width="2"
+                                          d="M70,0 L70,5 M130,0 L130,5 M190,0 L190,5 M250,0 L250,5
+                                        M310,0 L310,5 M370,0 L370,5 M430,0 L430,5 M490,0 L490,5 M550,0 L550,5
+                                        M610,0 L610,5 M670,0 L670,5 M790,0 L790,5 M850,0 L850,5
+                                        M910,0 L910,5 M970,0 L970,5 M1030,0 L1030,5 M1090,0 L1090,5 M1150,0 L1150,5
+                                        M1210,0 L1210,5 M1270,0 L1270,5 M1330,0 L1330,5 M1390,0 L1390,5 M1450,0 L1450,5"/>
+                                    <line x1="10" y1="0" x2="10" y2="5" stroke="#696969" stroke-width="2"/>
+                                    <line x1="730" y1="0" x2="730" y2="5" stroke="#696969" stroke-width="2"/>
+                                    <text x=0" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="45" lengthAdjust="spacingAndGlyphs">00 am</text>
+                                    <text x="60" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">01</text>
+                                    <text x="120" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">02</text>
+                                    <text x="180" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">03</text>
+                                    <text x="240" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">04</text>
+                                    <text x="300" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">05</text>
+                                    <text x="360" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">06</text>
+                                    <text x="420" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">07</text>
+                                    <text x="480" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">08</text>
+                                    <text x="540" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">09</text>
+                                    <text x="600" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">10</text>
+                                    <text x="660" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">11</text>
+                                    <text x="720" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="45" lengthAdjust="spacingAndGlyphs">12 am</text>
+                                    <text x="780" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">01</text>
+                                    <text x="840" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">02</text>
+                                    <text x="900" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">03</text>
+                                    <text x="960" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">04</text>
+                                    <text x="1020" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">05</text>
+                                    <text x="1080" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">06</text>
+                                    <text x="1140" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">07</text>
+                                    <text x="1200" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">08</text>
+                                    <text x="1260" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">09</text>
+                                    <text x="1320" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">10</text>
+                                    <text x="1380" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">11</text>
+                                    <text x="1440" y="15" fill="#fff" font-size="10" font-family="tahoma,arial,verdana" textLength="20" lengthAdjust="spacingAndGlyphs">00</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none" style="background-color: #000; margin: 4px 10px 10px;">
+                <button type="button" class="btn btn-primary config-btn pull-left">OK</button>
+                <button type="button" class="btn btn-primary config-btn pull-right" style="margin-left: 5px">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

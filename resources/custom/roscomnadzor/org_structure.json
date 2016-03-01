@@ -1,0 +1,564 @@
+{
+  "name": "АУП_ФГУП",
+  "ldap": [
+	"main office"
+  ],
+  "branches": [
+	{
+	  "name": "ЦФО",
+	  "ldap": [
+		"cfo"
+	  ],
+	  "branches": [
+		{
+		  "name": "77-Москва",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "67-Смоленск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "69-Тверь",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "76-Ярославль",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "40-Калуга",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "33-Владимир",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "37-Иваново",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "44-Кострома",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "57-Орел",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "71-Тула",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "62-Рязань",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "32-Брянск",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "46-Курск",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "31-Белгород",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "48-Липецк",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "68-Тамбов",
+		  "ldap": [
+			"north branch"
+		  ]
+		},
+		{
+		  "name": "36-Воронеж",
+		  "ldap": [
+			"north branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "СЗФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "78-С.-Петербург",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "60-Псков",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "39-Калининград",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "53-В.Новгород",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "29-Архангельск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "10-Петрозаводск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "51-Мурманск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "35-Вологда",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "11-Сыктывкар",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "83-Нарьян-Мар",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "ЮСКФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "61-Ростов-на-Дону",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "01-Майкоп",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "30-Астрахань",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "34-Волгоград",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "08-Элиста",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "93-Краснодар",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "05-Махачкала",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "06-Магас",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "07-Нальчик",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "09-Черкесск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "15-Владикавказ",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "26-Ставрополь",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "95-Грозный",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "КФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "82-Симферополь",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "92-Севастополь",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "ПФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "02-Уфа",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "43-Киров",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "12-Йошкар-Ола",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "13-Саранск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "52-Н.Новгород",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "56-Оренбург",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "58-Пенза",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "59-Пермь",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "63-Самара",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "64-Саратов",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "16-Казань",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "73-Ульяновск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "21-Чебоксары",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "УФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "45-Курган",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "66-Екатиринбург",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "72-Тюмень",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "86-Ханты-Мансийск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "74-Челябинск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "89-Салехард",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "СФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "54-Новосибирск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "22-Барнаул",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "03-Улан-Удэ",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "75-Чита",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "38-Иркутск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "42-Кемерово",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "24-Красноярск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "04-Горно-Алтайск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "55-Омск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "70-Томск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "17-Кызыл",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "19-Абакан",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "name": "ДФО",
+	  "ldap": [
+		"uk branch"
+	  ],
+	  "branches": [
+		{
+		  "name": "27-Хабаровск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "28-Благовещенск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "79-Биробиджан",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "41-П.-Камчатский",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "49-Магадан",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "25-Владивосток",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "14-Якутск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "65-Южно-Сахалинск",
+		  "ldap": [
+			"south branch"
+		  ]
+		},
+		{
+		  "name": "87-Анадырь",
+		  "ldap": [
+			"south branch"
+		  ]
+		}
+	  ]
+	}
+  ]
+}

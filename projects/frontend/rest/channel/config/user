@@ -1,0 +1,12 @@
+{
+  "password": null,
+  "username": "Admin",
+  "authorities": [
+    {"authority": "ROLE_ADMIN"},
+    {"authority": "ROLE_USER"}
+  ],
+  "accountNonExpired": true,
+  "accountNonLocked": true,
+  "credentialsNonExpired": true,
+  "enabled": true
+}

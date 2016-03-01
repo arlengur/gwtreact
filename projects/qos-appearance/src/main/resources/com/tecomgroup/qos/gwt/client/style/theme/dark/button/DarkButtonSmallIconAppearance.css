@@ -1,0 +1,40 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ 
+ .button {
+	background-repeat: no-repeat;
+	font-family: tahoma, arial, verdana, sans-serif;
+	font-size: 6px;
+	cursor: pointer;
+	width: 8px;
+	height: 8px;
+	display: table;
+}
+ 
+
+.button:hover {
+	-moz-box-shadow: -1px -1px 1px #000;
+	-webkit-box-shadow: -1px -1px 1px #000;
+	box-shadow: -1px -1px 1px #000;
+}
+
+.text {
+	text-align: center;
+}
+
+.icon, .text {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.icon img {
+	-webkit-filter: invert(100%);  
+	vertical-align: middle;
+	display: table-cell;
+	margin-bottom: 0;
+	margin-left: 0.0;
+	margin-right: 0;
+	margin-top: 0;
+}

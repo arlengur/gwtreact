@@ -1,0 +1,12 @@
+---
+- name: Check if pgpool extentions are installed in template1
+  sudo_user: postgres
+  shell: psql -p {{ pg_port }} -c "\df {{ test_func }}" -q template1 | grep -q {{ test_func }}
+  register: pgpool_sql_ext
+  changed_when: no
+  ignore_errors: yes
+
+- name: Setup pgpool extensions
+  sudo_user: postgres
+  command: psql -p {{ pg_port }} -f /usr/pgsql-9.4/share/extension/pgpool-recovery.sql template1
+  when: pgpool_sql_ext | failed

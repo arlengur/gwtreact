@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tecomgroup</groupId>
+		<artifactId>qos-parent</artifactId>
+		<version>3.0.47.6</version>
+	<relativePath>../../pom.xml</relativePath>
+	</parent>
+	<artifactId>qos-install-parent</artifactId>
+	<name>QoS Installation Parent Project</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<config.build.number>dev</config.build.number>
+		<org.springframework.version>4.1.7.RELEASE</org.springframework.version>
+		<org.springframework.security.version>3.2.8.RELEASE</org.springframework.security.version>
+	</properties>
+
+	<modules>
+		<module>qos-cluster</module>
+		<module>qos-broker-federation</module>
+		<module>qos-migrate</module>
+		<module>qos-install</module>
+	</modules>
+	<build>
+		<plugins>	
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<id>parse-version</id>
+						<goals>
+							<goal>parse-version</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>	
+			<!-- Add git commit information -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.0.4</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<prefix>git</prefix>
+					<skipPoms>false</skipPoms>
+					<dateFormat>dd.MM.yyyy '@' HH:mm:ss z</dateFormat>
+					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>src/main/resources/META-INF/${project.artifactId}-git.properties</generateGitPropertiesFilename>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>src/main/resources/META-INF/${project.artifactId}-git.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<inherited>true</inherited>
+						<configuration>
+							<tasks>
+								<echo message="build.version=${config.build.number}"
+									file="src/main/resources/META-INF/${project.artifactId}-git.properties" append="true"/>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

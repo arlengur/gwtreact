@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<!-- In tests we should not use configs from /opt/qos/3.0 -->
+	<bean id="commonPropertyPlaceholder"
+			class="com.tecomgroup.qos.util.ExposedPropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/db.properties</value>
+				<value>classpath:config/org_structure.json</value>
+				<value>classpath:config/probe_to_structure_mapping.properties</value>
+				<value>classpath:config/user_to_structure_mapping.properties</value>
+			</list>
+		</property>
+		<property name="name" value="QosCommonProperties"/>
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+		<!-- All the properties defined below are the default values for the place 
+			holders. -->
+		<property name="properties">
+			<props>
+				<!-- General -->
+				<prop key="qos.server.name">#{T(java.net.InetAddress).getLocalHost().getCanonicalHostName()}</prop>
+				<prop key="max.results.count">1700</prop>
+				<prop key="aggregation.base">2</prop>
+				<prop key="alert.default.types">../config/alertTypes.config</prop>
+				<prop key="stored.days.count">1</prop>
+
+				<!-- Hibernate -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</prop>
+				<prop key="hibernate.connection.url">jdbc:hsqldb:file:qostestdb;shutdown</prop>
+				<prop key="hibernate.connection.username">sa</prop>
+				<prop key="hibernate.connection.password"></prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.default_schema"></prop>
+				<prop key="hibernate.globally_quoted_identifiers">true</prop>
+				<prop key="max.db.column.name.size">30</prop>
+				<!-- DB validation -->
+				<prop key="db.validation.mode">validate</prop>
+				<prop key="db.migration.dialect"></prop>
+				<prop key="db.migration.base.package">com.tecomgroup.qos.migration</prop>
+
+				<!-- Server -->
+				<prop key="internal.broadcaster.thread.group.name">InternalBroadcaster</prop>
+				<prop key="storage.executor.core.pool.size">5</prop>
+				<prop key="storage.executor.max.pool.size">10</prop>
+				<prop key="storage.executor.queue.capacity">100000</prop>
+				<prop key="storage.executor.thread.group.name">StorageExecutor</prop>
+
+				<!-- RRD -->
+				<prop key="rrd.backend.factory">FILE</prop>
+				<prop key="rrd.max.open.files">100000</prop>
+				<prop key="rrd.copy.batch.size">604800</prop>
+				<prop key="storage.home">../rrdHome</prop>
+
+				<!-- JMX Monitoring -->
+				<prop key="monitoring.rmi.port">4444</prop>
+
+				<!-- AMQP -->
+				<prop key="amqp.auto.startup">false</prop>
+				<prop key="amqp.host">localhost</prop>
+				<prop key="amqp.port">5672</prop>
+				<prop key="amqp.username">guest</prop>
+				<prop key="amqp.password">guest</prop>
+				<prop key="amqp.qos.service.exchange">qos.service</prop>
+				<prop key="amqp.qos.result.exchange">qos.result</prop>
+				<prop key="amqp.qos.alert.exchange">qos.alert</prop>
+				<prop key="amqp.qos.handle.results">true</prop>
+				<prop key="amqp.agent.routing.key">agent</prop>
+				<prop key="amqp.server.routing.key">server</prop>
+				<prop key="amqp.server.agent.register.routing.key">server.agent.register</prop>
+				<prop key="amqp.server.register.accepted.routing.key">server.agent.register.accepted</prop>
+				<prop key="amqp.pm.routing.key">policy</prop>
+				<prop key="amqp.result.queue.prefix">agent-</prop>
+				<prop key="amqp.qos.service.queue.durable">false</prop>
+				<prop key="amqp.qos.service.queue.exclusive">false</prop>
+				<prop key="amqp.qos.service.queue.auto.delete">true</prop>
+				<prop key="amqp.reply.timeout">60000</prop>
+				<!-- Set expiration time for alarm message in seconds -->
+				<prop key="amqp.qos.alarm.message.expiration.time.in.sec">86400</prop>
+
+				<!-- LDAP -->
+				<prop key="security.ldap.enabled">true</prop>
+				<prop key="security.ldap.url">ldap://adc.tecom.nnov.ru:389</prop>
+				<prop key="security.ldap.user">ldapquery</prop>
+				<prop key="security.ldap.password">Tecom1</prop>
+				<prop key="security.ldap.base">DC=tecom,DC=nnov,DC=ru</prop>
+				<prop key="security.ldap.page.size">1000</prop>
+
+				<!-- Agent Connection -->
+
+				<!-- Interval in minutes to send server started message if agent is not 
+					registered, but sends heartbeats -->
+				<prop key="agent.send.serverstarted.message.interval.min">5</prop>
+
+
+				<!-- Client -->
+				<prop key="client.gis.tile.servers">http://b.tile.openstreetmap.org/${z}/${x}/${y}.png</prop>
+				<prop key="client.max.record.duration.in.min.for.alert">1439</prop>
+				<prop key="client.record.shift.in.sec.for.alert">30</prop>
+				<prop key="client.max.record.duration.in.min.for.report">1439</prop>
+				<prop key="client.record.shift.in.sec.for.report">30</prop>
+				<prop key="client.result.time.shift.in.sec.for.alert">300</prop>
+				<prop key="client.application.mode">vision</prop>
+				<prop key="client.application.demo">false</prop>
+				<prop key="client.max.video.length.in.sec">86400</prop>
+
+				<!-- Client Audible alarms feature -->
+				<prop key="client.audible.alarm.mode">ON</prop>
+				<prop key="client.audible.alarm.sound.path">qos/resources/sounds</prop>
+				<prop key="client.audible.alarm.sound.severity.critical">critical.mp3</prop>
+				<prop key="client.audible.alarm.sound.severity.major">major.mp3</prop>
+				<prop key="client.audible.alarm.sound.severity.warning">warning.mp3</prop>
+				<prop key="client.audible.alarm.sound.severity.minor">minor.mp3</prop>
+				<prop key="client.audible.alarm.sound.severity.notice">notice.mp3</prop>
+				<prop key="client.audible.alarm.sound.severity.indeterminate">indeterminate.mp3</prop>
+				<prop key="client.audible.alarm.repeat.interval">2</prop>
+				<prop key="client.audible.alarm.min.severity">notice</prop>
+				<prop key="client.audible.alarm.mobile.enabled">false</prop>
+
+				<!-- Dashboard -->
+				<prop key="client.max.dashboard.widgets.count">30</prop>
+
+				<!-- Client LDAP -->
+				<prop key="client.security.ldap.enabled">true</prop>
+
+				<!-- Hiden pages -->
+				<prop key="client.hide.channelview.page">false</prop>
+				<prop key="client.hide.livevideo.page">false</prop>
+				<prop key="client.hide.recordedvideo.page">false</prop>
+
+				<!-- Result export -->
+				<prop key="results.export.thread.count.base">3</prop>
+				<prop key="results.export.thread.count.max">5</prop>
+				<prop key="results.export.unchecked.time.limit.in.sec">60</prop>
+				<prop key="results.export.examination.pause.in.sec">5</prop>
+				<prop key="results.export.batch.size">10000</prop>
+				<prop key="client.results.export.check.request.pause.in.sec">5</prop>
+			</props>
+		</property>
+		<!-- End of default properties -->
+	</bean>
+</beans>   

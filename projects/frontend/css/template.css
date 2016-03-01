@@ -1,0 +1,16 @@
+.template-create-dialog {
+    width: 65%;
+    background: #000000;
+}
+.template-confirm-small {
+    width: 220px !important;
+    height: 170px !important;
+    background-color: #000;
+    top: 25% !important;
+}
+.template-confirm-normal {
+    width: 400px !important;
+    height: 170px !important;
+    background-color: #000;
+    top: 25% !important;
+}

@@ -1,0 +1,19 @@
+[ {
+  "action" : "ACTIVATE",
+  "alert" : {
+    "alertType" : {
+      "name" : "qos.it09a.signalLevel"
+    },
+    "source" : {
+      "type" : "TASK",
+      "key" : "221.IT09AControlModule.384"
+    },
+    "originator" : {
+      "type" : "SERVER",
+      "key" : "AlertSendTool"
+    },
+    "perceivedSeverity" : "INDETERMINATE",
+    "specificReason" : "NONE"
+  }
+}
+]

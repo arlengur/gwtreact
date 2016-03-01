@@ -1,0 +1,21 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+.button {
+	text-decoration: underline;
+	font-family: tahoma, arial, verdana, sans-serif;
+	padding: 2px 5px 3px 5px;
+	cursor: pointer;
+}
+
+.CommonDefaultStyles-disabled .button:hover {
+	background-color: inherit;
+}
+
+.button:hover, .dark-selected .button , .CommonDefaultStyles-disabled.dark-selected .button {
+	background-color: #4373A7;
+	-moz-box-shadow: -1px -1px 1px #000;
+	-webkit-box-shadow: -1px -1px 1px #000;
+	box-shadow: -1px -1px 1px #000;
+}

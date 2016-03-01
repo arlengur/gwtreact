@@ -1,0 +1,78 @@
+.qligent-top-navbar {
+    flex: none;
+    background: #27436e;
+    text-align: center;
+    color: #f5f5f5;
+    line-height: 33px;
+}
+.qligent-top-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.dashboard-title {
+    font-size: 20px;
+    color: #adadad;
+}
+.username {
+    text-decoration: underline;
+    padding-right: 5px;
+}
+.dropdown-menu {
+    box-shadow: 0 8px 13px rgba(0,0,0,0.75), inset 0 0 5px rgba(255,255,255,0.5);
+}
+.dropdown-menu, .dropdown-submenu {
+    z-index: 1 /*1010*/;
+}
+.dropdown-menu > li > a {
+    padding: 0;
+    margin: -1px;
+}
+.dropdown-toggle{
+    position: relative; /**/
+    background: url('../img/nav/MainBtn.png') no-repeat;
+    display: block;
+    height: 35px;
+    width: 198px;
+    z-index: 2; /**/
+}
+.dropdown-toggle:focus{
+    background: url('../img/nav/MainBtn_opened.png') no-repeat;
+}
+.navItem{
+    height: 35px;
+    width: 198px;
+    padding-top: 8px !important;
+    padding-left: 37px !important;
+    color: white !important;
+}
+.navItem:hover{background-color: #365d99 !important;}
+.linkNoClick{
+    pointer-events: none !important;
+}
+.dashboard {background: #4474bf url('../img/nav/dashboard.png') no-repeat 10px;}
+.channelView {background: #4474bf url('../img/nav/channel_view.png') no-repeat 10px;}
+.probesAndTasks {background: #4474bf url('../img/nav/probes_tasks.png') no-repeat 10px;}
+.probeConfig {background: #4474bf url('../img/nav/probe_config.png') no-repeat 10px;}
+.alarms {background: #4474bf url('../img/nav/alarms.png') no-repeat 10px;}
+.recordSchedule {background: #4474bf url('../img/recording/calendar_grid.png') no-repeat 10px;}
+.videoWall {
+    background-color: #4474bf;
+    background-image: url('../img/nav/videowall.png'), url('../img/nav/sub-menu.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 10px, 180px;
+}
+.analysis {background: #4474bf url('../img/nav/analysis.png') no-repeat 10px;}
+.reports {background: #4474bf url('../img/nav/reports.png') no-repeat 10px;}
+.map {background: #4474bf url('../img/nav/map.png') no-repeat 10px;}
+.live {background: #4474bf url('../img/nav/live_video.png') no-repeat 10px;}
+.recorded {background: #4474bf url('../img/nav/recorded.png') no-repeat 10px;}
+.usermanager {background: #4474bf url('../img/nav/User-Management.png') no-repeat 10px;}
+
+.dropdown-submenu {position: relative;}
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: 1px;
+}
+.dropdown-submenu:hover>.dropdown-menu {display: block;}

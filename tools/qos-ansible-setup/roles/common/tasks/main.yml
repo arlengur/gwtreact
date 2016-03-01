@@ -1,0 +1,5 @@
+---
+- name: Install some apps
+  yum: name={{ item }} disablerepo=* enablerepo=localrepo state=installed
+  with_items:
+    - nano

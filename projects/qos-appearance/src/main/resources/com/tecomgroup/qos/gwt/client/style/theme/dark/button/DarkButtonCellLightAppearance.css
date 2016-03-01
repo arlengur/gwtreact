@@ -1,0 +1,32 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@sprite .button {
+	gwt-image: 'lightButtonBackground';
+	background-repeat: repeat-x;
+	font-family: tahoma, arial, verdana, sans-serif;
+	cursor: pointer;
+	height: value('lightButtonBackground.getHeight', 'px');
+	width : 100%;
+	line-height: value('lightButtonBackground.getHeight', 'px');
+	display: table;
+}
+
+.icon, .text {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.icon img {
+	vertical-align: text-bottom;
+	margin-bottom: 0;
+	margin-left: 0.5em;
+	margin-right: 0;
+	margin-top: 0;
+}
+
+.text {
+	text-align: center;
+	padding: 0px 5px;
+}

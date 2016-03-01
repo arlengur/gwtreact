@@ -1,0 +1,115 @@
+html, body {height: 100%}
+body {
+    background: #000000;
+    font-family: tahoma, arial, verdana, sans-serif;
+}
+
+a, a:hover, a:active, a:visited  {color: #6A97D5; text-decoration: underline}
+a:hover {text-decoration: underline}
+.dropdown-menu > li > a {text-decoration: none}
+
+/* remove Bootstrap's rounded corners everywhere */
+* {border-radius: 0 !important}
+input, .cursor-pointer {cursor: pointer}
+svg {shape-rendering: crispEdges}
+
+#react-root {
+    height: 100%;
+    overflow-x: hidden;
+}
+.appearance-none {
+    appearance: none;
+}
+.btn-primary {background: #4474bf}
+.flex {display: flex}
+.flex-col {flex-flow: column}
+.flex-11a {flex: 1 1 auto}
+.flex-10a {flex: 1 0 auto}
+.flex-none {flex: none}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.overflow-ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.overflow-hidden{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+.small-text {
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: normal !important;
+}
+.tiny-text {
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: normal !important;
+}
+.override-padding-3-2 {padding: 3px 2px !important;}
+.override-padding-0-4-6-0 { padding: 0 4px 6px 0;}
+.override-padding-0-5 {padding: 0 5px !important;}
+.override-padding-0-10 {padding: 0 10px !important;}
+.override-padding-5-0 {padding: 5px 0 !important;}
+.override-padding-5 {padding: 5px !important;}
+.override-padding-10 {padding: 10px !important;}
+.override-padding-0 {padding: 0 !important;}
+.override-border-0 {border: 0 !important;}
+.override-margin-0 {margin: 0 !important;}
+.override-margin-10-0 {margin: 10px 0 !important;}
+.override-margin-7-5 {margin: 7px 5px !important;}
+.override-margin-5 {margin: 5px !important;}
+.override-margin-5-0 {margin: 5px 0 !important;}
+.override-margin-0-5 {margin: 0 5px !important;}
+.override-margin-0-3 {margin: 0 3px !important;}
+.override-margin-3-0-4 {margin: 3px 0 4px !important;}
+.margin-left-10 {margin-left: 10px;}
+.margin-left-2 {margin-left: 2px;}
+.margin-left-5 {margin-left: 5px;}
+.margin-left-7 {margin-left: 7px;}
+.margin-right-2 {margin-right: 2px;}
+.margin-right-4 {margin-right: 4px;}
+.margin-0-5 {margin: 0 5px;}
+.black-left {border-left: 1px solid #000000;}
+.black-right {border-right: 1px solid #000000;}
+.black-bottom {border-bottom: 1px solid #000000;}
+.clickable {cursor: pointer;}
+.not-allowed {cursor: not-allowed;}
+.grab {cursor: grab}
+.grabbing {cursor: grabbing}
+.transparent {opacity: 0.5}
+.vertical-top {vertical-align: top}
+.grey-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #424242;
+    opacity: 0.5;
+}
+.relative {position: relative}
+
+/* TODO: unify inputs */
+.search-field {
+    border: 0;
+    background: #222222;
+    height: 23px;
+    line-height: 23px;
+    color: white;
+    padding-left: 5px;
+}
+.placeholder-disappear:focus::placeholder {color:transparent}
+.text23 {
+    height: 23px;
+    line-height: 23px;
+}

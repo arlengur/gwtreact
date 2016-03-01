@@ -1,0 +1,33 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ 
+@def severityOpacity 0.8;
+
+.severityCritical.anchorContainer, .severityCritical.dark-selected.anchorContainer {
+	background-color: rgba(severityCriticalColor, severityOpacity) !important;
+}
+
+.severityMajor.anchorContainer, .severityMajor.dark-selected.anchorContainer {
+	background-color: rgba(severityMajorColor, severityOpacity) !important;
+}
+
+.severityWarning.anchorContainer, .severityWarning.dark-selected.anchorContainer {
+	background-color: rgba(severityWarningColor, severityOpacity) !important;
+}
+
+.severityNotice.anchorContainer, .severityNotice.dark-selected.anchorContainer {
+	background-color: rgba(severityNoticeColor, severityOpacity) !important;
+}
+
+.severityMinor.anchorContainer, .severityMinor.dark-selected.anchorContainer {
+	background-color: rgba(severityMinorColor, severityOpacity) !important;
+}
+
+.severityIndeterminate.anchorContainer, .severityIndeterminate.dark-selected.anchorContainer {
+	background-color: rgba(severityIndeterminateColor, severityOpacity) !important;
+}
+
+.severityNone.anchorContainer, .severityNone.dark-selected.anchorContainer {
+}

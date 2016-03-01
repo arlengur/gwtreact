@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Break template</title>
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal flex">
+        <div class="modal-dialog bigmodal template-confirm-small flex flex-col flex-11a">
+            <div class="modal-head flex-none">
+                <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px">
+                <h4 class="modal-title">Break template</h4>
+            </div>
+            <div class="flex flex-11a flex-col confirm-panel">
+                <div class="row flex-none" style="margin-bottom: 5px">
+                    <input class="pull-left qos-radio" type="radio" id="conditions">
+                    <label for="conditions" class="pull-left small-text" style="margin: 0">Conditions</label>
+                </div>
+                <div class="row flex-none" style="margin-bottom: 5px">
+                    <input class="pull-left qos-radio" type="radio" id="notifications" checked>
+                    <label for="notifications" class="pull-left small-text" style="margin: 0">Notifications</label>
+                </div>
+                <div class="row flex-none">
+                    <input class="pull-left qos-radio" type="radio" id="both">
+                    <label for="both" class="pull-left small-text" style="margin: 0">Both</label>
+                </div>
+            </div>
+            <div class="confirm-footer flex-none" style="border-top: 2px solid #000;">
+                <button type="button" class="btn btn-primary">Break Templates</button>
+                <button type="button" class="btn btn-primary pull-right">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

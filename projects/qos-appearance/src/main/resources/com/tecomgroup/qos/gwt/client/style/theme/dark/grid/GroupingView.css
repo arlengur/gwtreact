@@ -1,0 +1,94 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+@eval groupExpand com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("base/images/grid/group-expand-sprite.gif");
+
+@external x-grid-group-hd;
+
+.cellDirty {}
+.cellInvalid {}
+.cellSelected {}
+.columnLines {}
+
+.row {}
+.rowAlt {}
+.rowDirty {}
+.rowOver {}
+.rowHighlight {}
+.rowSelected {}
+.rowBody {}
+.rowBodyRow {}
+.rowWrap {}
+.dataTable {}
+.headerRow {}
+
+.gridGroupHead {}
+.gridGroupHeadInner {}
+
+.gridGroup, .gridGroupBody, .gridGroupHead {
+  zoom: 1;
+}
+
+.gridGroup .cell {
+  padding-top: 4px;
+  background-color: #707073;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.dark-selected {
+	background-color: #86868A !important;
+}
+
+.gridGroup .cellInner {
+  background: transparent no-repeat 3px -47px;
+  /*padding: 4px 4px 4px 17px;*/
+  padding: 4px 0px 4px 0px;
+}
+
+.gridGroupCollapsed .cellInner {
+  background-position: 3px 3px;
+}
+
+.gridGroupCollapsed .gridGroupBody {
+  display: none;
+}
+
+.gridGroup .cellInner {
+  color: #FFF;
+  font:  12px tahoma, arial, verdana, sans-serif;
+}
+
+.buttons {
+	width: 34px;
+	float: right;
+}
+
+.expandIcon, .removeIcon {
+	cursor: pointer;
+	padding-right: 10px;
+}
+
+.rowIcon {
+	float : left;
+	padding-left: 10px;
+	text-align: center;
+}
+
+.text {
+	padding-left: 10px;
+	float: left;
+	min-width: 100px;
+	width: 56%;
+	text-align: left;
+	white-space: pre; /* CSS 2.0 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3.0 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space: -hp-pre-wrap; /* HP Printers */
+	word-wrap: break-word; /* IE 5+ */
+}

@@ -1,0 +1,1 @@
+ALTER TABLE MDashboard ALTER COLUMN serializedwidgets TYPE varchar(50240)

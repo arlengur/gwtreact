@@ -1,0 +1,2 @@
+insert into mpolicyaction_mpolicyactionwit (mpolicyactionstemplate_id, actions_id) select mpolicyactionstemplate_id, actions_id from mpolicyactionste_mpolicyaction;
+drop table mpolicyactionste_mpolicyaction;

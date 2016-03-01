@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- POM file generated with GWT webAppCreator -->
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>qos</artifactId>
+		<groupId>com.tecomgroup</groupId>
+		<version>3.0.47.6</version>
+	</parent>
+	<artifactId>qos-gwt-media</artifactId>
+	<packaging>war</packaging>
+	<name>QoS GWT Media Server</name>
+
+	<properties>
+		<webapp.directory>${project.build.directory}/${project.build.finalName}</webapp.directory>
+		<maven.gwt.heap.size>1G</maven.gwt.heap.size>
+		<qligent.player.version>1.4.2.2</qligent.player.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${jodaTime.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-api</artifactId>
+			<classifier>sources</classifier>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-appearance</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-appearance</artifactId>
+			<classifier>sources</classifier>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-api</artifactId>
+			<classifier>sources</classifier>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>qos-util</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-util</artifactId>
+			<classifier>sources</classifier>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-gwt</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-gwt</artifactId>
+			<classifier>sources</classifier>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-service-media</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qos-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Media Player -->
+		<dependency>
+			<groupId>com.tecomgroup</groupId>
+			<artifactId>player</artifactId>
+			<version>${qligent.player.version}</version>
+			<type>zip</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Doesn't get from qos-gwt for some reason -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-rasterizer</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-codec</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apache.poi.version}</version>
+        </dependency>
+	
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>deploy</id>
+			<build>
+				<plugins>
+					<!-- Deploy web application to Tomcat -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>tomcat-deploy</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>configure</id>
+			<build>
+				<plugins>
+					<!-- Copy default properties -->
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.5</version>
+						<executions>
+							<execution>
+								<id>qos-media-config</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<overwrite>${overwrite.config}</overwrite>
+									<outputDirectory>${basedir}/src/main/resources/config</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/../../resources/config</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>application.properties</include>
+												<include>db.properties</include>
+												<include>communication.properties</include>
+												<include>snmp.properties</include>
+												<include>permission.properties</include>
+												<include>org_structure.json</include>
+												<include>probe_to_structure_mapping.properties</include>
+												<include>user_to_structure_mapping.properties</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>qos-media-logging</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<overwrite>${overwrite.config}</overwrite>
+									<outputDirectory>${basedir}/src/main/resources</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/../../resources/config/logging/qos-server/${config.log.mode}</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>log4j.xml</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>qos-media-launch</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<overwrite>${overwrite.config}</overwrite>
+									<outputDirectory>${basedir}/.settings</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/../../resources/eclipse/launch-profiles/</directory>
+											<filtering>true</filtering>
+											<includes>
+												<include>*.launch</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+        <profile>
+			<id>snapshot_artifact_naming</id>
+            <activation>
+			  <activeByDefault>true</activeByDefault>
+			</activation>
+            <build>
+            <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<warName>qos-server-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${config.build.number}-${git.commit.id.abbrev}</warName>
+				</configuration>
+			</plugin>
+            </plugins>
+            </build>
+		</profile>
+	</profiles>
+
+	<build>
+		<outputDirectory>${webapp.directory}/WEB-INF/classes</outputDirectory>
+		<finalName>qos-server-${project.version}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>*.ui.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- Qligent Player -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<id>unpack-sigar</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeGroupIds>com.tecomgroup</includeGroupIds>
+							<includeArtifactIds>player</includeArtifactIds>
+							<outputDirectory>
+								${basedir}/src/main/resources/com/tecomgroup/qos/gwt/public/player/dependencies
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- GWT Maven Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.maven.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<extraJvmArgs>-Xmx${maven.gwt.heap.size}</extraJvmArgs>
+					<runTarget>QoSMedia.html</runTarget>
+					<hostedWebapp>${webapp.directory}</hostedWebapp>
+					<modules>
+						<module>com.tecomgroup.qos.gwt.DesktopQoSMedia</module>
+					</modules>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+	
+			<!-- Delete -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>.</directory>
+							<includes>
+								<include>**/qostestdb.*</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/gwtTemp</directory>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+							<includes>
+								<include>*</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,1 @@
+ALTER TABLE MAgentTask DROP COLUMN done;

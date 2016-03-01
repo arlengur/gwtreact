@@ -1,0 +1,6 @@
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_clienttimezone;
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_enddatetime;
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_startdatetime;
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_timezone;
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_timezonetype;
+ALTER TABLE MUserResultTemplate DROP COLUMN zoominterval_type;

@@ -1,0 +1,15 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+ @external noheader;
+ @external .dialogWithHeader;
+ 
+ @def headerBackground #2E3A6B;
+
+.dialogWithHeader .topLeft {
+  background: headerBackground;
+}
+.dialogWithHeader .topRight {
+  background: headerBackground;
+}

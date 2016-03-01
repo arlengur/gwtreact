@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>QoS Media</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+    <script src="../lib/jquery.min.js"></script>
+    <script>
+        var errors = ['Login failed: Login or password is incorrect.', 'Login failed: The account was disabled. Contact your Administrator.', 'Login failed.', 'This field is required'];
+        $(document).bind('keydown', function (e) {
+            if (e.which == 27) {
+                if ($("#errWindow").attr("class").indexOf('show') != -1) {
+                    $("#errWindow").toggleClass("hide show");
+                }
+            }
+        });
+        $(document).ready(function () {
+            $('#userName').blur(function () {
+                if (!$('#userName').val()) {
+                    $(this).css('border', '1px solid red');
+                    $('#userNameErr').attr('title', errors[3]);
+                    $('#userNameErr').removeAttr('hidden');
+                } else {
+                    $(this).css('border', '0');
+                    $('#userNameErr').removeAttr('title');
+                    $('#userNameErr').attr('hidden', '');
+                }
+            });
+            $('#userPasswd').blur(function () {
+                if (!$('#userPasswd').val()) {
+                    $(this).css('border', '1px solid red');
+                    $('#userPasswdErr').attr('title', errors[3]);
+                    $('#userPasswdErr').removeAttr('hidden');
+                } else {
+                    $(this).css('border', '0');
+                    $('#userPasswdErr').removeAttr('title');
+                    $('#userPasswdErr').attr('hidden', '');
+                }
+            });
+        });
+        function onChange () {
+            var locale = $("#select option:selected").val();
+            if (locale == 'en') {
+                errors = ['Login failed: Login or password is incorrect.', 'Login failed: The account was disabled. Contact your Administrator.', 'Login failed: unknown response from server.', 'This field is required'];
+                $("#login").html("Login");
+                $("#userName").attr("placeholder", "Login");
+                $("#userPasswd").attr("placeholder", "Password");
+                $("#copyright").html("© 2013-2016 Q'ligent Inc. All rights reserved.");
+                $("#errHead").html("Error");
+                $("#errBtn").html("Close");
+                $('#userNameErr').attr('title', errors[3]);
+                $('#userPasswdErr').attr('title', errors[3]);
+            } else {
+                errors = ['Ошибка авторизации: неверный логин или пароль.', 'Ошибка авторизации: Аккаунт заблокирован. Свяжитесь с администратором.', 'Ошибка авторизации: неизвестный ответ от сервера.', 'Необходимо заполнить'];
+                $("#login").html("Войти");
+                $("#userName").attr("placeholder", "Логин");
+                $("#userPasswd").attr("placeholder", "Пароль");
+                $("#copyright").html("© 2013-2016 Q'ligent Inc. Все права защищены.");
+                $("#errHead").html("Ошибка");
+                $("#errBtn").html("Закрыть");
+                $('#userNameErr').attr('title', errors[3]);
+                $('#userPasswdErr').attr('title', errors[3]);
+            }
+        }
+        function onLogin () {
+            var data = 'j_username=' + $("#userName").val()
+                    + '&j_password=' + $("#userPasswd").val()
+                    + '&locale=' + $("#select").val();
+            var hash = self.document.location.hash;
+            if (hash) {
+                data = data + '&hash=' + hash;
+            }
+            $.ajax({
+                url: 'j_spring_security_check',
+                method: 'POST',
+                data: data,
+                success: function (data, textStatus, XMLHttpRequest) {
+                    var location = XMLHttpRequest.getResponseHeader('Location');
+                    if (location === null) {
+                        location = '/'
+                    }
+                    window.location.href = location;
+                }.bind(this),
+                error: function (xhr, status, err) {
+                    $("#errWindow").toggleClass("hide show");
+                    switch (xhr.status) {
+                        case 401:
+                            $("#errCnt").html(errors[0]);
+                            break;
+                        case 403:
+                            $("#errCnt").html(errors[1]);
+                            break;
+                        default:
+                            $("#errCnt").html(errors[2]);
+                    }
+                }.bind(this)
+            });
+        }
+        function onClose () {
+            $("#errWindow").toggleClass("hide show");
+        }
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="flex flex-col" style="height: 100%">
+        <div class="container-fluid flex flex-11a override-padding-0" style="align-items: center">
+            <div class="login-content">
+                <div class="login-logo flex enter-logo"></div>
+                <div class="login-form flex" style="align-items: center; justify-content: center">
+                    <form class="form-login flex flex-col">
+                        <div>
+                            <input id="userName" type="text" class="input-login" onkeydown="if (event.keyCode == 13) onLogin();" autofocus="autofocus" placeholder="Login"/>
+                            <img id="userNameErr" src="img/enter-input-error.png" hidden/>
+                        </div>
+                        <div>
+                            <input id="userPasswd" type="password" class="input-passwd" onkeydown="if (event.keyCode == 13) onLogin();" placeholder="Password"/>
+                            <img id="userPasswdErr" src="img/enter-input-error.png" hidden/>
+                        </div>
+                        <select id="select" class="login-select" onchange="onChange()">
+                            <option value="en">English</option>
+                            <option value="ru">Русский</option>
+                        </select>
+                        <button class="btn btn-primary login-btn" type="button" onclick="onLogin();">
+                            <img src="img/enter-icon.png"/>
+                            <span id="login">Login</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="copyright" class="container-fluid flex-none login-footer override-padding-0">© 2013-2016 Q'ligent Inc. All rights reserved</div>
+    </div>
+    <div id="errWindow" class="hide modal flex">
+        <div class="grey-page"></div>
+        <div class="modal-dialog bigmodal error-page flex flex-col flex-11a">
+            <div class="modal-head flex-none">
+                <h4 id="errHead" class="modal-title">Error</h4>
+            </div>
+            <div class="flex flex-11a flex-col error-panel">
+                <div id="errCnt" class="flex-none error-text">
+                    Login failed: Login or password is incorrect.
+                </div>
+            </div>
+            <div class="error-footer flex-none">
+                <button id="errBtn" class="btn btn-primary pull-right" type="button" onclick="onClose();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

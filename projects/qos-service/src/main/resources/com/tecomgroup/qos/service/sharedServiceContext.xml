@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="metrics" class="com.tecomgroup.qos.service.MetricsImpl"
+		  init-method="start" destroy-method="stop"/>
+
+	<!-- Services -->
+	<bean id="alertService" class="com.tecomgroup.qos.service.alert.PropagationAlertService"
+		init-method="init">
+		<property name="alertTypesFile" value="${alert.default.types}" />
+	</bean>
+
+	<bean id="probeConfigStorage" class="com.tecomgroup.qos.service.probeconfig.ProbeConfigStorageServiceImpl"/>
+
+	<bean id="inboundAlertService" class="com.tecomgroup.qos.service.alert.InboundAlertServiceImpl"
+		  init-method="init">
+		<property name="alertTypesFile" value="${alert.default.types}" />
+	</bean>
+
+	<bean id="agentStatusService" class="com.tecomgroup.qos.service.alert.AgentStatusMonitorImpl">
+	</bean>
+
+	<bean id="taskService" class="com.tecomgroup.qos.service.DefaultTaskService">
+		<property name="agentService" ref="agentService" />
+		<property name="policyConfigurationService" ref="policyConfigurationService" />
+		<property name="storageService" ref="storageService" />
+		<property name="propertyUpdater" ref="propertyUpdater" />
+        <property name="templateDeleter" ref="userService" />
+        <property name="widgetDeleter" ref="userService" />
+	</bean>
+
+	<bean id="policyConfigurationService"
+		class="com.tecomgroup.qos.service.DefaultPolicyConfigurationService">
+		<property name="agentService" ref="agentService" />
+		<property name="taskService" ref="taskService" />
+		<property name="alertService" ref="alertService" />
+		<property name="sourceService" ref="sourceService" />
+		<property name="policyComponentTemplateService" ref="policyComponentTemplateService" />
+		<property name="authorizeService" ref="authorizeService"/>
+	</bean>
+
+	<bean id="propertyUpdater" class="com.tecomgroup.qos.service.PropertyUpdater" />
+
+	<bean id="sourceService" class="com.tecomgroup.qos.service.DefaultSourceService" />
+
+	<bean id="alertReportService" class="com.tecomgroup.qos.service.alert.DefaultAlertReportService" />
+
+	<bean id="resultService" class="com.tecomgroup.qos.service.RRDResultService">
+		<property name="maxResultsCount" value="${max.results.count}" />
+		<property name="aggregationBase" value="${aggregation.base}" />
+		<property name="storedDaysCount" value="${stored.days.count}" />
+	</bean>
+
+	<bean id="videoService" class="com.tecomgroup.qos.service.DefaultVideoResultService" />
+
+	<bean id="storageService" class="com.tecomgroup.qos.service.DefaultStorageService">
+		<property name="storageHome" value="${storage.home}" />
+		<property name="storedDaysCount" value="${stored.days.count}" />
+		<property name="aggregationBase" value="${aggregation.base}" />
+		<property name="batchSize" value="${rrd.copy.batch.size}" />
+		<property name="rrdPoolCapacity" value="${rrd.max.open.files}" />
+		<property name="rrdBackendFactory" value="${rrd.backend.factory}" />
+		<property name="executor" ref="qosStorageExecutor" />
+		<property name="taskService" ref="taskService" />
+		<property name="policyConfigurationService" ref="policyConfigurationService" />
+	</bean>
+
+	<!-- Utils -->
+	<bean id="qosInternalBroadcasterTaskExecutor" class="com.tecomgroup.qos.util.QoSTaskExecutor">
+		<property name="executor">
+			<bean
+				class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+				<!-- Alert events should be handled in one thread. -->
+				<property name="corePoolSize" value="1" />
+				<property name="maxPoolSize" value="1" />
+				<property name="threadGroupName" value="${internal.broadcaster.thread.group.name}" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="qosStorageExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="${storage.executor.core.pool.size}" />
+		<property name="maxPoolSize" value="${storage.executor.max.pool.size}" />
+		<property name="queueCapacity" value="${storage.executor.queue.capacity}" />
+		<property name="threadGroupName" value="${storage.executor.thread.group.name}" />
+	</bean>
+
+    <bean id="ldapContextSource"
+        class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="${security.ldap.url}" />
+        <property name="base" value="${security.ldap.base}" />
+        <property name="userDn" value="${security.ldap.user}" />
+        <property name="password" value="${security.ldap.password}" />
+    </bean>
+    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate"> 
+        <constructor-arg ref="ldapContextSource" />  
+        <property name="ignorePartialResultException" value="true" />
+    </bean>
+</beans>

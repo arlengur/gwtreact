@@ -1,0 +1,18 @@
+.menu {
+    background-color: #424242;
+    border: none;
+}
+
+.plain {
+    background-color: #FFFFFF !important;
+}
+
+.menuScrollerTop {
+}
+
+.menuScrollerBottom {
+}
+
+.menuList {
+    padding: 0px;
+}

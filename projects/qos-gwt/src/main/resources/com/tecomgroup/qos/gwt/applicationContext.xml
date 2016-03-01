@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	<context:component-scan base-package="com.tecomgroup.qos.gwt.server" />
+	<!-- Property configurers -->
+	<import resource="classpath:com/tecomgroup/qos/commonContext.xml" />
+	<import
+		resource="classpath:com/tecomgroup/qos/modelspace/hibernate/dbContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/mediaServiceContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/amqpContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/jmxContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/service/wsContext.xml" />
+	<import resource="classpath:com/tecomgroup/qos/snmp/snmpContext.xml" />
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- General properties for the application <context:property-placeholder 
+		location="classpath:config/application.properties"/> -->
+</beans>   

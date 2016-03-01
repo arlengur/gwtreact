@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd
+			http://www.springframework.org/schema/rabbit
+			http://www.springframework.org/schema/rabbit/spring-rabbit-1.5.xsd">
+
+	<import resource="classpath:com/tecomgroup/qos/commonContext.xml" />
+
+	<context:component-scan base-package="com.tecomgroup.qos.amqp" />
+
+	<bean id="alertQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="${amqp.qos.alert.exchange}.queue" />
+				<constructor-arg value="${qos.hostname}" />
+			</bean>
+		</constructor-arg>
+	</bean>
+
+	<bean id="serviceQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="${amqp.qos.service.exchange}.queue" />
+				<constructor-arg value="${qos.hostname}" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.durable}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.exclusive}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.auto.delete}"></constructor-arg>
+	</bean>
+
+	<bean id="agentRegisterAsyncQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="server.agent.register.async.queue" />
+				<constructor-arg value="${qos.hostname}" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.durable}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.exclusive}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.auto.delete}"></constructor-arg>
+	</bean>
+	<bean id="agentRegisterQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg>
+			<bean class="com.tecomgroup.qos.util.Utils" factory-method="getUniqueQueueName">
+				<constructor-arg value="server.agent.register.queue" />
+				<constructor-arg value="${qos.hostname}" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.durable}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.exclusive}"></constructor-arg>
+		<constructor-arg value="${amqp.qos.service.queue.auto.delete}"></constructor-arg>
+	</bean>
+
+	<rabbit:listener-container
+		connection-factory="rabbitConnectionFactory" error-handler="errorHandler"
+		auto-startup="${amqp.auto.startup}">
+		<rabbit:listener queues="serviceQueue" ref="serviceMessageListener" />
+		<rabbit:listener queues="agentRegisterQueue" ref="registerAgentMessageRouter"/>
+		<rabbit:listener queues="agentRegisterAsyncQueue" ref="registerAgentMessageListener"/>
+		<rabbit:listener queues="alertQueue" ref="alertMessageListener" />
+	</rabbit:listener-container>
+
+	<rabbit:topic-exchange name="${amqp.qos.result.exchange}"
+		id="resultExchange">
+	</rabbit:topic-exchange>
+
+	<rabbit:fanout-exchange name="${amqp.qos.alert.exchange}"
+		id="alertExchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="alertQueue" />
+		</rabbit:bindings>
+	</rabbit:fanout-exchange>
+
+	<rabbit:topic-exchange name="${amqp.qos.service.exchange}"
+		id="serviceExchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="serviceQueue" pattern="${amqp.server.routing.key}" />
+			<rabbit:binding queue="agentRegisterQueue" pattern="${amqp.server.routing.key}.${amqp.server.agent.register.routing.key}" />
+			<rabbit:binding queue="agentRegisterAsyncQueue" pattern="${amqp.server.routing.key}.${amqp.server.register.accepted.routing.key}" />
+		</rabbit:bindings>
+	</rabbit:topic-exchange>
+
+
+	<rabbit:template connection-factory="rabbitConnectionFactory"
+		id="amqpTemplate" reply-timeout="${amqp.reply.timeout}" message-converter="messageConverter" />
+
+	<rabbit:connection-factory id="rabbitConnectionFactory"
+			host="${amqp.host}" port="${amqp.port}" username="${amqp.username}"
+			password="${amqp.password}" />
+
+
+	<bean class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+		<constructor-arg ref="rabbitConnectionFactory" />
+		<property name="autoStartup" value="${amqp.auto.startup}" />
+	</bean>
+
+
+	<bean id="errorHandler" class="com.tecomgroup.qos.amqp.AMQPErrorHandler" />
+	
+	<bean id="messageConverter"
+		class="org.springframework.amqp.support.converter.JsonMessageConverter">
+		<property name="jsonObjectMapper">
+			<bean class="com.tecomgroup.qos.json.QoSJsonObjectMapper" />
+		</property>
+	</bean>
+
+	<bean id="alertMessageListener" class="com.tecomgroup.qos.amqp.AlertMessageListener"
+		parent="messageListenerTemplate">
+		<property name="alertService" ref="inboundAlertService" />
+	</bean>
+
+	<bean id="resultQueueRegister" class="com.tecomgroup.qos.amqp.ResultQueueRegisterImpl">
+		<property name="resultQueueFactory" ref="resultQueueFactory" />
+	</bean>
+
+	<bean id="serviceMessageListener" class="com.tecomgroup.qos.amqp.ServiceMessageListener"
+		parent="messageListenerTemplate">
+		<property name="enabled" value="${amqp.auto.startup}" />
+		<property name="agentService" ref="agentService" />
+		<property name="taskService" ref="taskService" />
+		<property name="policyConfigurationService" ref="policyConfigurationService" />
+		<property name="configStorage" ref="probeConfigStorage" />
+		<property name="serviceExchange" ref="serviceExchange" />
+		<property name="agentBroadcastRoutingKey" value="${amqp.agent.routing.key}" />
+		<property name="pmBroadcastRoutingKey" value="${amqp.pm.routing.key}" />
+		<property name="resultQueueRegister" ref="resultQueueRegister" />
+		<property name="alertService" ref="alertService" />
+		<property name="agentHeartbeatListener">
+			<bean class="com.tecomgroup.qos.amqp.AgentConnectionMonitor">
+				<property name="statisticService" ref="systemComponentStatisticService"/>
+				<property name="serviceMessageListener" ref="serviceMessageListener"/>
+				<property name="sendRegisterMessageInterval" value="${agent.send.serverstarted.message.interval.min}"/>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="registerAgentMessageListener" class="com.tecomgroup.qos.amqp.RegisterAgentMessageListener"
+		  parent="messageListenerTemplate">
+		<property name="enabled" value="${amqp.auto.startup}" />
+		<property name="registerAgentProcessor" ref="serviceMessageListener" />
+	</bean>
+
+	<bean id="registerAgentMessageRouter" class="com.tecomgroup.qos.amqp.RegisterAgentMessageRouter"
+		  parent="messageListenerTemplate">
+		<property name="enabled" value="${amqp.auto.startup}" />
+		<property name="serviceExchangeName" value="${amqp.qos.service.exchange}" />
+		<property name="routingKey" value="${amqp.server.routing.key}.${amqp.server.register.accepted.routing.key}" />
+	</bean>
+
+	<bean abstract="true" id="messageListenerTemplate"
+		class="com.tecomgroup.qos.amqp.QoSMessageListener">
+		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="messageConverter" ref="messageConverter" />
+	</bean>
+
+
+</beans>

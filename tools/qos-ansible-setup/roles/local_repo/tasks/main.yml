@@ -1,0 +1,24 @@
+---
+- name: Create local repo folder
+  file: >
+    path={{ local_repo_path }}
+    state=directory
+    owner={{ sync_user }}
+
+- name: Copy local repo
+  synchronize: src=localrepo/ dest={{ local_repo_path }} archive=yes delete=yes
+  notify: clean yum metadata
+  register: copy_local_repo
+
+- include: selinux.yml
+
+- name: Add Local repo
+  template: src={{ item }}.j2 dest=/etc/yum.repos.d/{{ item }} backup=yes
+  with_items:
+    - local.repo
+
+- name: clean yum metadata
+  command: yum -y --disablerepo=* --enablerepo=localrepo clean metadata
+  when: copy_local_repo | changed
+
+- include: fix-yum.yml

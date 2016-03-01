@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Detailed View</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-big-grid.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="react-root">
+    <div class="detailed-view container-fluid">
+        <nav class="row qligent-top-navbar flex-none">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Channel Details
+                </span>
+            </div>
+        </nav>
+        <div class="row button-toolbar">
+            <button type="button" class="btn btn-primary" onclick="location.href='overview-static-1.html'"><span
+                    class="glyphicon glyphicon-chevron-left"></span>Back
+            </button>
+            <button type="button" class="pull-right btn btn-primary"><span
+                    class="glyphicon glyphicon-remove"></span> Remove
+            </button>
+            <button type="button" class="pull-right btn btn-primary"  style="margin-right: 5px"><span
+                    class="glyphicon glyphicon-cog"></span> Edit
+            </button>
+
+        </div>
+        <div class="row filter-toolbar">
+            <div class="pull-left container-fluid">
+                <div class="group_filter">
+                    <div style="background-image: url('../img/detailed/filter/RF_G_Big.png'), url('../img/detailed/filter/IP_G_Big.png')"
+                         class='filter_rf_ip_icon'>
+                        <input type="checkbox" checked/>
+                    </div>
+                    <div style="background-image: url('../img/detailed/filter/TS_G_Big.png')" class='filter_icon indent'>
+                        <input type="checkbox" checked/>
+                    </div>
+                    <div style="background-image: url('../img/detailed/filter/Video_G_Big.png')"
+                         class='filter_icon indent'>
+                        <input type="checkbox" checked/>
+                    </div>
+                    <div style="background-image: url('../img/detailed/filter/Audio_G_Big.png')"
+                         class='filter_icon indent'>
+                        <input type="checkbox" checked/>
+                    </div>
+                    <div style="background-image: url('../img/detailed/filter/EPG_G.png'), url('../img/detailed/filter/Data_G.png'), url('../img/detailed/filter/CC_G.png')"
+                         class='filter_epg_data_cc_icon indent'>
+                        <input type="checkbox" checked/>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-left container-fluid">
+                <div class="severity_filter">
+                    <div class='severity_item'>
+                        <span style="background: #FF2700" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>CRITICAL</span>
+                    </div>
+                    <div class='severity_item'>
+                        <span style="background: #FF6100" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>MAJOR</span>
+                    </div>
+                    <div class='severity_item'>
+                        <span style="background: #ffc219" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>WARNING</span>
+                    </div>
+                    <div class='severity_item'>
+                        <span style="background: #94601A" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>MINOR</span>
+                    </div>
+                    <div class='severity_item'>
+                        <span style="background: #969696" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>NOTICE</span>
+                    </div>
+                    <div class='severity_item'>
+                        <span style="background: #5E5E5E" class='severity_icon'>
+                        <input type="checkbox" checked/>
+                        </span>
+                        <span class='severity_text'>INDETERMINATE</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-left container-fluid">
+                <div class="activity_filter">
+                    <div id="active" style="background-image: url('../img/detailed/filter/Filter_Activity_Active_On.png')"
+                         class='filter_icon'>
+                    </div>
+                    <div id="nonactive"
+                         style="background-image: url('../img/detailed/filter/Filter_Activity_NonActive_On.png')"
+                         class='filter_icon'>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right container-fluid">
+                <div class="visible_alerts">
+                    <span style="color: #E8E8E8">300/</span>13500
+                </div>
+            </div>
+        </div>
+        <div class="row graph-toolbar">
+            <div class="detailed-timeline-list">
+                <div class="timeline-background">
+                    <div class="timeline-separators-thin">
+                        <svg width="100%" height="100%" viewBox="0 0 1000 10" preserveAspectRatio="none">
+                            <line x1="50" y1="0" x2="50" y2="10" stroke-width="1" stroke="#4f4b4b"></line>
+                            <line x1="55" y1="0" x2="55" y2="10" stroke-width="1" stroke="#4f4b4b"></line>
+                            <line x1="60" y1="0" x2="60" y2="10" stroke-width="1" stroke="#4f4b4b"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="timeline-info pull-left">
+                            <img src="../img/lines/Lines_TS_red.png"><span>x</span><span>1</span>
+                        </div>
+                        <div>
+                            <div class="detailed-timeline">
+                                <div style="bottom:16px;left:0;width:100%;" class="no-alert-line"></div>
+                                <div data-start="1426757950447" data-end="1427102186387"
+                                     style="bottom:16px;left:0;width:100%;" class="rect crit-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="timeline-info pull-left">
+                            <img src="../img/lines/Lines_Video_green.png"><span><span>x</span><span>0</span></span>
+                        </div>
+                        <div>
+                            <div class="detailed-timeline">
+                                <div style="bottom:16px;left:0;width:100%;" class="no-alert-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-separators-thick">
+                        <svg width="100%" height="100%" viewBox="0 0 1000 10" preserveAspectRatio="none">
+                            <line x1="50" y1="0" x2="50" y2="10" stroke-width="1" stroke="#808080"></line>
+                        </svg>
+                    </div>
+                    <div class="timeline-separator-text" style="left: 40%">
+                        Test text
+                    </div>
+                </div>
+                <div class="TlScr-wrapper">
+                    <div class="TlScr-background">
+                        <div class="TlScr-preview-wrapper">
+                            <!-- This will be replaced by vertical lines inside svg when vertical lines are done -->
+                            <div style="position: absolute; width: 100%; height: 100%;background: repeating-linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0) 30px, white 31px)"></div>
+                            <svg width="100%" height="100%" viewBox="0 0 100 3" preserveAspectRatio="none">
+                                <polygon fill="#ff0000" strokeWidth="0" points="0,0 100,0 100,1 0,1"></polygon>
+                                <polygon fill="#00c200" strokeWidth="0" points="0,2 100,2 100,3 0,3"></polygon>
+                            </svg>
+                        </div>
+                        <div class="TlScr-start-date tiny-text">00:00 24.11.2014</div>
+                        <div class="TlScr-end-date tiny-text">00:00 25.11.2014</div>
+                    </div>
+                    <div class="TlScr-left" style="width: 30%"></div>
+                    <div class="TlScr-right" style="width: 30%"></div>
+                    <div class="TlScr-focused" style="left: 30%; width: 40%">
+                        <div class="TlScr-drag-center" style="cursor: grab"></div>
+                        <div class="TlScr-drag-left">
+                            <div class="arrow-icon TlScr-drag-icon-left"></div>
+                            <div class="TlScr-interval-start TlScr-cursor-neutral tiny-text">8:11 24.11.2014</div>
+                        </div>
+                        <div class="TlScr-drag-right">
+                            <div class="arrow-icon TlScr-drag-icon-right"></div>
+                            <div class="TlScr-interval-end TlScr-cursor-neutral tiny-text">8:11 24.11.2014</div>
+                        </div>
+                        <div class="TlScr-int-length tiny-text">
+                            8 h 21 m
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row tree-toolbar">
+            <div class="details-tree-panel col-xs-12 col-md-8 col-xlg-6 override-padding-0">
+                <div class="probes-find">
+                    <input class="probes-find-check" type="checkbox"/>
+                    <img src="../img/detailed/GoToRecorded.png" class="clickable" title="Open recorded video"/>
+                    <img src="../img/detailed/GoBroadcast.png" class="clickable" title="Open broadcast"/>
+                    <img src="../img/detailed/GoAnalysis.png" class="clickable" title="Open analysis"/>
+                    <img src="../img/detailed/GoReports.png" class="clickable" title="Open report"/>
+                    <img src="../img/detailed/show_all_tasks_disabled.png" class="clickable"
+                         title="Show tasks with no alerts"/>
+                        <span class="visible_probes">
+                            <span style="color: #E8E8E8">3/</span>13
+                        </span>
+                    <input class="pull-right crud-tree-probe-search placeholder-disappear small-text" type="text"
+                           placeholder="Search"/>
+                </div>
+                <div class="details-tree details-tree-background">
+                    <ul class="details-tree-background override-margin-0 override-padding-0">
+                        <li class="details-tree-probe">
+                            <div class="container-fluid override-padding-0-5 details-tree-selected">
+                                <input type="checkbox" class="pull-left" style="margin-right: 10px">
+                                <img src="../img/tree_minus.png" class="pull-left crud-tree-image-left"/>
+                                <img src="../img/tree_probe_23_no_line.png" class="pull-left crud-tree-image-left"/>
+
+                                <div class="tree-play-icon-section pull-right">
+                                    <img src="../img/detailed/tree/video_playing.png" style="margin-left: 8px"/>
+                                </div>
+                                <div class="tree-video-icon-section pull-right">
+                                    <img src="../img/detailed/tree/video_available.png" style="margin-left: 15px"/>
+                                </div>
+                                <div class="tree-alerts-section pull-right">
+                                    <img src="../img/alert/Tree_CC_R.png"
+                                         class="pull-left tree-group-icon transparent">
+                                    <img src="../img/alert/Tree_Video_Y.png"
+                                         class="pull-left tree-group-icon transparent">
+                                    <img src="../img/alert/Tree_Video_Y.png" class="pull-left tree-group-icon">
+                                </div>
+                                <div class="small-text overflow-ellipsis crud-tree-text"><span
+                                        class="crud-tree-matching-text">Probe1_</span>Nizhny Novgorod - very long
+                                    and detailed name is here intentionally in order to check text overflow
+                                    appearance, so please bear with it
+                                </div>
+                            </div>
+                            <ul class="override-margin-0 override-padding-0">
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-cc crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-video crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                            <img src="../img/detailed/tree/video_available.png"
+                                                 style="margin-left: 15px"/>
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                            <img src="../img/alert/Tree_Video_Y.png" class="pull-left tree-group-icon"
+                                                 style="opacity: .5">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task2</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-video crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                            <img src="../img/detailed/tree/video_available.png"
+                                                 style="margin-left: 15px"/>
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                            <img src="../img/alert/Tree_Video_Y.png" class="pull-left tree-group-icon">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task3</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_end.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-cc crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                            <img src="../img/alert/Tree_CC_R.png" class="pull-left tree-group-icon"
+                                                 style="opacity: .5">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task4</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="details-tree-probe">
+                            <div class="container-fluid override-padding-0-5">
+                                <input type="checkbox" class="pull-left" style="margin-right: 10px">
+                                <img src="../img/tree_plus.png" class="pull-left crud-tree-image-left"/>
+                                <img src="../img/tree_probe_23_no_line.png" class="pull-left crud-tree-image-left"/>
+
+                                <div class="tree-play-icon-section pull-right">
+                                </div>
+                                <div class="tree-video-icon-section pull-right">
+                                    <img src="../img/detailed/tree/video_available.png" style="margin-left: 15px"/>
+                                </div>
+                                <div class="tree-alerts-section pull-right">
+                                    <img src="../img/alert/Tree_RF_Y.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_IP_R.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_TS_R.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_Sound_Y.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_Video_Y.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_EPG_R.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_Data_R.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_CC_R.png" class="pull-left tree-group-icon">
+                                    <img src="../img/alert/Tree_RF_R.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_IP_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_TS_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_Video_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_Sound_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_EPG_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_CC_R.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                    <img src="../img/alert/Tree_Data_Y.png" class="pull-left tree-group-icon"
+                                         style="opacity: .5">
+                                </div>
+                                <div class="small-text overflow-ellipsis crud-tree-text">Collapsed probe with all
+                                    group types, it also has quite a long name
+                                </div>
+                            </div>
+                        </li>
+                        <li class="details-tree-probe">
+                            <div class="container-fluid override-padding-0-5">
+                                <input type="checkbox" class="pull-left" style="margin-right: 10px">
+                                <img src="../img/tree_minus.png" class="pull-left crud-tree-image-left"/>
+                                <img src="../img/tree_probe_23_no_line.png" class="pull-left crud-tree-image-left"/>
+
+                                <div class="tree-play-icon-section pull-right">
+                                </div>
+                                <div class="tree-video-icon-section pull-right">
+                                </div>
+                                <div class="tree-alerts-section pull-right">
+                                </div>
+                                <div class="small-text overflow-ellipsis crud-tree-text">Long list of tasks to check
+                                    overflow
+                                </div>
+                            </div>
+                            <ul class="override-margin-0 override-padding-0">
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_middle.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="details-tree-task">
+                                    <div class="container-fluid override-padding-0-5">
+                                        <img src="../img/tree_line_end.png" class="pull-left"/>
+                                        <input type="checkbox" class="pull-left"
+                                               style="margin-left: 5px; margin-right: 3px">
+                                        <div class="tsk-rf crud-tree-image-left pull-left"></div>
+                                        <div class="tree-play-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-video-icon-section pull-right">
+                                        </div>
+                                        <div class="tree-alerts-section pull-right">
+                                        </div>
+                                        <div class="small-text overflow-ellipsis crud-tree-text"><span>Task1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4 col-xlg-6 override-padding-0">
+                <div class="col-xs-12 col-xlg-6 override-padding-0">
+                    <div style="margin-left: 10px">
+                        <div class="probes-title">
+                            <span class="video-indicator pull-right">
+                                <span class="live-video"><img src="../img/live.png"/></span>
+                                <span class="live-title"> Live</span>
+                            </span>
+                            <span class="title overflow-ellipsis">Intentionally very long program name in order to test layout</span>
+                        </div>
+                        <div class="player-wrapper" style="margin-bottom: 4px">
+                            <div class="no_video_stream"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-xlg-6 override-padding-0">
+                    <div style="margin-left: 10px">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#myTab li:eq(0) a").tab('show');
+                                });
+                            </script>
+                            <li>
+                                <a href="#tab1" style="background-image: url('../img/detailed/filter/RF_Y_Big.png')"
+                                   data-toggle='tab'>&nbsp;</a>
+                            </li>
+                        </ul>
+                        <div class="tab-wrapper">
+                            <div class="alert-actions">
+                                <div class="alert-action acc" title='Acknowledge'></div>
+                                <div class="alert-action not_acc" title='Unacknowledge'></div>
+                                <div class="alert-action del" title='Clear'></div>
+                                <div class="delimiter"></div>
+                                <div class="alert-action comment" title='Comment'></div>
+                                <div class="delimiter"></div>
+                                <div class="alert-action source" title='Go to Source'></div>
+                                <div class="delimiter"></div>
+                                <div class="alert-action graph" title='Analysis'></div>
+                                <div class="alert-action table" title='Report'></div>
+                                <div class="delimiter"></div>
+                            </div>
+                            <div class="tab-content">
+                                <div class='tab-pane' id='tab1'>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Severity: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">
+                                                <div class="severity-row-content">
+                                                    <div class="severity-indicator warning"></div>
+                                                    WARNING
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Last updated at: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">Apr 14th, 2015, 04:18:45 pm</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Severity changed at: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">Apr 14th, 2015, 04:06:45 pm</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Created at: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">Apr 14th, 2015, 04:06:45 pm</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Probable cause: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">DEGRADED_SIGNAL</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Threshold value: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">thresholdWarningLevel</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Detection value: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">0.0225635</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Acknowledged: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">No</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Count: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">2</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Duration: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">6 days 01:33:37</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Source: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">DVB-S2 RfMeasurement</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Originator: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">High Pre BER</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Active: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">Yes</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Parameters: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">parameterName=pre_ber</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="override-padding-0 col-xs-4">
+                                                <div class="overflow-hidden">
+                                                    <span>Description: </span>
+                                                    <span style="color:#484040;">..................................................................</span>
+                                                </div>
+                                            </div>
+                                            <div class="override-padding-0 col-xs-8">High value of bit error ratio
+                                                before LDPC decoder
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

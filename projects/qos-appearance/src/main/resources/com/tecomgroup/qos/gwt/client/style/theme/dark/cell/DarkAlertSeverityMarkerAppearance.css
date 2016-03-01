@@ -1,0 +1,38 @@
+@def severityOpacity 1;
+
+.coloredSquare {
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	margin-bottom: -2px;
+	margin-left: 0;
+	margin-right: 3px;	
+}
+
+.severityCritical {
+	background-color: rgba(severityCriticalColor, severityOpacity);
+}
+
+.severityWarning {
+	background-color: rgba(severityWarningColor, severityOpacity);
+}
+
+.severityNotice {
+	background-color: rgba(severityNoticeColor, severityOpacity);
+}
+
+.severityMajor {
+	background-color: rgba(severityMajorColor, severityOpacity);
+}
+
+.severityMinor {
+	background-color: rgba(severityMinorColor, severityOpacity);
+}
+
+.severityIndeterminate {
+	background-color: rgba(severityIndeterminateColor, severityOpacity);
+}
+
+.severityNone {
+	background-color: rgba(severityNoneColor, severityOpacity);
+}

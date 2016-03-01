@@ -1,0 +1,14 @@
+---
+- name: check if port is open
+  shell: iptables -L | grep 'Open {{ item.protocol }}-{{ item.port }}'
+  with_items: open_ports
+  register: open_checks
+  ignore_errors: yes
+  changed_when: no
+  when: open_ports is defined
+
+- name: Open ports
+  shell: iptables -I INPUT -p "{{ item.item.protocol }}" -m state --state NEW -m "{{ item.item.protocol }}" --dport "{{ item.item.port }}" -j ACCEPT -m comment --comment "Open {{ item.item.protocol }}-{{ item.item.port }}"
+  when: open_checks.results is defined and item.rc != 0
+  with_items: open_checks.results
+  notify: save iptables

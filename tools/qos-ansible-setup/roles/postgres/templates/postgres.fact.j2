@@ -1,0 +1,22 @@
+#!/bin/bash
+
+STATUS='not configured'
+
+RECOVERY=$(sudo -u postgres psql -p {{ pg_port }} -q -S -t -c "SELECT pg_is_in_recovery();" 2>/dev/null)
+PSQL_EXIT=$?
+
+if [ $PSQL_EXIT -ne 0 ]; then
+    if [ -r "{{ pg_data }}/recovery.conf" ]; then
+        STATUS="slave"
+    else
+        exit 1
+    fi
+else
+    if [ "${RECOVERY}" == " t" ]; then
+        STATUS="slave"
+    else
+        STATUS="master"
+    fi
+fi
+
+echo "{\"postgres_status\":\"${STATUS}\"}"

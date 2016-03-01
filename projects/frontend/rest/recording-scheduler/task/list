@@ -1,0 +1,57 @@
+[
+  {
+    "id": 0,
+    "name": "RecordAndStream - RT Spainish",
+    "entityKey": "1.RecordAndStream.1000",
+    "agentKey": "1",
+    "agentName": "i_am_bk",
+    "moduleName": "RecordAndStream",
+    "timeZone": "Europe/Moscow",
+    "scheduleState": "SCHEDULED",
+    "roundRobin": "disabled"
+  },
+  {
+    "id": 0,
+    "name": "MediaRecorder task0",
+    "entityKey": "bor.MediaRecorder.1000",
+    "agentKey": "bor",
+    "agentName": "bor",
+    "moduleName": "MediaRecorder",
+    "timeZone": "Europe/Moscow",
+    "scheduleState": "CYCLIC",
+    "roundRobin": "disabled"
+  },
+  {
+    "id": 0,
+    "name": "RecordAndStream task0",
+    "entityKey": "bor.RecordAndStream.9000",
+    "agentKey": "bor",
+    "agentName": "bor",
+    "moduleName": "RecordAndStream",
+    "timeZone": "America/Toronto",
+    "scheduleState": "CYCLIC",
+    "roundRobin": "disabled"
+  },
+  {
+    "id": 0,
+    "name": "RecordAndStream task1",
+    "entityKey": "bor.RecordAndStream.9001",
+    "agentKey": "bor",
+    "agentName": "bor",
+    "moduleName": "RecordAndStream",
+    "timeZone": "Europe/Moscow",
+    "scheduleState": "CYCLIC",
+    "roundRobin": "disabled"
+  },
+  {
+    "id": 0,
+    "name": "RecordAndStream task2",
+    "entityKey": "bor.RecordAndStream.9002",
+    "agentKey": "bor",
+    "agentName": "bor",
+    "moduleName": "RecordAndStream",
+    "timeZone": "Europe/Moscow",
+    "scheduleState": "CYCLIC",
+    "roundRobin": "disabled"
+  }
+]

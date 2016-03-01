@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Channel Edit</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap-big-grid.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="react-root">
+    <div class="modal show">
+        <div class="grey-page"></div>
+        <div class="modal-dialog bigmodal">
+            <div class="modal-content">
+                <div class="modal-header qligent-top-navbar override-padding-5 override-border-0">
+                    <img src="../img/crud/add-channel.png" class="pull-left" style="padding-top: 4px;">
+                    <img src="../img/modal_close.png" class="pull-right" style="padding-top: 6px; padding-right: 6px">
+                    <h4 class="modal-title">Edit Set</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="crud-header">
+                                <div class="crud-header-section">
+                                    <div class="override-padding-0">
+                                        <div class="pull-left crud-channel-dropzone" style="border-style: dashed; width: 78px; height: 78px">
+                                            <img src="../img/channels/default.png" class="crud-channel-image">
+                                        </div>
+
+                                        <div class="override-padding-0 crud-channel-title-section">
+                                            <span class="small-text vertical-top">Title: </span>
+                                            <input class="small-text crud-edit-channel-name"
+                                                   placeholder="Enter channel name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="crud-header-section">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <span class="small-text vertical-top">Time interval: </span>
+                                        </div>
+                                        <div class="row" style="margin-top: 5px">
+                                            <input name="crud" class="hidden" id="15min" type="radio"><label class="pull-left radio-input" for="15min" style="margin: 2px 2px 0 0"></label>
+                                            <label for="15min" class="pull-left small-text" style="margin-right: 10px">15 min</label>
+                                            <input name="crud" class="hidden" id="1h" type="radio" checked><label class="pull-left radio-input" for="1h" style="margin: 2px 2px 0 0"></label>
+                                            <label for="1h" class="pull-left small-text" style="margin-right: 10px">1 hour</label>
+                                            <input name="crud" class="hidden" id="24h" type="radio"><label class="pull-left radio-input" for="24h" style="margin: 2px 2px 0 0"></label>
+                                            <label for="24h" class="pull-left small-text">24 hours</label>
+                                        </div>
+                                        <div class="row" style="margin-top: 8px">
+                                            <input name="crud" class="hidden" id="custom" type="radio"><label class="pull-left radio-input" for="custom" style="margin: 4px 4px 0 0"></label>
+                                            <label for="custom" class="pull-left small-text" style="margin-top: 2px">Custom:</label>
+                                            <div class="pull-left" style="width: 45px; margin-top: -4px; margin-left: 5px; overflow: hidden;
+                                                                      background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                                <select id="hours" class="small-text" style="width: 65px; border: 0; background: transparent;">
+                                                    <option style="background: #222222">0</option>
+                                                    <option style="background: #222222">1</option>
+                                                    <option style="background: #222222">2</option>
+                                                    <option style="background: #222222">3</option>
+                                                    <option style="background: #222222">4</option>
+                                                    <option style="background: #222222">5</option>
+                                                    <option style="background: #222222">6</option>
+                                                    <option style="background: #222222">7</option>
+                                                    <option style="background: #222222">8</option>
+                                                    <option style="background: #222222">9</option>
+                                                    <option style="background: #222222">10</option>
+                                                    <option style="background: #222222">11</option>
+                                                    <option style="background: #222222">12</option>
+                                                    <option style="background: #222222">13</option>
+                                                    <option style="background: #222222">14</option>
+                                                    <option style="background: #222222">15</option>
+                                                    <option style="background: #222222">16</option>
+                                                    <option style="background: #222222">17</option>
+                                                    <option style="background: #222222">18</option>
+                                                    <option style="background: #222222">19</option>
+                                                    <option style="background: #222222">20</option>
+                                                    <option style="background: #222222">21</option>
+                                                    <option style="background: #222222">22</option>
+                                                    <option style="background: #222222">23</option>
+                                                    <option style="background: #222222">24</option>
+                                                </select>
+                                            </div>
+                                            <label style="margin-left: 5px" for="hours" class="pull-left small-text">hours, </label>
+                                            <div class="pull-left" style="width: 45px; margin-top: -4px; margin-left: 5px; overflow: hidden;
+                                                                      background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
+                                                <select id="mins" class="small-text" style="width: 65px; border: 0; background: transparent;">
+                                                    <option style="background: #222222">0</option>
+                                                    <option style="background: #222222">5</option>
+                                                    <option style="background: #222222">10</option>
+                                                    <option style="background: #222222">15</option>
+                                                    <option style="background: #222222">20</option>
+                                                    <option style="background: #222222">25</option>
+                                                    <option style="background: #222222">30</option>
+                                                    <option style="background: #222222">35</option>
+                                                    <option style="background: #222222">40</option>
+                                                    <option style="background: #222222">45</option>
+                                                    <option style="background: #222222">50</option>
+                                                    <option style="background: #222222">55</option>
+                                                </select>
+                                            </div>
+                                            <label style="margin-left: 5px" for="mins" class="pull-left small-text">minutes.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="crud-header-last-section">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <span class="small-text vertical-top">Analysis level:</span>
+                                        </div>
+                                        <div class="row">
+                                            <img class="crud-set-image" src="../img/crud/set_rf.png">
+                                            <img class="crud-set-image" src="../img/crud/set_ip.png">
+                                            <img class="crud-set-image" src="../img/crud/set_ts.png">
+                                            <img class="crud-set-image" src="../img/crud/set_video.png">
+                                            <img class="crud-set-image" src="../img/crud/set_audio.png">
+                                            <img class="crud-set-image" src="../img/crud/set_cc.png">
+                                            <img class="crud-set-image" src="../img/crud/set_epg.png">
+                                            <img class="crud-set-image" src="../img/crud/set_data.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="flex crud-tree-panels-wrapper">
+                                <div class="col-xs-6 override-padding-0 crud-left-tree-panel">
+                                    <span class="small-text" style="margin-bottom: 3px">Probes available</span>
+                                    <div class="crud-tree-search-panel">
+                                        <input class="small-text crud-tree-probe-search placeholder-disappear"
+                                               type="text" placeholder="Search">
+                                        <img src="../img/tree_move_arrow_inactive.png"
+                                             class="pull-right crud-tree-image-top">
+                                    </div>
+                                    <div class="crud-tree">
+                                        <ul class="crud-tree-filler override-padding-0 override-margin-0">
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_minus_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text"><span class="crud-tree-matching-text">Probe1_</span>Nizhny Novgorod - very long and detailed name is here intentionally</div>
+                                                </div>
+                                                <ul class="override-margin-0 override-padding-0">
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-audio"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task1</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-cc"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task2</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-data"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task3</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-epg"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task5</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-video"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task6</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-ip"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task7</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-rf"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task8</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_end.png" class="pull-left">
+                                                            <div class="pull-left tsk-ts"></div>
+                                                            <img src="../img/tree_move_arrow_inactive.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task12</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_plus.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text">Probe Another Berlin</div>
+                                                </div>
+                                            </li>
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_minus_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text">Probe 2_New York</div>
+                                                </div>
+                                                <ul class="override-margin-0 override-padding-0">
+                                                     <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-audio"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task1</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-cc"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task2</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-data"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task3</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-epg"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task5</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-video"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task6</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-ip"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task7</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-rf"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task8</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_end.png" class="pull-left">
+                                                            <div class="pull-left tsk-ts"></div>
+                                                            <img src="../img/tree_move_arrow_inactive.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task12</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_minus_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text">Probe3_London</div>
+                                                </div>
+                                                <ul class="override-margin-0 override-padding-0">
+                                                     <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-audio"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task1</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-cc"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task2</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-data"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task3</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-epg"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task5</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-video"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task6</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-ip"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task7</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_middle.png" class="pull-left">
+                                                            <div class="pull-left tsk-rf"></div>
+                                                            <img src="../img/tree_move_arrow_active.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task8</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_end.png" class="pull-left">
+                                                            <div class="pull-left tsk-ts"></div>
+                                                            <img src="../img/tree_move_arrow_inactive.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task12</div>
+                                                        </div>
+                                                    </li>
+                                                 </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 override-padding-0 crud-right-tree-panel">
+                                    <span class="small-text" style="margin-bottom: 3px">Probes selected</span>
+                                    <div class="crud-tree-search-panel">
+                                        <input class="small-text crud-tree-probe-search placeholder-disappear"
+                                               type="text" placeholder="Search">
+                                        <img src="../img/tree_cross_light.png" class="pull-right crud-tree-image-top">
+                                    </div>
+                                    <div class="crud-tree">
+                                        <ul class="crud-tree-filler override-margin-0 override-padding-0">
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_minus_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_cross_dark.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text">Probe1_Nizhny Novgorod</div>
+                                                </div>
+                                                <ul class="override-margin-0 override-padding-0">
+                                                    <li class="crud-tree-task">
+                                                        <div class="container-fluid override-padding-0-5">
+                                                            <img src="../img/tree_line_end.png" class="pull-left">
+                                                            <div class="pull-left tsk-rf"></div>
+                                                            <img src="../img/tree_cross_dark.png" class="pull-right crud-tree-image-right">
+                                                            <div class="small-text overflow-ellipsis crud-tree-text">Task 1</div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="crud-tree-probe">
+                                                <div class="container-fluid override-padding-0-5">
+                                                    <img src="../img/tree_plus.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_probe_23_no_line.png" class="pull-left crud-tree-image-left">
+                                                    <img src="../img/tree_cross_dark.png" class="pull-right crud-tree-image-right">
+                                                    <div class="small-text overflow-ellipsis crud-tree-text">Probe Another Berlin</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding-top: 0 !important;">
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-primary">Create</button>
+                        <button type="button" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

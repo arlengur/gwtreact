@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:component-scan base-package="com.tecomgroup.qos" />
+
+	<bean id="snmpPropertyPlaceholder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/snmp.properties</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="snmp.nbi.enabled">true</prop>
+				
+				<prop key="snmp.nbi.bootcounter.filename">BootCounter.txt</prop>
+				<prop key="snmp.nbi.config.filename">BootConfig.txt</prop>
+				
+				<prop key="snmp.nbi.community.name">public</prop>
+				<prop key="snmp.nbi.community.security.name">cpublic</prop>
+				<prop key="snmp.nbi.community.context.name">public</prop>
+				<prop key="snmp.nbi.community.string">public</prop>
+				
+				<prop key="snmp.nbi.users">{{'security.name=cpublic', 'security.level=noAuthNoPriv'},{'security.name=v3authNoPriv', 'security.level=authNoPriv', 	'auth.protocol=MD5', 'auth.pass=v3passwd' },{'security.name=v3notify', 'security.level=authPriv', 'auth.protocol=SHA', 'auth.pass=v3authPasswd', 'priv.protocol=DES', 'priv.pass=v3privPasswd'}}</prop>
+				<prop key="snmp.nbi.groups">{{'name=v1v2group', 'security.model=SNMPv1', 'security.name=cpublic'},{'name=v1v2group', 'security.model=SNMPv2c', 	'security.name=cpublic'},{'name=v3group', 'security.model=USM', 'security.name=v3authNoPriv'},{'name=v3notifyGroup', 'security.model=USM', 'security.name=v3notify'}}</prop>
+				<prop key="snmp.nbi.accesses">{{'group.name=v1v2group',	'context.prefix=public', 'security.model=ANY', 'security.level=noAuthNoPriv'},{'group.name=v3group', 'context.prefix=', 'security.model=USM', 'security.level=authNoPriv'},{'group.name=v3notifyGroup', 'context.prefix=', 'security.model=USM', 'security.level=authPriv'}}</prop>
+				
+				<prop key="snmp.nbi.trap.receivers">{}</prop>
+				<prop key="snmp.nbi.trap.parameters">{{'name=v2params',	'mpmodel=MPv2c', 'security.model=SNMPv2c', 'security.name=cpublic', 'security.level=noAuthNoPriv'},{'name=v3params', 'mpmodel=MPv3', 'security.model=USM', 'security.name=v3notify', 'security.level=authPriv'}}</prop>
+				
+				<prop key="snmp.nbi.port">161</prop>
+				<prop key="snmp.nbi.sys.location">Sechenova 2a, Nizhny Novgorod, Russia</prop>
+				<prop key="snmp.nbi.sys.name">Q'ligent Server</prop>
+				<prop key="snmp.nbi.sys.descr"></prop>
+				<prop key="snmp.nbi.sys.contact">qligent@tecomgroup.ru</prop>
+				<prop key="snmp.nbi.sys.services">0</prop>				
+			</props>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+	
+	<bean id="snmpAgent"
+		class="com.tecomgroup.qos.snmp.QoSSnmpAgent" lazy-init="true">
+		<constructor-arg value="${snmp.nbi.bootcounter.filename}"/>
+		<constructor-arg value="${snmp.nbi.config.filename}"/>
+	</bean>
+
+</beans>

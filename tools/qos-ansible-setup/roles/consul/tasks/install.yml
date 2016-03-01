@@ -1,0 +1,84 @@
+---
+- name: create consul group
+  group: >
+    name={{ consul_group }}
+    state=present
+
+- name: create consul user
+  user: >
+    name={{ consul_user }}
+    group={{ consul_group }}
+    system=yes
+
+- name: create consul directory
+  file: >
+    state=directory
+    path={{ item }}
+    owner=root
+    group=root
+  with_items:
+    - "{{ consul_home }}"
+    - "{{ consul_bin_dir }}"
+
+- name: create consul directory
+  file: >
+    state=directory
+    path={{ item }}
+    owner={{ consul_user }}
+    group={{ consul_group }}
+  with_items:
+    - "{{ consul_data_dir }}"
+    - "{{ consul_config_dir }}"
+    - "{{ consul_home}}/checks"
+
+- name: install deps
+  yum: >
+    name={{ item }}
+    disablerepo=*
+    enablerepo=localrepo
+    state=installed
+  with_items:
+    - unzip
+
+- name: check consul version
+  shell: "{{ consul_bin }} version | grep -q {{ consul_version }}"
+  register: consul_real_version
+  changed_when: no
+  ignore_errors: yes
+
+- name: unpack
+  unarchive: >
+    src={{ consul_archive }}
+    dest={{ consul_bin_dir }}
+  when: consul_real_version|failed
+
+- name: add consul to path through profile.d
+  template: >
+    src=consul.sh.j2
+    dest=/etc/profile.d/consul.sh
+    owner=root
+    group=root
+    mode=0755
+
+- name: Install config
+  template: >
+    src=consul.json.j2
+    dest={{ consul_config_dir }}/consul.json
+  notify: reload consul
+
+- name: Add script
+  copy: >
+    src=check_port.sh
+    dest={{ consul_checks_dir }}/check_port.sh
+    mode=755
+    owner=consul
+    group=consul
+
+- name: Install init.d service
+  template: >
+    src=consul.j2
+    dest=/etc/init.d/consul
+    mode=755
+  notify: restart consul
+
+- include: dns.yml

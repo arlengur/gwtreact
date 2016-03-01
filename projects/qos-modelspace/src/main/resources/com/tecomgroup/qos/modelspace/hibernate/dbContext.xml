@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<import resource="classpath:com/tecomgroup/qos/commonContext.xml" />
+
+	<context:component-scan base-package="com.tecomgroup.qos.modelspace" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager"
+		class="com.tecomgroup.qos.modelspace.hibernate.QoSTransactionalManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<constructor-arg ref="transactionManager" />
+	</bean>
+
+	<bean id="readOnlyTransactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<constructor-arg ref="transactionManager" />
+		<property name="readOnly" value="true" />
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${hibernate.connection.driver_class}" />
+		<property name="url" value="${hibernate.connection.url}" />
+		<property name="username" value="${hibernate.connection.username}" />
+		<property name="password" value="${hibernate.connection.password}" />
+	</bean>
+
+	<bean id="alertServiceDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.JdbcAlertServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="channelServiceDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.JdbcChannelServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="recordingSchedulerDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.recording.JdbcRecordingSchedulerServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="namingStrategy" class="com.tecomgroup.qos.modelspace.CustomNamingStrategy">
+		<property name="maxColumnNameSize" value="${max.db.column.name.size}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="com.tecomgroup.qos.modelspace.hibernate.HibernateSessionFactoryBean" depends-on="dbValidator">
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy" ref="namingStrategy" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.tecomgroup.qos.domain</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="javax.persistence.validation.mode">${javax.persistence.validation.mode}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop>
+				<prop key="hibernate.default_schema">${hibernate.default_schema}</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="dbValidator" class="com.tecomgroup.qos.modelspace.DatabaseValidator" init-method="validate">
+    	<property name="dataSource" ref="dataSource"/>
+    	<property name="validationMode" value="${db.validation.mode}"/>
+    	<property name="migrationDialect" value="${db.migration.dialect}"/>
+    	<property name="migrationBasePackages" value="${db.migration.base.package}"/>
+	</bean>
+	
+</beans>

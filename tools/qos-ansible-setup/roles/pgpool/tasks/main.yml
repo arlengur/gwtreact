@@ -1,0 +1,31 @@
+---
+- name: Install pgPool
+  yum: name={{ item }} disablerepo=* enablerepo=localrepo state=installed
+  with_items:
+   - pgpool-II-94
+   - postgresql94
+   - rsync
+
+- name: Configure pgPool
+  template: src={{ item }}.j2 dest=/etc/pgpool-II-94/{{ item }} mode=0644 owner=root group=root backup=yes
+  with_items:
+   - pcp.conf
+   - pgpool.conf
+   - pool_hba.conf
+  notify: restart pgpool
+
+- name: Install pgpool scripts
+  copy: src={{ item }} dest=/etc/pgpool-II-94/{{ item }} mode=0755 owner=root group=root backup=yes
+  with_items:
+   - failover.sh
+
+- name: Configure pgPool (pool_passwd)
+  template: src={{ item }}.j2 dest=/etc/pgpool-II-94/{{ item }} mode=0664 owner=postgres group=postgres backup=yes
+  with_items:
+   - pool_passwd
+  notify: restart pgpool
+
+- name: Start pgpool
+  service: name=pgpool-II-94 state=started enabled=yes
+
+- include: pgpool_status.yml

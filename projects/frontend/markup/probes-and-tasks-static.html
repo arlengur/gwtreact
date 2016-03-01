@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Probes and Tasks</title>
+    <link href="../img/tmp/favicon.png" rel="shortcut icon">
+    <link href="../lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../out/style.min.css" rel="stylesheet">
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap.min.js"></script>
+    <script>
+        function resizeHead () {
+            var t = document.getElementById("tree");
+            var h = document.getElementById("head");
+            h.style.width = t.getBoundingClientRect().width + 'px';
+        }
+        $(document).ready(function () {
+            resizeHead();
+        });
+        $(window).resize(function () {
+            resizeHead();
+        });
+    </script>
+</head>
+<body>
+<div id="react-root">
+    <div class="probe-view container-fluid">
+        <nav class="row qligent-top-navbar">
+            <div class="container-fluid override-padding-0">
+                <div class="dropdown pull-left">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="navItem dashboard">Dashboard</a></li>
+                        <li><a href="#" class="navItem probesAndTasks">Probes And Tasks</a></li>
+                        <li><a href="#" class="navItem alarms">Alarms</a></li>
+                        <li><a href="#" class="navItem recordSchedule">Recording</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="navItem videoWall">VideoWall editor</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="navItem live">Live Video</a></li>
+                                <li><a href="#" class="navItem recorded">Recorded Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="navItem analysis">Analysis</a></li>
+                        <li><a href="#" class="navItem reports">Reports Editor</a></li>
+                        <li><a href="#" class="navItem map">Map</a></li>
+                    </ul>
+                </div>
+                <div class="logout-button pull-right" style="margin: 10px 25px auto 10px"></div>
+                <div class="pull-right username">
+                    <span>Admin</span>
+                </div>
+                <span class="dashboard-title overflow-ellipsis">
+                    Probes and Tasks
+                </span>
+            </div>
+        </nav>
+        <div class="row probe-tree-toolbar">
+            <div class="probe-probes-find">
+                <div class="pull-left margin-0-5 tagging-btn not-allowed" title="Tagging"></div>
+                <span class="pull-left probe-tree-toolbar-line"></span>
+
+                <div class="pull-left margin-0-5 rollback-conf-btn not-allowed" title="Config rollback"></div>
+                <div class="pull-left margin-0-5 upd-cfg-btn not-allowed" title="Update config"></div>
+                <span class="pull-left probe-tree-toolbar-line"></span>
+
+                <div class="pull-left margin-0-5 software-btn not-allowed" title="Update software"></div>
+                <span class="pull-left probe-tree-toolbar-line"></span>
+
+                <div class="pull-left margin-0-5 restart-btn not-allowed" title="Restart"></div>
+                <div class="pull-left margin-0-5 restart-probe-btn not-allowed" title="Restart probe"></div>
+                <div class="pull-left margin-0-5 delete-btn not-allowed" title="Delete"></div>
+
+                <input class="pull-right probe-tree-probe-search placeholder-dissappear" type="text" placeholder="Search"/>
+
+                <span class="pull-right probe-tree-toolbar-line"></span>
+                <div class="pull-right upd-btn" style="margin-right: 5px" title="Update"></div>
+
+            </div>
+            <div class="head-bg flex-none">
+                <div class="container-fluid override-padding-0 pull-left" id="head" style="position: relative">
+                    <!-- 30%, 25%, 9x5% -->
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 30%">
+                        <span class="pull-right header-drag"></span>
+                        <input type="checkbox" class="pull-left chbx-head">
+                        Display Name
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 25%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Description
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 9%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        SW Version
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 9%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Registered
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 9%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Last results
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 9%">
+                        <span class="pull-right header-drag"></span>
+                        <span class="pull-left header-drag"></span>
+                        Key
+                    </div>
+                    <div class="probe-head-text overflow-ellipsis pull-left" style="position: relative; width: 9%">
+                        <span class="pull-left header-drag"></span>
+                        Status
+                    </div>
+                    <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 30%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 55%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 64%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 73%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 82%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 91%;"></div>
+                </div>
+            </div>
+            <div class="probe-tree probe-tree-background">
+                <ul class="probe-tree-background override-margin-0 override-padding-0"
+                    style="position: relative">
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0 probe-tree-selected" id="tree">
+                            <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left probe-tree-minus margin-left-7"></div>
+                                <div class="pull-left probe-simple margin-left-2"></div>
+                                <span class="small-text probe-tree-line-text">
+                                    <span class="small-text crud-tree-matching-text">Probe1_</span>Nizhny Novgorod - very long
+                                    and detailed name is here intentionally in order to check text overflow
+                                    appearance, so please bear with it
+                                </span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%">Nizhny Novgorod probe description</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">ver.0.0.1</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">
+                                <img src="../img/probeConfig/probe_sign_warning.png" class="status-img"/>
+                            </div>
+                        </div>
+                        <ul class="override-margin-0 override-padding-0">
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1 - let's check if text overflow works for tasks as well</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-end" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-data"></div>
+                                        <span class="small-text probe-tree-line-text">Task7</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left probe-tree-plus margin-left-7"></div>
+                                <div class="pull-left probe-loading margin-left-2"></div>
+                                <span class="small-text probe-tree-line-text">Probe_Another</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%">Probe_Another description</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">ver 0.0.2</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">
+                                <img src="../img/probeConfig/probe_sign_good.png" class="status-img"/>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left probe-tree-plus margin-left-7"></div>
+                                <div class="pull-left probe-reboot margin-left-2"></div>
+                                <span class="small-text probe-tree-line-text">Probe2_New York</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%">Probe2_New York description</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">ver 0.0.3</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">
+                                <img src="../img/probeConfig/probe_sign_good.png" class="status-img"/>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left probe-tree-plus margin-left-7"></div>
+                                <div class="pull-left probe-reconfig margin-left-2"></div>
+                                <span class="small-text probe-tree-line-text">Stix</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%">Probe2_New York description</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">ver 0.0.3</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">
+                                <img src="../img/probeConfig/probe_sign_good.png" class="status-img"/>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="probe-tree-li">
+                        <div class="container-fluid override-padding-0">
+                            <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                <input type="checkbox" class="pull-left chbx">
+                                <div class="pull-left probe-tree-minus margin-left-7"></div>
+                                <div class="pull-left probe-simple margin-left-2"></div>
+                                <span class="small-text probe-tree-line-text">ProbeN</span>
+                            </div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%">Nizhny Novgorod probe description</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">ver.0.0.1</div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                            <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%">
+                                <img src="../img/probeConfig/probe_sign_warning.png" class="status-img"/>
+                            </div>
+                        </div>
+                        <ul class="override-margin-0 override-padding-0">
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left overflow-ellipsis" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="position: relative; width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-ip"></div>
+                                        <span class="small-text probe-tree-line-text">Task1</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-rf"></div>
+                                        <span class="small-text probe-tree-line-text" style="color: red">Task3</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-middle" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-video"></div>
+                                        <span class="small-text probe-tree-line-text">Task5</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                            <li class="probe-tree-li">
+                                <div class="container-fluid override-padding-0">
+                                    <div class="pull-left overflow-ellipsis" style="width: 30%">
+                                        <input disabled type="checkbox" class="pull-left chbx">
+                                        <div class="pull-left probe-line-end" style="margin-left: 12px"></div>
+                                        <div class="pull-left tsk-audio"></div>
+                                        <span class="small-text probe-tree-line-text">Task6</span>
+                                    </div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 25%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                    <div class="probe-tree-line-text pull-left" style="width: 9%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 30%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 55%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 64%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 73%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 82%;"></div>
+                    <div class="vertical-line" style="border-color: #424242; left: 91%;"></div>
+
+                </ul>
+                <div class="vertical-line" style="border-color: #424242; left: 22px;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 30%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 55%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 64%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 73%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 82%;"></div>
+                <div class="vertical-line" style="border-color: #424242; left: 91%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="smsProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:config/sms.properties</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="sms.provider.app.id">3489673</prop>
+				<prop key="sms.provider.username">admin_dpop</prop>
+				<prop key="sms.provider.password">OAHfZSAeAYEHVK</prop>
+				<prop key="sms.provider.http.method">POST</prop>
+				<prop key="sms.provider.http.api.sendmsg.url">http://api.clickatell.com/http/sendmsg?user={user}&amp;password={password}&amp;api_id={api_id}&amp;to={to}&amp;text={text}</prop>
+			</props>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+		<property name="ignoreResourceNotFound" value="true" />
+	</bean>
+
+	<bean id="smsPropertyPlaceholder"
+		class="com.tecomgroup.qos.util.ExposedPropertyPlaceholderConfigurer">
+		<property name="properties" ref="smsProperties" />
+		<property name="name" value="smsPropertyPlaceholder" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+
+	<bean id="velocityEngineFactory"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean" />
+
+	<bean id="smsSender" class="com.tecomgroup.qos.sms.DefaultSmsSender" />
+</beans>

@@ -1,0 +1,22 @@
+---
+- name: Setup ssh keys for postgres
+  hosts: db
+  vars_files:
+    - vars/main.yml
+  roles:
+    - ssh_keys
+
+- name: Setup the pgpool on postgres machines
+  hosts: postgres
+  vars_files:
+    - vars/main.yml
+  roles:
+    - pgpool_postgres
+
+- name: Setup the pgpool machine
+  hosts: pgpool
+  vars_files:
+    - roles/postgres/defaults/main.yml
+    - vars/main.yml
+  roles:
+    - pgpool

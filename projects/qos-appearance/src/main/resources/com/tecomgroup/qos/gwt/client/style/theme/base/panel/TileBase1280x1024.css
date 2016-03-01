@@ -1,0 +1,23 @@
+@def headerHeight 42px;
+
+.title {
+	font-size: 15px;
+	padding-left: 10px;
+	max-width: 220px;
+}
+
+@sprite .removeButton {
+	gwt-image: 'tileCross10';
+	right: 10px;
+}
+
+@sprite .saveButton {
+	gwt-image: 'saveWidgetButton10';
+	left: 10px;
+}
+
+@sprite .chartButton {
+    gwt-image: 'chartWidgetButton10';
+    left: 10px;
+}
+

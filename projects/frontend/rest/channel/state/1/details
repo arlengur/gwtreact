@@ -1,0 +1,327 @@
+{
+   "channelId": 65547,
+   "logo": "img/channels/102.png",
+   "channelName": "NTV",
+   "startDate": 1427755483422,
+   "endDate": 1427798683422,
+   "configuration":    {
+      "id": 65547,
+      "name": "NTV",
+      "logo": "img/channels/102.png",
+      "groups":       [
+         "VIDEO",
+         "TS",
+         "AUDIO",
+         "DATA"
+      ],
+      "streams":       {
+         "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+         "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_103.m3u8",
+         "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+         "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_103",
+         "STREAM_ID": "103"
+      },
+      "probes": [      {
+         "id": 156,
+         "name": "Melbourne, FL",
+         "entityKey": "Florida",
+         "tasks":          [
+                        {
+               "id": 187,
+               "name": "DVB-C 1 TR101290p3",
+               "streams": {},
+               "entityKey": "Florida.TR101290ControlModule_pr3.700",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "DATA"
+            },
+                        {
+               "id": 189,
+               "name": "NTV Loudness",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_103.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_103",
+                  "STREAM_ID": "103"
+               },
+               "entityKey": "Florida.LoudnessR128.203",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 194,
+               "parameterGroup": "AUDIO"
+            },
+                        {
+               "id": 197,
+               "name": "DVB-C 1 TR101290p1",
+               "streams": {},
+               "entityKey": "Florida.TR101290IPTVControlModule.500",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "TS"
+            },
+                        {
+               "id": 179,
+               "name": "NTV Birtrates",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_103.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_103",
+                  "STREAM_ID": "103"
+               },
+               "entityKey": "Florida.MpegTSStatisticsIPTVControlModule.403",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 194,
+               "parameterGroup": "TS"
+            },
+                        {
+               "id": 193,
+               "name": "NTV QoE",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_103.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_103",
+                  "STREAM_ID": "103"
+               },
+               "entityKey": "Florida.TVStreamControlModule_v2.303",
+               "defaultStream": false,
+               "relatedRecordingTaskId": 194,
+               "parameterGroup": "VIDEO"
+            },
+                        {
+               "id": 181,
+               "name": "DVB-C 1 TR101290p2",
+               "streams": {},
+               "entityKey": "Florida.TR101290p2IPTVControlModule.600",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "TS"
+            },
+                        {
+               "id": 194,
+               "name": "NTV",
+               "streams":                {
+                  "RECORDED": "rtmpt://91.228.161.74:80/qligentPlayer",
+                  "HLS": "http://91.228.161.74:80/qligentPlayer/streams/ipad/playlist_stream720_103.m3u8",
+                  "DOWNLOAD": "http://91.228.161.74:80/qligentPlayer/streams/",
+                  "RTMP": "rtmpt://91.228.161.74:80/qligentPlayer/stream_103",
+                  "STREAM_ID": "103"
+               },
+               "entityKey": "Florida.RecordAndStream.103",
+               "defaultStream": false,
+               "relatedRecordingTaskId": null,
+               "parameterGroup": "DATA"
+            }
+         ]
+      }],
+      "isChannel": true,
+      "interval": 43200000
+   },
+   "parameterStates":    [
+            {
+         "group": "VIDEO",
+         "alertsHistory": []
+      },
+            {
+         "group": "TS",
+         "alertsHistory":          [
+                        {
+               "alertReportId": 262344,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65548,
+                  "sourceId": 179,
+                  "originatorId": 65545,
+                  "sourceName": "NTV Birtrates",
+                  "originatorName": "Low Audio Bitrate",
+                  "lastUpdateType": "NEW",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427093693000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Audio Bitrate",
+                  "description": "Low Audio Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 1,
+                  "duration": "8 days 03:49:50",
+                  "detectionValue": 0,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "audioBitrate",
+                  "active": true,
+                  "settings": "parameterName=audioBitrate, programId=105, programName=105"
+               }
+            },
+                        {
+               "alertReportId": 262345,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65549,
+                  "sourceId": 179,
+                  "originatorId": 65546,
+                  "sourceName": "NTV Birtrates",
+                  "originatorName": "Low Video Bitrate",
+                  "lastUpdateType": "NEW",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427093693000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Video Bitrate",
+                  "description": "Low Video Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 1,
+                  "duration": "8 days 03:49:50",
+                  "detectionValue": 0,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "videoBitrate",
+                  "active": true,
+                  "settings": "parameterName=videoBitrate, programId=105, programName=105"
+               }
+            },
+                        {
+               "alertReportId": 262346,
+               "startDateTime": 1427093693000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 65550,
+                  "sourceId": 179,
+                  "originatorId": 65547,
+                  "sourceName": "NTV Birtrates",
+                  "originatorName": "Low Data Bitrate",
+                  "lastUpdateType": "NEW",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427093693000,
+                  "severityChanged": 1427093693000,
+                  "created": 1427093693000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Low Data Bitrate",
+                  "description": "Low Data Bitrate",
+                  "acknowledged": false,
+                  "alertCount": 1,
+                  "duration": "8 days 03:49:50",
+                  "detectionValue": 0,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "dataBitrate",
+                  "active": true,
+                  "settings": "parameterName=dataBitrate, programId=105, programName=105"
+               }
+            }
+         ]
+      },
+            {
+         "group": "AUDIO",
+         "alertsHistory": []
+      },
+            {
+         "group": "DATA",
+         "alertsHistory":          [
+                        {
+               "alertReportId": 4,
+               "startDateTime": 1426257060000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 4,
+                  "sourceId": 187,
+                  "originatorId": 424,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "EIT_actual_error",
+                  "lastUpdateType": "REPEAT",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1426257060000,
+                  "created": 1426257060000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "EIT_actual_error triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 12,
+                  "duration": "17 days 20:13:43",
+                  "detectionValue": 1,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "EIT_actual_error",
+                  "active": true,
+                  "settings": "parameterName=EIT_actual_error"
+               }
+            },
+                        {
+               "alertReportId": 262350,
+               "startDateTime": 1427093904000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 2,
+                  "sourceId": 187,
+                  "originatorId": 422,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "Unreferenced_PID",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1427093904000,
+                  "created": 1427093904000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Unreferenced_PID triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 4,
+                  "duration": "8 days 03:46:19",
+                  "detectionValue": 37,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "Unreferenced_PID",
+                  "active": true,
+                  "settings": "parameterName=Unreferenced_PID"
+               }
+            },
+                        {
+               "alertReportId": 262351,
+               "startDateTime": 1427093904000,
+               "endDateTime": null,
+               "severity": "WARNING",
+               "alert":                {
+                  "id": 3,
+                  "sourceId": 187,
+                  "originatorId": 423,
+                  "sourceName": "DVB-C 1 TR101290p3",
+                  "originatorName": "Unreferenced_PID_2",
+                  "lastUpdateType": "UPDATE",
+                  "status": "ACTIVE",
+                  "acknowledgeTime": null,
+                  "cleared": null,
+                  "updated": 1427372599000,
+                  "severityChanged": 1427093904000,
+                  "created": 1427093904000,
+                  "cause": "DEGRADED_SIGNAL",
+                  "name": "Unreferenced_PID_2 triggered",
+                  "description": "Error in transport stream",
+                  "acknowledged": false,
+                  "alertCount": 4,
+                  "duration": "8 days 03:46:19",
+                  "detectionValue": 37,
+                  "thresholdValue": "thresholdWarningLevel",
+                  "parameterId": "Unreferenced_PID_2",
+                  "active": true,
+                  "settings": "parameterName=Unreferenced_PID_2"
+               }
+            }
+         ]
+      }
+   ]
+}

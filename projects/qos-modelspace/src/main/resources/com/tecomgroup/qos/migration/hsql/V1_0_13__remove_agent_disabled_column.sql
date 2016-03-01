@@ -1,0 +1,1 @@
+ALTER TABLE MAgent DROP COLUMN disabled;

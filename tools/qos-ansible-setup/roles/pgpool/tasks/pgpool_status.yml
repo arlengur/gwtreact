@@ -1,0 +1,30 @@
+---
+- name: Make Ansible Facts directory
+  file: path=/etc/ansible/facts.d state=directory
+
+- name: Install pgpool status fact
+  copy: src=pgpool_status.fact dest=/etc/ansible/facts.d/pgpool_status.fact mode=0755
+  register: pgpool_fact
+
+- name: Update facts
+  action: setup
+  when: pgpool_fact.changed
+
+- name: Restart pgpool if any node is missed
+  service: name=pgpool-II-94 state=restarted
+  when: >
+    ansible_local is defined and ansible_local.pgpool_status is defined
+    and ansible_local.pgpool_status | fetchlistfromdict(groups.postgres) |
+    map(attribute='status') | any_filter(3)
+  register: pgpool_restarted
+
+- name: Update facts
+  action: setup
+  when: pgpool_restarted.changed
+
+- name: Restore nodes
+  command: pcp_recovery_node 10 localhost 9898 postgres postgres {{ansible_local.pgpool_status[item].id}}
+  sudo_user: postgres
+  when: ansible_local is defined and ansible_local.pgpool_status is defined and ansible_local.pgpool_status[item]
+        and ansible_local.pgpool_status[item].status == 3
+  with_items: groups['postgres']

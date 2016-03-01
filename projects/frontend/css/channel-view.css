@@ -1,0 +1,115 @@
+.widgets-toolbar {background: #333333;}
+.view-selector-toolbar {
+    background: #4d4d4d;
+    margin: 10px 5px 5px;
+    width: calc(100% - 10px);
+}
+.create-set-icon {margin: 3px 8px 4px;}
+.view-icon {margin: 3px 5px 4px;}
+.severity-filter-icon {margin: 3px 1px 4px;}
+.widget-title {
+    font-size: 18px;
+    color: #f5f5f5;
+}
+.widget {
+    background: #0b1829;
+    border: 1px;
+    border-style: solid;
+    border-color: #000000 #3d3d3d #3d3d3d #000000;
+    height: 120px;
+}
+.widget-interval-choice {
+    border: 1px solid #242424;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 11px;
+    color: #f5f5f5;
+}
+.widget-huge-text {
+    font-size: 50px;
+    color: #f5f5f5;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+}
+.widgets-toggle-bar {background: #333333;}
+.channels-grid-wrapper {
+    padding-left:15px;
+    padding-right:15px;
+}
+.channels-grid {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    width: calc(100% - 10px);
+    margin: 0 5px;
+}
+.player-stub {width: 100%;}
+.player-frame {margin: 5px;}
+/* http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.player-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.player-wrapper embed, object, .player-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* css trick end*/
+.player-header {
+    color: #f5f5f5;
+    background-color: #4d4d4d;
+}
+.detailed-player-header {
+    color: #f5f5f5;
+    background-color: #4c4c4c;
+}
+.player-header-title {
+    margin-left: 25px;
+}
+.channel-small-wrapper {
+    padding: 3px;
+}
+.channel-small-cell {
+    margin-left: 30px;
+    font-size: 16px;
+    color: #f5f5f5;
+}
+.timeline-bar {padding-top: 5px;}
+.timeline-wrapper {
+    padding-left: 30px;
+    padding-right: 10px;
+    height: 30px;
+}
+.medium-cell-channel-icon {
+    height: 23px;
+    width: 23px;
+}
+
+.clock-text {
+    font-size: 10px;
+    color: #5788D3;
+}
+.channels-footer {
+    margin: 0 5px;
+    width: calc(100% - 10px);
+    background: black;
+}
+.page-input {
+    color: white;
+    background: #191919;
+    border: 0;
+    width: 2em;
+    text-align: right;
+    height: 19px;
+    margin: 2px 0;
+}
+.channels-footer-text {
+    margin: 2px 5px 2px;
+}

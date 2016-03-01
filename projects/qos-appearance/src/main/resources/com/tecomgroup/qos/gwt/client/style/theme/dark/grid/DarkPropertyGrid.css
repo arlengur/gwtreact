@@ -1,0 +1,18 @@
+/*
+ * Copyright (C) 2013 Tecomgroup.
+ * All Rights Reserved.
+ */
+
+@external qosGridPropertyStyle;
+
+.qosGridStandardStyle.qosGridPropertyStyle .row {
+	color: white;
+}
+
+.qosGridStandardStyle.qosGridPropertyStyle .cell {
+	color: inherit !important;
+}
+
+.qosGridStandardStyle.qosGridPropertyStyle .cellInner {
+	white-space: normal;
+}

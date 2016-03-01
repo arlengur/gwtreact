@@ -1,0 +1,20 @@
+-- Editing this file do not forget to update srcFiles in sql-maven-plugin in qos-api-media/pom.xml 
+@createSequence.sql
+@MVendorView.sql
+@MModelView.sql
+@MDivisionView.sql
+@MDeviceTypeView.sql
+@MDeviceView.sql
+@MGisPositionTable.sql
+@AgentCopyTable.sql
+@MAgentView.sql
+@MAgentProfileView.sql
+@MAgentModuleTable.sql
+@MAgent_MAgentModuleView.sql
+@MAgent_MProfileView.sql
+@MResultConfigurationTable.sql
+@MAgentTaskTable.sql
+@MResultParameterThresholdTable.sql
+@MResultParameterLocationTable.sql
+@MResultParameterConfigurationTable.sql
+@MResultConfiguration_MResultParameterConfigurationTable.sql

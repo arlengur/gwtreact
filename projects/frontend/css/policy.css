@@ -1,0 +1,28 @@
+.threshold-wrapper {
+    position: relative;
+    width: calc(100% - 70px);
+    height: 100%;
+    margin-top: 5px;
+}
+.threshold-text {
+    position: absolute;
+    bottom: 3px;
+    font-size: 10px;
+}
+.policy-create-dialog {
+    width: 95%;
+    background: #000000;
+}
+.policy-edit-dialog {
+    width: 65%;
+    background: #000000;
+}
+.searching {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000 url("../img/common/Search.gif") no-repeat center;
+    opacity: 0.5;
+}
