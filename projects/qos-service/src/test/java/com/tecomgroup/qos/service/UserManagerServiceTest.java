@@ -7,7 +7,8 @@ package com.tecomgroup.qos.service;
 
 import com.tecomgroup.qos.criterion.CriterionQueryFactory;
 import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.PredefinedRoles;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.exception.QOSException;
 import com.tecomgroup.qos.modelspace.ModelSpace;
 import org.junit.Assert;
@@ -97,7 +98,7 @@ public class UserManagerServiceTest {
 			final String phone) {
 		final MUser user = new MUser();
 		populateUser(user, login, TEST_USER_FIRSTNAME, TEST_USER_LASTNAME,
-				email, phone, Collections.singletonList(Role.ROLE_USER));
+				email, phone, Collections.singletonList(PredefinedRoles.ROLE_USER));
 
 		return userManagerService.saveOrUpdateUser(user, false);
 	}
@@ -113,18 +114,18 @@ public class UserManagerServiceTest {
 
 		Assert.assertTrue(usersMap.containsKey(DEFAULT_ADMIN_LOGIN));
 		final MUser admin = usersMap.get(DEFAULT_ADMIN_LOGIN);
-		final List<Role> adminRoles = admin.getRoles();
+		final List<MRole> adminRoles = admin.getRoles();
 		Assert.assertEquals(1, adminRoles.size());
-		Assert.assertTrue(adminRoles.contains(Role.ROLE_ADMIN));
+		Assert.assertTrue(adminRoles.contains(PredefinedRoles.ROLE_ADMIN));
 		if (checkIsNotDisabled) {
 			Assert.assertFalse(admin.isDisabled());
 		}
 
 		Assert.assertTrue(usersMap.containsKey(DEFAULT_USER_LOGIN));
 		final MUser user = usersMap.get(DEFAULT_USER_LOGIN);
-		final List<Role> userRoles = user.getRoles();
+		final List<MRole> userRoles = user.getRoles();
 		Assert.assertEquals(1, userRoles.size());
-		Assert.assertTrue(userRoles.contains(Role.ROLE_USER));
+		Assert.assertTrue(userRoles.contains(PredefinedRoles.ROLE_USER));
 		if (checkIsNotDisabled) {
 			Assert.assertFalse(admin.isDisabled());
 		}
@@ -143,7 +144,7 @@ public class UserManagerServiceTest {
 
 	private void populateUser(final MUser user, final String login,
 			final String firstName, final String lastName, final String email,
-			final String phone, final List<Role> roles) {
+			final String phone, final List<MRole> roles) {
 		user.setLogin(login);
 		user.setEmail(email);
 		user.setPhone(phone);
@@ -157,7 +158,7 @@ public class UserManagerServiceTest {
 		MUser user = findUser(DEFAULT_USER_LOGIN);
 		populateUser(user, DEFAULT_USER_LOGIN, NEW_USER_FIRSTNAME,
 				NEW_USER_LASTNAME, TEST_USER_EMAIL, TEST_USER_PHONE,
-				Arrays.asList(Role.ROLE_USER, Role.ROLE_ADMIN));
+				Arrays.asList(PredefinedRoles.ROLE_USER, PredefinedRoles.ROLE_ADMIN));
 		userManagerService.saveOrUpdateUser(user, false);
 
 		user = findUser(DEFAULT_USER_LOGIN);
@@ -166,9 +167,9 @@ public class UserManagerServiceTest {
 		Assert.assertEquals(TEST_USER_EMAIL, user.getEmail());
 		Assert.assertEquals(NEW_USER_FIRSTNAME, user.getFirstName());
 		Assert.assertEquals(NEW_USER_LASTNAME, user.getLastName());
-		final List<Role> userRoles = user.getRoles();
-		Assert.assertTrue(userRoles.contains(Role.ROLE_ADMIN));
-		Assert.assertTrue(userRoles.contains(Role.ROLE_USER));
+		final List<MRole> userRoles = user.getRoles();
+		Assert.assertTrue(userRoles.contains(PredefinedRoles.ROLE_ADMIN));
+		Assert.assertTrue(userRoles.contains(PredefinedRoles.ROLE_USER));
 	}
 
 	@Test(expected = QOSException.class)
@@ -240,14 +241,14 @@ public class UserManagerServiceTest {
 
 		final List<MUser> users = userManagerService.getAllUsersNotFiltered();
 		expectUserAndAdmin(users, false);
-		Assert.assertEquals(preinstalledUsersCount + 1, users.size());
+		Assert.assertEquals(preinstalledUsersCount, users.size());
 		MUser user = findUser(TEST_USER_LOGIN);
 
 		Assert.assertEquals(TEST_USER_LOGIN, user.getLogin());
 		Assert.assertEquals(TEST_USER_EMAIL, user.getEmail());
 		Assert.assertEquals(TEST_USER_FIRSTNAME, user.getFirstName());
 		Assert.assertEquals(TEST_USER_LASTNAME, user.getLastName());
-		Assert.assertEquals(Role.ROLE_USER, user.getRoles().get(0));
+		Assert.assertEquals(PredefinedRoles.ROLE_USER, user.getRoles().get(0));
 	}
 
 	private boolean testUserCreation(final String login, final String email,

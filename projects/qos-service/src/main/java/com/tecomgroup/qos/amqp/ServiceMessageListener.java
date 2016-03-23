@@ -5,10 +5,7 @@
 
 package com.tecomgroup.qos.amqp;
 
-import com.tecomgroup.qos.communication.message.HeartbeatMessage;
-import com.tecomgroup.qos.communication.message.QoSMessage;
-import com.tecomgroup.qos.communication.message.ServerStarted;
-import com.tecomgroup.qos.communication.message.UpdatePMConfiguration;
+import com.tecomgroup.qos.communication.message.*;
 import com.tecomgroup.qos.communication.pm.PMConfiguration;
 import com.tecomgroup.qos.communication.pm.PMTaskConfiguration;
 import com.tecomgroup.qos.communication.request.*;
@@ -72,6 +69,8 @@ public class ServiceMessageListener extends QoSMessageListener<QoSMessage>
 	private InternalEventBroadcaster internalEventBroadcaster;
 
 	private AgentHeartbeatListener agentHeartbeatListener;
+
+	private ProbeEventServiceInternal probeEventService;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -206,6 +205,8 @@ public class ServiceMessageListener extends QoSMessageListener<QoSMessage>
 			return onHeartbeat((HeartbeatMessage) message);
 		} else if (message instanceof ProbeConfigSync) {
 			return handleUpdateProbeConfig((ProbeConfigSync) message);
+		} else if (message instanceof AgentActionStatus) {
+			return handleTaskStatus((AgentActionStatus) message);
 		}
 		throw new ServiceException("Unknown type of QoSRequest "
 				+ message.getClass().getName());
@@ -235,6 +236,16 @@ public class ServiceMessageListener extends QoSMessageListener<QoSMessage>
 		} catch (IOException e) {
 			LOGGER.error("Unable to store agent file:", e);
 			return config.responseError(e);
+		}
+	}
+
+	private RequestResponse handleTaskStatus(AgentActionStatus taskStatus) {
+		try {
+			probeEventService.updateEvent(taskStatus);
+			return taskStatus.responseOk(serverName);
+		} catch (Exception e) {
+			LOGGER.error("Unable to update task status row:", e);
+			return taskStatus.responseError(e);
 		}
 	}
 
@@ -463,6 +474,10 @@ public class ServiceMessageListener extends QoSMessageListener<QoSMessage>
 		this.configStorage = configStorage;
 	}
 
+
+	public void setProbeEventService(ProbeEventServiceInternal probeEventService) {
+		this.probeEventService = probeEventService;
+	}
 	/**
 	 * @param serviceExchange
 	 *            the serviceExchange to set

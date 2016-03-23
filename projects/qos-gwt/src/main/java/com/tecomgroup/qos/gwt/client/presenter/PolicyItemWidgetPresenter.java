@@ -34,7 +34,7 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractEntityEditorDialog
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.PolicyActionsTemplateGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.PolicyConditionsTemplateWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.shared.JSEvaluator;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 import com.tecomgroup.qos.service.AlertServiceAsync;
@@ -139,7 +139,7 @@ public class PolicyItemWidgetPresenter
 			}
 			if (!hasErrors) {
 				policyConfigService.saveOrUpdatePolicy(editableEntity,
-						new AutoNotifyingAsyncCallback<MPolicy>() {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<MPolicy>() {
 							@Override
 							protected void failure(final Throwable caught) {
 								final String errorMessage;
@@ -229,7 +229,7 @@ public class PolicyItemWidgetPresenter
 
 	public void loadAlertTypes() {
 		alertService
-				.getAllTypes(new AutoNotifyingAsyncCallback<Map<String, MAlertType>>(
+				.getAllTypes(new AutoNotifyingAsyncLogoutOnFailureCallback<Map<String, MAlertType>>(
 						messages.alertTypesLoadingFail(), true) {
 					@Override
 					protected void success(final Map<String, MAlertType> result) {
@@ -250,7 +250,7 @@ public class PolicyItemWidgetPresenter
 		} else {
 			taskRetriever.getTaskByKey(
 					editableEntity.getSource().getKey(),
-					new AutoNotifyingAsyncCallback<MAgentTask>(messages
+					new AutoNotifyingAsyncLogoutOnFailureCallback<MAgentTask>(messages
 							.taskLoadingFail(), true) {
 						@Override
 						protected void success(final MAgentTask result) {
@@ -276,7 +276,7 @@ public class PolicyItemWidgetPresenter
 		policyActionsTemplateGridWidgetPresenter.reset();
 		policyConditionsTemplateGridWidgetPresenter.reset();
 		loadAlertTypes();
-		agentService.getAllAgents(new AutoNotifyingAsyncCallback<List<MAgent>>(
+		agentService.getAllAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgent>>(
 				messages.agentsLoadingFail(), true) {
 			@Override
 			protected void success(final List<MAgent> result) {

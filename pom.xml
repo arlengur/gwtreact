@@ -62,7 +62,7 @@
 
         <!-- Values used for property file generation ("mvn process-resources -Pconfigure") -->
 		<config.hibernate.connection.driver_class>org.postgresql.Driver</config.hibernate.connection.driver_class>
-		<config.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</config.hibernate.dialect>
+		<config.hibernate.dialect>com.tecomgroup.qos.modelspace.hibernate.PostgresArrayDialect</config.hibernate.dialect>
 		<config.hibernate.connection.url>jdbc:postgresql://localhost:5432/qos</config.hibernate.connection.url>
 		<config.hibernate.connection.username>qos</config.hibernate.connection.username>
 		<config.hibernate.connection.password>Tecom1</config.hibernate.connection.password>

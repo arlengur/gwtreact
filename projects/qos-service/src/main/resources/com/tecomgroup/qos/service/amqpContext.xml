@@ -139,6 +139,7 @@
 				<property name="sendRegisterMessageInterval" value="${agent.send.serverstarted.message.interval.min}"/>
 			</bean>
 		</property>
+		<property name="probeEventService" ref="probeEventService"/>
 	</bean>
 
 	<bean id="registerAgentMessageListener" class="com.tecomgroup.qos.amqp.RegisterAgentMessageListener"

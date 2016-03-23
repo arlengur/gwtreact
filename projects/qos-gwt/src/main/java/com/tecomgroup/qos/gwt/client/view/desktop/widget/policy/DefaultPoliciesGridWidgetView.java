@@ -21,7 +21,7 @@ import com.tecomgroup.qos.gwt.client.presenter.PolicyItemWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.DefaultPoliciesGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.PolicyToolbarWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
 
 /**
@@ -66,7 +66,7 @@ public class DefaultPoliciesGridWidgetView
 						.getConfigurableCriterion();
 				getUiHandlers().getTotalCount(
 						criterion,
-						new AutoNotifyingAsyncCallback<Long>(
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Long>(
 								"Cannot get alerts count", true) {
 							@Override
 							protected void success(final Long result) {
@@ -78,7 +78,7 @@ public class DefaultPoliciesGridWidgetView
 												getCurrentOrder(),
 												loadConfig.getOffset(),
 												loadConfig.getLimit(),
-												new AutoNotifyingAsyncCallback<List<PolicyWrapper>>(
+												new AutoNotifyingAsyncLogoutOnFailureCallback<List<PolicyWrapper>>(
 														"Cannot load policies",
 														true) {
 													@Override

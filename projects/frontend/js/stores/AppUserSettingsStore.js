@@ -17,7 +17,7 @@ var AppUserSettingsStore = assign({}, EventEmitter.prototype, {
     loadData: function (data) {
         _username = data.username;
         _authorities = data.authorities;
-        _locale = Misc.getUrlParamDefault('locale','ru');
+        _locale = Misc.getUrlParamDefault('locale','en');
     },
     needToDisplay: function(link) {
        return _.indexOf(_pages_to_show, link) != -1;

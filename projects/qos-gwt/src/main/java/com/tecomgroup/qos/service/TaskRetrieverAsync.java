@@ -48,4 +48,6 @@ public interface TaskRetrieverAsync {
 			AsyncCallback<List<MAgentTask>> callback);
 
     void getTasksByIds(Collection<Long> taskIds, AsyncCallback<List<MAgentTask>> callback);
+
+	void getTaskKeysByAgentKeys(List<String> agentKeys, AsyncCallback<List<String>> callback);
 }

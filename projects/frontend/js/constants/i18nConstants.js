@@ -102,6 +102,7 @@ export default keyMirror({
     EDIT: null,
     BROWSE: null,
     DELETE_TASK: null,
+    DELETE_ROLE: null,
     TAGGING: null,
     UPDATE_SOFTWARE: null,
     UPDATE_SOFTWARE_FOR: null,
@@ -136,6 +137,7 @@ export default keyMirror({
     NAV_ANALYSIS: null,
     NAV_REPORTS: null,
     NAV_MAP: null,
+    NAV_POLICIES: null,
     CONFIRM: null,
     YES: null,
     NO: null,
@@ -182,7 +184,19 @@ export default keyMirror({
     WRONG_TIME_FORMAT: null,
     SCHEDULE_SAVE: null,
     PROBE_TIMEZONE: null,
-    LOCAL_TIMEZONE: null
+    LOCAL_TIMEZONE: null,
+    // User Manager
+    USER_MANAGER_ROLES: null,
+    USER_MANAGER_ROLE: null,
+    USER_MANAGER_CREATE_ROLE: null,
+    ROLE_DELETE_WARN: null,
+    USER_MANAGER_ROLE_MAIN_INFO: null,
+    USER_MANAGER_ROLE_NAME: null,
+    USER_MANAGER_ROLE_COPY_PERMISSIONS_FROM: null,
+    USER_MANAGER_ROLE_PERMISSIONS: null,
+    USER_MANAGER_ROLE_SEARCH: null,
+    USER_MANAGER_ROLE_NUMBER_OF_USERS: null,
+    USER_MANAGER_ROLE_COMMENT: null
 });
 
 

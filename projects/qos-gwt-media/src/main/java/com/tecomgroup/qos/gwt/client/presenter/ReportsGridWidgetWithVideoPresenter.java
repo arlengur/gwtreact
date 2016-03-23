@@ -20,7 +20,7 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.ExportVideoPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.report.AddAnalyticsToDashboardWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.report.ReportsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.AlertReportRetrieverAsync;
 import com.tecomgroup.qos.service.MediaAgentServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -32,7 +32,7 @@ import com.tecomgroup.qos.service.UserServiceAsync;
  */
 public class ReportsGridWidgetWithVideoPresenter
 		extends
-			ReportsGridWidgetPresenter implements DownloadVideoEventHandler {
+			ReportsGridWidgetPresenter implements DownloadVideoEventHandler{
 
 	public static interface MyView extends ReportsGridWidgetPresenter.MyView {
 
@@ -89,7 +89,7 @@ public class ReportsGridWidgetWithVideoPresenter
 		mediaAgentService
 				.getRelatedStream(
 						alertReport.getAlert(),
-						new AutoNotifyingAsyncCallback<MRecordedStream>(
+						new AutoNotifyingAsyncLogoutOnFailureCallback<MRecordedStream>(
 								messages.unableToLoadRecordedStreamAssociatedWithAlert(),
 								true) {
 							@Override

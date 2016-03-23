@@ -29,7 +29,7 @@ import com.tecomgroup.qos.gwt.client.filter.LocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AlertsHistoryGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
 import com.tecomgroup.qos.gwt.client.utils.DateUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
@@ -213,7 +213,7 @@ public class AlertsHistoryGridWidgetView
 
 				getUiHandlers().getTotalHistoryCount(
 						criterion,
-						new AutoNotifyingAsyncCallback<Long>(
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Long>(
 								"Cannot get alerts history count", true) {
 							@Override
 							protected void success(final Long result) {
@@ -224,7 +224,7 @@ public class AlertsHistoryGridWidgetView
 												getCurrentOrder(),
 												loadConfig.getOffset(),
 												loadConfig.getLimit(),
-												new AutoNotifyingAsyncCallback<List<MAlertUpdate>>(
+												new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAlertUpdate>>(
 
 												"Cannot load history", true) {
 													@Override

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.tecomgroup.qos.util.AuditLogger;
 import com.tecomgroup.qos.util.AuditLogger.SyslogActionStatus;
-import com.tecomgroup.qos.util.AuditLogger.SyslogCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.service.InternalUserService;
 
 /**
@@ -43,7 +43,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				!user.isDisabled()) {
 			final String password = user.getPassword();
 			final List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-			for (final MUser.Role role : user.getRoles()) {
+			for (final MRole role : user.getRoles()) {
 				final GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(
 						role.toString());
 				authorities.add(grantedAuthority);

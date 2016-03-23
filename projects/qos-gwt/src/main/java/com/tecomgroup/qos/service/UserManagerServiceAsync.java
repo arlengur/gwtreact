@@ -12,6 +12,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.tecomgroup.qos.criterion.Criterion;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 
 /**
  * @author meleshin.o
@@ -33,4 +34,8 @@ public interface UserManagerServiceAsync {
 
 	void saveOrUpdateUser(MUser user, boolean updatePassword,
 			AsyncCallback<MUser> callback);
+
+	void getAllRoles(AsyncCallback<List<MRole>> callback);
+
+	void logoutUsers(List<MUser> users, AsyncCallback<Void> callback);
 }

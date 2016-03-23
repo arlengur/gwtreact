@@ -25,6 +25,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
@@ -55,10 +56,8 @@ import com.tecomgroup.qos.gwt.client.event.report.RemoveReportCriteriaEvent.Remo
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractRemoteDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.report.ReportsGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
-import com.tecomgroup.qos.gwt.client.utils.DateUtils;
-import com.tecomgroup.qos.gwt.client.utils.LabelUtils;
+import com.tecomgroup.qos.gwt.client.secutiry.ReportsGatekeeper;
+import com.tecomgroup.qos.gwt.client.utils.*;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 import com.tecomgroup.qos.service.AlertReportRetrieverAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -85,6 +84,7 @@ public class ReportsPresenter
 
 	@ProxyCodeSplit
 	@NameToken(QoSNameTokens.reports)
+	@UseGatekeeper(ReportsGatekeeper.class)
 	public static interface MyProxy extends ProxyPlace<ReportsPresenter> {
 
 	}
@@ -177,14 +177,14 @@ public class ReportsPresenter
 	}
 
 	public void actionLoadAllAgents() {
-		agentService.getAllAgentKeys(new AutoNotifyingAsyncCallback<List<String>>(messages.agentsLoadingFail(), true) {
+		agentService.getAllAgentKeys(new AutoNotifyingAsyncLogoutOnFailureCallback<List<String>>(messages.agentsLoadingFail(), true) {
 			@Override
 			protected void success(final List<String> agentKeys) {
 				taskRetriever.getAgentTasks(agentKeys,
 											0,
 											Integer.MAX_VALUE,
 											false,
-											new AutoNotifyingAsyncCallback<List<MAgentTask>>(messages.tasksLoadingFail(), true) {
+											new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(messages.tasksLoadingFail(), true) {
 												@Override
 												protected void success(final List<MAgentTask> tasks) {
 													allCriteria = SimpleUtils.mapTasksByAgentKey(tasks);
@@ -236,7 +236,7 @@ public class ReportsPresenter
 	public void export(final AlertReportWrapper alertReportWrapper) {
 		gridPresenter.getView().setEnabledExportButton(false);
 		alertReportService.serializeBean(alertReportWrapper,
-				new AutoNotifyingAsyncCallback<String>(
+				new AutoNotifyingAsyncLogoutOnFailureCallback<String>(
 						"Cannot serialize AlertReportWrapper", false) {
 
 					@Override
@@ -362,7 +362,7 @@ public class ReportsPresenter
 			final MUserReportsTemplate template = (MUserReportsTemplate) event
 					.getTemplate();
 			taskRetriever.getTasksByKeys(template.getSourceKeys(), false,
-					new AutoNotifyingAsyncCallback<List<MAgentTask>>() {
+					new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>() {
 
 						@Override
 						protected void success(final List<MAgentTask> tasks) {
@@ -526,7 +526,7 @@ public class ReportsPresenter
                 ids.add(Long.parseLong(idString));
             }
 
-            taskRetriever.getTasksByIds(ids, new AutoNotifyingAsyncCallback<List<MAgentTask>>() {
+            taskRetriever.getTasksByIds(ids, new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>() {
 
                 @Override
                 protected void success(List<MAgentTask> tasks) {

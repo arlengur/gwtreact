@@ -19,7 +19,7 @@ import com.tecomgroup.qos.gwt.client.filter.LocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AgentAlertsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.filter.MAlertMapper;
 
@@ -65,7 +65,7 @@ public class AgentAlertsGridWidgetView extends AbstractAlertsGridWidgetView
 						.actionLoadAlerts(
 								getCurrentOrder(),
 								criterion,
-								new AutoNotifyingAsyncCallback<List<MAlert>>(
+								new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAlert>>(
 										messages.alertsLoadingFail(), true) {
 									@Override
 									protected void success(

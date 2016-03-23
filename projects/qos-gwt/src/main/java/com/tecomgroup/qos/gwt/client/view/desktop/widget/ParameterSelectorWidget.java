@@ -25,7 +25,7 @@ import com.tecomgroup.qos.domain.MAgentTask;
 import com.tecomgroup.qos.domain.MResultParameterConfiguration;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.DisabledParameterLabelProvider;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.DisabledTaskLabelProvider;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.ParameterModelKeyProvider;
@@ -157,7 +157,7 @@ public class ParameterSelectorWidget {
 		if (agent != null) {
 			taskRetriever.getAgentTasks(agent.getKey(), null, null, 0,
 					Integer.MAX_VALUE, true, onlyActive,
-					new AutoNotifyingAsyncCallback<List<MAgentTask>>() {
+					new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>() {
 						@Override
 						protected void failure(final Throwable caught) {
 							LOGGER.log(Level.SEVERE, "Cannot select agent",

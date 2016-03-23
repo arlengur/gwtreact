@@ -18,7 +18,7 @@ import com.tecomgroup.qos.domain.MLiveStreamWrapper;
 import com.tecomgroup.qos.gwt.client.event.video.LiveVideoAddedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.UserAgentUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AgentDialogPresenter;
 import com.tecomgroup.qos.gwt.client.wrapper.StreamClientWrapper;
@@ -57,7 +57,7 @@ public class AddLiveVideoPresenter extends AgentDialogPresenter {
 
 	@Override
 	public void agentSelected(final MAgent agent) {
-		final AsyncCallback<List<MLiveStream>> callback = new AutoNotifyingAsyncCallback<List<MLiveStream>>(
+		final AsyncCallback<List<MLiveStream>> callback = new AutoNotifyingAsyncLogoutOnFailureCallback<List<MLiveStream>>(
 				messages.streamLoadingFail(), true) {
 
 			@Override

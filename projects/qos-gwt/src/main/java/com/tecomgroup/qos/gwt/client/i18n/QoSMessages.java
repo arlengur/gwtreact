@@ -20,8 +20,11 @@ public interface QoSMessages
 			Messages,
 			CommonMessages,
 			PolicyValidationMessages {
-	@DefaultMessage("240p")
-	String label240p();
+	@DefaultMessage("240p .flv")
+	String label240pflv();
+
+	@DefaultMessage("240p .mp4")
+	String label240pmp4();
 
 	@DefaultMessage("360p")
 	String label360p();
@@ -322,6 +325,9 @@ public interface QoSMessages
 	@DefaultMessage("Build report")
 	String buildReport();
 
+	@DefaultMessage("Queued")
+	String requestQueued();
+
 	@DefaultMessage("Build Version")
 	String buildVersion();
 
@@ -544,8 +550,14 @@ public interface QoSMessages
 	@DefaultMessage("Delete template")
 	String deleteTemplate();
 
+	@DefaultMessage("Delete event")
+	String deleteEvent();
+
 	@DefaultMessage("Are you sure that you want to delete template?")
 	String deleteTemplateConfirmation();
+
+	@DefaultMessage("Are you sure that you want to delete event?")
+	String deleteEventConfirmation();
 
 	@DefaultMessage("Delete selected")
 	String deleteUserAccounts();
@@ -579,9 +591,6 @@ public interface QoSMessages
 
 	@DefaultMessage("Device type")
 	String deviceType();
-
-	@DefaultMessage("Default")
-	String labelDefault();
 
 	@DefaultMessage("Disable autoscaling")
 	String disableAutoscaling();
@@ -851,6 +860,9 @@ public interface QoSMessages
 	@DefaultMessage("{0} is not a valid date - it must be in the format {1} (for example {2})")
 	String invalidDate(String date, String format, String example);
 
+	@DefaultMessage("{0} is not a valid date - it must be in the format {1}")
+	String invalidDateFormat(String date, String format);
+
 	@DefaultMessage("Time interval is incorrect")
 	String invalidDateTimeInterval();
 
@@ -904,6 +916,9 @@ public interface QoSMessages
 
 	@DefaultMessage("FTP")
 	String linkFTP();
+
+	@DefaultMessage("FTP (on Schedule)")
+	String linkFTPonSchedule();
 
 	@DefaultMessage("Link (probe storage)")
 	String linkLocal();
@@ -1074,6 +1089,9 @@ public interface QoSMessages
 
 	@DefaultMessage("Recording")
 	String navigationRecordSchedule();
+
+	@DefaultMessage("Roles")
+	String navigationRoles();
 
 	@DefaultMessage("Net address")
 	String netAddress();
@@ -1853,6 +1871,18 @@ public interface QoSMessages
 	@DefaultMessage("User settings")
 	String userSettings();
 
+	@DefaultMessage("Download links")
+	String downloadLinks();
+
+	@DefaultMessage("System events")
+	String probeEvents();
+
+	@DefaultMessage("Unable to remove event")
+	String probeEventRemoveFail();
+
+	@DefaultMessage("Event has been successfully removed")
+	String probeEventRemoveSuccess();
+
 	@DefaultMessage("Unable to load users")
 	String usersLoadingFail();
 
@@ -1941,6 +1971,9 @@ public interface QoSMessages
 	@DefaultMessage("Capacity")
 	String capacity();
 
+	@DefaultMessage("Export has been requested. Link to download will be available on your settings page")
+	String videoExportSuccess();
+
 	@DefaultMessage("Total bitrates")
 	String total();
 
@@ -1949,4 +1982,46 @@ public interface QoSMessages
 
 	@DefaultMessage("Task \"{0}\" is disabled")
 	String disabledTask(String taskDisplayName);
+
+	@DefaultMessage("Transcode waiting")
+	String descriptionTranscodeWaiting();
+
+	@DefaultMessage("Transcoding in progress")
+	String descriptionTranscoding();
+
+	@DefaultMessage("Waiting upload to remote file system")
+	String descriptionUploadWaiting();
+
+	@DefaultMessage("Uploading to remote file system")
+	String descriptionUploading();
+
+	@DefaultMessage("Missed records")
+	String descriptionMissedRecords();
+
+	@DefaultMessage("Error no disc space left")
+	String descriptionNoFreeDiscSpace();
+
+	@DefaultMessage("Transcoding fault")
+	String descriptionTranscodingFault();
+
+	@DefaultMessage("FTP transfer fault")
+	String descriptionFtpFault();
+
+	@DefaultMessage("Upload timeout expired")
+	String descriptionUploadTimeoutExpired();
+
+	@DefaultMessage("No records found")
+	String descriptionMissingFiles();
+
+	@DefaultMessage("Internal error")
+	String descriptionInternalError();
+
+	@DefaultMessage("Link expired")
+	String descriptionExpired();
+
+	@DefaultMessage("Failed")
+	String actionFailed();
+
+	@DefaultMessage("OK")
+	String actionSuccess();
 }

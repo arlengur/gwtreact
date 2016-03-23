@@ -30,7 +30,7 @@ import com.tecomgroup.qos.domain.pm.MPolicyConditionsTemplate;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.PolicyConditionWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 import com.tecomgroup.qos.util.PolicyUtils;
 
@@ -201,7 +201,7 @@ public class PolicyConditionsTemplateWidgetPresenter
 				policyComponentTemplateService
 						.getConditionsTemplates(
 								currentParameterType,
-								new AutoNotifyingAsyncCallback<Collection<MPolicyConditionsTemplate>>() {
+								new AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyConditionsTemplate>>() {
 									@Override
 									protected void success(
 											final Collection<MPolicyConditionsTemplate> templates) {

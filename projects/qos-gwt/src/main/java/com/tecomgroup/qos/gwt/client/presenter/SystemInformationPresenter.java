@@ -15,13 +15,24 @@ import com.gwtplatform.mvp.client.PresenterWidget;
 import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.tecomgroup.qos.BuildInfo;
+import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.event.*;
 import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent;
 import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent.BeforeLogoutEventHandler;
+import com.tecomgroup.qos.gwt.client.event.CurrentUserChangedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.secutiry.CurrentUser;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
+import com.tecomgroup.qos.gwt.shared.event.QoSEventService;
+import com.tecomgroup.qos.gwt.shared.event.filter.UserLogoutEventFilter;
 import com.tecomgroup.qos.service.SystemInformationServiceAsync;
+import com.tecomgroup.qos.service.UserManagerServiceAsync;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Level;
+
 
 /**
  * @author abondin
@@ -32,7 +43,9 @@ public class SystemInformationPresenter
 			PresenterWidget<SystemInformationPresenter.MyView>
 		implements
 			UiHandlers,
-			BeforeLogoutEventHandler {
+			BeforeLogoutEventHandler,
+			QoSEventListener,
+			CurrentUserChangedEvent.CurrentUserChangedEventHandler{
 
 	public static interface MyView
 			extends
@@ -47,6 +60,10 @@ public class SystemInformationPresenter
 
 	private final QoSMessages messages;
 
+	private final QoSEventService eventService;
+
+	private final UserManagerServiceAsync userManagerServiceAsync;
+
 	/**
 	 * @param eventBus
 	 * @param view
@@ -55,11 +72,15 @@ public class SystemInformationPresenter
 	public SystemInformationPresenter(
 			final SystemInformationServiceAsync informationService,
 			final EventBus eventBus, final QoSMessages messages,
-			final MyView view, final CurrentUser user) {
+			final MyView view, final CurrentUser user,
+			final QoSEventService eventService,
+			final UserManagerServiceAsync userManagerServiceAsync) {
 		super(eventBus, view);
 		this.informationService = informationService;
 		this.user = user;
 		this.messages = messages;
+		this.eventService = eventService;
+		this.userManagerServiceAsync = userManagerServiceAsync;
 		getView().setUiHandlers(this);
 		init();
 
@@ -67,7 +88,20 @@ public class SystemInformationPresenter
 	}
 
 	@Override
+	protected void onBind() {
+		super.onBind();
+		getEventBus().addHandler(CurrentUserChangedEvent.TYPE, this);
+	}
+
+	@Override
+	public void onServerEvent(AbstractEvent event) {
+		eventService.unsubscribe(UserLogoutEvent.class, this);
+		actionLogout();
+	}
+
+	@Override
 	public void onBeforeLogout(BeforeLogoutEvent event) {
+		eventService.unsubscribe(UserLogoutEvent.class, this);
 		actionLogout();
 	}
 
@@ -97,12 +131,26 @@ public class SystemInformationPresenter
 
 	protected void init() {
 		informationService
-				.getBuildInfo(new AutoNotifyingAsyncCallback<BuildInfo>() {
+				.getBuildInfo(new AutoNotifyingAsyncLogoutOnFailureCallback<BuildInfo>() {
 
 					@Override
 					protected void success(final BuildInfo buildInfo) {
 						getView().setBuildInfo(buildInfo);
 					}
 				});
+	}
+
+	@Override
+	public void onEvent(CurrentUserChangedEvent event) {
+		final MUser user = event.getUser();
+		if (user != null) {
+			eventService
+					.subscribe(
+							UserLogoutEvent.class,
+							this,
+							new UserLogoutEventFilter(user.getLogin()));
+		} else {
+			eventService.unsubscribe(UserLogoutEvent.class, this);
+		}
 	}
 }

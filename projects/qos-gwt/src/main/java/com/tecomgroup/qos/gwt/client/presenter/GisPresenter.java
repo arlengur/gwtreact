@@ -17,6 +17,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.tecomgroup.qos.domain.GISPosition;
@@ -27,8 +28,10 @@ import com.tecomgroup.qos.event.AbstractEvent;
 import com.tecomgroup.qos.event.QoSEventListener;
 import com.tecomgroup.qos.event.StatusEvent;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
+import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent;
 import com.tecomgroup.qos.gwt.client.presenter.widget.gis.AddMapToDashboardWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.secutiry.ProbeMapGatekeeper;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AgentSelectionListener;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.gis.AgentGisWidget;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.gis.MapInfo;
@@ -51,9 +54,11 @@ public class GisPresenter
 			UiHandlers,
 			QoSEventListener,
 			AgentSelectionListener,
-			MapInfo {
+			MapInfo{
+
 	@ProxyCodeSplit
 	@NameToken(QoSNameTokens.gis)
+	@UseGatekeeper(ProbeMapGatekeeper.class)
 	public static interface MyProxy extends ProxyPlace<GisPresenter> {
 
 	}
@@ -167,7 +172,7 @@ public class GisPresenter
 	 */
 	private void updateAgents() {
 		agentService
-				.getAllAgents(new AutoNotifyingAsyncCallback<List<MAgent>>() {
+				.getAllAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgent>>() {
 					@Override
 					protected void success(final List<MAgent> agents) {
 						getView().updateAgents(agents);
@@ -187,7 +192,7 @@ public class GisPresenter
 				.getStatus(
 						agents,
 						true,
-						new AutoNotifyingAsyncCallback<Map<Source, PerceivedSeverity>>() {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Map<Source, PerceivedSeverity>>() {
 
 							@Override
 							protected void success(

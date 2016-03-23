@@ -20,7 +20,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyActionType;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyActionWrapper;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 import com.tecomgroup.qos.util.PolicyUtils;
 
@@ -91,7 +91,7 @@ public class PolicyActionsTemplateGridWidgetPresenter
 
 	public void loadUsers() {
 		userService
-				.getAllContactInformations(new AutoNotifyingAsyncCallback<List<MContactInformation>>(
+				.getAllContactInformations(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MContactInformation>>(
 						messages.usersLoadingFail(), true) {
 
 					@Override

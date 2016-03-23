@@ -90,18 +90,17 @@ public class QoSNameTokens {
 	public final static String dashboard = "dashboard";
 
 	/**
-	 * Channel View Prototype
+	 * Channel View
 	 */
 	public final static String channelView = "FrontEnd.jsp#/";
 
 	/**
-	 * Remote Probe Config Prototype
+	 * Remote Probe Config
 	 */
 	public final static String remoteProbeConfig = "FrontEnd.jsp#/probes";
 
-	/**
-	 * Remote Probe Config Prototype
-	 */
 	public final static String recordSchedule = "FrontEnd.jsp#/record";
+
+	public final static String userManager = "FrontEnd.jsp#/roles";
 
 }

@@ -26,7 +26,7 @@ import com.tecomgroup.qos.service.UserServiceAsync;
  */
 public class DefaultAlertsGridWidgetPresenter
 		extends
-			AbstractAlertsGridWidgetPresenter {
+			AbstractAlertsGridWidgetPresenter{
 
 	public interface MyView extends AbstractAlertsGridWidgetPresenter.MyView {
 	}
@@ -56,5 +56,4 @@ public class DefaultAlertsGridWidgetPresenter
 		super.onBind();
 		getView().onBind();
 	}
-
 }

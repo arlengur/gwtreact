@@ -11,6 +11,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.tecomgroup.qos.TimeInterval;
@@ -18,6 +19,7 @@ import com.tecomgroup.qos.dashboard.DashboardWidget;
 import com.tecomgroup.qos.domain.*;
 import com.tecomgroup.qos.domain.MStreamTemplate.MediaTemplateType;
 import com.tecomgroup.qos.gwt.client.QoSMediaNameTokens;
+import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent;
 import com.tecomgroup.qos.gwt.client.event.GridGroupRemovedEvent;
 import com.tecomgroup.qos.gwt.client.event.GridGroupRemovedEvent.GridGroupRemovedEventHandler;
 import com.tecomgroup.qos.gwt.client.event.LoadTemplateEvent;
@@ -32,8 +34,9 @@ import com.tecomgroup.qos.gwt.client.presenter.LiveVideoPresenter.MyProxy;
 import com.tecomgroup.qos.gwt.client.presenter.LiveVideoPresenter.MyView;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AddWidgetToDashboardWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.secutiry.CurrentUser;
+import com.tecomgroup.qos.gwt.client.secutiry.TranslationsGatekeeper;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.MediaPlayerView;
 import com.tecomgroup.qos.gwt.client.view.desktop.AbstractMediaPlayerView.AddVideoToDashboardListener;
 import com.tecomgroup.qos.gwt.client.wrapper.StreamClientWrapper;
@@ -51,10 +54,11 @@ public class LiveVideoPresenter extends MediaPlayerPresenter<MyView, MyProxy>
 			GridGroupRemovedEventHandler<StreamClientWrapper<MLiveStreamWrapper>>,
 			LiveVideoAddedEventHandler,
 			DashboardWidgetAddedEventHandler,
-			DashboardWidgetRemovedEventHandler {
+			DashboardWidgetRemovedEventHandler{
 
 	@ProxyCodeSplit
 	@NameToken(QoSMediaNameTokens.mediaPlayer)
+	@UseGatekeeper(TranslationsGatekeeper.class)
 	public static interface MyProxy extends ProxyPlace<LiveVideoPresenter> {
 
 	}
@@ -110,7 +114,7 @@ public class LiveVideoPresenter extends MediaPlayerPresenter<MyView, MyProxy>
 	public void getDashboard(final AsyncCallback<MDashboard> callback) {
 		userService.getDashboard(
 				user.getUser().getLogin(),
-				new AutoNotifyingAsyncCallback<MDashboard>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MDashboard>(messages
 						.loadDashbordFail(), true) {
 					@Override
 					protected void success(final MDashboard dashboard) {
@@ -166,7 +170,7 @@ public class LiveVideoPresenter extends MediaPlayerPresenter<MyView, MyProxy>
 
     @Override
     protected void loadTaskStreams(List<Long> taskIds, TimeInterval interval) {
-        mediaAgentService.getTasksLiveStreams(taskIds, new AutoNotifyingAsyncCallback<List<MLiveStreamWrapper>>() {
+        mediaAgentService.getTasksLiveStreams(taskIds, new AutoNotifyingAsyncLogoutOnFailureCallback<List<MLiveStreamWrapper>>() {
             @Override
             protected void success(List<MLiveStreamWrapper> result) {
                 getView().clearStreams();

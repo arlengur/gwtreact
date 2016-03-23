@@ -45,9 +45,9 @@ import com.tecomgroup.qos.domain.MResultParameterConfiguration.AggregationType;
 import com.tecomgroup.qos.domain.MResultParameterConfiguration.ParameterIdentifier;
 import com.tecomgroup.qos.domain.MResultParameterConfiguration.ParameterType;
 import com.tecomgroup.qos.domain.MResultParameterLocation;
-import com.tecomgroup.qos.domain.MTestAgentModule;
-import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.MTestAgentModule;import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
+import com.tecomgroup.qos.domain.rbac.PredefinedRoles;
 import com.tecomgroup.qos.domain.MUserGroup;
 import com.tecomgroup.qos.domain.MUserReportsTemplate;
 import com.tecomgroup.qos.domain.MUserResultTemplate;
@@ -334,7 +334,7 @@ public class SharedModelConfiguration {
 				final String userLogin = userLoginTemplate + "-" + groupIndex
 						+ "-" + +userIndex;
 				groupUsers.add(createUser(userLogin, userLogin, userLogin,
-						userLogin, Arrays.asList(Role.ROLE_USER), ""));
+						userLogin, Arrays.asList(PredefinedRoles.ROLE_USER), ""));
 			}
 			group.setUsers(groupUsers);
 			groups.add(group);
@@ -347,11 +347,11 @@ public class SharedModelConfiguration {
 		final List<MUser> users = new ArrayList<>();
 
 		users.add(createUser("ivanov.i", "Ivan", "Ivanovich", "Ivanov",
-				Arrays.asList(Role.ROLE_USER), "ivanov.i@tecomgroup.com"));
+				Arrays.asList(PredefinedRoles.ROLE_USER), "ivanov.i@tecomgroup.com"));
 		users.add(createUser("petrov.p", "Petr", "Petrovich", "Petrov",
-				Arrays.asList(Role.ROLE_USER), "petrov.p@tecomgroup.com"));
+				Arrays.asList(PredefinedRoles.ROLE_USER), "petrov.p@tecomgroup.com"));
 		users.add(createUser("sidorov.s", "Sidor", "Sidorovich", "Sidorov",
-				Arrays.asList(Role.ROLE_USER), "sidorov.s@tecomgroup.com"));
+				Arrays.asList(PredefinedRoles.ROLE_USER), "sidorov.s@tecomgroup.com"));
 
 		return createGroup(groupName, users);
 	}
@@ -765,7 +765,7 @@ public class SharedModelConfiguration {
 
 	public static MUser createUser(final String login, final String firstName,
 			final String secondName, final String lastName,
-			final List<Role> roles, final String email) {
+			final List<MRole> roles, final String email) {
 		final MUser user = new MUser();
 
 		user.setFirstName(firstName);

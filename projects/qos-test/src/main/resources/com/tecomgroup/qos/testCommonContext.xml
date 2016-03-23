@@ -31,7 +31,7 @@
 				<prop key="stored.days.count">1</prop>
 
 				<!-- Hibernate -->
-				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.dialect">com.tecomgroup.qos.modelspace.hibernate.HSQLArrayDialect</prop>
 				<prop key="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</prop>
 				<prop key="hibernate.connection.url">jdbc:hsqldb:file:qostestdb;shutdown</prop>
 				<prop key="hibernate.connection.username">sa</prop>

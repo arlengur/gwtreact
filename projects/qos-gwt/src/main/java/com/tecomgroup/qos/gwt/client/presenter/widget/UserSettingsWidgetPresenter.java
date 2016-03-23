@@ -18,7 +18,7 @@ import com.tecomgroup.qos.domain.UserSettings.NotificationLanguage;
 import com.tecomgroup.qos.gwt.client.event.AudibleAlertModeChangeEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -29,7 +29,7 @@ public class UserSettingsWidgetPresenter
 		extends
 			PresenterWidget<UserSettingsWidgetPresenter.MyView>
 		implements
-			UiHandlers {
+			UiHandlers{
 
 	public interface MyView
 			extends
@@ -65,7 +65,7 @@ public class UserSettingsWidgetPresenter
 
 			userService.updateCurrentUser(
 					user,
-					new AutoNotifyingAsyncCallback<Void>(messages
+					new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 							.settingsUpdateFailure(), true) {
 
 						@Override
@@ -92,7 +92,7 @@ public class UserSettingsWidgetPresenter
 
             userService.updateCurrentUser(
                     user,
-                    new AutoNotifyingAsyncCallback<Void>(messages
+                    new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
                             .settingsUpdateFailure(), true) {
 
                         @Override

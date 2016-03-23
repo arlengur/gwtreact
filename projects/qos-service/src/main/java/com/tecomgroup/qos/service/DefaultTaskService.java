@@ -436,6 +436,20 @@ public class DefaultTaskService extends AbstractService
         return tasks;
     }
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<String> getTaskKeysByAgentKeys(final List<String> agentKeys) {
+		if (SimpleUtils.isNotNullAndNotEmpty(agentKeys)) {
+			final CriterionQuery query = modelSpace.createCriterionQuery();
+			return (List<String>) modelSpace.findProperties(
+					MAgentTask.class,
+					query.and( Utils.createNotDeletedAndDisabledCriterion(true),
+							query.in("parent.parent.key", agentKeys)),
+					"key");
+		}
+		return new LinkedList<>();
+	}
+
 	private void initTaskConfigurations() {
 		final List<MAgentTask> activeTasks = executeInTransaction(true,
 				new TransactionCallback<List<MAgentTask>>() {

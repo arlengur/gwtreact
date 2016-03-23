@@ -1,31 +1,30 @@
 /*
- * Copyright (C) 2012 Tecomgroup.
+ * Copyright (C) 2016 Tecomgroup.
  * All Rights Reserved.
  */
 
 package com.tecomgroup.qos.gwt.client.secutiry;
 
 import com.google.inject.Inject;
-import com.gwtplatform.mvp.client.proxy.Gatekeeper;
-import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.UISubject;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
+import com.tecomgroup.qos.domain.rbac.UISubject;
 
-public class UsersGatekeeper extends BaseGatekeeper  implements Gatekeeper {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-	private final CurrentUser currentUser;
+public class UsersGatekeeper extends BaseGatekeeper{
+
+	public static List<UISubject> pages = Arrays.asList(PermissionScope.USER_MANAGER_ROLES);
 
 	@Inject
 	public UsersGatekeeper(final CurrentUser currentUser) {
-		this.currentUser = currentUser;
+		super(currentUser);
 	}
 
 	@Override
-	public boolean canReveal() {
-		final MUser user = currentUser.getUser();
-		if(user != null && (isPermittedPage(MUser.Page.USER_MGMT, user))) {
-			return true;
-		}
-		return false;
+	public List<UISubject> getPermission() {
+		return pages;
 	}
-
 }

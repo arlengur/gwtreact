@@ -112,9 +112,9 @@ public class RecordingSchedulerServiceImpl extends AbstractService implements Re
         final Timer.Context timer = getTimezonesListTimer.time();
         try {
             Set<TimeZoneDTO> result = new TreeSet<>();
-            Set<String> zoneIds = DateTimeZone.getAvailableIDs();
+            Set<String> zoneIds = new HashSet<>(Arrays.asList(TimeZone.getAvailableIDs()));
             for (String zoneId : zoneIds) {
-                TimeZoneDTO dto = TimeZoneDTO.fromJodaTimeZone(DateTimeZone.forID(zoneId));
+                TimeZoneDTO dto = TimeZoneDTO.fromTimeZone(TimeZone.getTimeZone(zoneId));
                 result.add(dto);
             }
 

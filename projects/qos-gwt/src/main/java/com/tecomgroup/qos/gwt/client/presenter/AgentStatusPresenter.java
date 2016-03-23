@@ -34,7 +34,7 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.GridPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.agent.AgentResultsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AgentAlertsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.AgentPoliciesGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.shared.event.QoSEventService;
 import com.tecomgroup.qos.gwt.shared.event.filter.AgentStatusEventFilter;
 import com.tecomgroup.qos.service.AgentServiceAsync;
@@ -131,7 +131,7 @@ public class AgentStatusPresenter
 	private void loadAgent(final String agentKey) {
 		agentService.getAgentByKey(
 				agentKey,
-				new AutoNotifyingAsyncCallback<MAgent>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MAgent>(messages
 						.agentLoadingFail(), true) {
 
 					@Override
@@ -196,7 +196,7 @@ public class AgentStatusPresenter
 				.getStatus(
 						Arrays.asList(agentSource),
 						true,
-						new AutoNotifyingAsyncCallback<Map<Source, PerceivedSeverity>>() {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Map<Source, PerceivedSeverity>>() {
 							@Override
 							protected void success(
 									final Map<Source, PerceivedSeverity> result) {

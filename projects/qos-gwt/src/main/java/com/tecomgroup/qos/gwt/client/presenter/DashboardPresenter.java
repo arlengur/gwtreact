@@ -38,7 +38,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.DashboardPagerPresenterWidget;
 import com.tecomgroup.qos.gwt.client.secutiry.CurrentUser;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ChartResultUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
@@ -60,7 +60,7 @@ public class DashboardPresenter
 			RemoveWidgetFromDashboardEventHandler,
 			ChangeDashboardPageEventHandler,
 			SaveDashboardWidgetEventHandler,
-			BeforeLogoutEventHandler {
+			BeforeLogoutEventHandler{
 
 	private static interface DashboardLoadAction {
 		void onDashboardLoaded(MDashboard dashboard);
@@ -136,7 +136,7 @@ public class DashboardPresenter
 	private void loadDashboard(final DashboardLoadAction loaderAction) {
 		userService.getDashboard(
 				user.getUser().getLogin(),
-				new AutoNotifyingAsyncCallback<MDashboard>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MDashboard>(messages
 						.loadDashbordFail(), true) {
 
 					@Override
@@ -233,7 +233,7 @@ public class DashboardPresenter
 								if (removed != null) {
 									userService.removeWidgetFromDashboard(
 											widgetKey,
-											new AutoNotifyingAsyncCallback<Void>(
+											new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(
 													"Unable to remove widget", true) {
 
 												@Override
@@ -311,7 +311,7 @@ public class DashboardPresenter
 			dashboard.updateWidget(widget);
 			userService.updateDashboard(
 					dashboard,
-					new AutoNotifyingAsyncCallback<Void>(messages
+					new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 							.dashboardUpdateFail(), true) {
 						@Override
 						protected void success(final Void result) {

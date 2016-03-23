@@ -1,3 +1,6 @@
+.dateBoxPopup, .gwt-TimeBox-menu {
+	z-index: 1500;
+}
 
 .topVideoBorder {
 	background-image: url("../images/video/topBorder1.png"),

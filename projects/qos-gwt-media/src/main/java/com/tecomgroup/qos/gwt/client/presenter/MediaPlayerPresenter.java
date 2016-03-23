@@ -36,7 +36,7 @@ import com.tecomgroup.qos.gwt.client.event.SaveTemplateEvent;
 import com.tecomgroup.qos.gwt.client.event.SaveTemplateEvent.SaveTemplateEventHandler;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.MediaPlayerView;
 import com.tecomgroup.qos.gwt.client.view.desktop.AbstractMediaPlayerView;
 import com.tecomgroup.qos.gwt.client.wrapper.StreamClientWrapper;
@@ -123,7 +123,7 @@ public abstract class MediaPlayerPresenter<V extends MediaPlayerView, Proxy_ ext
 	private void loadSelectedTemplate(final String templateName) {
 		userService.getTemplate(templateType, AppUtils.getCurrentUser()
 				.getUser().getId(), templateName,
-				new AutoNotifyingAsyncCallback<MUserAbstractTemplate>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MUserAbstractTemplate>() {
 
 					@Override
 					protected void success(final MUserAbstractTemplate template) {

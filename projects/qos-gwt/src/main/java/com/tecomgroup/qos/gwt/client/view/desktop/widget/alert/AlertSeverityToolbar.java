@@ -105,7 +105,7 @@ public class AlertSeverityToolbar<M> {
 					}
 					if (gridView != null) {
 						gridView.refreshFilters(); 
-						((DefaultAlertsGridWidgetView) gridView).setTemplateLabel(null);
+						((DefaultAlertsGridWidgetView) gridView).cleanupCurrentTemplate();
 					}
 				}
 			});

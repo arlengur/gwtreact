@@ -1,0 +1,19 @@
+CREATE TABLE mrole (id BIGINT PRIMARY KEY, name VARCHAR, subjects BIGINT[], comment VARCHAR);
+CREATE TABLE uisubject (id BIGINT PRIMARY KEY, name VARCHAR, extension TEXT[]);
+ALTER TABLE muser ADD COLUMN roles BIGINT[];
+CREATE SEQUENCE rbac_id_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE FUNCTION rbac_seq_nextval (
+  OUT out_id BIGINT)
+  AS
+  $BODY$
+  BEGIN
+      out_id := nextval('rbac_id_seq');
+  END;
+  $BODY$
+LANGUAGE plpgsql;
+
+-- CREATE TABLE MUSER_TO_BRANCH (id BIGSERIAL, branch_id BIGINT);
+-- CREATE TABLE BRANCH_UNITS (id BIGSERIAL, name VARCHAR, ldap TEXT[]);
+-- CREATE TABLE BRANCH_CHILD (id BIGSERIAL, child_id BIGINT);
+-- CREATE TABLE MAGENT_TO_BRANCH (id BIGSERIAL, branch_id BIGINT);

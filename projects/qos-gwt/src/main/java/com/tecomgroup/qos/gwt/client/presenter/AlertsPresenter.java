@@ -18,6 +18,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
@@ -30,6 +31,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.GridPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AlertsHistoryGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.DefaultAlertsGridWidgetPresenter;
+import com.tecomgroup.qos.gwt.client.secutiry.AlarmsGatekeeper;
 
 /**
  * @author abondin
@@ -44,6 +46,7 @@ public class AlertsPresenter
 
 	@ProxyCodeSplit
 	@NameToken(QoSNameTokens.alerts)
+	@UseGatekeeper(AlarmsGatekeeper.class)
 	public static interface MyProxy extends ProxyPlace<AlertsPresenter> {
 
 	}

@@ -18,7 +18,7 @@ import com.tecomgroup.qos.gwt.client.model.template.TemplateGroupRow;
 import com.tecomgroup.qos.gwt.client.model.template.TemplateRow;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataTreeGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -68,7 +68,7 @@ public class TemplatesGridWidgetPresenter
 					.getTemplates(
 							type,
 							currentUserId,
-							new AutoNotifyingAsyncCallback<List<MUserAbstractTemplate>>(
+							new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUserAbstractTemplate>>(
 									messages.templateLoadingFail(), true) {
 
 								@Override
@@ -115,7 +115,7 @@ public class TemplatesGridWidgetPresenter
 					group.getType(),
 					currentUserId,
 					template.getName(),
-					new AutoNotifyingAsyncCallback<Void>(messages
+					new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 							.templateRemovingFail(), true) {
 
 						@Override

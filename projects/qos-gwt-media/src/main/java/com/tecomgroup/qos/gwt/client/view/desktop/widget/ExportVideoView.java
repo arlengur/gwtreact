@@ -1,5 +1,10 @@
 package com.tecomgroup.qos.gwt.client.view.desktop.widget;
 
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.LocaleInfo;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
@@ -19,11 +24,22 @@ import com.sencha.gxt.widget.core.client.container.CssFloatLayoutContainer.CssFl
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.form.ComboBox;
 import com.sencha.gxt.widget.core.client.form.TextField;
+import com.tecomgroup.qos.TimeConstants;
+import com.tecomgroup.qos.domain.probestatus.MExportVideoEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.ExportVideoPresenter;
 import com.tecomgroup.qos.gwt.client.style.theme.AppearanceFactory;
+import com.tecomgroup.qos.gwt.client.utils.AppUtils;
+import com.tecomgroup.qos.gwt.client.utils.DateUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.SenchaPopupView;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.base.QoSDialog;
+import com.tractionsoftware.gwt.user.client.ui.UTCDateBox;
+import com.tractionsoftware.gwt.user.client.ui.UTCTimeBox;
+import org.goda.time.*;
+import org.goda.time.format.DateTimeFormatter;
+
+import java.util.Arrays;
+import java.util.Date;
 
 
 /**
@@ -35,18 +51,20 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
     private final QoSMessages messages;
     private QoSDialog dialog;
     private final static int DIALOG_WIDTH = 590;
-    private final static int DIALOG_HEIGHT = 262;
+    private final static int DIALOG_HEIGHT = 305;
 
     private final VerticalLayoutContainer mainContainer;
     private TextField fileName;
-    private TextField startDate;
-    private TextField startTime;
-    private TextField finishDate;
-    private TextField finishTime;
-    private TextField durationTime;
+    private TextField comment;
+    private UTCDateBox startDate;
+    private UTCTimeBox startTime;
+    private UTCDateBox finishDate;
+    private UTCTimeBox finishTime;
+    private UTCTimeBox durationTime;
     private ComboBox<String> qualityControl;
     private ComboBox<String> destinationControl;
 
+    public static DateTimeFormatter DATETIME_PATTERN = org.goda.time.format.DateTimeFormat.forPattern("yyyyMMdd'T'HHmmss");
 
     @Inject
     public ExportVideoView(final EventBus eventBus, final AppearanceFactory appearanceFactory, final QoSMessages messages) {
@@ -70,6 +88,8 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
         initializeFinishTextFields();
         initializeDurationTextFields();
         initializeDestinationComboBox();
+        initializeCommentField();
+
     }
 
     private QoSDialog createDialog() {
@@ -88,9 +108,17 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
             protected void onButtonPressed(final TextButton button) {
                 if (button == getCancelButton()) {
                     hide();
-                } else if (button == getButtonById(PredefinedButton.OK.name())) {
-                    String quality = qualityControl.getValue().equals(messages.labelDefault()) ? "default" : qualityControl.getValue();
-                    getUiHandlers().downloadRequest(quality, destinationControl.getValue());
+                } else if (button == getButtonById(PredefinedButton.OK.name()) && validateDate(startDate) && validateDate(finishDate) && validateDuration()) {
+                    DateTimeZone dateTimeZone = DateTimeZone.forOffsetHours(DateUtils.getCurrentTimeZoneOffset() / 60);
+                    DateTime startDateTime = new LocalDateTime(startDate.getValue() + startTime.getValue()).toDateTime(dateTimeZone);
+                    String startTime = DATETIME_PATTERN.withZone(DateTimeZone.UTC).print(startDateTime);
+                    String createdTime = DATETIME_PATTERN.withZone(DateTimeZone.UTC).print(new DateTime().getMillis());
+
+                    long duration = getDuration().getMillis() / 1000;
+                    getUiHandlers().downloadRequest(startTime,
+                            createdTime, getFormatedDuration(""),
+                            duration, qualityControl.getValue(),
+                            parseDestinationValue(destinationControl.getValue()), comment.getValue());
                     hide();
                 }
             }
@@ -100,6 +128,36 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
         dialog.setHeight(DIALOG_HEIGHT);
 
         return dialog;
+    }
+
+    public MExportVideoEvent.DESTINATION parseDestinationValue(String value) {
+        if(messages.linkLocal().equals(value)) {
+            return MExportVideoEvent.DESTINATION.LOCAL;
+        } else if(messages.linkFTP().equals(value)) {
+            return MExportVideoEvent.DESTINATION.FTP;
+        } else {
+            return MExportVideoEvent.DESTINATION.FTP_ON_SCHEDULE;
+        }
+    }
+
+    private boolean validateDate(UTCDateBox datebox) {
+        String localeName = LocaleInfo.getCurrentLocale().getLocaleName();
+        DateTimeFormat format = ExportVideoPresenter.LOCALE_DATE_FORMATS.get(localeName);
+        try {
+            format.parseStrict(datebox.getText());
+            return true;
+        } catch (IllegalArgumentException e) {
+            AppUtils.showInfoMessage(messages.invalidDateFormat(datebox.getText(), format.getPattern()));
+            return false;
+        }
+    }
+
+    private boolean validateDuration() {
+        if (getDuration().getMillis() > TimeConstants.MILLISECONDS_PER_DAY) {
+            AppUtils.showInfoMessage(messages.invalidDateTimeInterval());
+            return false;
+        }
+        return true;
     }
 
     private void initializeTextField() {
@@ -113,13 +171,28 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
         addToolbarToParentContainer(fileNameContainer, new Margins(6, 0, 0, 0));
     }
 
+    private void initializeCommentField() {
+        final CssFloatLayoutContainer commentContainer = new CssFloatLayoutContainer();
+
+        createAndAddLabel(messages.comment(), commentContainer);
+
+        comment = createTextField();
+        comment.setEmptyText(messages.comment());
+        comment.setEnabled(true);
+        comment.setReadOnly(false);
+
+        commentContainer.add(comment, new CssFloatData(0.82));
+
+        addToolbarToParentContainer(commentContainer);
+    }
+
     private void initializeStartTextFields() {
         final CssFloatLayoutContainer startContainer = new CssFloatLayoutContainer();
 
         createAndAddLabel(messages.start(), startContainer);
 
-        startDate = createTextField();
-        startTime = createTextField(new Margins(6, 0, 2, 6));
+        startDate = createDatebox();
+        startTime = createTimeBox(new Margins(6, 0, 2, 6));
         startContainer.add(startDate, new CssFloatData());
         startContainer.add(startTime, new CssFloatData());
 
@@ -131,8 +204,8 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
 
         createAndAddLabel(messages.finish(), finishContainer);
 
-        finishDate = createTextField();
-        finishTime = createTextField(new Margins(6, 0, 2, 6));
+        finishDate = createDatebox();
+        finishTime = createTimeBox(new Margins(6, 0, 2, 6));
         finishContainer.add(finishDate, new CssFloatData());
         finishContainer.add(finishTime, new CssFloatData());
 
@@ -144,7 +217,7 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
 
         createAndAddLabel(messages.duration(), durationContainer);
 
-        durationTime = createTextField();
+        durationTime = createDurationTimeBox(new Margins(6, 0, 2, 0));
         durationContainer.add(durationTime, new CssFloatData());
 
         addToolbarToParentContainer(durationContainer);
@@ -155,7 +228,7 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
 
         createAndAddLabel(messages.quality(), qualityContainer);
 
-        qualityControl = createComboBox(createStore(messages.labelDefault(), messages.label240p(), messages.label360p()));
+        qualityControl = createComboBox(createStore(messages.label240pflv(), messages.label240pmp4(), messages.label360p()));
         qualityContainer.add(qualityControl, new CssFloatData());
 
         addToolbarToParentContainer(qualityContainer);
@@ -166,7 +239,7 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
 
         createAndAddLabel(messages.destination(), destinationContainer);
 
-        destinationControl = createComboBox(createStore(messages.linkLocal(), messages.linkFTP()));
+        destinationControl = createComboBox(createStore(messages.linkLocal(), messages.linkFTP(), messages.linkFTPonSchedule()));
         destinationControl.setWidth(190);
         destinationContainer.add(destinationControl, new CssFloatData());
 
@@ -186,6 +259,66 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
         return textField;
     }
 
+    private UTCTimeBox createTimeBox(Margins margins) {
+        String localeName = LocaleInfo.getCurrentLocale().getLocaleName();
+        UTCTimeBox timebox = new UTCTimeBox(ExportVideoPresenter.LOCALE_TIME_FORMATS.get(localeName));
+        timebox.addValueChangeHandler(new ValueChangeHandler<Long>() {
+            @Override
+            public void onValueChange(ValueChangeEvent<Long> event) {
+                calcDuration();
+            }
+        });
+        timebox.getElement().<XElement>cast().setMargins(margins);
+        timebox.getElement().getStyle().setProperty("textAlign", "center");
+        timebox.setWidth("80px");
+        return timebox;
+    }
+
+    private UTCTimeBox createDurationTimeBox(Margins margins) {
+        UTCTimeBox timebox = new UTCTimeBox(DateTimeFormat.getFormat("HH:mm:ss"));
+        timebox.getElement().<XElement>cast().setMargins(margins);
+        timebox.getElement().getStyle().setProperty("textAlign", "center");
+        timebox.setWidth("76px");
+        timebox.setEnabled(false);
+        return timebox;
+    }
+
+    private UTCDateBox createDatebox() {
+        return createDatebox(new Margins(6, 0, 2, 0));
+    }
+
+    private UTCDateBox createDatebox(Margins margins) {
+        String localeName = LocaleInfo.getCurrentLocale().getLocaleName();
+        UTCDateBox datebox = new UTCDateBox(ExportVideoPresenter.LOCALE_DATE_FORMATS.get(localeName));
+        datebox.addValueChangeHandler(new ValueChangeHandler<Long>() {
+            @Override
+            public void onValueChange(ValueChangeEvent<Long> event) {
+                calcDuration();
+            }
+        });
+        datebox.getElement().<XElement>cast().setMargins(margins);
+        datebox.getElement().getStyle().setProperty("textAlign", "center");
+        datebox.setWidth("76px");
+        return datebox;
+    }
+
+    private void calcDuration() {
+        if (startDate.getValue() != null && startTime.getValue() != null && finishDate.getValue() != null && finishTime.getValue() != null && durationTime.getValue() != null) {
+            durationTime.setText(getFormatedDuration(":"));
+        }
+    }
+
+    private String getFormatedDuration(String separator) {
+        Period duration = getDuration().toPeriod();
+        return NumberFormat.getFormat("00").format(duration.getDays() * 24 + duration.getHours()) + separator +
+                NumberFormat.getFormat("00").format(duration.getMinutes()) + separator +
+                NumberFormat.getFormat("00").format(duration.getSeconds());
+    }
+
+    private Duration getDuration(){
+        return new Duration(startDate.getValue() + startTime.getValue(), finishDate.getValue() + finishTime.getValue());
+    }
+
     private void createAndAddLabel(String name, CssFloatLayoutContainer layoutContainer) {
         Label label = new Label(name + ":");
         label.getElement().<XElement>cast().setPadding(new Padding(8, 0, 4, 4));
@@ -199,9 +332,7 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
                 return item;
             }
         });
-        for (String item : items) {
-            store.add(item);
-        }
+        store.addAll(Arrays.asList(items));
         return store;
     }
 
@@ -250,26 +381,29 @@ public class ExportVideoView extends SenchaPopupView<ExportVideoPresenter> imple
 
     @Override
     public void setDuration(String duration) {
-        this.durationTime.setValue(duration);
+        this.durationTime.setText(duration);
     }
 
     @Override
     public void setStartDate(String date) {
-        this.startDate.setValue(date);
+        this.startDate.setText(date);
     }
 
     @Override
     public void setStartTime(String time) {
-        this.startTime.setValue(time);
+        this.startTime.setText(time);
     }
 
     @Override
     public void setFinishDate(String date) {
-        this.finishDate.setValue(date);
+        this.finishDate.setText(date);
     }
 
     @Override
     public void setFinishTime(String time) {
-        this.finishTime.setValue(time);
+        this.finishTime.setText(time);
     }
+
+    @Override
+    public void setComment(String comment) { this.comment.setValue(comment); }
 }

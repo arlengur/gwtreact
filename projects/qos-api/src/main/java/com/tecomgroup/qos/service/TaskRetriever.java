@@ -49,4 +49,6 @@ public interface TaskRetriever extends Service, RemoteService {
 
 	List<MAgentTask> getTasksByKeys(Collection<String> taskKeys,
 			boolean activeOnly);
+
+	List<String> getTaskKeysByAgentKeys(final List<String> agentKeys);
 }

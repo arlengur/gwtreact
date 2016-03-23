@@ -30,7 +30,7 @@ import com.tecomgroup.qos.gwt.client.model.policy.PolicyWrapper;
 import com.tecomgroup.qos.gwt.client.presenter.PolicyItemWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractRemoteDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 import com.tecomgroup.qos.service.PolicyConfigurationServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -44,7 +44,7 @@ public abstract class AbstractPoliciesGridWidgetPresenter
 			AbstractRemoteDataGridWidgetPresenter<PolicyWrapper, AbstractPoliciesGridWidgetPresenter.MyView>
 		implements
 			AfterRemovePolicyActionsTemplatesEventHandler,
-			AfterUpdatePolicyComponentTemplateEventHandler {
+			AfterUpdatePolicyComponentTemplateEventHandler{
 
 	public interface MyView
 			extends
@@ -154,7 +154,7 @@ public abstract class AbstractPoliciesGridWidgetPresenter
 
 	protected AsyncCallback<List<MPolicy>> loadPoliciesCallback(
 			final AsyncCallback<List<PolicyWrapper>> callback) {
-		return new AutoNotifyingAsyncCallback<List<MPolicy>>(
+		return new AutoNotifyingAsyncLogoutOnFailureCallback<List<MPolicy>>(
 				messages.policiesLoadingFail(), true) {
 
 			@Override
@@ -172,7 +172,7 @@ public abstract class AbstractPoliciesGridWidgetPresenter
 						}
 					}
 					taskRetriever.getTasksByKeys(new HashSet<String>(taskKeys),
-							new AutoNotifyingAsyncCallback<List<MAgentTask>>(
+							new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(
 									messages.tasksForPoliciesLoadingFail(),
 									true) {
 
@@ -239,7 +239,7 @@ public abstract class AbstractPoliciesGridWidgetPresenter
 	public void openPolicyEditorDialog(final String policyKey) {
 		policyConfigService.getPolicy(
 				policyKey,
-				new AutoNotifyingAsyncCallback<MPolicy>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MPolicy>(messages
 						.policyLoadingFail(), true) {
 					@Override
 					protected void success(final MPolicy policy) {

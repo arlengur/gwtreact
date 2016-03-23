@@ -28,6 +28,7 @@ public class RestServiceConfig extends Application {
         resources.add(ProbeConfigurationRESTFacade.class);
         resources.add(RecordingSchedulerRESTFacade.class);
         resources.add(Widgets.class);
+		resources.add(RbacRolesRESTFacade.class);
     }
 
     @Override

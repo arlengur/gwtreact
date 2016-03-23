@@ -196,7 +196,7 @@ public abstract class AbstractAlertsGridWidgetView
 							public void onConfirm(final String comment) {
 								severityToolbar.clearAllSeverityCheckboxes();
 								clearFilters(false);
-								setTemplateLabel(null);
+								cleanupCurrentTemplate();
 							}
 						}, messages.actionClearFilters(),
 						messages.clearFiltersConfirm(), CommentMode.DISABLED)
@@ -473,5 +473,10 @@ public abstract class AbstractAlertsGridWidgetView
 		if (!defaultTemplate) {
 			AppUtils.showInfoMessage(messages.templateLoadingSuccess());
 		}
+	}
+	
+	public void cleanupCurrentTemplate() {
+		getUiHandlers().setTemplateLabel(null);
+		getUiHandlers().setSelectedTemplateName(null);
 	}
 }

@@ -43,12 +43,13 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 import com.tecomgroup.qos.TimeConstants;
+import com.tecomgroup.qos.communication.request.AgentActionStatus;
 import com.tecomgroup.qos.domain.MAlertType.PerceivedSeverity;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
 import com.tecomgroup.qos.domain.UserSettings.AudibleAlertFeatureMode;
-import com.tecomgroup.qos.event.AbstractEvent;
-import com.tecomgroup.qos.event.ActivateAlertEvent;
-import com.tecomgroup.qos.event.QoSEventListener;
+import com.tecomgroup.qos.domain.probestatus.MProbeEvent;
+import com.tecomgroup.qos.event.*;
 import com.tecomgroup.qos.gwt.client.QoSIcons;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
 import com.tecomgroup.qos.gwt.client.event.AddNavigationLinkEvent;
@@ -72,11 +73,13 @@ import com.tecomgroup.qos.gwt.client.event.ShowMessageEvent.ShowMessageEventHand
 import com.tecomgroup.qos.gwt.client.event.alert.FlickeringEvent;
 import com.tecomgroup.qos.gwt.client.event.alert.FlickeringEvent.FlickeringEventHandler;
 import com.tecomgroup.qos.gwt.client.event.alert.StopAudibleAlertEvent;
+import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.sound.AudibleAlert;
 import com.tecomgroup.qos.gwt.client.sound.AudibleAlertPlayer;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
 import com.tecomgroup.qos.gwt.shared.event.QoSEventService;
 import com.tecomgroup.qos.gwt.shared.event.filter.ActivateAlertEventFilter;
+import com.tecomgroup.qos.gwt.shared.event.filter.AgentActionStatusEventFilter;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
@@ -221,6 +224,8 @@ public class MainPagePresenter
 
 	private final UserServiceAsync userService;
 
+	protected final QoSMessages messages;
+
 	/**
 	 * Время жизни cookie для выбранного агента
 	 */
@@ -244,6 +249,7 @@ public class MainPagePresenter
 		this.eventService = eventService;
 		this.audioPlayer = audioPlayer;
 		this.userService = userService;
+		messages = AppUtils.getMessages();
 		view.setUiHandlers(this);
 	}
 
@@ -367,9 +373,17 @@ public class MainPagePresenter
 							this,
 							new ActivateAlertEventFilter(AppUtils
 									.getAudibleAlertMode()));
+
+			eventService
+					.subscribe(
+							AgentActionStatusEvent.class,
+							this,
+							new AgentActionStatusEventFilter(user.getLogin()));
+
 			getView().userLoggedIn(event.getUser());
 		} else {
 			eventService.unsubscribe(ActivateAlertEvent.class, this);
+			eventService.unsubscribe(AgentActionStatusEvent.class, this);
 			getView().userLoggedOut();
 		}
 	}
@@ -425,7 +439,7 @@ public class MainPagePresenter
 
 				@Override
 				public void onSuccess(MUser user) {
-					if(user.isPagePermitted(MUser.Page.ALERTS)) {
+					if(user.isPermitted(PermissionScope.ALERTS)) {
 						final String agentKey = ((ActivateAlertEvent) event).getAgentKey();
 						agentService.doesAgentPermitted(
 								agentKey,
@@ -451,7 +465,28 @@ public class MainPagePresenter
 				}
 			});
 
-		}
+		} else if(event instanceof AgentActionStatusEvent) {
+			AgentActionStatusEvent statusEvent = (AgentActionStatusEvent) event;
+			MProbeEvent agentEvent = statusEvent.getEvent();
+				agentService.doesAgentPermitted(
+						agentEvent.getAgentKey(),
+								new AsyncCallback<Boolean>() {
+
+									@Override
+									public void onFailure(Throwable caught) {
+										LOGGER.log(
+												Level.WARNING,
+												"Unable to filter AgentActionStatusEvent by agent",
+												caught);
+									}
+
+									@Override
+									public void onSuccess(Boolean result) {
+										AppUtils.showInfoMessage(messages.downloadVideoWarning());
+									}
+
+								});
+				}
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import com.tecomgroup.qos.exception.SecurityException;
 import com.tecomgroup.qos.exception.SecurityException.Reason;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -57,7 +57,7 @@ public class ChangeUserPasswordWidgetPresenter
 	public void updatePassword(final String oldPassword,
 			final String newPassword) {
 		userService.updatePassword(oldPassword, newPassword,
-				new AutoNotifyingAsyncCallback<Void>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>() {
 
 					@Override
 					protected void failure(final Throwable caught) {

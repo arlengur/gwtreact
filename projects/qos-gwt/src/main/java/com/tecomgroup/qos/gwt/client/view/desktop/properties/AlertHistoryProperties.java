@@ -44,7 +44,7 @@ public interface AlertHistoryProperties extends PropertyAccess<MAlertUpdate> {
 
 	ValueProvider<MAlertUpdate, String> newValue();
 
-	@Path("user")
+	@Path("alert.originator.displayName")
 	ValueProvider<MAlertUpdate, String> originator();
 
 	@Path("oldValue")

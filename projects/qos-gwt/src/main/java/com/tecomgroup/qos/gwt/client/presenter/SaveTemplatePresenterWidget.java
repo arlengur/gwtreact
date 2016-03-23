@@ -13,7 +13,7 @@ import com.tecomgroup.qos.gwt.client.event.SaveTemplateEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.template.TemplateFactory;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -64,7 +64,7 @@ public class SaveTemplatePresenterWidget
 			AppUtils.showInfoMessage(messages.templateIsNotValid());
 		} else {
 			userService.saveTemplate(template,
-					new AutoNotifyingAsyncCallback<MUserAbstractTemplate>(
+					new AutoNotifyingAsyncLogoutOnFailureCallback<MUserAbstractTemplate>(
 							messages.templateSavingFail(), true) {
 
 						@Override

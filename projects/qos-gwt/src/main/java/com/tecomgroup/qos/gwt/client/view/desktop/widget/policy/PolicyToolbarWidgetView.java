@@ -22,17 +22,14 @@ import com.sencha.gxt.widget.core.client.container.CssFloatLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.event.TriggerClickEvent;
-import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
 import com.tecomgroup.qos.domain.pm.MPolicyActionsTemplate;
 import com.tecomgroup.qos.domain.pm.MPolicyConditionsTemplate;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyTreeGridRow;
 import com.tecomgroup.qos.gwt.client.presenter.widget.policy.PolicyToolbarWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.theme.AppearanceFactory;
-import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
-import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
-import com.tecomgroup.qos.gwt.client.utils.StyleUtils;
+import com.tecomgroup.qos.gwt.client.utils.*;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog.ConfirmationHandler;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.WarningDialog;
 import com.tecomgroup.qos.gwt.client.view.desktop.properties.PolicyActionsTemplateProperties;
@@ -330,7 +327,7 @@ public class PolicyToolbarWidgetView<T extends PolicyTreeGridRow>
 		new CssFloatLayoutContainer.CssFloatData();
 		appearanceFactory.resources();
 
-		if (AppUtils.isPermittedPage(MUser.Page.POLICIES_ADVANCED)) {
+		if (AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 			toolbar.add(createCreateActionWidget(margins));
 			toolbar.add(createDeleteActionWidget(margins));
 			toolbar.add(StyleUtils.createSeparator(margins));
@@ -355,7 +352,7 @@ public class PolicyToolbarWidgetView<T extends PolicyTreeGridRow>
         toolbar.add(searchSeparator);
         setFloat(searchSeparator, Float.RIGHT);
 
-		if (AppUtils.isPermittedPage(MUser.Page.POLICIES_ADVANCED)) {
+		if (AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 
 			final TextButton notificationsTemplatesEditor = createPolicyActionsTemplatesEditorButton();
 			toolbar.add(notificationsTemplatesEditor);
@@ -370,7 +367,7 @@ public class PolicyToolbarWidgetView<T extends PolicyTreeGridRow>
 	private void openApplyPolicyActionsTemplateDialog() {
 		getUiHandlers()
 				.loadPolicyActionsTemplates(
-						new AutoNotifyingAsyncCallback<Collection<MPolicyActionsTemplate>>() {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyActionsTemplate>>() {
 
 							@Override
 							protected void success(
@@ -400,7 +397,7 @@ public class PolicyToolbarWidgetView<T extends PolicyTreeGridRow>
 	private void openApplyPolicyConditionsTemplateDialog() {
 		getUiHandlers()
 				.loadPolicyConditionsTemplates(
-						new AutoNotifyingAsyncCallback<Collection<MPolicyConditionsTemplate>>() {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyConditionsTemplate>>() {
 
 							@Override
 							public void success(
@@ -442,12 +439,12 @@ public class PolicyToolbarWidgetView<T extends PolicyTreeGridRow>
 	public void toggleSearchField(final boolean show) {
 
 		if (!show) {
-			if (AppUtils.isPermittedPage(MUser.Page.POLICIES_ADVANCED)) {
+			if (AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 				toolbar.remove(searchSeparator);
 			}
 			toolbar.remove(searchField);
 		} else {
-			if (AppUtils.isPermittedPage(MUser.Page.POLICIES_ADVANCED)) {
+			if (AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 				toolbar.add(searchSeparator);
 			}
 			toolbar.add(searchField);

@@ -44,6 +44,7 @@
     background-color: #424242;
     color: #fff;
 }
+
 .tab-label {
     cursor: default;
     float: left;
@@ -55,3 +56,89 @@
     margin-right: 2px;
     margin-bottom: 0;
 }
+
+.rw-widget {
+    border: 0;
+    width: 108px;
+}
+
+.rw-input {
+    background: #222;
+    color: #fff;
+    padding: 0 0 0 5px;
+    height: 23px;
+    line-height: 23px;
+}
+
+.rw-widget > .rw-select {
+    border-left: 0;
+}
+
+.rw-select {
+    background: #4474BF;
+}
+
+.rw-btn {
+    color: #fff;
+    line-height: 23px;
+    width: 23px;
+    border: 0;
+}
+
+.rw-popup {
+    background: #222;
+    color: #fff;
+    width: 200px;
+    border: 5px #424242 solid;
+}
+
+ul.rw-list > li.rw-list-option.rw-state-selected {
+    background-color: #4474BF;
+    border: #4474BF 1px solid;
+    color: #fff;
+}
+
+ul.rw-list > li.rw-list-option.rw-state-focus, ul.rw-selectlist > li.rw-list-option.rw-state-focus {
+    background-color: #222;
+    border: 0;
+    color: #fff;
+}
+
+.rw-state-focus {
+    background-color: #222;
+    color: #fff;
+}
+
+ul.rw-list > li.rw-list-option:hover {
+    background-color: #1d5d90;
+    border: #1d5d90 1px solid;
+}
+
+.rw-state-selected {
+    background-color: #4474BF;
+    border: #4474BF 1px solid;
+}
+
+.rw-calendar-grid td .rw-btn:hover {
+    background-color: #66afe9
+}
+
+.rw-calendar .rw-footer .rw-btn:hover {
+    background-color: #66afe9
+}
+
+.rw-calendar .rw-header .rw-btn-view {
+    background-color: #222;
+}
+
+
+
+
+
+
+
+
+
+
+
+

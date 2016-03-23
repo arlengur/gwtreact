@@ -9,5 +9,8 @@ import com.tecomgroup.qos.communication.message.recording.ExportVideo;
  */
 @RemoteServiceRelativePath("springServices/recordingService")
 public interface RecordingScheduleMediaService extends Service, RemoteService {
-    void sendExportVideoMessage(String agentKey, ExportVideo exportVideo);
+    String sendExportVideoMessage(String agentKey, String user, String taskId,
+                                  String taskDisplayName, String quality,
+                                  String startDate, long duration,
+                                  String exportLink, boolean immediate);
 }

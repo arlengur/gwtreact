@@ -8,14 +8,19 @@ import Radio from '../common/Radio';
 import Input from '../common/TextInputTypeahead';
 import Select from '../common/Select';
 import moment from 'moment';
-import tzone from 'moment-timezone';
-import duration from 'moment-duration-format';
-import range from 'moment-range';
+import 'moment-timezone';
+import "moment/locale/ru";
+import 'moment-duration-format';
+import 'moment-range';
 import _ from 'lodash';
 import AppUserSettingsStore from '../../stores/AppUserSettingsStore';
 import i18n from '../../constants/i18nConstants';
 import Immutable from 'immutable';
 import Misc from '../../util/Misc';
+import DatePicker from 'react-datepicker';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+import globalizeLocalizer  from 'react-widgets/node_modules/globalize/lib/globalize';
+import cultures  from 'react-widgets/node_modules/globalize/lib/cultures/globalize.cultures';
 const ls = AppUserSettingsStore.localizeStringCFL;
 const utsFormat = 'YYYYMMDDTHHmmss';
 
@@ -46,10 +51,10 @@ const CrudRecordSchedule = React.createClass({
         var shiftDateTime = moment().add(1, 'hours');
         return {
             startDate: initDateTime.format('DD/MM/YYYY'),
-            startTime: initDateTime.format('HH : mm : ss'),
+            startTime: initDateTime.format('HH:mm:ss'),
             finishDate: shiftDateTime.format('DD/MM/YYYY'),
-            finishTime: shiftDateTime.format('HH : mm : ss'),
-            duration: moment.duration(moment(shiftDateTime).diff(initDateTime)).format("HH : mm : ss"),
+            finishTime: shiftDateTime.format('HH:mm:ss'),
+            duration: moment.duration(moment(shiftDateTime).diff(initDateTime)).format("HH:mm:ss"),
             interval: true,
             comment: '',
             timezone: this.props.store.get('timeZoneId'),
@@ -111,8 +116,8 @@ const CrudRecordSchedule = React.createClass({
         }
     },
     getDuration: function (sDate, sTime, fDate, fTime) {
-        let calcDuration = moment.duration(moment(fDate + fTime, 'DD/MM/YYYYHH : mm : ss').diff(moment(sDate + sTime, 'DD/MM/YYYYHH : mm : ss'))),
-            formatedDuration = calcDuration.format("HH : mm : ss"),
+        let calcDuration = moment.duration(moment(fDate + fTime, 'DD/MM/YYYYHH:mm:ss').diff(moment(sDate + sTime, 'DD/MM/YYYYHH:mm:ss'))),
+            formatedDuration = calcDuration.format("HH:mm:ss"),
             isExceed = calcDuration > 604800000;
         this.setState({isExceed: isExceed});
         return formatedDuration;
@@ -125,7 +130,7 @@ const CrudRecordSchedule = React.createClass({
     },
     addEventLine: function (startDate, startTime, finishDate, finishTime, comment, localTimeZone) {
         var date = moment(startDate, ['DD/MM/YYYY'], true).isValid() && moment(finishDate, ['DD/MM/YYYY'], true).isValid();
-        var time =  moment(startTime, ['HH : mm : ss'], true).isValid() &&  moment(finishTime, ['HH : mm : ss'], true).isValid();
+        var time =  moment(startTime, ['HH:mm:ss'], true).isValid() &&  moment(finishTime, ['HH:mm:ss'], true).isValid();
         if (date && time) {
             var line = {};
             line.begin = this.getDateTimeString(startDate + startTime, this.state.timezone, localTimeZone);
@@ -140,9 +145,9 @@ const CrudRecordSchedule = React.createClass({
                 Actions.addEventLine(line);
                 this.setState({
                     startDate: this.addHourToTime(startDate + startTime, 'DD/MM/YYYY'),
-                    startTime: this.addHourToTime(startDate + startTime, 'HH : mm : ss'),
+                    startTime: this.addHourToTime(startDate + startTime, 'HH:mm:ss'),
                     finishDate: this.addHourToTime(finishDate + finishTime, 'DD/MM/YYYY'),
-                    finishTime: this.addHourToTime(finishDate + finishTime, 'HH : mm : ss'),
+                    finishTime: this.addHourToTime(finishDate + finishTime, 'HH:mm:ss'),
                     comment: ''
                 });
             }
@@ -153,14 +158,14 @@ const CrudRecordSchedule = React.createClass({
         }
     },
     addHourToTime: (dateTime, format) => {
-        return moment(dateTime, 'DD/MM/YYYYHH : mm : ss').add(1, 'hours').format(format)
+        return moment(dateTime, 'DD/MM/YYYYHH:mm:ss').add(1, 'hours').format(format)
     },
     isDateOverlapped: function (date) {
         return !_.every(this.props.store.get('eventList'), (event) => !(moment.range(date.begin, date.end).overlaps(moment.range(event.begin, event.end))));
     },
     getDateTimeString: (value, timezone, localTimeZone) => {
         var tz = timezone == 'Probe' ? localTimeZone : timezone;
-        return moment.tz(value, 'DD/MM/YYYYHH : mm : ss', tz).utc().format(utsFormat);
+        return moment.tz(value, 'DD/MM/YYYYHH:mm:ss', tz).utc().format(utsFormat);
     },
     getDateTimeUTCString: function (value, timezone, localTimeZone) {
         // get time in local timezone
@@ -213,10 +218,10 @@ const CrudRecordSchedule = React.createClass({
         var shiftDateTime = moment().add(1, 'hours');
         this.setState({
             startDate: initDateTime.format('DD/MM/YYYY'),
-            startTime: initDateTime.format('HH : mm : ss'),
+            startTime: initDateTime.format('HH:mm:ss'),
             finishDate: shiftDateTime.format('DD/MM/YYYY'),
-            finishTime: shiftDateTime.format('HH : mm : ss'),
-            duration: moment.duration(moment(shiftDateTime).diff(initDateTime)).format("HH : mm : ss"),
+            finishTime: shiftDateTime.format('HH:mm:ss'),
+            duration: moment.duration(moment(shiftDateTime).diff(initDateTime)).format("HH:mm:ss"),
             comment: ''
         });
     },
@@ -235,9 +240,9 @@ const CrudRecordSchedule = React.createClass({
                     <h4 className="modal-title">{ls(this.state.editActive ? i18n.EDIT_SCHEDULE : i18n.CREATE_SCHEDULE)}</h4>
                 </div>
                 <div className="flex flex-11a" style={{overflow: 'hidden', margin: '10px 10px 0'}}>
-                    <div className="override-padding-0 flex flex-col black-right" style={{width: locale == 'en' ? '185px' : '220px', background: '#424242'}}>
+                    <div className="override-padding-0 flex flex-col black-right" style={{width: locale == 'en' ? '208px' : '243px', background: '#424242'}}>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
-                            <Select width="100px" className="flex-none pull-right"
+                            <Select width="108px" className="flex-none pull-right"
                                     options={_.map(this.props.store.get('timezones'), (timezone) => {return [timezone.id, timezone.description]})}
                                     value={this.state.timezone}
                                     onChange={(v)=>this.setState({timezone: v})}
@@ -247,28 +252,32 @@ const CrudRecordSchedule = React.createClass({
                             </span>
                         </div>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
-                            <Input className="flex-11a search-field pull-right"
-                                   style={{height: '23px', width: '100px'}}
-                                   value={this.state.startDate}
-                                   onKeyPress={Misc.validateDate}
-                                   onBlur={(v) => this.updateStartDate(v, this.state.startTime, this.state.finishDate, this.state.finishTime)}/>
+                            <DateTimePicker
+                                className={'pull-right'}
+                                time={false}
+                                defaultValue={moment(this.state.startDate, 'DD/MM/YYYY').toDate()}
+                                culture={locale}
+                                onChange={(date)=>this.updateStartDate(moment(date).format('DD/MM/YYYY'), this.state.startTime, this.state.finishDate, this.state.finishTime)}/>
                             <span className="flex-none small-text text23 pull-left" style={{marginLeft: '23px'}}>
                                 {ls(i18n.START) + ':'}
                             </span>
                         </div>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
-                            <Input className="flex-11a search-field pull-right"
-                                   style={{height: '23px', width: '100px', textAlign: 'center'}}
-                                   value={this.state.startTime}
-                                   onKeyPress={Misc.validateTime}
-                                   onBlur={(v) => this.updateStartTime(this.state.startDate, v, this.state.finishDate, this.state.finishTime)}/>
+                            <DateTimePicker
+                                className={'pull-right'}
+                                calendar={false}
+                                value={moment(this.state.startTime, 'HH:mm:ss').toDate()}
+                                culture={locale}
+                                format={'HH:mm:ss'}
+                                onSelect={(v) => this.updateStartTime(this.state.startDate, moment(v).format("HH:mm:ss"), this.state.finishDate, this.state.finishTime)}/>
                         </div>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
-                            <Input className="flex-11a search-field pull-right"
-                                   style={{height: '23px', width: '100px'}}
-                                   value={this.state.finishDate}
-                                   onKeyPress={Misc.validateDate}
-                                   onBlur={(v) => this.updateFinishDate(this.state.startDate, this.state.startTime, v, this.state.finishTime)}/>
+                            <DateTimePicker
+                                className={'pull-right'}
+                                time={false}
+                                defaultValue={moment(this.state.finishDate, 'DD/MM/YYYY').toDate()}
+                                culture={locale}
+                                onChange={(date)=>this.updateFinishDate(this.state.startDate, this.state.startTime, moment(date).format('DD/MM/YYYY'), this.state.finishTime)}/>
                             <Radio id="finish" className="pull-left" style={{lineHeight: '23px', margin: '0 4px 0 5px'}}
                                    checked={this.state.interval}
                                    onChange={() => this.updateRadio(true)}/>
@@ -277,15 +286,17 @@ const CrudRecordSchedule = React.createClass({
                             </span>
                         </div>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
-                            <Input className="flex-11a search-field pull-right"
-                                   style={{height: '23px', width: '100px', textAlign: 'center'}}
-                                   value={this.state.finishTime}
-                                   onKeyPress={Misc.validateTime}
-                                   onBlur={(v) => this.updateFinishTime(this.state.startDate, this.state.startTime, this.state.finishDate, v)}/>
+                            <DateTimePicker
+                                className={'pull-right'}
+                                calendar={false}
+                                value={moment(this.state.finishTime, 'HH:mm:ss').toDate()}
+                                culture={locale}
+                                format={'HH:mm:ss'}
+                                onSelect={(v) => this.updateFinishTime(this.state.startDate, this.state.startTime, this.state.finishDate, moment(v).format("HH:mm:ss"))}/>
                         </div>
                         <div className="row flex-none" style={{margin: '0', padding: '5px'}}>
                             <Input className="flex-11a search-field record-disabled pull-right"
-                                   style={{height: '23px', width: '100px', textAlign: 'center',border:isExceed ? '1px solid red' : '0px solid red'}}
+                                   style={{height: '23px', width: '108px', textAlign: 'center',border:isExceed ? '1px solid red' : '0px solid red'}}
                                    disabled="true"
                                    value={this.state.duration}
                                    onBlur={(v) => this.updateDuration(v)}/>
@@ -325,7 +336,7 @@ const CrudRecordSchedule = React.createClass({
                         </div>
                     </div>
                     <div className="row override-padding-0 override-margin-0 flex flex-col"
-                         style={{width: locale == 'en' ? 'calc(100% - 185px)' : 'calc(100% - 220px)', backgroundColor: '#000'}}>
+                         style={{width: locale == 'en' ? 'calc(100% - 208px)' : 'calc(100% - 243px)', backgroundColor: '#000'}}>
                         <div id="tab" className="flex-none" style={{backgroundColor: '#000'}}>
                             <input type="radio" name="table" id="n1" checked style={{display: 'none'}}/>
                             <label htmlFor="n1" className="tab-label">
@@ -411,7 +422,7 @@ const TaskTree = React.createClass({
 const TaskNode = React.createClass({
     getDisplayTime: function (value) {
         var tz = this.props.timezone == 'Probe' ? this.props.localTimezone : this.props.timezone;
-        return moment.utc(value, utsFormat).tz(tz).format('MMM D, YYYY, HH : mm : ss');
+        return moment.utc(value, utsFormat).tz(tz).format('MMM D, YYYY, HH:mm:ss');
     },
     render: function () {
         var event = this.props.event;
@@ -424,7 +435,7 @@ const TaskNode = React.createClass({
                     {this.getDisplayTime(event.end)}
                 </div>
                 <div className="probe-tree-line-text pull-left overflow-ellipsis" style={{width: '15%', textAlign: 'center'}}>
-                    {moment.duration(moment(moment(event.end)).diff(moment(event.begin))).format("HH : mm : ss")}
+                    {moment.duration(moment(moment(event.end)).diff(moment(event.begin))).format("HH:mm:ss")}
                 </div>
                 <div className="probe-tree-line-text pull-left overflow-ellipsis" style={{width: '35%'}}>
                     <span className="pull-left overflow-ellipsis" style={{width: 'calc(100% - 23px)'}}>{event.comment}</span>

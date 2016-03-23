@@ -46,7 +46,7 @@ import com.tecomgroup.qos.gwt.client.filter.LocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.users.UserManagerGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog.CommentMode;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
@@ -347,7 +347,7 @@ public class UserManagerGridWidgetView
 						.getConfigurableCriterion();
 				getUiHandlers().getUsersCount(
 						criterion,
-						new AutoNotifyingAsyncCallback<Long>(messages
+						new AutoNotifyingAsyncLogoutOnFailureCallback<Long>(messages
 								.usersCountLoadingFail(), true) {
 							@Override
 							protected void success(final Long result) {
@@ -358,7 +358,7 @@ public class UserManagerGridWidgetView
 												getCurrentOrder(),
 												loadConfig.getOffset(),
 												loadConfig.getLimit(),
-												new AutoNotifyingAsyncCallback<List<MUser>>(
+												new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUser>>(
 														messages.usersLoadingFail(),
 														true) {
 

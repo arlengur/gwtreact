@@ -26,7 +26,7 @@ import com.tecomgroup.qos.gwt.client.event.chart.ChartSeriesEvent;
 import com.tecomgroup.qos.gwt.client.event.chart.ChartSeriesRemovedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ChartResultUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AgentSelectionListener;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.ChartSelectionWidget.ChartSelectionListener;
@@ -46,7 +46,8 @@ public class AddChartSeriesPresenter
 		implements
 			UiHandlers,
 			AgentSelectionListener,
-			ChartSelectionListener {
+			ChartSelectionListener{
+
 	public static interface MyView
 			extends
 				PopupView,
@@ -175,7 +176,7 @@ public class AddChartSeriesPresenter
 
 	private void loadAgents() {
 		agentService
-				.getAllAgents(new AutoNotifyingAsyncCallback<List<MAgent>>() {
+				.getAllAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgent>>() {
 
 					@Override
 					protected void failure(final Throwable caught) {

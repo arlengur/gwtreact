@@ -54,10 +54,9 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.report.ReportsGridWidgetPr
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
 import com.tecomgroup.qos.gwt.client.style.common.grid.AlertsGridAppearance;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
 import com.tecomgroup.qos.gwt.client.utils.DateUtils;
-import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.DurationValueProvider;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.SystemComponentValueProvider;
@@ -433,7 +432,7 @@ public class ReportsGridWidgetView
 							sourceKeys,
 							timeInterval,
 							criterion,
-							new AutoNotifyingAsyncCallback<Long>(
+							new AutoNotifyingAsyncLogoutOnFailureCallback<Long>(
 									"Cannot get alert report count", true) {
 								@Override
 								protected void success(final Long result) {
@@ -447,7 +446,7 @@ public class ReportsGridWidgetView
 													getCurrentOrder(),
 													loadConfig.getOffset(),
 													loadConfig.getLimit(),
-													new AutoNotifyingAsyncCallback<List<MAlertReport>>(
+													new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAlertReport>>(
 															"Cannot load alert reports",
 															true) {
 														@Override

@@ -32,4 +32,6 @@
         <property name="userService" ref="userService"/>
     </bean>
 
+	<bean id="rolesService"
+		  class="com.tecomgroup.qos.service.rbac.RolesServiceImpl" />
 </beans>

@@ -10,7 +10,7 @@ import java.util.Collection;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.tecomgroup.qos.domain.pm.MPolicyActionsTemplate;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 
 /**
@@ -40,7 +40,7 @@ public class PolicyActionsTemplatesEditorGridWidgetPresenter
 	@Override
 	protected void loadPolicyComponentTemplates() {
 		policyComponentTemplateService
-				.getAllActionsTemplates(new AutoNotifyingAsyncCallback<Collection<MPolicyActionsTemplate>>() {
+				.getAllActionsTemplates(new AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyActionsTemplate>>() {
 
 					@Override
 					protected void success(

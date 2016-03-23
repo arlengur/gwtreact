@@ -30,7 +30,7 @@ import com.sencha.gxt.widget.core.client.container.HasLayout;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.treegrid.TreeGrid;
 import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.TreeGridRow;
 import com.tecomgroup.qos.gwt.client.presenter.UserProfilePresenter;
@@ -127,7 +127,7 @@ public class UserProfileView
 	}
 
 	private void configureWest() {
-		final Role userRole = currentUser.getRoles().get(0);
+		final MRole userRole = currentUser.getRoles().get(0);
 
 		westPanel = createFramedPanel(appearanceFactory.framedPanelAppearance());
 

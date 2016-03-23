@@ -3,6 +3,10 @@
 <module rename-to='DesktopQoSMedia'>
 	<inherits name="com.tecomgroup.QOSAPI" />
 	<inherits name="com.tecomgroup.qos.gwt.DesktopQoSGWT" />
+	<!-- gwt-traction library -->
+	<inherits name="com.tractionsoftware.gwt.user.User"/>
+	<!-- Goda-time library -->
+	<inherits name="org.goda.Goda" />
 
 	<!-- Super dev mode -->
 	<add-linker name="xsiframe" />

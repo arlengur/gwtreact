@@ -16,7 +16,7 @@ import com.tecomgroup.qos.gwt.client.event.policy.AfterUpdatePolicyComponentTemp
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractEntityEditorDialogPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 
 /**
@@ -65,7 +65,7 @@ public abstract class AbstractPolicyComponentTemplateInformationWidgetPresenter<
 					policyComponentTemplateService.doesTemplateExist(
 							template.getName(),
 							template.getClass().getName(),
-							new AutoNotifyingAsyncCallback<Boolean>(messages
+							new AutoNotifyingAsyncLogoutOnFailureCallback<Boolean>(messages
 									.policyComponentTemplateCreationFail(),
 									true) {
 								@Override
@@ -91,7 +91,7 @@ public abstract class AbstractPolicyComponentTemplateInformationWidgetPresenter<
 					final String newName = getView().getName();
 					policyComponentTemplateService.doesTemplateExist(newName,
 							editableEntity.getClass().getName(),
-							new AutoNotifyingAsyncCallback<Boolean>() {
+							new AutoNotifyingAsyncLogoutOnFailureCallback<Boolean>() {
 
 								@Override
 								protected void success(final Boolean result) {
@@ -129,7 +129,7 @@ public abstract class AbstractPolicyComponentTemplateInformationWidgetPresenter<
 			final String oldTemplateName, final String successMessage,
 			final String failMessage, final boolean reapplyToPolicies) {
 		policyComponentTemplateService.saveOrUpdateTemplate(template,
-				reapplyToPolicies, new AutoNotifyingAsyncCallback<M>(
+				reapplyToPolicies, new AutoNotifyingAsyncLogoutOnFailureCallback<M>(
 						failMessage, true) {
 
 					@Override

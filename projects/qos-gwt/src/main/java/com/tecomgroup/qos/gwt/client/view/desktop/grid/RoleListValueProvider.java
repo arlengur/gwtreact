@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.LabelUtils;
 
@@ -18,22 +18,18 @@ import com.tecomgroup.qos.gwt.client.utils.LabelUtils;
  * 
  */
 public class RoleListValueProvider extends ValueProviderWithPath<MUser, String> {
-
-	private final Map<Role, String> labels;
-
 	private static final String ROLE_LIST_SEPARATOR = ", ";
 
 	public RoleListValueProvider(final QoSMessages messages) {
 		super("roles");
-		this.labels = LabelUtils.getRoleLabels(messages);
 	}
 
 	@Override
 	public String getValue(final MUser user) {
 		String result = "";
-		for (final Iterator<Role> iter = user.getRoles().iterator(); iter
+		for (final Iterator<MRole> iter = user.getRoles().iterator(); iter
 				.hasNext();) {
-			result += labels.get(iter.next());
+			result += iter.next().getName();
 			if (iter.hasNext()) {
 				result += ROLE_LIST_SEPARATOR;
 			}

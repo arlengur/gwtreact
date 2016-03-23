@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.tecomgroup.qos.TimeInterval;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.*;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.rest.data.*;
 import com.tecomgroup.qos.service.alert.AlertReportService;
 import org.springframework.beans.factory.annotation.Value;
@@ -659,8 +660,8 @@ public class ChannelServiceImpl implements ChannelService {
 
 		MUser user = userService.getCurrentUser();
 
-		for (MUser.Role role: user.getRoles()) {
-			pages.addAll(role.getPermittedPageNames());
+		for (MRole role: user.getRoles()) {
+			pages.addAll(role.getPermittedSubjects());
 		}
 
 		if(noNavigateToChannelViewPage) {

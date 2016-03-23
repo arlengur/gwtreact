@@ -8,6 +8,7 @@ package com.tecomgroup.qos.service;
 import com.tecomgroup.qos.criterion.CriterionQueryFactory;
 import com.tecomgroup.qos.domain.MContactInformation;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.exception.SecurityException;
 import com.tecomgroup.qos.exception.SecurityException.Reason;
 import com.tecomgroup.qos.modelspace.ModelSpace;
@@ -83,7 +84,7 @@ public class UserServiceTest {
 
 	private void initTestingAuthentication() {
 		final List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (final MUser.Role role : user.getRoles()) {
+		for (final MRole role : user.getRoles()) {
 			final GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(
 					role.toString());
 			authorities.add(grantedAuthority);

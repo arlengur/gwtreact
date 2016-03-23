@@ -19,7 +19,7 @@ import com.tecomgroup.qos.domain.MUserAbstractTemplate;
 import com.tecomgroup.qos.domain.MUserAbstractTemplate.TemplateType;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -80,7 +80,7 @@ public abstract class AbstractTemplatePresenterWidget
 
 	protected void loadTemplates() {
 		userService.getTemplates(templateType, getCurrentUser().getId(),
-				new AutoNotifyingAsyncCallback<List<MUserAbstractTemplate>>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUserAbstractTemplate>>() {
 					@Override
 					protected void success(
 							final List<MUserAbstractTemplate> result) {

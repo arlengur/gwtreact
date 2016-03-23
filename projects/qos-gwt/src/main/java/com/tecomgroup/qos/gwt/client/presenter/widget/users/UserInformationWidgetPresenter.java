@@ -14,12 +14,13 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.UiHandlers;
 import com.tecomgroup.qos.CrudOperations;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.exception.UserValidationException;
 import com.tecomgroup.qos.gwt.client.event.user.AfterUserSavedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractEntityEditorDialogPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserManagerServiceAsync;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
@@ -37,7 +38,7 @@ public class UserInformationWidgetPresenter
 			extends
 				AbstractEntityEditorDialogPresenter.MyView<MUser, UserInformationWidgetPresenter> {
 		void setLdapUsers(List<MUser> result);
-
+		void setRoles(List<MRole> result);
 		void setUser(MUser user);
 	}
 
@@ -75,7 +76,7 @@ public class UserInformationWidgetPresenter
 	}
 
 	private void loadLdapUsers() {
-		userService.getLdapUsers(new AutoNotifyingAsyncCallback<List<MUser>>() {
+		userService.getLdapUsers(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUser>>() {
 
 			@Override
 			protected void success(final List<MUser> result) {
@@ -84,9 +85,20 @@ public class UserInformationWidgetPresenter
 		});
 	}
 
+	private void loadRoles() {
+		userManagerService
+			.getAllRoles(new AutoNotifyingAsyncCallback<List<MRole>>() {
+					@Override
+					protected void success(final List<MRole> loadedRoles) {
+						getView().setRoles(loadedRoles);
+						loadUsers();
+					}
+				});
+	}
+
 	private void loadUsers() {
 		userManagerService
-				.getAllUsers(new AutoNotifyingAsyncCallback<List<MUser>>() {
+				.getAllUsers(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUser>>() {
 
 					@Override
 					protected void success(final List<MUser> loadedUsers) {
@@ -116,13 +128,13 @@ public class UserInformationWidgetPresenter
 	@Override
 	protected void onReveal() {
 		super.onReveal();
-		loadUsers();
+		loadRoles();//loadUsers() within
 	}
 
 	public void saveOrUpdateUser(final MUser userToSaveOrUpdate,
 			final boolean updatePassword) {
 		userManagerService.saveOrUpdateUser(userToSaveOrUpdate, updatePassword,
-				new AutoNotifyingAsyncCallback<MUser>(
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MUser>(
 						messages.userSavingFail(), false) {
 
 					@Override

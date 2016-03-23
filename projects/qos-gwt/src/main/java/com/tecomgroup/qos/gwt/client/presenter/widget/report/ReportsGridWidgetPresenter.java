@@ -42,7 +42,7 @@ import com.tecomgroup.qos.gwt.client.presenter.SaveTemplatePresenterWidget;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractRemoteDataGridWidgetPresenterWithTemplates;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AbstractAlertsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.properties.AlertReportProperties;
 import com.tecomgroup.qos.service.AlertReportRetrieverAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -265,7 +265,7 @@ public class ReportsGridWidgetPresenter
 	private void openChartResults(final MAlertReport alertReport,
 			final ParameterIdentifier parameterIdentifier) {
 		taskRetriever.getTaskByKey(alertReport.getAlert().getSource().getKey(),
-				new AutoNotifyingAsyncCallback<MAgentTask>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MAgentTask>() {
 
 					@Override
 					protected void success(final MAgentTask result) {

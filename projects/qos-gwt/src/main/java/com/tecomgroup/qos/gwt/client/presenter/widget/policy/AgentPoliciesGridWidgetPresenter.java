@@ -25,7 +25,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyTreeGridRow;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyWrapper;
 import com.tecomgroup.qos.gwt.client.presenter.widget.GridPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 import com.tecomgroup.qos.service.PolicyConfigurationServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -93,13 +93,13 @@ public class AgentPoliciesGridWidgetPresenter
 		policyConfigService.getAgentPolicies(source.getKey(), getSearchText(),
 				Order.desc("source.key"), config.getOffset(),
 				config.getLimit(),
-				new AutoNotifyingAsyncCallback<List<MPolicy>>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<List<MPolicy>>() {
 
 					@Override
 					public void success(final List<MPolicy> policies) {
 						policyConfigService.getAgentPoliciesCount(
 								source.getKey(), getSearchText(),
-								new AutoNotifyingAsyncCallback<Long>() {
+								new AutoNotifyingAsyncLogoutOnFailureCallback<Long>() {
 
 									@Override
 									protected void success(final Long count) {
@@ -120,7 +120,7 @@ public class AgentPoliciesGridWidgetPresenter
 												new HashSet<String>(
 														groupedPolicies
 																.keySet()),
-												new AutoNotifyingAsyncCallback<List<MAgentTask>>() {
+												new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>() {
 
 													@Override
 													public void success(

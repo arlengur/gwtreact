@@ -16,7 +16,7 @@ import com.tecomgroup.qos.gwt.client.i18n.MediaMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
 import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
 
-import static com.tecomgroup.qos.domain.MUser.Page;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -54,7 +54,8 @@ public class DesktopQoSMedia extends QoSEntryPoint {
 	protected void loadNavigationLinks(final EventBus eventBus) {
 		super.loadNavigationLinks(eventBus);
 
-		if (AppUtils.isPermittedPage(Page.POLICIES) || AppUtils.isPermittedPage(Page.POLICIES_ADVANCED)) {
+		if (AppUtils.isPermitted(PermissionScope.POLICIES) 
+			|| AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 			final AddNavigationLinkEvent addPoliciesLinkEvent = new AddNavigationLinkEvent();
 			addPoliciesLinkEvent.setPath(QoSNameTokens.policies);
 			addPoliciesLinkEvent.setDisplayName(messages.policies());
@@ -65,58 +66,61 @@ public class DesktopQoSMedia extends QoSEntryPoint {
 
 		final AddNavigationLinkEvent event = new AddNavigationLinkEvent();
 
-		if(AppUtils.isPermittedPage(Page.RECORDING_SCHEDULE)) {
+		if(AppUtils.isPermitted(PermissionScope.RECORDING_SCHEDULE)) {
 			event.setPath(QoSNameTokens.recordSchedule);
 			event.setDisplayName(messages.navigationRecordSchedule());
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isPermittedPage(Page.REPORTS)) {
+		if(AppUtils.isPermitted(PermissionScope.REPORTS)) {
 			event.setPath(QoSNameTokens.reports);
 			event.setDisplayName(messages.reports());
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isShowRecordedVideoPage() && AppUtils.isPermittedPage(Page.RECORDED_VIDEO)) {
+		if(AppUtils.isShowRecordedVideoPage() 
+		   && AppUtils.isPermitted(PermissionScope.RECORDED_VIDEO)) {
 			event.setPath(QoSMediaNameTokens.recordedVideo);
 			event.setDisplayName(messages.navigationRecorded());
 			event.setIcon(MediaIcons.VIDEO);
 			eventBus.fireEvent(event);
 		}
 
-		if (AppUtils.isShowLiveVideoPage() && AppUtils.isPermittedPage(Page.LIVE_VIDEO)) {
+		if (AppUtils.isShowLiveVideoPage() 
+			&& AppUtils.isPermitted(PermissionScope.LIVE_VIDEO)) {
 			event.setPath(QoSMediaNameTokens.mediaPlayer);
 			event.setDisplayName(messages.navigationVideo());
 			event.setIcon(MediaIcons.VIDEO);
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isPermittedPage(Page.CHARTS)) {
+		if(AppUtils.isPermitted(PermissionScope.CHARTS)) {
 			event.setPath(QoSMediaNameTokens.chartResults);
 			event.setDisplayName(messages.navigationAnalytics());
 			event.setIcon(GeneralIcons.CHART);
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isPermittedPage(Page.ALERTS)) {
+		if(AppUtils.isPermitted(PermissionScope.ALERTS)) {
 			event.setPath(QoSNameTokens.alerts);
 			event.setDisplayName(messages.alerts());
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isPermittedPage(Page.MAP)) {
+		if(AppUtils.isPermitted(PermissionScope.MAP)) {
 			event.setPath(QoSNameTokens.gis);
 			event.setDisplayName(messages.navigationMap());
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isShowChannelViewPage() && AppUtils.isPermittedPage(Page.CHANNEL_VIEW)) {
+		if(AppUtils.isShowChannelViewPage() 
+		   && AppUtils.isPermitted(PermissionScope.CHANNEL_VIEW)) {
 			event.setPath(QoSNameTokens.channelView);
 			event.setDisplayName(messages.navigationChannelView());
 			eventBus.fireEvent(event);
 		}
 
-		if(AppUtils.isPermittedPage(Page.MAIN)) {
+		if(AppUtils.isPermitted(PermissionScope.MAIN)) {
 			event.setPath(QoSNameTokens.dashboard);
 			event.setDisplayName(messages.navigationDashboard());
 			eventBus.fireEvent(event);

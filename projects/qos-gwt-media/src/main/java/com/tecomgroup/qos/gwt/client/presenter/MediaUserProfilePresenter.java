@@ -18,6 +18,7 @@ import com.tecomgroup.qos.domain.MLiveStreamTemplate;
 import com.tecomgroup.qos.domain.MRecordedStreamTemplate;
 import com.tecomgroup.qos.domain.MStreamTemplate.MediaTemplateType;
 import com.tecomgroup.qos.domain.MUserAbstractTemplate.TemplateType;
+import com.tecomgroup.qos.domain.probestatus.MProbeEvent;
 import com.tecomgroup.qos.gwt.client.QoSMediaNameTokens;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
 import com.tecomgroup.qos.gwt.client.i18n.MediaMessages;
@@ -55,12 +56,13 @@ public class MediaUserProfilePresenter
 			final MyProxy proxy,
 			final TemplatesGridWidgetPresenter gridPresenter,
 			final UserSettingsWidgetPresenter userSettingsWidgetPresenter,
+			final ProbeEventsGridWidgetPresenter probeEventsGridWidgetPresenter,
 			final MediaMessages mediaMessages,
 			final QoSMessages messages,
 			final ChangeUserPasswordWidgetPresenter changeUserPasswordWidgetPresenter) {
 		super(eventBus, view, proxy, gridPresenter,
-				userSettingsWidgetPresenter, messages,
-				changeUserPasswordWidgetPresenter);
+				userSettingsWidgetPresenter, probeEventsGridWidgetPresenter,
+				messages, changeUserPasswordWidgetPresenter);
 		this.mediaMessages = mediaMessages;
 
 		getView().setUiHandlers(this);
@@ -94,6 +96,24 @@ public class MediaUserProfilePresenter
 		types.add(MediaTemplateType.LIVE_VIDEO);
 		types.add(MediaTemplateType.RECORDED_VIDEO);
 
+		return types;
+	}
+
+	@Override
+	protected Map<String, String> getEventHrefMap() {
+		final Map<String, String> eventHrefMap = super.getEventHrefMap();
+		return eventHrefMap;
+	}
+
+	@Override
+	protected Map<MProbeEvent.EventType, String> getEventLabels() {
+		final Map<MProbeEvent.EventType, String> labels = super.getEventLabels();
+		return labels;
+	}
+
+	@Override
+	protected List<MProbeEvent.EventType> getEventTypes() {
+		final List<MProbeEvent.EventType> types = super.getEventTypes();
 		return types;
 	}
 

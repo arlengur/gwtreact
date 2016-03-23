@@ -16,21 +16,28 @@
 		<logout />
 		<remember-me key="QOS_SYSTEM" token-validity-seconds="864000" />
 	</http>
+
+	<http  name="gwtServicesSecurity" auto-config="true" use-expressions="true" pattern="/DesktopQoSMedia/**" entry-point-ref="ep403">
+		<intercept-url pattern="/DesktopQoSMedia/**" access="isAuthenticated()" />
+		<logout />
+		<remember-me key="QOS_SYSTEM" token-validity-seconds="864000" />
+	</http>
+
 	<!--security settings for UI layer-->
-	<http name="appSecurity" auto-config="false" use-expressions="true" >
+	<http name="appSecurity" auto-config="false" use-expressions="true">
 		<intercept-url pattern="/FrontEnd.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/QoSMedia.jsp" access="isAuthenticated()" />
 		<form-login authentication-success-handler-ref="successHandler" authentication-failure-handler-ref="failureHandler"  login-page="/login.html" />
 		<logout />
 		<remember-me key="QOS_SYSTEM" token-validity-seconds="864000" />
 	</http>
+
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider user-service-ref="userDetailsService">
 			<password-encoder hash="md5" />
 		</authentication-provider>
 		<authentication-provider ref="ldapProvider" />
 	</authentication-manager>
-
 
 	<aop:aspectj-autoproxy />
 

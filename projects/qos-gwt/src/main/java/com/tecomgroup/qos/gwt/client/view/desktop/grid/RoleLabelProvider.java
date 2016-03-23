@@ -8,7 +8,7 @@ package com.tecomgroup.qos.gwt.client.view.desktop.grid;
 import java.util.Map;
 
 import com.sencha.gxt.data.shared.LabelProvider;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.LabelUtils;
 
@@ -16,15 +16,13 @@ import com.tecomgroup.qos.gwt.client.utils.LabelUtils;
  * @author meleshin.o
  * 
  */
-public class RoleLabelProvider implements LabelProvider<Role> {
-	private final Map<Role, String> labels;
-
+public class RoleLabelProvider implements LabelProvider<MRole> {
 	public RoleLabelProvider(final QoSMessages messages) {
-		labels = LabelUtils.getRoleLabels(messages);
+		return;
 	}
 
 	@Override
-	public String getLabel(final Role role) {
-		return labels.get(role);
+	public String getLabel(final MRole role) {
+		return role.getName();
 	}
 }

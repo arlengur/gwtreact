@@ -10,6 +10,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.tecomgroup.qos.TimeInterval;
@@ -29,7 +30,8 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.RecordedVideoPresenter.MyProxy;
 import com.tecomgroup.qos.gwt.client.presenter.RecordedVideoPresenter.MyView;
 import com.tecomgroup.qos.gwt.client.presenter.widget.ExportVideoPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.secutiry.RecordedVideoGatekeeper;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.MediaPlayerView;
 import com.tecomgroup.qos.gwt.client.wrapper.StreamClientWrapper;
 import com.tecomgroup.qos.service.MediaAgentServiceAsync;
@@ -47,10 +49,11 @@ public class RecordedVideoPresenter
 		implements
 			GridGroupRemovedEventHandler<StreamClientWrapper<MRecordedStreamWrapper>>,
 			RecordedVideoAddedEventHandler,
-			DownloadVideoEventHandler {
+			DownloadVideoEventHandler{
 
 	@ProxyCodeSplit
 	@NameToken(QoSMediaNameTokens.recordedVideo)
+	@UseGatekeeper(RecordedVideoGatekeeper.class)
 	public static interface MyProxy extends ProxyPlace<RecordedVideoPresenter> {
 
 	}
@@ -126,7 +129,7 @@ public class RecordedVideoPresenter
     @Override
     protected void loadTaskStreams(final List<Long> taskIds, final TimeInterval interval) {
         if (interval != null) {
-            mediaAgentService.getTasksRecordedStreams(taskIds, new AutoNotifyingAsyncCallback<List<MRecordedStreamWrapper>>() {
+            mediaAgentService.getTasksRecordedStreams(taskIds, new AutoNotifyingAsyncLogoutOnFailureCallback<List<MRecordedStreamWrapper>>() {
                 @Override
                 protected void success(List<MRecordedStreamWrapper> result) {
                     getView().clearStreams();

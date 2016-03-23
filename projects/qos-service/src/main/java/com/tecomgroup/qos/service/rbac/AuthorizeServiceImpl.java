@@ -3,6 +3,7 @@ package com.tecomgroup.qos.service.rbac;
 import com.tecomgroup.qos.domain.MUser;
 import com.tecomgroup.qos.domain.rbac.Probe;
 import com.tecomgroup.qos.domain.rbac.User;
+import com.tecomgroup.qos.domain.rbac.PredefinedRoles;
 import com.tecomgroup.qos.service.UserService;
 import com.tecomgroup.qos.util.SimpleUtils;
 import org.apache.log4j.Logger;
@@ -57,7 +58,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     @Override
     public List<String> getProbeKeysUserCanManage() {
         MUser user = userService.getCurrentUser();
-        if (user == null || user.hasRole(MUser.Role.ROLE_SUPER_ADMIN)) {
+        if (user == null || user.hasRole(PredefinedRoles.ROLE_SUPER_ADMIN)) {
             return probeMapper.getAllProbeKeysNotFiltered();
         }
         return filterProbes(user.getLogin(), probeMapper.getAllProbeKeys());
@@ -66,7 +67,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     @Override
     public boolean isSubordinate(String userLogin) {
         MUser user = userService.getCurrentUser();
-        if (user == null || user.hasRole(MUser.Role.ROLE_SUPER_ADMIN)) {
+        if (user == null || user.hasRole(PredefinedRoles.ROLE_SUPER_ADMIN)) {
             return true;
         }
 

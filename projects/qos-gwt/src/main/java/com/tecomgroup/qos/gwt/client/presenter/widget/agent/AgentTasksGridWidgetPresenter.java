@@ -14,7 +14,7 @@ import com.tecomgroup.qos.domain.MAgentTask;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.TaskServiceAsync;
 
 /**
@@ -23,7 +23,7 @@ import com.tecomgroup.qos.service.TaskServiceAsync;
  */
 public class AgentTasksGridWidgetPresenter
 		extends
-			AbstractLocalDataGridWidgetPresenter<MAgentTask, AgentTasksGridWidgetPresenter.MyView> {
+			AbstractLocalDataGridWidgetPresenter<MAgentTask, AgentTasksGridWidgetPresenter.MyView>{
 
 	public interface MyView
 			extends
@@ -51,7 +51,7 @@ public class AgentTasksGridWidgetPresenter
 	public void actionDeleteTasks(final Set<String> taskKeysToDelete) {
 		taskService.deleteTasks(
 				taskKeysToDelete,
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.tasksDeletionFail(), true) {
 
 					@Override
@@ -64,7 +64,7 @@ public class AgentTasksGridWidgetPresenter
 	}
 
 	public void actionLoadTasks(
-			final AutoNotifyingAsyncCallback<List<MAgentTask>> callback) {
+			final AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>> callback) {
 		taskService.getAgentTasks(currentAgent, null, null, 0,
 				Integer.MAX_VALUE, false, false, callback);
 	}
@@ -85,7 +85,7 @@ public class AgentTasksGridWidgetPresenter
 
 	@Override
 	public void reload(final boolean force) {
-		actionLoadTasks(new AutoNotifyingAsyncCallback<List<MAgentTask>>(
+		actionLoadTasks(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(
 				messages.tasksLoadingFail(), true) {
 			@Override
 			protected void success(final List<MAgentTask> result) {

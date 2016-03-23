@@ -24,7 +24,7 @@ var Select = React.createClass({
                             background: 'url("img/dropdown/dropdownButton_0.png") no-repeat right #222222'
                         })} >
             <select id={this.props.id} className="small-text text23 appearance-none"
-                    style={{width: this.props.width, border: 0, background: 'transparent', paddingRight: '20px'}}
+                    style={{width: this.props.width, border: 0, background: 'transparent', paddingRight: '20px', paddingLeft: '5px'}}
                     value={this.state.value}
                     disabled={this.props.disabled}
                     onChange={this._onChange}>

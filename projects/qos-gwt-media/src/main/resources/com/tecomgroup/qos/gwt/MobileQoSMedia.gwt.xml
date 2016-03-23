@@ -7,6 +7,10 @@
 	<inherits name="com.bramosystems.oss.player.core.Core" />
     <inherits name="com.sencha.gxt.widget.core.Core"/>
     <inherits name="com.sencha.gxt.widget.core.Core"/>
+	<!-- gwt-traction library -->
+	<inherits name="com.tractionsoftware.gwt.user.User"/>
+	<!-- Goda-time library -->
+	<inherits name="org.goda.Goda" />
 
     <define-configuration-property name="gin.ginjector"
 		is-multi-valued="false" />

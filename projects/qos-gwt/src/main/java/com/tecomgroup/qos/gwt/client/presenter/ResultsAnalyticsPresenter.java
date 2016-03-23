@@ -19,6 +19,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
@@ -71,8 +72,9 @@ import com.tecomgroup.qos.gwt.client.event.dashboard.DashboardWidgetRemovedEvent
 import com.tecomgroup.qos.gwt.client.event.dashboard.DashboardWidgetRemovedEvent.DashboardWidgetRemovedEventHandler;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.chart.AddChartToDashboardWidgetPresenter;
+import com.tecomgroup.qos.gwt.client.secutiry.ChartsGatekeeper;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ChartResultUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.ChartToolbar;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog;
@@ -115,6 +117,7 @@ public class ResultsAnalyticsPresenter
 
     @ProxyCodeSplit
     @NameToken(QoSNameTokens.chartResults)
+    @UseGatekeeper(ChartsGatekeeper.class)
     public static interface MyProxy
             extends
             ProxyPlace<ResultsAnalyticsPresenter> {
@@ -377,7 +380,7 @@ public class ResultsAnalyticsPresenter
         if (SimpleUtils.isNotNullAndNotEmpty(templateName)) {
             userService.getTemplate(TEMPLATE_TYPE, AppUtils.getCurrentUser()
                             .getUser().getId(), templateName,
-                    new AutoNotifyingAsyncCallback<MUserAbstractTemplate>() {
+                    new AutoNotifyingAsyncLogoutOnFailureCallback<MUserAbstractTemplate>() {
 
                         @Override
                         protected void success(
@@ -654,7 +657,7 @@ public class ResultsAnalyticsPresenter
                 }
             }
 
-            taskRetriever.getTasksByIds(ids, new AutoNotifyingAsyncCallback<List<MAgentTask>>() {
+            taskRetriever.getTasksByIds(ids, new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>() {
 
                 @Override
                 protected void success(List<MAgentTask> result) {
@@ -794,7 +797,7 @@ public class ResultsAnalyticsPresenter
         resetWidgetIcons();
         userService.getDashboard(
                 AppUtils.getCurrentUser().getUser().getLogin(),
-                new AutoNotifyingAsyncCallback<MDashboard>(messages
+                new AutoNotifyingAsyncLogoutOnFailureCallback<MDashboard>(messages
                         .loadDashbordFail(), true) {
                     @Override
                     protected void success(final MDashboard dashboard) {
@@ -831,7 +834,7 @@ public class ResultsAnalyticsPresenter
         final ChartToolbar toolbar = getView().getChartToolbar(chartName);
         if (toolbar != null) {
             userService.getDashboard(AppUtils.getCurrentUser().getUser()
-                    .getLogin(), new AutoNotifyingAsyncCallback<MDashboard>(
+                    .getLogin(), new AutoNotifyingAsyncLogoutOnFailureCallback<MDashboard>(
                     messages.loadDashbordFail(), true) {
                 @Override
                 protected void success(final MDashboard dashboard) {

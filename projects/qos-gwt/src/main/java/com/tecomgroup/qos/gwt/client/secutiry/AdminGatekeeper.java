@@ -6,9 +6,11 @@
 package com.tecomgroup.qos.gwt.client.secutiry;
 
 import com.google.inject.Inject;
-import com.gwtplatform.mvp.client.proxy.Gatekeeper;
 import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.PredefinedRoles;
+import com.tecomgroup.qos.domain.rbac.UISubject;
+
+import java.util.List;
 
 /**
  * 
@@ -20,22 +22,26 @@ import com.tecomgroup.qos.domain.MUser.Role;
  */
 // FIXME cannot extend from UserGatekeeper because of weird gininjector
 // exception about 2 instances of UserGatekeeper
-public class AdminGatekeeper extends BaseGatekeeper implements Gatekeeper {
+public class AdminGatekeeper extends BaseGatekeeper{
 
 	/**
 	 *
 	 * @param user
 	 * @return true if logged user is Administrator
 	 */
-	public static boolean isAdmin(final MUser user) {
-		return user.hasRole(Role.ROLE_CONFIGURATOR) || user.hasRole(Role.ROLE_SUPER_ADMIN) || user.hasRole(Role.ROLE_ADMIN);
-	}
-
-	private final CurrentUser currentUser;
 
 	@Inject
 	public AdminGatekeeper(final CurrentUser currentUser) {
-		this.currentUser = currentUser;
+		super(currentUser);
+	}
+
+	@Override
+	public List<UISubject> getPermission() {
+		return null;
+	}
+
+	public static boolean isAdmin(final MUser user) {
+		return  user.hasRole(PredefinedRoles.ROLE_SUPER_ADMIN);
 	}
 
 	@Override

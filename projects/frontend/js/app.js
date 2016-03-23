@@ -7,6 +7,7 @@ import NotFound from 'components/common/NotFound';
 import AppUserSettingsStore from 'stores/AppUserSettingsStore';
 import Policies from 'components/policy/Policies';
 import RecordSchedule from 'components/record/RecordSchedule';
+import Roles from 'components/user-manager/Roles';
 
 var App = React.createClass({
     // TODO: unify top-level markup and make common route that has NavMenu, dialogs, etc
@@ -33,10 +34,13 @@ AppUserSettingsStore.loadUserData(() => {
             if (AppUserSettingsStore.needToDisplay('PROBE_CONFIG')) {
                 routes.push(<Route path="probes" component={ProbesAndTasks} key="probes"/>);
             }
+
+            routes.push(<Route path="roles" component={Roles} key="roles"/>);
+
             routes = routes.concat([
                 <Route path="*" component={NotFound} key="notFound"/>,
                 <IndexRoute component ={Overview} key="index"
-                    onEnter={(location, replaceWith)=>replaceWith(null, '/overview')}/>
+                    onEnter={(location, replaceWith)=>replaceWith(null, '/roles')}/>
             ]);
             React.render(
                 <Router>

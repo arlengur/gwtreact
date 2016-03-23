@@ -48,7 +48,7 @@ import com.sencha.gxt.widget.core.client.form.ValueBaseField;
 import com.sencha.gxt.widget.core.client.form.validator.AbstractValidator;
 import com.sencha.gxt.widget.core.client.form.validator.MaxLengthValidator;
 import com.tecomgroup.qos.domain.MUser;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.users.UserInformationWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.users.UserLabelProvider;
@@ -170,7 +170,7 @@ public class UserInformationWidgetView
 	@UiField(provided = true)
 	protected PasswordField confirmPasswordField;
 
-	private CustomComboBox<MUser.Role> roleField;
+	private CustomComboBox<MRole> roleField;
 
 	@UiField(provided = true)
 	protected TextField firstNameField;
@@ -223,6 +223,8 @@ public class UserInformationWidgetView
 
 	private final ListStore<MUser> ldapStore = new ListStore<MUser>(
 			properties.key());
+
+	private final List<MRole> roleStorage = new ArrayList<MRole>();
 
 	@Inject
 	public UserInformationWidgetView(final EventBus eventBus,
@@ -350,25 +352,28 @@ public class UserInformationWidgetView
 		return field;
 	}
 
-	private CustomComboBox<MUser.Role> createRoleField() {
-		final CustomComboBox<MUser.Role> roleField = new CustomComboBox<MUser.Role>(
-				new ListStore<MUser.Role>(new ModelKeyProvider<MUser.Role>() {
+	private CustomComboBox<MRole> createRoleField() {
+		final CustomComboBox<MRole> roleField = new CustomComboBox<MRole>(
+				new ListStore<MRole>(new ModelKeyProvider<MRole>() {
 
 					@Override
-					public String getKey(final Role item) {
+					public String getKey(final MRole item) {
 						return item.toString();
 					}
 
 				}), new RoleLabelProvider(messages),
 				appearanceFactory.triggerFieldAppearance());
-		roleField.getStore().addAll(Arrays.asList(MUser.Role.values()));
+
+		roleField.getStore().addAll(roleStorage);
 		roleField.setAllowBlank(false);
 		roleField.setForceSelection(true);
 		roleField.setTypeAhead(true);
 		roleField.setTriggerAction(TriggerAction.ALL);
 		roleField.setEditable(true);
 		roleField.setUpdateValueOnSelection(true);
-		roleField.setValue(MUser.Role.ROLE_USER, true, true);
+		if(roleStorage.size() > 0) {
+			roleField.setValue(roleStorage.get(0), true, true);
+		}
 		roleField.setWidth(FIELD_WIDTH);
 
 		return roleField;
@@ -453,9 +458,9 @@ public class UserInformationWidgetView
 		return messages.userInformation();
 	}
 
-	private List<Role> getUserRoles() {
-		final Role roleValue = roleField.getValue();
-		final List<Role> roles = new ArrayList<Role>();
+	private List<MRole> getUserRoles() {
+		final MRole roleValue = roleField.getValue();
+		final List<MRole> roles = new ArrayList<MRole>();
 		roles.add(roleValue);
 
 		return roles;
@@ -708,6 +713,16 @@ public class UserInformationWidgetView
 		ldapStore.addAll(users);
 	}
 
+	@Override
+	public void setRoles(final List<MRole> roles) {
+		if(roles != null && roles.size() > 0) {
+			roleStorage.clear();
+			roleStorage.addAll(roles);
+			roleField.getStore().clear();
+			roleField.getStore().addAll(roleStorage);
+		}
+	}
+
 	private void setLoginField(final String login) {
 		loginField.clearInvalid();
 		setTextField(loginField, login);
@@ -718,24 +733,22 @@ public class UserInformationWidgetView
 		}
 	}
 
-	private void assignRoleField(Role role) {
-		if (role != Role.ROLE_SUPER_ADMIN) {
-			roleField.getStore().remove(Role.ROLE_SUPER_ADMIN);
-		}
+	private void assignRoleField(MRole role) {
 		roleField.clearInvalid();
 		roleField.setValue(role);
 	}
 
 	private void setRoleField(final MUser user) {
-
-		if(user.getLogin() == null) {
-			assignRoleField(Role.ROLE_USER);
-			return;
-		} else {
-			for (MUser.Role role : MUser.Role.values()) {
-				if (user.hasRole(role)) {
-					assignRoleField(role);
-					return;
+		if(roleStorage.size() > 0) {
+			if(user.getLogin() == null) {
+				assignRoleField(roleStorage.get(0));
+				return;
+			} else {
+				for (MRole role : roleStorage) {
+					if (user.hasRole(role)) {
+						assignRoleField(role);
+						return;
+					}
 				}
 			}
 		}
@@ -826,7 +839,6 @@ public class UserInformationWidgetView
 		setTextField(emailField, user.getEmail());
 		setTextField(phoneField, user.getPhone());
 		clearPasswords();
-
 	}
 
 	private void updateUser(final MUser user) {

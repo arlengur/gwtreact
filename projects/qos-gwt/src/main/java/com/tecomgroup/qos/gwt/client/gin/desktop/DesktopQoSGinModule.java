@@ -9,26 +9,7 @@ import com.google.inject.Singleton;
 import com.tecomgroup.qos.gwt.client.filter.DefaultLocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.filter.LocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.gin.QoSGinModule;
-import com.tecomgroup.qos.gwt.client.presenter.AddChartSeriesPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.AddReportCriteriaPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.AgentListPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.AgentStatusPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.AlertsPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.ChangeUserPasswordWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.DashboardPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.GisPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.LoadTemplatePresenterWidget;
-import com.tecomgroup.qos.gwt.client.presenter.MainPagePresenter;
-import com.tecomgroup.qos.gwt.client.presenter.Page404Presenter;
-import com.tecomgroup.qos.gwt.client.presenter.PolicyItemWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.PolicyListPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.ReportsPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.ResultsAnalyticsPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.SaveTemplatePresenterWidget;
-import com.tecomgroup.qos.gwt.client.presenter.SystemInformationPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.TableResultPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.TemplatesGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.UserManagerPresenter;
+import com.tecomgroup.qos.gwt.client.presenter.*;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AddWidgetToDashboardWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.DashboardPagerPresenterWidget;
 import com.tecomgroup.qos.gwt.client.presenter.widget.PolicyConditionWidgetPresenter;
@@ -65,27 +46,7 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.users.UserInformationWidge
 import com.tecomgroup.qos.gwt.client.presenter.widget.users.UserManagerGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.style.AppearanceFactoryProvider;
 import com.tecomgroup.qos.gwt.client.style.theme.AppearanceFactory;
-import com.tecomgroup.qos.gwt.client.view.desktop.AddChartSeriesView;
-import com.tecomgroup.qos.gwt.client.view.desktop.AddReportCriteriaView;
-import com.tecomgroup.qos.gwt.client.view.desktop.AgentListView;
-import com.tecomgroup.qos.gwt.client.view.desktop.AgentStatusView;
-import com.tecomgroup.qos.gwt.client.view.desktop.AlertsView;
-import com.tecomgroup.qos.gwt.client.view.desktop.ChangeUserPasswordWidgetView;
-import com.tecomgroup.qos.gwt.client.view.desktop.DashboardView;
-import com.tecomgroup.qos.gwt.client.view.desktop.DefaultTableResultsView;
-import com.tecomgroup.qos.gwt.client.view.desktop.GisView;
-import com.tecomgroup.qos.gwt.client.view.desktop.LoadTemplateWidgetView;
-import com.tecomgroup.qos.gwt.client.view.desktop.MainPageView;
-import com.tecomgroup.qos.gwt.client.view.desktop.Page404View;
-import com.tecomgroup.qos.gwt.client.view.desktop.PolicyItemWidgetView;
-import com.tecomgroup.qos.gwt.client.view.desktop.PolicyListView;
-import com.tecomgroup.qos.gwt.client.view.desktop.ReportsView;
-import com.tecomgroup.qos.gwt.client.view.desktop.ResultsAnalyticsView;
-import com.tecomgroup.qos.gwt.client.view.desktop.SaveTemplateWidgetView;
-import com.tecomgroup.qos.gwt.client.view.desktop.SystemInformationView;
-import com.tecomgroup.qos.gwt.client.view.desktop.TemplatesGridWidgetView;
-import com.tecomgroup.qos.gwt.client.view.desktop.UserManagerView;
-import com.tecomgroup.qos.gwt.client.view.desktop.UserSettingsWidgetView;
+import com.tecomgroup.qos.gwt.client.view.desktop.*;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AddWidgetToDashboardView;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.DashboardPagerWidgetView;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.PropertyGridWidgetView;
@@ -241,6 +202,10 @@ public class DesktopQoSGinModule extends QoSGinModule {
 		bindPresenterWidget(TemplatesGridWidgetPresenter.class,
 				TemplatesGridWidgetPresenter.MyView.class,
 				TemplatesGridWidgetView.class);
+
+		bindPresenterWidget(ProbeEventsGridWidgetPresenter.class,
+				ProbeEventsGridWidgetPresenter.MyView.class,
+				ProbeEventsGridWidgetView.class);
 
 		bindPresenterWidget(UserSettingsWidgetPresenter.class,
 				UserSettingsWidgetPresenter.MyView.class,

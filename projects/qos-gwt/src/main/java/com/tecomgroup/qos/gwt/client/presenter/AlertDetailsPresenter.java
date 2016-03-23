@@ -39,6 +39,7 @@ import com.tecomgroup.qos.domain.MResultParameterConfiguration;
 import com.tecomgroup.qos.domain.MResultParameterConfiguration.ParameterIdentifier;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
 import com.tecomgroup.qos.gwt.client.RequestParams;
+import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent;
 import com.tecomgroup.qos.gwt.client.event.HasPostActionCallback.PostActionCallback;
 import com.tecomgroup.qos.gwt.client.event.NavigateToResultDetailsEvent;
 import com.tecomgroup.qos.gwt.client.event.NavigateToSourceEvent;
@@ -51,16 +52,8 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.AlertDetailsPresenter.AlertDetailsView;
 import com.tecomgroup.qos.gwt.client.presenter.widget.PropertyGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.PropertyGridWidgetPresenter.Property;
-import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AbstractAlertsGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AlertCommentsGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.widget.alert.ChartSettings;
-import com.tecomgroup.qos.gwt.client.presenter.widget.alert.ChartWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.presenter.widget.alert.SingleAlertHistoryGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
-import com.tecomgroup.qos.gwt.client.utils.ChartResultUtils;
-import com.tecomgroup.qos.gwt.client.utils.DateUtils;
-import com.tecomgroup.qos.gwt.client.view.desktop.ChartToolbar;
+import com.tecomgroup.qos.gwt.client.presenter.widget.alert.*;
+import com.tecomgroup.qos.gwt.client.utils.*;
 import com.tecomgroup.qos.gwt.shared.JSEvaluator;
 import com.tecomgroup.qos.service.AlertServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -419,7 +412,7 @@ public abstract class AlertDetailsPresenter<V extends AlertDetailsView, P extend
 			final String originatorKey, final String settings) {
 
 		alertService.getAlert(alertTypeName, sourceKey, originatorKey,
-				settings, new AutoNotifyingAsyncCallback<MAlert>(
+				settings, new AutoNotifyingAsyncLogoutOnFailureCallback<MAlert>(
 						"Alert cannot be loaded", true) {
 
 					@Override
@@ -433,12 +426,11 @@ public abstract class AlertDetailsPresenter<V extends AlertDetailsView, P extend
 						}
 					}
 				});
-
 	}
 
 	private void navigateToChart(final ParameterIdentifier parameterIdentifier) {
 		taskRetriever.getTaskByKey(alert.getSource().getKey(),
-				new AutoNotifyingAsyncCallback<MAgentTask>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MAgentTask>() {
 
 					@Override
 					protected void success(final MAgentTask result) {

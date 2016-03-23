@@ -100,6 +100,7 @@
   "BROWSE": "Обзор",
   "DELETE_TASK": "Удалить задачу",
   "DELETE_PROBE": "Удалить БК",
+  "DELETE_ROLE": "удалить роль",
   "COMPARE_CONFIGURATION": "Сравнить конфигурации",
   "TAGGING": "Навесить признак",
   "UPDATE_SOFTWARE": "обновление ПО",
@@ -140,6 +141,7 @@
   "NAV_ANALYSIS": "Аналитика",
   "NAV_REPORTS": "Отчёты",
   "NAV_MAP": "Карта",
+  "NAV_POLICIES": "Оповещения",
   "LOGOUT": "Выход",
   "ENABLE": "Показать",
   "DISABLE": "Скрыть",
@@ -177,5 +179,17 @@
   "PROBES_FROM_DIFFERENT_TIMEZONE_SELECTED": "выбраны БК из разных таймзон",
   "SCHEDULE_SAVE": "Сохранить расписание",
   "PROBE_TIMEZONE": "Время БК",
-  "LOCAL_TIMEZONE": "Локальное время"
+  "LOCAL_TIMEZONE": "Локальное время",
+  "USER_MANAGER_ROLES": "Роли",
+  "USER_MANAGER_ROLE": "Роль",
+  "USER_MANAGER_CREATE_ROLE": "Создание новой роли",
+  "USER_MANAGER_EDIT_ROLE": "Редактирование роли",
+  "ROLE_DELETE_WARN": "внимание, удаление роли",
+  "USER_MANAGER_ROLE_MAIN_INFO": "Главная информация",
+  "USER_MANAGER_ROLE_NAME": "Имя роли",
+  "USER_MANAGER_ROLE_COPY_PERMISSIONS_FROM": "Копировать разрешения из",
+  "USER_MANAGER_ROLE_PERMISSIONS": "Разрешения",
+  "USER_MANAGER_ROLE_NUMBER_OF_USERS": "Количество пользователей",
+  "USER_MANAGER_ROLE_COMMENT": "Комментарий"
+
 }

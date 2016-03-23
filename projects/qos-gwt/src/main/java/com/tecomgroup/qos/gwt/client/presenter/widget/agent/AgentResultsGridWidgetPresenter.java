@@ -21,7 +21,7 @@ import com.tecomgroup.qos.domain.Source;
 import com.tecomgroup.qos.gwt.client.model.results.ResultRow;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataTreeGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.chart.AddBitrateToDashboarddWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.ResultRetrieverAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
 
@@ -123,7 +123,7 @@ public class AgentResultsGridWidgetPresenter
 
 	public void onResultPolling(final List<MAgentTask> tasks) {
 		actionLoadResults(tasks,
-				new AutoNotifyingAsyncCallback<List<Map<String, Object>>>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<List<Map<String, Object>>>() {
 
 					@Override
 					protected void success(

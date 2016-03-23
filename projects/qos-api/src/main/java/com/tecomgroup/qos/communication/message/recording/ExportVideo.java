@@ -1,12 +1,13 @@
 package com.tecomgroup.qos.communication.message.recording;
 
+import com.tecomgroup.qos.communication.message.AgentAction;
+
 import java.io.Serializable;
 
 /**
  * @author galin.a on 11.01.2016.
  */
-public class ExportVideo implements Serializable {
-    private String user;
+public class ExportVideo extends AgentAction implements Serializable {
     private String taskId;
     private String taskDisplayName;
     private String quality;
@@ -18,8 +19,11 @@ public class ExportVideo implements Serializable {
     public ExportVideo() {
     }
 
-    public ExportVideo(String user, String taskId, String taskDisplayName, String quality, String startDate, long duration, String exportLink, boolean immediate) {
-        this.user = user;
+    public ExportVideo(String user, String taskId,
+                       String taskDisplayName, String quality,
+                       String startDate, long duration,
+                       String exportLink, boolean immediate) {
+        super(user);
         this.taskId = taskId;
         this.taskDisplayName = taskDisplayName;
         this.quality = quality;
@@ -92,6 +96,4 @@ public class ExportVideo implements Serializable {
     public void setExportLink(String exportLink) {
         this.exportLink = exportLink;
     }
-
-
 }

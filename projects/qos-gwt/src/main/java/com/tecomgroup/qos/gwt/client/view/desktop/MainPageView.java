@@ -175,17 +175,18 @@ public class MainPageView extends ViewWithUiHandlers<MainPagePresenter>
 			final FlickeringAnchor link;
 			if (displayName.equals(messages.navigationChannelView())
 					|| displayName.equals(messages.navigationRemoteProbeConfig())
-					|| displayName.equals(messages.navigationRecordSchedule())) {
+					|| displayName.equals(messages.navigationRecordSchedule())
+					|| displayName.equals(messages.navigationRoles())) {
 				StringBuilder customHref = new StringBuilder();
 				customHref.append(getProtocol()).append("//")
-						  .append(getHost())
-						  .append(getPath().substring(0, getPath().lastIndexOf("/") + 1) + path.substring(0, path.lastIndexOf("#")))
+						.append(getHost())
+						.append(getPath().substring(0, getPath().lastIndexOf("/") + 1) + path.substring(0, path.lastIndexOf("#")))
 						  .append(getQueryString())
-						  .append(path.substring(path.lastIndexOf("#")));
+						.append(path.substring(path.lastIndexOf("#")));
 				link = new FlickeringAnchor(customHref.toString(),
 						displayName, appearanceFactory.flickeringAnchorAppearance());
 				link.setItemId(path);
-			} else{
+			} else {
 				link = new FlickeringAnchor("#" + path,
 						displayName, appearanceFactory.flickeringAnchorAppearance());
 				link.setItemId(path);

@@ -19,7 +19,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.AgentWrapper;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 import com.tecomgroup.qos.service.SystemComponentStatisticServiceAsync;
 
@@ -60,7 +60,7 @@ public class AgentsGridWidgetPresenter
 	public void actionDeleteAgents(final Set<String> agentKeysToDelete) {
 		agentService.deleteAgents(
 				agentKeysToDelete,
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.agentsDeletionFail(), true) {
 
 					@Override
@@ -73,9 +73,9 @@ public class AgentsGridWidgetPresenter
 	}
 
 	public void actionLoadAgents(
-			final AutoNotifyingAsyncCallback<List<AgentWrapper>> callback) {
+			final AutoNotifyingAsyncLogoutOnFailureCallback<List<AgentWrapper>> callback) {
 		systemComponentStatisticService
-				.getAgentsStatistic(new AutoNotifyingAsyncCallback<Map<String, AgentStatistic>>(
+				.getAgentsStatistic(new AutoNotifyingAsyncLogoutOnFailureCallback<Map<String, AgentStatistic>>(
 						messages.agentsLoadingFail(), true) {
 
 					@Override
@@ -114,7 +114,7 @@ public class AgentsGridWidgetPresenter
 
 	@Override
 	public void reload(final boolean force) {
-		actionLoadAgents(new AutoNotifyingAsyncCallback<List<AgentWrapper>>(
+		actionLoadAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<AgentWrapper>>(
 				messages.agentsLoadingFail(), true) {
 			@Override
 			protected void success(final List<AgentWrapper> result) {

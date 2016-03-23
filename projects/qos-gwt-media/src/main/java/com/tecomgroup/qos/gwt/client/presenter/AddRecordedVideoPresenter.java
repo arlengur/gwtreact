@@ -20,7 +20,7 @@ import com.tecomgroup.qos.domain.MRecordedStreamWrapper;
 import com.tecomgroup.qos.gwt.client.event.video.RecordedVideoAddedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.AddRecordedVideoView;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AgentDialogPresenter;
 import com.tecomgroup.qos.gwt.client.wrapper.StreamClientWrapper;
@@ -128,7 +128,7 @@ public class AddRecordedVideoPresenter extends AgentDialogPresenter {
 	@Override
 	public void agentSelected(final MAgent agent) {
 		getView().<AddRecordedVideoView> cast().setSelectedAgent(agent);
-		final AsyncCallback<List<MRecordedStream>> callback = new AutoNotifyingAsyncCallback<List<MRecordedStream>>() {
+		final AsyncCallback<List<MRecordedStream>> callback = new AutoNotifyingAsyncLogoutOnFailureCallback<List<MRecordedStream>>() {
 
 			@Override
 			protected void failure(final Throwable caught) {

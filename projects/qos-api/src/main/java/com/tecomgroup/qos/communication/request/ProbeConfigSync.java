@@ -40,7 +40,7 @@ public class ProbeConfigSync extends QoSRequest {
 
 	public RequestResponse responseError(final String serverName,
 			final Throwable throwable) {
-		final UpdateModulesResponse response = new UpdateModulesResponse(
+		final ProbeConfigSyncResponse response = new ProbeConfigSyncResponse(
 				throwable);
 		response.setServerName(serverName);
 		return response;

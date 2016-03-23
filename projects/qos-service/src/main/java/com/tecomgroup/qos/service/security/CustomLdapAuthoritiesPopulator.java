@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator;
 
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.service.InternalUserService;
 
 /**
@@ -42,7 +43,7 @@ public class CustomLdapAuthoritiesPopulator
 		final MUser user = internalUserService.findUser(username);
 
 		if (user != null) {
-			for (final MUser.Role role : user.getRoles()) {
+			for (final MRole role : user.getRoles()) {
 				final GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(
 						role.toString());
 				authorities.add(grantedAuthority);

@@ -23,9 +23,9 @@ import com.tecomgroup.qos.gwt.client.secutiry.ProbesGatekeeper;
 
 /**
  * Список Блоков Контроля
- * 
+ *
  * @author abondin
- * 
+ *
  */
 public class AgentListPresenter
 		extends

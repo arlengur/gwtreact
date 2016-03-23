@@ -22,7 +22,7 @@ import com.tecomgroup.qos.gwt.client.model.users.UserGroupRow;
 import com.tecomgroup.qos.gwt.client.model.users.UserRow;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataTreeGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserGroupServiceAsync;
 
 /**
@@ -70,7 +70,7 @@ public class GroupManagerWidgetPresenter
 	public void actionOpenGroupEditDialog(final String groupName) {
 		userGroupService.getGroupByName(
 				groupName,
-				new AutoNotifyingAsyncCallback<MUserGroup>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MUserGroup>(messages
 						.groupsLoadingFail(), true) {
 
 					@Override
@@ -84,7 +84,7 @@ public class GroupManagerWidgetPresenter
 	public void actionRemoveGroup(final String name) {
 		userGroupService.removeGroup(
 				name,
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.groupRemovalFail(), false) {
 
 					@Override
@@ -121,7 +121,7 @@ public class GroupManagerWidgetPresenter
 
 	private void loadGroups() {
 		userGroupService
-				.getAllGroups(new AutoNotifyingAsyncCallback<Collection<MUserGroup>>(
+				.getAllGroups(new AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MUserGroup>>(
 						messages.groupsLoadingFail(), true) {
 
 					@Override

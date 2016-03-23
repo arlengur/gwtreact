@@ -46,7 +46,7 @@
     padding-left: 37px !important;
     color: white !important;
 }
-.navItem:hover{background-color: #365d99 !important;}
+.dropdown-menu .navItem:hover{background-color: #365d99 !important;}
 .linkNoClick{
     pointer-events: none !important;
 }
@@ -67,7 +67,8 @@
 .map {background: #4474bf url('../img/nav/map.png') no-repeat 10px;}
 .live {background: #4474bf url('../img/nav/live_video.png') no-repeat 10px;}
 .recorded {background: #4474bf url('../img/nav/recorded.png') no-repeat 10px;}
-.usermanager {background: #4474bf url('../img/nav/User-Management.png') no-repeat 10px;}
+.policies {background: #4474bf url('../img/nav/policies.png') no-repeat 10px;}
+.usermanager {background: #4474bf url('../img/nav/User-Management.png') no-repeat 10px !important;}
 
 .dropdown-submenu {position: relative;}
 .dropdown-submenu>.dropdown-menu {

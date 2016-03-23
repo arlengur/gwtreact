@@ -13,6 +13,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.tecomgroup.qos.criterion.Criterion;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.exception.QOSException;
 
 /**
@@ -80,4 +81,8 @@ public interface UserManagerService extends Service, RemoteService {
 	 * */
 	MUser saveOrUpdateUser(MUser user, boolean updatePassword)
 			throws QOSException;
+
+	void logoutUsers(List<MUser> users);
+
+	List<MRole> getAllRoles();
 }

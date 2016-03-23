@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "Dashboarder",
+    "number_of_users": "1",
+    "comment": "For making new widgets",
+    "subjects": ["MAIN", "CHANNEL_VIEW"]
+
+  },
+  {
+    "id": "2",
+    "name": "Channel Viewer",
+    "number_of_users": "15",
+    "comment": "test comment",
+    "subjects": ["CHANNEL_VIEW"]
+  },
+  {
+    "id": "3",
+    "name": "Probe Configurator",
+    "number_of_users": "13",
+    "comment": "test comment 2",
+    "subjects": ["PROBE_CONFIG"]
+  },
+  {
+    "id": "4",
+    "name": "Alarm catcher",
+    "number_of_users": "23",
+    "comment": "test comment 3",
+    "subjects": ["ALERTS"]
+  },
+  {
+    "id": "5",
+    "name": "Map",
+    "number_of_users": "2",
+    "comment": "test comment 4",
+    "pages": ["MAP", "ALERTS", "PROBE_CONFIG"]
+  }
+]

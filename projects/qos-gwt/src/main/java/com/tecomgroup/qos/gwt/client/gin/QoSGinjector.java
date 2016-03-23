@@ -16,10 +16,7 @@ import com.tecomgroup.qos.gwt.client.presenter.AgentListPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.GisPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.MainPagePresenter;
 import com.tecomgroup.qos.gwt.client.presenter.SystemInformationPresenter;
-import com.tecomgroup.qos.gwt.client.secutiry.AdminGatekeeper;
-import com.tecomgroup.qos.gwt.client.secutiry.PoliciesGatekeeper;
-import com.tecomgroup.qos.gwt.client.secutiry.ProbesGatekeeper;
-import com.tecomgroup.qos.gwt.client.secutiry.UsersGatekeeper;
+import com.tecomgroup.qos.gwt.client.secutiry.*;
 import com.tecomgroup.qos.gwt.shared.event.QoSEventService;
 
 /**
@@ -30,11 +27,24 @@ public interface QoSGinjector extends Ginjector {
 
 	AdminGatekeeper getAdminGatekeeper();
 
+	AlarmsGatekeeper getAlarmsGatekeeper();
+
+	ChartsGatekeeper getChartsGatekeeper();
+
 	PoliciesGatekeeper getPoliciesGatekeeper();
+
+	ProbeMapGatekeeper getProbeMapGatekeeper();
 
 	ProbesGatekeeper getProbesGatekeeper();
 
+	RecordedVideoGatekeeper getRecordedVideoGatekeeper();
+
+	ReportsGatekeeper getReportsGatekeeper();
+
 	UsersGatekeeper getUsersGatekeeper();
+
+	TranslationsGatekeeper getTranslationsGatekeeper();
+
 
 	AsyncProvider<AgentListPresenter> getAgentListPresenter();
 

@@ -248,6 +248,18 @@ public interface CommonResources extends ClientBundle {
 	@Source("common/delete.png")
 	ImageResource deleteButton();
 
+	@Source("common/videoExportOk.png")
+	ImageResource videoExportOk();
+
+	@Source("common/videoExportQueued.png")
+	ImageResource videoExportQueued();
+
+	@Source("common/videoExportInProgress.png")
+	ImageResource videoExportInProgress();
+
+	@Source("common/videoExportNok.png")
+	ImageResource videoExportNok();
+
 	@Source("common/deletePolicyActionsTemplate.png")
 	ImageResource deletePolicyActionsTemplate();
 

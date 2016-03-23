@@ -4,7 +4,10 @@ import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -13,6 +16,7 @@ import java.util.*;
 public class TimeZoneDTO implements Comparable{
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("ZZ");
     private static DateTimeFormatter dateTimeFormatterNoColon = DateTimeFormat.forPattern("Z");
+
     public String id;
     public String description;
     public String offset;
@@ -30,6 +34,28 @@ public class TimeZoneDTO implements Comparable{
                 .append(") ")
                 .append(timeZone.getID());
         return new TimeZoneDTO(timeZone.getID(), dateTimeFormatterNoColon.withZone(timeZone).print(0), description.toString());
+    }
+
+    private static String getTimeZoneOffsetString(TimeZone timeZone, String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        sdf.setTimeZone(timeZone);
+
+        String result = sdf.format(new Date());
+        // WA for  "if the offset value from GMT is 0, "Z" is produced."
+        if("Z".equals(result)) {
+            return "+00:00";
+        }
+        return result;
+    }
+
+    public static TimeZoneDTO fromTimeZone(TimeZone timeZone) {
+        String offset = getTimeZoneOffsetString(timeZone, "Z");
+        StringBuffer description = new StringBuffer("UTC(")
+                .append(getTimeZoneOffsetString(timeZone, "XXX"))
+                .append(") ")
+                .append(timeZone.getID());
+
+        return new TimeZoneDTO(timeZone.getID(), offset, description.toString());
     }
 
     @Override

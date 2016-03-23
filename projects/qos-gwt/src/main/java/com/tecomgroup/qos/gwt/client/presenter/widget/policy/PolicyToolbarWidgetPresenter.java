@@ -22,7 +22,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyTreeGridRow;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyWrapper;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog.CommentMode;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.ConfirmationDialog.ConfirmationHandler;
 import com.tecomgroup.qos.gwt.client.view.desktop.dialog.DialogFactory;
@@ -146,7 +146,7 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 							}
 
 							policyConfigService.deletePolicies(keySet,
-									new AutoNotifyingAsyncCallback<Void>(
+									new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(
 											messages.policiesRemovalFail(),
 											true) {
 										@Override
@@ -191,7 +191,7 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 		final Set<String> policyKeys = getPolicyKeys(grid.getSelectionModel()
 				.getSelectedItems());
 			policyConfigService.applyPolicyActionsTemplate(template.getName(),
-					policyKeys, new AutoNotifyingAsyncCallback<Void>() {
+					policyKeys, new AutoNotifyingAsyncLogoutOnFailureCallback<Void>() {
 
 						@Override
 						protected void success(final Void result) {
@@ -208,7 +208,7 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 		final Set<String> policyKeys = getPolicyKeys(grid.getSelectionModel()
 				.getSelectedItems());
 		policyConfigService.applyPolicyConditionsTemplate(template.getName(),
-				policyKeys, new AutoNotifyingAsyncCallback<Void>() {
+				policyKeys, new AutoNotifyingAsyncLogoutOnFailureCallback<Void>() {
 
 					@Override
 					protected void failure(final Throwable caught) {
@@ -247,7 +247,7 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 
 	public void clearPolicyActions(final Set<String> policyKeys) {
 		policyConfigService.clearPolicyActionsTemplates(policyKeys,
-				new AutoNotifyingAsyncCallback<Void>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>() {
 
 					@Override
 					protected void success(final Void result) {
@@ -264,7 +264,7 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 
 	public void clearPolicyConditions(final Set<String> policyKeys) {
 		policyConfigService.clearPolicyConditionsTemplates(policyKeys,
-				new AutoNotifyingAsyncCallback<Void>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>() {
 
 					@Override
 					protected void success(final Void result) {
@@ -301,12 +301,12 @@ public class PolicyToolbarWidgetPresenter<T extends PolicyTreeGridRow>
 	}
 
 	public void loadPolicyActionsTemplates(
-			final AutoNotifyingAsyncCallback<Collection<MPolicyActionsTemplate>> callback) {
+			final AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyActionsTemplate>> callback) {
 		policyComponentTemplateService.getAllActionsTemplates(callback);
 	}
 
 	public void loadPolicyConditionsTemplates(
-			final AutoNotifyingAsyncCallback<Collection<MPolicyConditionsTemplate>> callback) {
+			final AutoNotifyingAsyncLogoutOnFailureCallback<Collection<MPolicyConditionsTemplate>> callback) {
 		policyComponentTemplateService.getAllConditionsTemplates(callback);
 	}
 

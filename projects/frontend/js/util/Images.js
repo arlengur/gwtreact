@@ -224,6 +224,22 @@ var Images = Object.freeze({
             case 'NONE': return 'channel-filter-none';
             default: throw "Argument should be one of ['CRITICAL','WARNING','NONE']"
         }
+    },
+    roleClassName: function (roleId) {
+        switch (roleId) {
+            case "MAIN": return "dashboard";
+            case "CHANNEL_VIEW": return "channel-view";
+            case "ALERTS": return "alarms";
+            case "PROBE_CONFIG": return "probe-config";
+            case "RECORDING_SCHEDULE": return "recording-schedule";
+            case "LIVE_VIDEO": return "live-video";
+            case "RECORDED_VIDEO": return "recorded-video";
+            case "CHARTS": return "charts";
+            case "REPORTS": return "reports";
+            case "MAP": return "map";
+            case "USER_MANAGER_ROLES": return "roles";
+            case "POLICIES_ADVANCED": return "policies";
+        }
     }
 });
 export default Images;

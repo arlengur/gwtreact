@@ -20,6 +20,10 @@
 		<property name="alertTypesFile" value="${alert.default.types}" />
 	</bean>
 
+	<bean id="probeEventService" class="com.tecomgroup.qos.service.probestatus.ProbeEventServiceImpl">
+		<constructor-arg name="metrics" ref="metrics"/>
+	</bean>
+
 	<bean id="agentStatusService" class="com.tecomgroup.qos.service.alert.AgentStatusMonitorImpl">
 	</bean>
 

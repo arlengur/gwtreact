@@ -1001,7 +1001,6 @@ public class DefaultPolicyConfigurationService extends AbstractService
 		if(probeCriterion == null) {
 			return new ArrayList<>();
 		}
-
 		final List<MPolicy> policies = modelSpace.find(MPolicy.class,
 				SimpleUtils.mergeCriterions(
 						queryCriterion,
@@ -1040,17 +1039,12 @@ public class DefaultPolicyConfigurationService extends AbstractService
 	}
 
 	private Criterion buildProbeFilterCriterion() {
-		List<String> agentKeys = authorizeService.getProbeKeysUserCanManage();
-		if(!agentKeys.isEmpty()) {
-				final List<MAgentTask> tasks = taskRetriever.getAgentTasks(
-						agentKeys, null, null, true);
-				final Map<String, MAgentTask> taskMap = new HashMap<String, MAgentTask>();
-				for (final MAgentTask task : tasks) {
-					taskMap.put(task.getKey(), task);
-				}
+		List<String> userAgentKeys = authorizeService.getProbeKeysUserCanManage();
 
+		if(!userAgentKeys.isEmpty()) {
+				List<String> taskKeys = taskRetriever.getTaskKeysByAgentKeys(userAgentKeys);
 				final CriterionQuery query = modelSpace.createCriterionQuery();
-				Criterion c = query.in("source.key", taskMap.keySet());
+				Criterion c = query.in("source.key", taskKeys);
 				return query.and(c, query.eq("source.type", Source.Type.TASK));
 		}
 		return null;

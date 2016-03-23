@@ -39,11 +39,12 @@ var NavMenu = React.createClass({
         var linkStyle = {color: 'white'};
         var video_link;
         var recorded_link;
+        var links = [];
 
         if(AppUserSettingsStore.needToDisplay('MAIN') == true) {
-            var links = [<li key="dashboard">
+            links.push(<li key="dashboard">
                 <a href={this.getGwtLink('#dashboard')} className="navItem dashboard">{tr(i18n.NAV_DASHBOARD)}</a>
-            </li>]
+            </li>);
         }
 
         if(!this.history.isActive('/overview') && AppUserSettingsStore.needToDisplay('CHANNEL_VIEW')) {
@@ -96,6 +97,14 @@ var NavMenu = React.createClass({
 
         if(AppUserSettingsStore.needToDisplay('MAP') == true) {
             links.push(<li key="gis"><a href={this.getGwtLink('#gis')} className="navItem map">{tr(i18n.NAV_MAP)}</a></li>);
+        }
+
+        if(!this.history.isActive('/policy' ) && AppUserSettingsStore.needToDisplay('POLICIES')) {
+            links.push(<li key="policy"><Link to={'/policy'} className="navItem policies">{tr(i18n.NAV_POLICIES)}</Link></li>);
+        }
+
+        if(!this.history.isActive('/roles' ) && AppUserSettingsStore.needToDisplay('USER_MANAGER_ROLES')) {
+            links.push(<li key="roles"><Link to={'/roles'} className="navItem usermanager">{tr(i18n.USER_MANAGER_ROLES)}</Link></li>);
         }
 
         return (

@@ -21,11 +21,11 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
+import com.tecomgroup.qos.domain.*;
 import com.tecomgroup.qos.domain.MUserAbstractTemplate.BaseTemplateType;
 import com.tecomgroup.qos.domain.MUserAbstractTemplate.TemplateType;
-import com.tecomgroup.qos.domain.MUserAlertsTemplate;
-import com.tecomgroup.qos.domain.MUserReportsTemplate;
-import com.tecomgroup.qos.domain.MUserResultTemplate;
+import com.tecomgroup.qos.domain.probestatus.MExportVideoEvent;
+import com.tecomgroup.qos.domain.probestatus.MProbeEvent;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.UserSettingsWidgetPresenter;
@@ -49,6 +49,8 @@ public abstract class UserProfilePresenter<V extends UserProfilePresenter.MyView
 
 	private final TemplatesGridWidgetPresenter templatesGridWidgetPresenter;
 
+	private final ProbeEventsGridWidgetPresenter probeEventsGridWidgetPresenter;
+
 	private final Map<String, PresenterWidget<?>> tabs = new LinkedHashMap<String, PresenterWidget<?>>();
 
 	protected final Long currentUserId;
@@ -66,16 +68,19 @@ public abstract class UserProfilePresenter<V extends UserProfilePresenter.MyView
 			final P proxy,
 			final TemplatesGridWidgetPresenter templatesGridPresenter,
 			final UserSettingsWidgetPresenter userSettingsWidgetPresenter,
+			final ProbeEventsGridWidgetPresenter probeEventsGridWidgetPresenter,
 			final QoSMessages messages,
 			final ChangeUserPasswordWidgetPresenter changeUserPasswordWidgetPresenter) {
 		super(eventBus, view, proxy);
 		this.messages = messages;
 		this.templatesGridWidgetPresenter = templatesGridPresenter;
+		this.probeEventsGridWidgetPresenter = probeEventsGridWidgetPresenter;
 		this.currentUserId = AppUtils.getCurrentUser().getUser().getId();
 		this.changeUserPasswordWidgetPresenter = changeUserPasswordWidgetPresenter;
 
 		tabs.put(messages.userTemplates(), templatesGridPresenter);
 		tabs.put(messages.userSettings(), userSettingsWidgetPresenter);
+		tabs.put(messages.probeEvents(), probeEventsGridWidgetPresenter);
 
 		getView().setUiHandlers(this);
 	}
@@ -116,9 +121,34 @@ public abstract class UserProfilePresenter<V extends UserProfilePresenter.MyView
 		return types;
 	}
 
+	protected Map<String, String> getEventHrefMap() {
+		final Map<String, String> eventHrefMap = new HashMap<String, String>();
+
+		eventHrefMap.put(MExportVideoEvent.class.getName(),
+				QoSNameTokens.alerts);
+
+		return eventHrefMap;
+	}
+
+	protected Map<MProbeEvent.EventType, String> getEventLabels() {
+		final Map<MProbeEvent.EventType, String> labels = new HashMap<MProbeEvent.EventType, String>();
+		labels.put(MProbeEvent.BaseEventType.EXPORT_VIDEO, messages.downloadLinks());
+		return labels;
+	}
+
+	protected List<MProbeEvent.EventType> getEventTypes() {
+		final List<MProbeEvent.EventType> types = new ArrayList<MProbeEvent.EventType>();
+		types.add(MProbeEvent.BaseEventType.EXPORT_VIDEO);
+		return types;
+	}
+
 	@Override
 	protected void onBind() {
 		super.onBind();
+		probeEventsGridWidgetPresenter.setEventLabels(getEventLabels());
+		probeEventsGridWidgetPresenter.setEventTypes(getEventTypes());
+		probeEventsGridWidgetPresenter.setEventHrefMap(getEventHrefMap());
+
 		templatesGridWidgetPresenter.setTemplateLabels(getTemplateLabels());
 		templatesGridWidgetPresenter.setTemplateTypes(getTemplateTypes());
 		templatesGridWidgetPresenter.setTemplateHrefs(getTemplateHrefMap());
@@ -126,6 +156,7 @@ public abstract class UserProfilePresenter<V extends UserProfilePresenter.MyView
 		for (final Entry<String, PresenterWidget<?>> entry : tabs.entrySet()) {
 			setInSlot(entry.getKey(), entry.getValue());
 		}
+
 	}
 
 	public void openChangeUserPasswordDialog() {

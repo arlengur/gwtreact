@@ -17,7 +17,7 @@ import com.gwtplatform.mvp.client.PresenterWidget;
 import com.gwtplatform.mvp.client.UiHandlers;
 import com.tecomgroup.qos.domain.MAgent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 
 /**
@@ -76,7 +76,7 @@ public class AgentDialogPresenter
 
 	protected void loadAgents() {
 		agentService
-				.getAllAgents(new AutoNotifyingAsyncCallback<List<MAgent>>() {
+				.getAllAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgent>>() {
 
 					@Override
 					protected void failure(final Throwable caught) {

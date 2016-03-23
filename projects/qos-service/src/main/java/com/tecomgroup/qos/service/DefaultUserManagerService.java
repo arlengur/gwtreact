@@ -7,7 +7,10 @@ package com.tecomgroup.qos.service;
 
 import java.util.*;
 
+import com.tecomgroup.qos.event.AbstractEvent;
+import com.tecomgroup.qos.event.UserLogoutEvent;
 import com.tecomgroup.qos.service.rbac.AuthorizeService;
+import com.tecomgroup.qos.service.rbac.RolesService;
 import com.tecomgroup.qos.util.AuditLogger;
 import com.tecomgroup.qos.util.AuditLogger.SyslogActionStatus;
 import com.tecomgroup.qos.util.AuditLogger.SyslogCategory;
@@ -24,12 +27,14 @@ import org.springframework.transaction.support.TransactionCallback;
 import com.tecomgroup.qos.criterion.Criterion;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.exception.QOSException;
 import com.tecomgroup.qos.exception.ServiceException;
 import com.tecomgroup.qos.exception.UserValidationException;
 import com.tecomgroup.qos.modelspace.hibernate.HibernateEntityConverter;
 import com.tecomgroup.qos.util.SimpleUtils;
 import com.tecomgroup.qos.util.Utils;
+import com.tecomgroup.qos.domain.rbac.PredefinedRoles;
 
 /**
  * @author meleshin.o
@@ -48,6 +53,11 @@ public class DefaultUserManagerService extends AbstractService
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RolesService rolesService;
+
+	@Autowired InternalUserService internalUserService;
 
 	@Autowired
 	private AuthorizeService authorizeService;
@@ -122,13 +132,13 @@ public class DefaultUserManagerService extends AbstractService
 
 	private List<MUser> filterUsersByAccess(List<MUser> users) {
 		MUser currentUser = userService.getCurrentUser();
-		if (currentUser != null && currentUser.hasRole(MUser.Role.ROLE_SUPER_ADMIN)) {
+		if (currentUser != null && currentUser.hasRole(PredefinedRoles.ROLE_SUPER_ADMIN)) {
 			return users;
 		}
 
-		List<MUser> result = new ArrayList<>();
+		List<MUser> result = new ArrayList<MUser>();
 		for (MUser user : users) {
-			if (!user.hasRole(MUser.Role.ROLE_SUPER_ADMIN)) {
+			if (!user.hasRole(PredefinedRoles.ROLE_SUPER_ADMIN)) {
 				if(authorizeService.isSubordinate(user.getLogin())) {
 					result.add(user);
 				}
@@ -212,6 +222,29 @@ public class DefaultUserManagerService extends AbstractService
 		}
 
 		return result;
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<MRole> getAllRoles() {
+		return rolesService.getAllRoles();
+	}
+
+	private void logoutUser(String userLogin) {
+		MUser user = internalUserService.findUser(userLogin);
+		if(user != null) {
+			eventBroadcastDispatcher.broadcast(Arrays
+					.asList(new UserLogoutEvent(AbstractEvent.EventType.DELETE, user.getLogin())));
+			LOGGER.info("User logged out: " + user);
+		}
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void logoutUsers(List<MUser> users) {
+		for(MUser user: users) {
+			logoutUser(user.getLogin());
+		}
 	}
 
 	private boolean validateUser(final MUser user) {

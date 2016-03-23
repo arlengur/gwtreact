@@ -101,5 +101,30 @@ export default keyMirror({
         UPDATE_SCHEDULE: null,
         UPDATE_PROBE_FILTER: null,
         UPDATE_TASK_FILTER: null
+    },
+
+    USER_MANAGER_ROLES: {
+        ROLES_LOADED: null,
+        SELECTED_ROLE: null,
+        SELECTED_ALL_ROLES: null,
+        UPDATE_ROLES_FILTER: null,
+        ROLE_CREATED: null,
+        MODAL: {
+            ROLE_CREATE: null,
+            ROLE_EDIT: null,
+            ROLE_NAME_UPDATE: null,
+            UPDATE_PAGES_FILTER: null,
+            SELECTED_ALL_PAGES: null,
+            USER_MANAGER_CREATE_ROLE: null,
+            TOGGLE_CREATE: null,
+            TOGGLE_CLOSE: null,
+            ROLE_NAME: null,
+            SELECT_MODULE: null,
+            LOAD_MODULES: null,
+            LOADED_MODULES: null,
+            TOGGLE_EXPANDED: null,
+            SELECTED_PAGE: null,
+            SELECTED_PAGES: null
+        }
     }
 });

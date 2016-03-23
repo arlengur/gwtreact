@@ -26,17 +26,15 @@ import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
 import com.sencha.gxt.widget.core.client.grid.GridView.GridAppearance;
 import com.tecomgroup.qos.domain.*;
 import com.tecomgroup.qos.gwt.client.messages.FormattedResultMessages.DefaultFormattedResultMessages;
-import com.tecomgroup.qos.gwt.client.model.policy.ContactInformationLabelProvider;
 import com.tecomgroup.qos.gwt.client.model.results.ParameterRow;
 import com.tecomgroup.qos.gwt.client.model.results.ResultRow;
 import com.tecomgroup.qos.gwt.client.model.results.TaskRow;
 import com.tecomgroup.qos.gwt.client.presenter.widget.agent.AgentResultsGridWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
 import com.tecomgroup.qos.gwt.client.utils.DateUtils;
 import com.tecomgroup.qos.gwt.client.view.desktop.CustomTreeGridView;
 import com.tecomgroup.qos.gwt.client.view.desktop.grid.TreeGridRowModelKeyProvider;
-import com.tecomgroup.qos.gwt.client.view.desktop.grid.ValueProviderWithPath;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AbstractLocalDataTreeGridView;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.threshold.ThresholdCell;
 import com.tecomgroup.qos.util.SimpleUtils;
@@ -322,7 +320,7 @@ public class AgentResultsGridWidgetView
 			public void load(final ResultRow loadConfig,
 					final AsyncCallback<List<ResultRow>> callback) {
 				getUiHandlers().actionLoadTasks(
-						new AutoNotifyingAsyncCallback<List<MAgentTask>>(
+						new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(
 								messages.tasksLoadingFail(), true) {
 
 							@Override
@@ -331,7 +329,7 @@ public class AgentResultsGridWidgetView
 								getUiHandlers()
 										.actionLoadResults(
 												tasks,
-												new AutoNotifyingAsyncCallback<List<Map<String, Object>>>() {
+												new AutoNotifyingAsyncLogoutOnFailureCallback<List<Map<String, Object>>>() {
 
 													@Override
 													protected void success(

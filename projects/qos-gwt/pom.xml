@@ -24,6 +24,16 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>de.oscillation.gwt</groupId>
+			<artifactId>goda-time</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.tractionsoftware</groupId>
+			<artifactId>gwt-traction</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>qos-modelspace</artifactId>
 			<version>${project.version}</version>

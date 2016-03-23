@@ -16,7 +16,7 @@ import com.tecomgroup.qos.gwt.client.event.SaveTemplateEvent.SaveTemplateEventHa
 import com.tecomgroup.qos.gwt.client.presenter.LoadTemplatePresenterWidget;
 import com.tecomgroup.qos.gwt.client.presenter.SaveTemplatePresenterWidget;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserServiceAsync;
 
 /**
@@ -67,7 +67,7 @@ public abstract class AbstractRemoteDataGridWidgetPresenterWithTemplates<M, V ex
 	protected void loadSelectedTemplate() {
 		userService.getTemplate(getTemplateType(), AppUtils.getCurrentUser()
 				.getUser().getId(), selectedTemplateName,
-				new AutoNotifyingAsyncCallback<MUserAbstractTemplate>() {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MUserAbstractTemplate>() {
 
 					@Override
 					protected void success(final MUserAbstractTemplate template) {
@@ -137,9 +137,9 @@ public abstract class AbstractRemoteDataGridWidgetPresenterWithTemplates<M, V ex
 		}
 	}
 
-	private void setCurrentTemplate(final MUserAbstractTemplate template) {
-		selectedTemplateName = template.getName();
-		setTemplateLabel(selectedTemplateName);
+	public void setCurrentTemplate(final MUserAbstractTemplate template) {
+		setSelectedTemplateName(template.getName());
+		setTemplateLabel(template.getName());
 		saveTemplatePresenter.setTemplate(selectedTemplateName);
 		loadTemplatePresenter.setTemplate(selectedTemplateName);
 	}

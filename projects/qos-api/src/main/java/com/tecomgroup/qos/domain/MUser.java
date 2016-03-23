@@ -19,9 +19,12 @@ import javax.persistence.Transient;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import org.hibernate.annotations.Type;
+
 import com.tecomgroup.qos.Disabled;
 import com.tecomgroup.qos.UpdatableEntity;
-import org.codehaus.jackson.annotate.JsonValue;
+import com.tecomgroup.qos.domain.rbac.UISubject;
+import com.tecomgroup.qos.domain.rbac.MRole;
 
 /**
  * Пользователь системы.
@@ -32,91 +35,16 @@ import org.codehaus.jackson.annotate.JsonValue;
 public class MUser extends MContactInformation
 		implements
 			UpdatableEntity<MUser>,
-			Disabled {
+			Disabled { 
 	/**
 	 * Роль пользователя в системе.
 	 * 
 	 * @author kunilov.p
 	 */
-	public enum Page {
-		MAIN, PROBE_CONFIG, MAP, ALERTS, CHARTS,
-		RECORDED_VIDEO, LIVE_VIDEO, REPORTS, POLICIES, POLICIES_ADVANCED,
-		USER_MGMT, RECORDING_SCHEDULE, CHANNEL_VIEW
-	}
-	public enum Role {
-		ROLE_SUPER_ADMIN(Arrays.asList(Page.values())),
-		ROLE_ADMIN(Arrays.asList(
-				Page.MAIN,
-				Page.USER_MGMT)),
-		ROLE_USER(Arrays.asList(
-				Page.CHANNEL_VIEW,
-				Page.MAIN,
-				Page.MAP,
-				Page.ALERTS,
-				Page.CHARTS,
-				Page.RECORDED_VIDEO,
-				Page.LIVE_VIDEO,
-				Page.REPORTS)),
-		ROLE_CONFIGURATOR(Arrays.asList(
-				Page.CHANNEL_VIEW,
-				Page.MAIN,
-				Page.PROBE_CONFIG,
-				Page.MAP,
-				Page.ALERTS,
-				Page.CHARTS,
-				Page.RECORDED_VIDEO,
-				Page.LIVE_VIDEO,
-				Page.REPORTS,
-				Page.POLICIES,
-				Page.POLICIES_ADVANCED,
-				Page.RECORDING_SCHEDULE));
-		private List<Page> permittedPages;
 
-		private Role(List<Page> pages) {
-			permittedPages = pages;
-		}
-
-		@JsonCreator
-		public static Role fromValue(String value) {
-			if(ROLE_SUPER_ADMIN.name().equals(value)) {
-				return ROLE_SUPER_ADMIN;
-			} else if (ROLE_ADMIN.name().equals(value)) {
-				return ROLE_ADMIN;
-			} else if (ROLE_CONFIGURATOR.name().equals(value)) {
-				return ROLE_CONFIGURATOR;
-			} else {
-				return ROLE_USER;
-			}
-		}
-
-		@JsonValue
-		public String toValue() {
-			if(this == ROLE_SUPER_ADMIN) {
-				return ROLE_SUPER_ADMIN.name();
-			} else if(this == ROLE_ADMIN) {
-				return ROLE_ADMIN.name();
-			} else if(this == ROLE_CONFIGURATOR) {
-				return ROLE_CONFIGURATOR.name();
-			} else {
-				return ROLE_USER.name();
-			}
-		}
-		public boolean isPermittedPage(Page page) {
-			return this.permittedPages.contains(page);
-		}
-
-		public List<String> getPermittedPageNames() {
-			List<String> names = new ArrayList<String>();
-			for(Page page: this.permittedPages) {
-				names.add(page.name());
-			}
-			return names;
-		}
-	}
-
-	public boolean isPagePermitted(Page page) {
-		for(Role role: this.getRoles()) {
-			if(role.isPermittedPage(page)) {
+	public boolean isPermitted(UISubject page) {
+		for(MRole role: this.getRoles()) {
+			if(role.isPermitted(page)) {
 				return true;
 			}
 		}
@@ -192,9 +120,9 @@ public class MUser extends MContactInformation
 	/**
 	 * @uml.property name="role"
 	 */
-	@ElementCollection
-	@Enumerated(EnumType.STRING)
-	private List<Role> roles;
+	@Type(type="com.tecomgroup.qos.modelspace.hibernate.HibernateMRoleArrayType")
+	@Column(name="roles") 
+	private List<MRole> roles;
 
 	/**
 	 * @uml.property name="secondName"
@@ -203,9 +131,9 @@ public class MUser extends MContactInformation
 
 	private String password;
 
-	public void addRole(final Role role) {
+	public void addRole(final MRole role) {
 		if (getRoles() == null) {
-			setRoles(new ArrayList<MUser.Role>());
+			roles = new ArrayList<MRole>();
 		}
 		getRoles().add(role);
 	}
@@ -369,7 +297,10 @@ public class MUser extends MContactInformation
 	/**
 	 * @return the roles
 	 */
-	public List<Role> getRoles() {
+	public List<MRole> getRoles() {
+		if(roles == null) {
+			return new ArrayList<MRole>();
+		}
 		return roles;
 	}
 
@@ -387,7 +318,7 @@ public class MUser extends MContactInformation
 		return settings;
 	}
 
-	public boolean hasRole(final Role role) {
+	public boolean hasRole(final MRole role) {
 		return getRoles() == null ? false : getRoles().contains(role);
 	}
 
@@ -501,7 +432,7 @@ public class MUser extends MContactInformation
 	 * @param roles
 	 *            the roles to set
 	 */
-	public void setRoles(final List<Role> roles) {
+	public void setRoles(final List<MRole> roles) {
 		this.roles = roles;
 	}
 

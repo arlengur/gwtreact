@@ -25,6 +25,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
@@ -50,10 +51,8 @@ import com.tecomgroup.qos.gwt.client.event.chart.ChartZoomChangedEvent.ChartZoom
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.ChartSettings;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.ChartWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
-import com.tecomgroup.qos.gwt.client.utils.ChartResultUtils;
-import com.tecomgroup.qos.gwt.client.utils.DateUtils;
+import com.tecomgroup.qos.gwt.client.secutiry.ChartsGatekeeper;
+import com.tecomgroup.qos.gwt.client.utils.*;
 import com.tecomgroup.qos.gwt.client.view.desktop.ChartToolbar;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.DateTimeWidget;
 import com.tecomgroup.qos.service.ResultRetrieverAsync;
@@ -75,6 +74,7 @@ public class TableResultPresenter
 
 	@ProxyCodeSplit
 	@NameToken(QoSNameTokens.tableResults)
+	@UseGatekeeper(ChartsGatekeeper.class)
 	public static interface TableResultProxy
 			extends
 				ProxyPlace<TableResultPresenter> {
@@ -459,7 +459,7 @@ public class TableResultPresenter
 	@Override
 	public void export(final ExportResultsWrapper exportResultsWrapper) {
 		resultService.serializeBean(exportResultsWrapper,
-				new AutoNotifyingAsyncCallback<String>(
+				new AutoNotifyingAsyncLogoutOnFailureCallback<String>(
 						"Unable to serialize ExportResultsWrapper", false) {
 
 					@Override
@@ -545,7 +545,7 @@ public class TableResultPresenter
 					taskParameters,
 					zoomedStartDate,
 					zoomedEndDate,
-					new AutoNotifyingAsyncCallback<List<Map<String, Object>>>() {
+					new AutoNotifyingAsyncLogoutOnFailureCallback<List<Map<String, Object>>>() {
 						@Override
 						protected void success(
 								final List<Map<String, Object>> data) {
@@ -621,7 +621,7 @@ public class TableResultPresenter
 				taskRetriever.getTasksByKeys(
 						taskKeys,
 						false,
-						new AutoNotifyingAsyncCallback<List<MAgentTask>>(messages.tasksLoadingFail(), true) {
+						new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(messages.tasksLoadingFail(), true) {
 
 							@Override
 							public void success(final List<MAgentTask> tasks) {
@@ -642,7 +642,7 @@ public class TableResultPresenter
 										taskParameters,
 										getStartDate(),
 										getEndDate(),
-										new AutoNotifyingAsyncCallback<List<Map<String, Object>>>() {
+										new AutoNotifyingAsyncLogoutOnFailureCallback<List<Map<String, Object>>>() {
 											@Override
 											protected void success(
 													final List<Map<String, Object>> data) {

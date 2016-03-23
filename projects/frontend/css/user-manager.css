@@ -54,3 +54,9 @@ a:focus {outline: none}
 }
 .create-new-role .btn {padding: 3px 15px}
 .margin-6-11-0-5 {margin: 6px 10px 0 5px}
+
+.role-name:hover {
+    cursor: pointer;
+    color: #6A97D5;
+    text-decoration: underline;
+}

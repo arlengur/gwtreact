@@ -13,6 +13,7 @@ import com.google.inject.name.Named;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.tecomgroup.qos.TimeConstants;
 import com.tecomgroup.qos.domain.MAlert;
@@ -27,8 +28,9 @@ import com.tecomgroup.qos.gwt.client.presenter.widget.PropertyGridWidgetPresente
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.AlertCommentsGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.ChartWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.alert.SingleAlertHistoryGridWidgetPresenter;
+import com.tecomgroup.qos.gwt.client.secutiry.AlarmsGatekeeper;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.AlertServiceAsync;
 import com.tecomgroup.qos.service.MediaAgentServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -45,6 +47,7 @@ public class AlertWithVideoDetailsPresenter
 
 	@ProxyCodeSplit
 	@NameToken(QoSNameTokens.alertDetails)
+	@UseGatekeeper(AlarmsGatekeeper.class)
 	public static interface MyProxy
 			extends
 				ProxyPlace<AlertWithVideoDetailsPresenter> {
@@ -108,7 +111,7 @@ public class AlertWithVideoDetailsPresenter
 		if (initialAlertLoad) {
 			mediaAgentService.getRelatedStream(
 					alert,
-					new AutoNotifyingAsyncCallback<MRecordedStream>(messages
+					new AutoNotifyingAsyncLogoutOnFailureCallback<MRecordedStream>(messages
 							.unableToLoadRecordedStreamAssociatedWithAlert(),
 							true) {
 						@Override

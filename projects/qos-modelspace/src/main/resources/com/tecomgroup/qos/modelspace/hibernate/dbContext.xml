@@ -49,6 +49,18 @@
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 
+	<bean id="rbacUISubjectDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.JdbcRbacUISubjectServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="mroleDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.JdbcMRoleServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="probeEventDataProvider" class="com.tecomgroup.qos.modelspace.jdbc.dao.probestatus.JdbcProbeEventServiceDao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
 	<bean id="namingStrategy" class="com.tecomgroup.qos.modelspace.CustomNamingStrategy">
 		<property name="maxColumnNameSize" value="${max.db.column.name.size}" />
 	</bean>

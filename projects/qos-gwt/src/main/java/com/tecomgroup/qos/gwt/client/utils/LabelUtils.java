@@ -20,7 +20,7 @@ import com.tecomgroup.qos.domain.MAlertType;
 import com.tecomgroup.qos.domain.MAlertType.PerceivedSeverity;
 import com.tecomgroup.qos.domain.MAlertType.UpdateType;
 import com.tecomgroup.qos.domain.MResultParameterConfiguration;
-import com.tecomgroup.qos.domain.MUser.Role;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.util.SimpleUtils;
 /**
@@ -93,15 +93,6 @@ public class LabelUtils {
 		labels.put(PerceivedSeverity.NOTICE, messages.perceivedSeverityNotice());
 		labels.put(PerceivedSeverity.INDETERMINATE,
 				messages.perceivedSeverityIndeterminate());
-		return labels;
-	}
-
-	public static Map<Role, String> getRoleLabels(final QoSMessages messages) {
-		final Map<Role, String> labels = new HashMap<Role, String>();
-		labels.put(Role.ROLE_ADMIN, messages.roleAdmin());
-		labels.put(Role.ROLE_USER, messages.roleUser());
-		labels.put(Role.ROLE_CONFIGURATOR, messages.roleConfigurator());
-		labels.put(Role.ROLE_SUPER_ADMIN, messages.roleSuperAdmin());
 		return labels;
 	}
 

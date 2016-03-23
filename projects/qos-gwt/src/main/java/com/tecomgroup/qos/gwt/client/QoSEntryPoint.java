@@ -22,19 +22,16 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.DelayedBindRegistry;
 import com.tecomgroup.qos.TimeZoneWrapper;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
 import com.tecomgroup.qos.gwt.client.event.AddNavigationLinkEvent;
 import com.tecomgroup.qos.gwt.client.event.ClientPropertiesLoadedEvent;
 import com.tecomgroup.qos.gwt.client.gin.QoSGinjector;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.MainPagePresenter;
-import com.tecomgroup.qos.gwt.client.utils.AppUtils;
+import com.tecomgroup.qos.gwt.client.utils.*;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils.ApplicationMode;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
-import com.tecomgroup.qos.gwt.client.utils.ClientConstants;
-import com.tecomgroup.qos.gwt.client.utils.DateUtils;
 import com.tecomgroup.qos.service.SystemInformationServiceAsync;
 import com.tecomgroup.qos.service.UserServiceAsync;
-import static com.tecomgroup.qos.domain.MUser.Page;
 
 /**
  * NOTE: using of {@link AutoNotifyingAsyncCallback} is forbidden in this class
@@ -110,7 +107,7 @@ public abstract class QoSEntryPoint
 										DateUtils
 												.initializeServerTimeZones(timeZoneWrappers);
 
-										userService.getCurrentUser(new AutoNotifyingAsyncCallback<MUser>(
+										userService.getCurrentUser(new AutoNotifyingAsyncLogoutOnFailureCallback<MUser>(
 												"Unable to load current user", true) {
 											@Override
 											protected void success(final MUser mUser) {
@@ -140,19 +137,25 @@ public abstract class QoSEntryPoint
 		if (AppUtils.getApplicationMode() != ApplicationMode.POINT) {
 			final AddNavigationLinkEvent event = new AddNavigationLinkEvent();
 
-			if(AppUtils.isPermittedPage(Page.USER_MGMT)) {
+			if(AppUtils.isPermitted(PermissionScope.USER_MANAGER_ROLES)) {
+				event.setPath(QoSNameTokens.userManager);
+				event.setDisplayName(messages.navigationRoles());
+				eventBus.fireEvent(event);
+			}
+
+			if(AppUtils.isPermitted(PermissionScope.USER_MANAGER_ROLES)) {
 				event.setPath(QoSNameTokens.users);
 				event.setDisplayName(messages.navigationUsers());
 				eventBus.fireEvent(event);
 			}
 
-			if(AppUtils.isPermittedPage(Page.PROBE_CONFIG)) {
+			if(AppUtils.isPermitted(PermissionScope.PROBE_CONFIG)) {
 				event.setPath(QoSNameTokens.probesAndTasks);
 				event.setDisplayName(messages.navigationProbesAndTasks());
 				eventBus.fireEvent(event);
 			}
 
-			if(AppUtils.isPermittedPage(Page.PROBE_CONFIG)) {
+			if(AppUtils.isPermitted(PermissionScope.PROBE_CONFIG)) {
 				event.setPath(QoSNameTokens.remoteProbeConfig);
 				event.setDisplayName(messages.navigationRemoteProbeConfig());
 				eventBus.fireEvent(event);

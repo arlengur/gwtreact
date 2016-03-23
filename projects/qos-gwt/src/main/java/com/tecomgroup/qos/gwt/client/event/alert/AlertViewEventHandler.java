@@ -31,7 +31,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.AlertDetailsPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.TableResultPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.AlertServiceAsync;
 import com.tecomgroup.qos.service.SourceServiceAsync;
 import com.tecomgroup.qos.util.SimpleUtils;
@@ -91,7 +91,7 @@ public class AlertViewEventHandler
 				SimpleUtils.alertsToIndications(event.getAlerts(),
 						UpdateType.ACK),
 				event.getComment(),
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.alertAcknowledgeFail(), true) {
 					@Override
 					public void success(final Void result) {
@@ -110,7 +110,7 @@ public class AlertViewEventHandler
 		alertService.clearAlerts(SimpleUtils.alertsToIndications(
 				event.getAlerts(), UpdateType.OPERATOR_CLEARED), event
 				.getComment(),
-				new AutoNotifyingAsyncCallback<Void>(messages.alertClearFail(),
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages.alertClearFail(),
 						true) {
 					@Override
 					protected void success(final Void result) {
@@ -130,7 +130,7 @@ public class AlertViewEventHandler
 				SimpleUtils.alertsToIndications(event.getAlerts(),
 						UpdateType.COMMENT),
 				event.getComment(),
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.alertCommentFail(), true) {
 					@Override
 					protected void success(final Void result) {
@@ -170,7 +170,7 @@ public class AlertViewEventHandler
 	public void onNavigateToSource(final NavigateToSourceEvent event) {
 		sourceService.getSystemComponent(
 				event.getSource(),
-				new AutoNotifyingAsyncCallback<MSystemComponent>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MSystemComponent>(messages
 						.rootSystemComponentLoadingFail(), true) {
 					@Override
 					protected void success(
@@ -197,7 +197,7 @@ public class AlertViewEventHandler
 				SimpleUtils.alertsToIndications(event.getAlerts(),
 						UpdateType.UNACK),
 				event.getComment(),
-				new AutoNotifyingAsyncCallback<Void>(messages
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages
 						.alertUnacknowledgeFail(), true) {
 					@Override
 					protected void success(final Void result) {

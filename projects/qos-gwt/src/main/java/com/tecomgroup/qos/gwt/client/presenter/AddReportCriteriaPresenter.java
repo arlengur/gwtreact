@@ -15,7 +15,7 @@ import com.tecomgroup.qos.domain.MAgentTask;
 import com.tecomgroup.qos.gwt.client.event.report.AddReportCriteriaEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.widget.AgentDialogPresenter;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 import com.tecomgroup.qos.service.TaskRetrieverAsync;
@@ -56,7 +56,7 @@ public class AddReportCriteriaPresenter extends AgentDialogPresenter {
 
 	@Override
 	public void agentSelected(final MAgent agent) {
-		final AsyncCallback<List<MAgentTask>> callback = new AutoNotifyingAsyncCallback<List<MAgentTask>>(
+		final AsyncCallback<List<MAgentTask>> callback = new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgentTask>>(
 				messages.tasksLoadingFail(), true) {
 
 			@Override

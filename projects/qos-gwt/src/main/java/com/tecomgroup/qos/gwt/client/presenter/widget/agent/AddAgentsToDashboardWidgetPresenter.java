@@ -14,7 +14,7 @@ import com.sencha.gxt.data.shared.ListStore;
 import com.tecomgroup.qos.domain.MAgent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AddNamedWidgetToDashboardWidgetPresenter;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.properties.AgentProperties;
 import com.tecomgroup.qos.service.AgentServiceAsync;
 
@@ -60,7 +60,7 @@ public abstract class AddAgentsToDashboardWidgetPresenter
 	@Override
 	protected void onReveal() {
 		super.onReveal();
-		agentService.getAllAgents(new AutoNotifyingAsyncCallback<List<MAgent>>(
+		agentService.getAllAgents(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MAgent>>(
 				"Unable to load agents", true) {
 
 			@Override

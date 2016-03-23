@@ -208,6 +208,9 @@
 .user-btn {background: url("../img/usermanager/User.png") no-repeat center center; width: 22px; height: 22px}
 
 /* select */
+.dropdown-btn {background: url('../img/dropdown1/dropdownButton_0.png') no-repeat right #222; width: 15px; height: 22px}
+.dropdown-btn:hover {background: url('../img/dropdown1/dropdownButton_Over.png') no-repeat right #222; width: 15px; height: 22px}
+
 .um select.role-select {
     background: url("../img/usermanager/role.png") no-repeat left center,
                 url('../img/dropdown/dropdownButton_1.png') no-repeat right, #222;
@@ -220,10 +223,32 @@
 .um select {background: url('../img/dropdown/dropdownButton_1.png') no-repeat right #222}
 .um select:hover {background: #222 url('../img/dropdown/dropdownButton_Over.png') no-repeat right}
 
+.um .dashboard,
+.um .channel-view,
+.um .probe-config,
+.um .alarms,
+.um .map,
+.um .policies,
+.um .roles,
+.um .reports,
+.um .charts,
+.um .live-video,
+.um .recorded-video,
+.um .recording-schedule {width: 20px; height: 23px; margin: 0 5px}
 
-.um .dashboard, .um .channel-view, .um .probe-config, .um .alarms {width: 20px; height: 23px; margin: 0 5px}
+.um .dashboard {background: url(../img/nav/dashboard.png) 0 43% no-repeat}
+.um .channel-view {background: url(../img/nav/channel_view.png) 2px 43% no-repeat}
+.um .probe-config {background: url(../img/nav/probe_config.png) 1px 43% no-repeat}
+.um .alarms {background: url(../img/nav/alarms.png) -1px 43% no-repeat}
+.um .recorded-video {background: url(../img/nav/recorded.png) 0 43% no-repeat}
+.um .live-video {background: url(../img/nav/live_video.png) 2px 43% no-repeat}
+.um .charts {background: url(../img/nav/analysis.png) 1px 43% no-repeat}
+.um .reports {background: url(../img/nav/reports.png) 1px 43% no-repeat}
+.um .map {background: url(../img/nav/map.png) 2px 43% no-repeat}
+.um .roles {background: url(../img/nav/User-Management.png) 2px 43% no-repeat}
+.um .policies {background: url(../img/nav/policies.png) 2px 43% no-repeat}
+.um .recording-schedule {background: url(../img/recording/calendar_grid.png) -1px 43% no-repeat}
 
-.um .dashboard {background: url(../img/nav/dashboard.png) 2px 43% no-repeat}
-.um .channel-view {background: url(../img/nav/channel_view.png) 1px 43% no-repeat}
-.um .probe-config {background: url(../img/nav/probe_config.png) 0 43% no-repeat}
-.um .alarms {background: url(../img/nav/alarms.png) -2px 43% no-repeat}
+/* datepicker */
+.datepicker-btn {background: url('../img/datepicker/datepicker_0.png') no-repeat right #222; width: 23px; height: 22px}
+.datepicker-btn:hover {background: url('../img/datepicker/datepicker_Over.png') no-repeat right #222; width: 23px; height: 22px}

@@ -102,6 +102,7 @@
   "BROWSE": "Browse",
   "DELETE_TASK": "Delete task",
   "DELETE_PROBE": "Delete probe",
+  "DELETE_ROLE": "delete role",
   "COMPARE_CONFIGURATION": "Compare configuration",
   "TAGGING": "Tagging",
   "UPDATE_SOFTWARE": "update software",
@@ -142,6 +143,7 @@
   "NAV_ANALYSIS": "Analysis",
   "NAV_REPORTS": "Reports Editor",
   "NAV_MAP": "Map",
+  "NAV_POLICIES": "Policies",
   "LOGOUT": "Logout",
   "ENABLE": "Enable",
   "DISABLE": "Disable",
@@ -179,5 +181,17 @@
   "PROBES_FROM_DIFFERENT_TIMEZONE_SELECTED": "probes from different timezone selected",
   "SCHEDULE_SAVE": "Save schedule",
   "PROBE_TIMEZONE": "Probe time",
-  "LOCAL_TIMEZONE": "Local time"
+  "LOCAL_TIMEZONE": "Local time",
+  "USER_MANAGER_ROLES": "Roles",
+  "USER_MANAGER_ROLE": "Role",
+  "USER_MANAGER_CREATE_ROLE": "Create new role",
+  "USER_MANAGER_EDIT_ROLE": "Edit role",
+  "ROLE_DELETE_WARN": "warning, delete role",
+  "USER_MANAGER_ROLE_MAIN_INFO": "Role main info",
+  "USER_MANAGER_ROLE_NAME": "Role name",
+  "USER_MANAGER_ROLE_COPY_PERMISSIONS_FROM": "Copy permissions from",
+  "USER_MANAGER_ROLE_PERMISSIONS": "Permissions",
+  "USER_MANAGER_ROLE_NUMBER_OF_USERS": "Number of users",
+  "USER_MANAGER_ROLE_COMMENT": "Comment"
+
 }

@@ -31,6 +31,8 @@ import com.tecomgroup.qos.criterion.Criterion;
 import com.tecomgroup.qos.criterion.CriterionQueryFactory;
 import com.tecomgroup.qos.criterion.CriterionWithParameter;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.UISubject;
+import com.tecomgroup.qos.domain.rbac.MRole;
 import com.tecomgroup.qos.domain.UserSettings;
 import com.tecomgroup.qos.domain.UserSettings.AudibleAlertFeatureMode;
 import com.tecomgroup.qos.gwt.client.QoSNameTokens;
@@ -292,15 +294,13 @@ public class AppUtils {
 		return AdminGatekeeper.isAdmin(currentUser.getUser());
 	}
 
-	public static boolean isPermittedPage(MUser.Page page) {
-		return isPermittedPage(page, currentUser.getUser());
+	public static boolean isPermitted(UISubject page) {
+		return isPermitted(page, currentUser.getUser());
 	}
 
-	private static boolean isPermittedPage(MUser.Page page, MUser user) {
-		if(user == null) return false;
-
-		for(MUser.Role role: user.getRoles()) {
-			if(role.isPermittedPage(page)) {
+	private static boolean isPermitted(UISubject page, MUser user) {
+		for(MRole role: user.getRoles()) {
+			if(role.isPermitted(page)) {
 				return true;
 			}
 		}

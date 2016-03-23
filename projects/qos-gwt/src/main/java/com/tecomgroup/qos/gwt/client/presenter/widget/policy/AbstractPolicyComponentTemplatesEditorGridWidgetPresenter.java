@@ -18,7 +18,7 @@ import com.tecomgroup.qos.gwt.client.event.policy.AfterUpdatePolicyComponentTemp
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractLocalDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.PolicyComponentTemplateServiceAsync;
 
 /**
@@ -72,7 +72,7 @@ public abstract class AbstractPolicyComponentTemplatesEditorGridWidgetPresenter<
 		}
 		assert (templates.size() > 0);
 		policyComponentTemplateService.removeTemplates(names, templates.get(0)
-				.getClass().getName(), new AutoNotifyingAsyncCallback<Void>(
+				.getClass().getName(), new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(
 				messages.policyComponentTemplateDeletionFail(), true) {
 
 			@Override

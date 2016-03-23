@@ -29,6 +29,7 @@ import com.sencha.gxt.widget.core.client.grid.GridViewConfig;
 import com.sencha.gxt.widget.core.client.grid.filters.Filter;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.domain.rbac.PermissionScope;
 import com.tecomgroup.qos.gwt.client.filter.LocalizedFilterFactory;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.model.policy.PolicyWrapper;
@@ -328,7 +329,7 @@ public abstract class AbstractPoliciesGridWidgetView
 	protected void initializeGrid() {
 		super.initializeGrid();
 		grid.getView().setStripeRows(true);
-		if (AppUtils.isPermittedPage(MUser.Page.POLICIES_ADVANCED)) {
+		if (AppUtils.isPermitted(PermissionScope.POLICIES_ADVANCED)) {
 			grid.addCellClickHandler(new CellClickHandler() {
 				@Override
 				public void onCellClick(final CellClickEvent event) {

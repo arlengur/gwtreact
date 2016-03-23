@@ -31,11 +31,11 @@
                 <h4 class="modal-title">Edit Record</h4>
             </div>
             <div class="flex flex-11a" style="overflow: hidden; margin: 10px 10px 0;">
-                <div class="override-padding-0 flex flex-col black-right" style="width: 185px; background: #424242">
+                <div class="override-padding-0 flex flex-col black-right" style="width: 208px; background: #424242">
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <div class="flex-none pull-right"
-                             style="width: 100px; height: 23px; overflow: hidden; background: url('../img/dropdown/dropdownButton_0.png') no-repeat right #222222">
-                            <select class="small-text" style="width: 120px; border: 0; background: transparent;">
+                        <div class="flex-none pull-right dropdown-btn"
+                             style="width: 108px; height: 22px; overflow: hidden;">
+                            <select class="small-text appearance-none" style="width: 120px; border: 0; background: transparent;">
                                 <option style="background: #222">Local Time</option>
                                 <option style="background: #222">Condition 2</option>
                             </select>
@@ -43,22 +43,25 @@
                         <span class="flex-none small-text pull-left text23 margin-left-5">Timezone:</span>
                     </div>
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px;" type="text" value="Jan 3, 2016"/>
+                        <input class="flex-11a search-field pull-right datepicker-btn" style="height: 22px; width: 23px;" type="text" readonly/>
+                        <input class="flex-11a search-field pull-right" style="height: 22px; width: 85px;" type="text" value="11/03/2016"/>
+
                         <span class="flex-none small-text text23 pull-left" style="margin-left: 23px">Start:</span>
                     </div>
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 108px; text-align: center;" type="text" value="00 : 00 : 00"/>
                     </div>
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px;" type="text" value="Jan 3, 2016"/>
+                        <input class="flex-11a search-field pull-right datepicker-btn" style="height: 22px; width: 23px;" type="text" readonly/>
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 85px;" type="text" value="11/03/2016"/>
                         <input class="hidden" id="finish" type="radio" checked><label class="pull-left radio-input" for="finish" style="margin: 0 4px 0 5px; line-height: 23px;"></label>
                         <span class="flex-none small-text text23 pull-left">Finish:</span>
                     </div>
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                        <input class="flex-11a search-field pull-right" style="height: 23px; width: 108px; text-align: center;" type="text" value="00 : 00 : 00"/>
                     </div>
                     <div class="row flex-none" style="margin: 0; padding: 5px">
-                        <input class="flex-11a search-field pull-right record-disabled" style="height: 23px; width: 100px; text-align: center;" type="text" value="00 : 00 : 00"/>
+                        <input class="flex-11a search-field pull-right record-disabled" style="height: 23px; width: 108px; text-align: center;" type="text" value="00 : 00 : 00"/>
                         <input class="hidden" id="duration" type="radio"><label class="pull-left radio-input" for="duration" style="margin: 0 4px 0 5px; line-height: 23px;"></label>
                         <span class="flex-none small-text text23 pull-left">Duration:</span>
                     </div>
@@ -71,7 +74,7 @@
                         <button type="button" class="btn btn-primary config-btn margin-left-5 pull-right">Clear</button>
                     </div>
                 </div>
-                <div class="row override-padding-0 override-margin-0 flex flex-col" style="width: calc(100% - 185px); background-color: #000">
+                <div class="row override-padding-0 override-margin-0 flex flex-col" style="width: calc(100% - 208px); background-color: #000">
                     <div id="tab" class="flex-none" style="background-color: #000">
                         <input type="radio" name="table" id="n1" checked style="display: none"/>
                         <label for="n1" class="tab-label">Table</label>

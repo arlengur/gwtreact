@@ -17,7 +17,7 @@ import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractEntityEditorDialogPresenter;
 import com.tecomgroup.qos.gwt.client.presenter.widget.users.GroupInformationWidgetPresenter.MyView;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.service.UserGroupServiceAsync;
 import com.tecomgroup.qos.service.UserManagerServiceAsync;
 
@@ -87,7 +87,7 @@ public class GroupInformationWidgetPresenter
 					failMessage = messages.groupCreationFail();
 					successMessage = messages.groupCreatedSuccessfully();
 					userGroupService.doesGroupExist(group.getName(),
-							new AutoNotifyingAsyncCallback<Boolean>() {
+							new AutoNotifyingAsyncLogoutOnFailureCallback<Boolean>() {
 
 								@Override
 								protected void success(final Boolean groupExists) {
@@ -110,7 +110,7 @@ public class GroupInformationWidgetPresenter
 					final String oldGroupName = editableEntity.getName();
 					final String newGroupName = getView().getGroupName();
 					userGroupService.doesGroupExist(newGroupName,
-							new AutoNotifyingAsyncCallback<Boolean>() {
+							new AutoNotifyingAsyncLogoutOnFailureCallback<Boolean>() {
 
 								@Override
 								protected void success(final Boolean groupExists) {
@@ -144,7 +144,7 @@ public class GroupInformationWidgetPresenter
 
 	private void loadUsers() {
 		userManagerService
-				.getAllUsers(new AutoNotifyingAsyncCallback<List<MUser>>(
+				.getAllUsers(new AutoNotifyingAsyncLogoutOnFailureCallback<List<MUser>>(
 						messages.usersLoadingFail(), true) {
 
 					@Override
@@ -164,7 +164,7 @@ public class GroupInformationWidgetPresenter
 			final String oldGroupName, final String successMessage,
 			final String failMessage) {
 		userGroupService.saveOrUpdateGroup(group,
-				new AutoNotifyingAsyncCallback<MUserGroup>(failMessage, true) {
+				new AutoNotifyingAsyncLogoutOnFailureCallback<MUserGroup>(failMessage, true) {
 
 					@Override
 					protected void success(final MUserGroup savedGroup) {

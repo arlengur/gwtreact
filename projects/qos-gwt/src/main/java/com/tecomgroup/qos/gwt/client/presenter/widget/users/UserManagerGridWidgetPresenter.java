@@ -6,8 +6,10 @@
 package com.tecomgroup.qos.gwt.client.presenter.widget.users;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
@@ -16,13 +18,16 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.tecomgroup.qos.criterion.Criterion;
 import com.tecomgroup.qos.criterion.Order;
 import com.tecomgroup.qos.domain.MUser;
+import com.tecomgroup.qos.gwt.client.event.BeforeLogoutEvent;
 import com.tecomgroup.qos.gwt.client.event.user.AfterUserSavedEvent;
 import com.tecomgroup.qos.gwt.client.i18n.QoSMessages;
 import com.tecomgroup.qos.gwt.client.presenter.widget.AbstractRemoteDataGridWidgetPresenter;
 import com.tecomgroup.qos.gwt.client.utils.AppUtils;
-import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncCallback;
+import com.tecomgroup.qos.gwt.client.utils.AutoNotifyingAsyncLogoutOnFailureCallback;
 import com.tecomgroup.qos.gwt.client.view.desktop.properties.UserProperties;
 import com.tecomgroup.qos.service.UserManagerServiceAsync;
+
+import java.util.logging.Level;
 
 /**
  * @author meleshin.o
@@ -32,7 +37,7 @@ public class UserManagerGridWidgetPresenter
 		extends
 			AbstractRemoteDataGridWidgetPresenter<MUser, UserManagerGridWidgetPresenter.MyView>
 		implements
-			AfterUserSavedEvent.AfterUserSavedEventHandler {
+			AfterUserSavedEvent.AfterUserSavedEventHandler{
 
 	public interface MyView
 			extends
@@ -40,6 +45,9 @@ public class UserManagerGridWidgetPresenter
 
 		UserProperties getUserProperties();
 	}
+
+	public static Logger LOGGER = Logger.getLogger(UserManagerGridWidgetPresenter.class
+			.getName());
 
 	private final UserInformationWidgetPresenter userInformationPresenter;
 
@@ -91,19 +99,34 @@ public class UserManagerGridWidgetPresenter
 	}
 
 	public void disableUsers(final List<MUser> users) {
-		changeUserStatus(users, true, new AutoNotifyingAsyncCallback<Void>(
+		changeUserStatus(users, true, new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(
 				messages.usersDisableFail(), true) {
 
 			@Override
 			protected void success(final Void result) {
 				getView().reload(true);
 				AppUtils.showInfoMessage(messages.usersDisableSuccess());
+				logoutUsers(users);
 			}
 		});
 	}
 
+	private void logoutUsers(final List<MUser> users) {
+		userManagerService.logoutUsers(
+				users,
+				new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(messages.logoutError(), true) {
+
+					@Override
+					protected void success(Void result) {
+						LOGGER.log(
+								Level.INFO,
+								"Users logged out");
+					}
+				});
+	}
+
 	public void enableUsers(final List<MUser> users) {
-		changeUserStatus(users, false, new AutoNotifyingAsyncCallback<Void>(
+		changeUserStatus(users, false, new AutoNotifyingAsyncLogoutOnFailureCallback<Void>(
 				messages.usersEnableFail(), true) {
 
 			@Override

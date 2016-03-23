@@ -15,7 +15,7 @@ import com.tecomgroup.qos.gwt.client.presenter.AgentListPresenter;
 
 /**
  * @author abondin
- * 
+ *
  */
 public class AgentListView extends ViewWithUiHandlers<AgentListPresenter>
 		implements
